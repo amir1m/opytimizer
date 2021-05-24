@@ -1,0 +1,22 @@
+To Install opytimark
+=====================
+Activate your conda environment source activate myenv
+
+conda install git pip
+
+pip install git+git://github.com/gugarosa/opytimark
+
+pip install git+git://github.com/Trusted-AI/adversarial-robustness-toolbox
+
+Then install all other requirements commenting out opytimark.
+conda install --file requirements.txt
+
+python -m ipykernel install --user --name opyt  
+
+Installed package of scikit-learn can be accelerated using scikit-learn-intelex.
+    More details are available here: https://intel.github.io/scikit-learn-intelex
+
+    For example:
+
+        $ conda install scikit-learn-intelex
+        $ python -m sklearnex my_application.py

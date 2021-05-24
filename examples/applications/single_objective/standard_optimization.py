@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/Users/amirmukeri/Projects/opytimizer/')
+
 import numpy as np
 from opytimark.markers.n_dimensional import Sphere
 
@@ -27,3 +30,5 @@ opt = Opytimizer(space, optimizer, function, save_agents=False)
 
 # Runs the optimization task
 opt.start(n_iterations=1000)
+
+print("best: ", opt.space.best_agent.position)

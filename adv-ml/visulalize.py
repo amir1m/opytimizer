@@ -17,8 +17,8 @@ np.random.seed(SEED)
 
 from attack_utils import *
 
-n_samples = 1
+n_samples = 10
 
 image = np.genfromtxt('x_test_opyt.csv', delimiter=',')
-image1 = image.reshape((28,28,1))
+image1 = image.reshape((n_samples, 28,28,1))
 show_digit(image1,1, model_logit.predict((image1.reshape((1,28,28,1)))))

@@ -42,7 +42,7 @@ class MODAOA(Optimizer):
         self.x_clean = params['x_clean']
         self.y_clean = np.argmax(params['y_clean'])
         self.epsilon = params['epsilon']
-        logger.info('Clean Label:%s', self.y_clean )
+        logger.to_file('Clean Label:%s', self.y_clean )
 
         # Overrides its parent class with the receiving params
         super(MODAOA, self).__init__()
@@ -154,8 +154,8 @@ class MODAOA(Optimizer):
         x_adv = process_digit(self.x_clean, space.best_agent.position.ravel(), self.epsilon)
         pred = self.model.predict(x_adv.reshape((1,28,28,1)))
         y_pred = np.argmax(pred)
-        logger.info("Predicted: %s", y_pred)
-        logger.info("Clean Label: %s", np.argmax(self.y_clean))
+        logger.to_file("Predicted: %s", y_pred)
+        logger.to_file("Clean Label: %s", np.argmax(self.y_clean))
 
 
         # Iterates through all agents

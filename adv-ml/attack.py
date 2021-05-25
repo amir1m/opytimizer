@@ -3,11 +3,11 @@
 ## Driver Functions
 """
 SEED =42
+import opytimizer.utils.logging as l
+logger = l.get_logger(__name__)
 
 import numpy as np
 
-import opytimizer.utils.logging as l
-logger = l.get_logger(__name__)
 
 from attack_utils import *
 
@@ -269,11 +269,12 @@ def get_opyt_adv(model, x_test_random, y_test_random,
   query_count = []
   l_2 = []
   for i in range(no_samples):
-    print("Generating example: ", i)
-    # Creates the optimizer
-    optimizer = opytimizer.optimizers.misc.MODAOA(
+    logger.info(f"Generating example:{i}")
+    #Creates the optimizer
     params={'model':model, 'x_clean':x_test_random[i], 'y_clean': y_test_random[i],
-    'epsilon' : epsilon})
+    'epsilon' : epsilon}
+    optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+    #optimizer = opytimizer.optimizers.misc.AOA()
     adv_nvg[i], count, dist = get_adv_opyt_example(model, optimizer,
                                                   x_test_random[i],
                                                   y_test_random[i],
@@ -291,9 +292,7 @@ def get_opyt_adv(model, x_test_random, y_test_random,
   #l_2 = get_dataset_l_2_dist(x_test_random, x_test_nvg)
   l_2_mean = np.mean(l_2)
   query_mean = np.mean(query_count)
-  print("\nTotal Examples: {}, Iterations:{}, espilon: {} and Max-L2:{} Agents: {}\nAccuracy: {} Mean L2 Counted: {} Query: {}".format(
-      len(y_test_random), iterations, epsilon, max_l_2,agents, acc, l_2_mean,query_mean,
-      l_2_dist(x_test_random.ravel(), x_test_nvg.ravel())))
+  logger.info(f"Total Examples: {len(y_test_random)}, Iterations:{iterations}, espilon: {epsilon} and Max-L2:{max_l_2} Agents: {agents}\nAccuracy: {acc} Mean L2 Counted: {l_2_mean} Query: {query_mean}")
 
   ##PRODUCTION
   # if (acc == 0):

@@ -88,7 +88,7 @@ model_logit = load_model('adv-ml/models/mnist', compile = False)
 
 n_samples = 1
 x_test_random, y_test_random, rand_ind = get_random_correct_samples(
-n_samples, x_test, y_test, model_logit.predict(x_test), seed = 42)
+n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 
 # from importlib import reload # reload
 # reload(opytimizer.optimizers.misc)
@@ -104,5 +104,3 @@ loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
                                                      )
 
 np.savetxt('x_test_opyt.csv', x_test_opyt.reshape((n_samples, 784)), delimiter=',')
-
-show_digit(x_test_random[0],1)

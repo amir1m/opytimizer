@@ -264,7 +264,7 @@ class Opytimizer:
                 callbacks.on_iteration_end(self.total_iterations, self)
 
                 logger.to_file(f'Fitness: {self.space.best_agent.fit}')
-                logger.to_file(f'Position: {self.space.best_agent.position}')
+                #logger.to_file(f'Position: {self.space.best_agent.position}')
 
         # Stops the timer and calculates the optimization time
         end = time.time()

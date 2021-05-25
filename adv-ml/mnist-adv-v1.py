@@ -97,15 +97,15 @@ n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
                                                      x_test_random,
                                                      y_test_random,
-                                                     iterations=50,
+                                                     iterations=30,
                                                      epsilon=0.99,
                                                      max_l_2=3,
                                                      agents = 15,
-                                                     l_2_step=0.99
+                                                     l_2_step=1.5
                                                      )
 
 np.savetxt('x_test_random.csv', x_test_random.reshape((n_samples, 784)), delimiter=',')
 np.savetxt('y_test_random.csv', y_test_random, delimiter=',')
 
-#np.savetxt('x_test_opyt.csv', x_test_opyt.reshape((n_samples, 784)), delimiter=',')
+np.savetxt('x_test_opyt.csv', x_test_opyt.reshape((n_samples, 784)), delimiter=',')
 np.savetxt('y_pred_opyt.csv', model_logit.predict(x_test_opyt), delimiter=',')

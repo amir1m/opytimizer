@@ -204,7 +204,8 @@ def get_adv_opyt_example(model,optimizer, x_clean, y_clean,
     if(result != actual):
       #print("SUCCESS:Actual:{} Predicted:{}".format(actual, result))
       #return float(predictions[actual] * (-100) * l_2_dist(x_clean, x_adv))
-      return float(predictions[actual]  * l_2_dist(x_clean, x_adv))
+      #return float(predictions[actual]  * l_2_dist(x_clean, x_adv))
+      return float(l_2_dist(x_clean, x_adv))
       #return -1
     else:
       #print("NO SUCCESS:Actual:{} Predicted:{}".format(actual, result))

@@ -1,3 +1,7 @@
+# %load_ext autoreload
+# %autoreload 2
+
+
 SEED = 42
 
 import sys
@@ -59,8 +63,9 @@ from skimage.metrics import peak_signal_noise_ratio as psnr
 SEED = 42
 np.random.seed(SEED)
 
-import attack_utils
+from attack_utils import *
 
+from attack import *
 import logging
 # Gathers all instantiated loggers, even the children
 loggers = [logging.getLogger(name) for name in logging.root.manager.loggerDict]
@@ -75,39 +80,29 @@ keras.__version__
 # Read MNIST dataset
 (x_train, y_train), (x_test, y_test), min_, max_ = load_dataset(str("mnist"))
 
-show_digit(x_test[0],1,1)
-
 #model_logit = create_model()
 #classifier = KerasClassifier(model=model_logit)
 #model_logit.fit(x_train, y_train, epochs=20, batch_size=128)
 
 model_logit = load_model('adv-ml/models/mnist', compile = False)
-#
-# with open('/Volumes/macos1/opytimizer/adv-ml/models/mnist_model_config.json') as json_file:
-#     json_config = json_file.read()
-# model_logit = tf.keras.models.model_from_json(json_config)
 
 n_samples = 1
-x_test_random, y_test_random, rand_ind = get_random_correct_samples(n_samples, x_test, y_test, model_logit.predict(x_test), seed = 1231)
+x_test_random, y_test_random, rand_ind = get_random_correct_samples(
+n_samples, x_test, y_test, model_logit.predict(x_test), seed = 42)
 
-show_digit(x_test_random[0],1)
+# from importlib import reload # reload
+# reload(opytimizer.optimizers.misc)
+
 
 loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
                                                      x_test_random,
                                                      y_test_random,
-                                                     iterations=5,
-                                                     epsilon=0.45,
+                                                     iterations=50,
+                                                     epsilon=1.05,
                                                      max_l_2=3,
-                                                     agents = 20
+                                                     agents = 15
                                                      )
 
+np.savetxt('x_test_opyt.csv', x_test_opyt.reshape((n_samples, 784)), delimiter=',')
 
 show_digit(x_test_random[0],1)
-show_digit(x_test_random[0]/100.0, y_test_random[0],
-model_logit(x_test_random[0].reshape((1,28,28,1))/100.0))
-
-l_2_dist(x_test_random[0], x_test_random[0]/100)
-show_digit(x_test_random,1)
-
-np.max(x_test_opyt.ravel())
-print(x_test_random.ravel()

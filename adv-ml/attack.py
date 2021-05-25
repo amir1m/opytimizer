@@ -2,6 +2,31 @@
 
 ## Driver Functions
 """
+SEED =42
+
+import numpy as np
+
+import opytimizer.utils.logging as l
+logger = l.get_logger(__name__)
+
+from attack_utils import *
+
+
+import opytimizer
+from opytimizer.spaces import SearchSpace
+from opytimizer.functions import ConstrainedFunction
+from opytimizer.core import Function
+from opytimizer import Opytimizer
+
+def counter(func):
+  def wrapper(*args, **kwargs):
+    wrapper.count += 1
+    # Call the function being decorated and return the result
+    return func(*args, **kwargs)
+  wrapper.count = 0
+  # Return the new decorated function
+  return wrapper
+
 
 ## WIP
 def generate_adv_datsets(model, x_test, y_test, attack_list,
@@ -191,6 +216,9 @@ def get_adv_opyt_example(model,optimizer, x_clean, y_clean,
   def l_2_constraint(x):
     return l_2_dist(x_clean, x) < max_l_2
 
+  def minimize_l_2(x):
+    return l_2_dist(x_clean,x)
+
   @counter
   def unequality_contraint(x):
     x_adv = process_digit(x_clean, x.ravel(), epsilon)
@@ -208,8 +236,8 @@ def get_adv_opyt_example(model,optimizer, x_clean, y_clean,
   upper_bound.fill(1)
 
   space = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
-  #function = Function(evaluate_acc)
-  function = ConstrainedFunction(evaluate_acc, [l_2_constraint], 10000.0)
+  function = Function(evaluate_acc)
+  #function = ConstrainedFunction(evaluate_acc, [l_2_constraint], 10000.0)
 
   # Bundles every piece into Opytimizer class
   opt = Opytimizer(space, optimizer, function, save_agents=False)
@@ -217,14 +245,16 @@ def get_adv_opyt_example(model,optimizer, x_clean, y_clean,
   opt.start(n_iterations = iterations)
 
   xopt = opt.space.best_agent.position
-  #x = np.array(xopt.value)
+  #logger.info('xopt shape: %s', xopt.shape)
+  #x_adv = x_clean.ravel() + xopt.ravel() * epsilon
+  #x_adv = np.array(xopt.value)
   x_adv = process_digit(x_clean, xopt.ravel(), epsilon)
   dist = l_2_dist(x_clean, x_adv)
   adv_pred = np.argmax(model.predict(x_adv.reshape((1,28,28,1))))
   attack_succ = np.argmax(y_clean) != adv_pred
   print("Attack result:{}, Queries: {} Dist:{}".format(attack_succ,
                                                        eval_count, dist))
-  return x_adv, eval_count, dist
+  return x_adv.reshape((28,28,1)), eval_count, dist
 
 def get_opyt_adv(model, x_test_random, y_test_random,
                 iterations = 100, epsilon = 3.55, max_l_2=6, agents=20):
@@ -241,7 +271,9 @@ def get_opyt_adv(model, x_test_random, y_test_random,
   for i in range(no_samples):
     print("Generating example: ", i)
     # Creates the optimizer
-    optimizer = opytimizer.optimizers.misc.AOA()
+    optimizer = opytimizer.optimizers.misc.MODAOA(
+    params={'model':model, 'x_clean':x_test_random[i], 'y_clean': y_test_random[i],
+    'epsilon' : epsilon})
     adv_nvg[i], count, dist = get_adv_opyt_example(model, optimizer,
                                                   x_test_random[i],
                                                   y_test_random[i],

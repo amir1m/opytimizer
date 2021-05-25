@@ -2,8 +2,9 @@
 SEED = 42
 import matplotlib.pyplot as plt
 import numpy as np
-
+from ipywidgets import interact
 def show_digit(x, y, pred=None):
+  fig = plt.figure(figsize=(3, 2))
   plt.title('True: {label} and Predicted: {pred}'.format(label=np.argmax(y), pred=np.argmax(pred)))
   plt.imshow(x.reshape((28,28)), cmap='Greys_r')
 

@@ -11,6 +11,7 @@ from opytimizer.core.optimizer import Optimizer
 #from attack_utils import
 
 from attack import *
+from attack_utils import *
 import numpy as np
 
 logger = l.get_logger(__name__)
@@ -42,6 +43,8 @@ class MODAOA(Optimizer):
         self.x_clean = params['x_clean']
         self.y_clean = np.argmax(params['y_clean'])
         self.epsilon = params['epsilon']
+        self.l_2_step = params['l_2_step']
+
         logger.to_file('Clean Label:%s', self.y_clean )
 
         # Overrides its parent class with the receiving params
@@ -154,8 +157,10 @@ class MODAOA(Optimizer):
         x_adv = process_digit(self.x_clean, space.best_agent.position.ravel(), self.epsilon)
         pred = self.model.predict(x_adv.reshape((1,28,28,1)))
         y_pred = np.argmax(pred)
+        c_l_2_dist = l_2_dist(self.x_clean.ravel(), x_adv)
         logger.to_file("Predicted: %s", y_pred)
         logger.to_file("Clean Label: %s", np.argmax(self.y_clean))
+        logger.to_file("l_2_dist: %s", c_l_2_dist)
 
 
         # Iterates through all agents
@@ -191,9 +196,9 @@ class MODAOA(Optimizer):
                     # If probability is bigger than 0.5
                     if r3 > 0.5:
                         # Updates position with (eq. 5 - top)
-                        agent.position[j] = space.best_agent.position[j] - MOP * search_partition
+                        agent.position[j] = space.best_agent.position[j] - MOP * search_partition * c_l_2_dist * self.l_2_step
 
                     # If probability is smaller than 0.5
                     else:
                         # Updates position with (eq. 5 - bottom)
-                        agent.position[j] = space.best_agent.position[j] + MOP * search_partition
+                        agent.position[j] = space.best_agent.position[j] + MOP * search_partition * c_l_2_dist * self.l_2_step

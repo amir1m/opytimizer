@@ -86,7 +86,7 @@ keras.__version__
 
 model_logit = load_model('adv-ml/models/mnist', compile = False)
 
-n_samples = 1
+n_samples = 10
 x_test_random, y_test_random, rand_ind = get_random_correct_samples(
 n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 
@@ -98,9 +98,14 @@ loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
                                                      x_test_random,
                                                      y_test_random,
                                                      iterations=50,
-                                                     epsilon=1.05,
+                                                     epsilon=0.99,
                                                      max_l_2=3,
-                                                     agents = 15
+                                                     agents = 15,
+                                                     l_2_step=0.99
                                                      )
 
-np.savetxt('x_test_opyt.csv', x_test_opyt.reshape((n_samples, 784)), delimiter=',')
+np.savetxt('x_test_random.csv', x_test_random.reshape((n_samples, 784)), delimiter=',')
+np.savetxt('y_test_random.csv', y_test_random, delimiter=',')
+
+#np.savetxt('x_test_opyt.csv', x_test_opyt.reshape((n_samples, 784)), delimiter=',')
+np.savetxt('y_pred_opyt.csv', model_logit.predict(x_test_opyt), delimiter=',')

@@ -252,15 +252,15 @@ def get_adv_opyt_example(model,optimizer, x_clean, y_clean,
   dist = l_2_dist(x_clean, x_adv)
   adv_pred = np.argmax(model.predict(x_adv.reshape((1,28,28,1))))
   attack_succ = np.argmax(y_clean) != adv_pred
-  print("Attack result:{}, Queries: {} Dist:{}".format(attack_succ,
-                                                       eval_count, dist))
+  logger.info(f"Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}")
+  logger.to_file(f"Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}")
   return x_adv.reshape((28,28,1)), eval_count, dist
 
 def get_opyt_adv(model, x_test_random, y_test_random,
-                iterations = 100, epsilon = 3.55, max_l_2=6, agents=20):
+                iterations = 100, epsilon = 3.55, max_l_2=6, agents=20, l_2_step=0.1):
   iteration = round(iterations)
-  print("Iterations:{}, espilon: {} and Max-L2:{}".format(
-      iteration, epsilon, max_l_2))
+  logger.info(f"\nIterations:{iteration}, espilon: {epsilon} and l_2_step:{l_2_step}")
+  logger.to_file(f"\nIterations:{iteration}, espilon: {epsilon} and l_2_step:{l_2_step}")
 
   no_samples = len(x_test_random)
   adv_nvg = np.empty((no_samples,28,28,1))
@@ -272,7 +272,7 @@ def get_opyt_adv(model, x_test_random, y_test_random,
     logger.info(f"Generating example:{i}")
     #Creates the optimizer
     params={'model':model, 'x_clean':x_test_random[i], 'y_clean': y_test_random[i],
-    'epsilon' : epsilon}
+    'epsilon' : epsilon, 'l_2_step': l_2_step}
     optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
     #optimizer = opytimizer.optimizers.misc.AOA()
     adv_nvg[i], count, dist = get_adv_opyt_example(model, optimizer,
@@ -292,7 +292,7 @@ def get_opyt_adv(model, x_test_random, y_test_random,
   #l_2 = get_dataset_l_2_dist(x_test_random, x_test_nvg)
   l_2_mean = np.mean(l_2)
   query_mean = np.mean(query_count)
-  logger.info(f"Total Examples: {len(y_test_random)}, Iterations:{iterations}, espilon: {epsilon} and Max-L2:{max_l_2} Agents: {agents}\nAccuracy: {acc} Mean L2 Counted: {l_2_mean} Query: {query_mean}")
+  logger.info(f"\nTotal Examples: {len(y_test_random)}, Iterations:{iterations}, espilon: {epsilon} and Max-L2:{max_l_2} Agents: {agents} l_2_step: {l_2_step}\nAccuracy: {acc} Mean L2 Counted: {l_2_mean} Query: {query_mean}")
 
   ##PRODUCTION
   # if (acc == 0):

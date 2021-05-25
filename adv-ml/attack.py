@@ -88,7 +88,7 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
 
 # TAKES ARGUMENTS
 def get_cso_adv(model, x_test_random, y_test_random,
-                n=150, iterations = 1, pa=0.5, nest=784, epsilon = 3.55):
+                n=150, iterations = 1, pa=0.5, nest=784, epsilon = 3.55, max_l_2=4):
   iteration = round(iterations)
   n = round(n)
   print("n: {} Iteration:{} and espilon: {}".format(n,iteration, epsilon))
@@ -100,8 +100,8 @@ def get_cso_adv(model, x_test_random, y_test_random,
   query_count = []
   l_2 = []
   for i in range(no_samples):
-    #print("Generating example: ", i)
-    adv_cso[i], count, dist = get_adv_example(model, x_test_random[i], y_test_random[i] ,
+    print("Generating example: ", i)
+    adv_cso[i], count, dist = get_adv_cso_example(model, x_test_random[i], y_test_random[i] ,
                                         pa=pa, n=n, nest=nest, iterations = iteration,
                                         epsilon = epsilon)
     query_count.append(count)
@@ -112,6 +112,10 @@ def get_cso_adv(model, x_test_random, y_test_random,
   #l_2 = get_dataset_l_2_dist(x_test_random, x_test_cso)
   l_2_mean = np.mean(l_2)
   query_mean = np.mean(query_count)
+  print("\nTotal Examples: {}, Iterations:{}, espilon: {} and Max-L2:{} nests: {}\nAccuracy: {} Mean L2 Counted: {} Query: {}".format(
+      len(y_test_random), iterations, epsilon, max_l_2,nest, acc, l_2_mean,query_mean,
+      l_2_dist(x_test_random.ravel(), x_test_cso.ravel())))
+
   print("Accuracy: {} Mean L2 Counted: {} Query: {}".format(
       acc, l_2_mean,query_mean, l_2_dist(x_test_random.ravel(), x_test_cso.ravel())))
 
@@ -135,7 +139,7 @@ def process_digit(x_clean, x_prop, epsilon):
   x_clean_ravel = (x_clean_ravel-min(x_clean_ravel)) / (max(x_clean_ravel)-min(x_clean_ravel))
   return x_clean_ravel.reshape((28,28,1))
 
-def get_adv_example(model, x_clean, y_clean, n=100, pa=0.5, nest=784, iterations = 10, epsilon = 0.001):
+def get_adv_cso_example(model, x_clean, y_clean, n=100, pa=0.5, nest=784, iterations = 10, epsilon = 0.001):
   @counter
   def evaluate_acc(x):
     x_adv = process_digit(x_clean, x, epsilon)
@@ -175,11 +179,12 @@ def get_adv_opyt_example(model,optimizer, x_clean, y_clean,
     if(result != actual):
       #print("SUCCESS:Actual:{} Predicted:{}".format(actual, result))
       #return float(predictions[actual] * (-100) * l_2_dist(x_clean, x_adv))
-      return -1
+      return float(predictions[actual]  * l_2_dist(x_clean, x_adv))
+      #return -1
     else:
       #print("NO SUCCESS:Actual:{} Predicted:{}".format(actual, result))
-      #return float(predictions[actual] * l_2_dist(x_clean, x_adv))
-      return 1
+      return float(predictions[actual] * (100) * l_2_dist(x_clean, x_adv))
+      #return 1
     #return float(result) # * l_2_dist(x_clean, x_adv))
     #return np.log(predictions[np.argmax(y_clean)]) #* l_2_dist(x_clean, x_adv))
 
@@ -355,7 +360,7 @@ def get_adv_nvg_example(model,optimizer, x_clean, y_clean,
   return x_adv, evaluate_acc.count, dist
 
 
-def get_adv_hyper_example(model,optimizer, x_clean, y_clean,
+def get_adv_scipy_example(model,optimizer, x_clean, y_clean,
                         epsilon = 0.5, iterations=100, max_l_2=6, agents=20):
   eval_count = 0
 
@@ -377,33 +382,12 @@ def get_adv_hyper_example(model,optimizer, x_clean, y_clean,
     #return float(result) # * l_2_dist(x_clean, x_adv))
     #return np.log(predictions[np.argmax(y_clean)]) #* l_2_dist(x_clean, x_adv))
 
-
-
-
-  # Number of agents and decision variables
-  n_agents = agents
-  n_variables = 784
-  # Lower and upper bounds (has to be the same size as `n_variables`)
-  lower_bound = np.empty(n_variables)
-  lower_bound.fill(0)
-  upper_bound = np.empty(n_variables)
-  upper_bound.fill(1)
-
-  space = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
-  #function = Function(evaluate_acc)
-  function = ConstrainedFunction(evaluate_acc, [l_2_constraint], 10000.0)
-
-  # Bundles every piece into Opytimizer class
-  opt = Opytimizer(space, optimizer, function, save_agents=False)
-  #Runs the optimization task
-  opt.start(n_iterations = iterations)
-
-  xopt = fmin(fn=evaluate_acc, space=hp.uniform('x', 0,1), algo=tpe.suggest,
-  max_evals=2)
-
-  opt.space.best_agent.position
-  #x = np.array(xopt.value)
-  x_adv = process_digit(x_clean, xopt.ravel(), epsilon)
+  # define range for input
+  r_min, r_max = 0, 1
+  # define the starting point as a random sample from the domain
+  pt = r_min + np.random.rand(784) * (r_max - r_min)
+  xopt = optimizer(evaluate_acc, pt, stepsize=0.5, niter=iterations)
+  x_adv = process_digit(x_clean, xopt['x'].ravel(), epsilon)
   dist = l_2_dist(x_clean, x_adv)
   adv_pred = np.argmax(model.predict(x_adv.reshape((1,28,28,1))))
   attack_succ = np.argmax(y_clean) != adv_pred
@@ -411,8 +395,9 @@ def get_adv_hyper_example(model,optimizer, x_clean, y_clean,
                                                        eval_count, dist))
   return x_adv, eval_count, dist
 
-def get_hyper_adv(model, x_test_random, y_test_random,
+def get_scipy_adv(model, x_test_random, y_test_random,
                 iterations = 100, epsilon = 3.55, max_l_2=6, agents=20):
+  import scipy
   iteration = round(iterations)
   print("Iterations:{}, espilon: {} and Max-L2:{}".format(
       iteration, epsilon, max_l_2))
@@ -426,8 +411,9 @@ def get_hyper_adv(model, x_test_random, y_test_random,
   for i in range(no_samples):
     print("Generating example: ", i)
     # Creates the optimizer
-    optimizer = opytimizer.optimizers.misc.AOA()
-    adv_nvg[i], count, dist = get_adv_hyper_example(model, optimizer,
+
+    optimizer = scipy.optimize.basinhopping
+    adv_nvg[i], count, dist = get_adv_scipy_example(model, optimizer,
                                                   x_test_random[i],
                                                   y_test_random[i],
                                                   epsilon = epsilon,
@@ -446,6 +432,98 @@ def get_hyper_adv(model, x_test_random, y_test_random,
   query_mean = np.mean(query_count)
   print("\nTotal Examples: {}, Iterations:{}, espilon: {} and Max-L2:{} Agents: {}\nAccuracy: {} Mean L2 Counted: {} Query: {}".format(
       len(y_test_random), iterations, epsilon, max_l_2,agents, acc, l_2_mean,query_mean,
+      l_2_dist(x_test_random.ravel(), x_test_nvg.ravel())))
+
+  ##PRODUCTION
+  # if (acc == 0):
+  #   return -l_2_mean, l_2_mean, query_mean, x_test_nvg
+  # return  acc * (-l_2_mean),l_2_mean, query_mean, x_test_nvg
+  return  acc,l_2_mean, query_mean, x_test_nvg
+
+  # # #MAXIMIZE
+  # if (acc == 0):
+  #   return -l_2_mean
+  # return  acc * (-l_2_mean)
+  # # ##MINIMIZE
+  # if (acc == 0):
+  #   return np.log(l_2_mean)
+  # return  np.log(acc * l_2_mean)
+
+def get_adv_agfree_example(model, x_clean, y_clean,
+                        epsilon = 0.5, iterations=100, max_l_2=6, step=0.001):
+  eval_count = 0
+
+  def evaluate_acc(x):
+    nonlocal eval_count
+    eval_count += 1
+    x_adv = process_digit(x_clean, x, epsilon)
+    predictions = model.predict(x_adv.reshape((1,28,28,1)))[0]
+    result = np.argmax(predictions)
+    actual = np.argmax(y_clean)
+    if(result != actual):
+      #print("SUCCESS:Actual:{} Predicted:{}".format(actual, result))
+      return -float(predictions[actual] * (-100) * l_2_dist(x_clean, x_adv))
+      #return -1
+    else:
+      #print("NO SUCCESS:Actual:{} Predicted:{}".format(actual, result))
+      return float(predictions[actual] * l_2_dist(x_clean, x_adv))
+      #return 1
+    #return float(result) # * l_2_dist(x_clean, x_adv))
+    #return np.log(predictions[np.argmax(y_clean)]) #* l_2_dist(x_clean, x_adv))
+  n_iter = 0
+  x_adv = None
+  attack_succ = None
+  dist = None
+  while (n_iter < iterations):
+    xprop = np.random.randn(784) * step
+    print("xprop shape ", xprop.shape)
+    print("n_iter: ", n_iter)
+    x_adv = np.copy(x_clean.ravel())
+    x_adv = x_adv + xprop * epsilon
+    dist = l_2_dist(x_clean, x_adv)
+    adv_pred = np.argmax(model.predict(x_adv.reshape((1,28,28,1))))
+    attack_succ = np.argmax(y_clean) != adv_pred
+    if (attack_succ == True):
+      break
+    n_iter += 1
+  print("Attack result:{}, Queries: {} Dist:{}".format(attack_succ,
+                                                       n_iter, dist))
+  return x_adv.reshape(28,28,1), eval_count, dist
+
+def get_agfree_adv(model, x_test_random, y_test_random,
+                iterations = 100, epsilon = 3.55, max_l_2=6, step=0.001):
+  iteration = round(iterations)
+  print("Iterations:{}, espilon: {} and Max-L2:{}".format(
+      iteration, epsilon, max_l_2))
+
+  no_samples = len(x_test_random)
+  adv_nvg = np.empty((no_samples,28,28,1))
+
+  i = 0
+  query_count = []
+  l_2 = []
+  for i in range(no_samples):
+    print("Generating example: ", i)
+    # Creates the optimizer
+    adv_nvg[i], count, dist = get_adv_agfree_example(model,
+                                                  x_test_random[i],
+                                                  y_test_random[i],
+                                                  epsilon = epsilon,
+                                                  iterations = iterations,
+                                                  max_l_2 = max_l_2,
+                                                  step = 0.001
+                                                  )
+    query_count.append(count)
+    l_2.append(dist)
+
+  x_test_nvg = adv_nvg
+  y_pred_nvg = model.predict(x_test_nvg)
+  acc = get_accuracy(y_pred_nvg, y_test_random)
+  #l_2 = get_dataset_l_2_dist(x_test_random, x_test_nvg)
+  l_2_mean = np.mean(l_2)
+  query_mean = np.mean(query_count)
+  print("\nTotal Examples: {}, Iterations:{}, espilon: {} and Max-L2:{} step: {}\nAccuracy: {} Mean L2 Counted: {} Query: {}".format(
+      len(y_test_random), iterations, epsilon, max_l_2,step, acc, l_2_mean,query_mean,
       l_2_dist(x_test_random.ravel(), x_test_nvg.ravel())))
 
   ##PRODUCTION

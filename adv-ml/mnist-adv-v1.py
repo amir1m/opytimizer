@@ -92,10 +92,14 @@ x_test_random, y_test_random, rand_ind = get_random_correct_samples(n_samples, x
 
 show_digit(x_test_random[0],1)
 
-loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(
-model_logit, x_test_random,y_test_random,
-iterations=100, epsilon=.35, max_l_2=2, agents=10
-)
+loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
+                                                     x_test_random,
+                                                     y_test_random,
+                                                     iterations=5,
+                                                     epsilon=0.45,
+                                                     max_l_2=3,
+                                                     agents = 20
+                                                     )
 
 
 show_digit(x_test_random[0],1)

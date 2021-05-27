@@ -38,11 +38,11 @@ adv_labels = np.genfromtxt('y_pred_opyt.csv', delimiter=',')
 l_2_dist(orig_images, adv_images)
 browse_mis_samples(orig_images, adv_images,orig_labels, adv_labels)
 
-i=13
-show_digit(adv_images,orig_labels, adv_labels)
+i=8
+show_digit(adv_images[i],orig_labels[i], adv_labels[i])
 
 i=8
-show_digit(orig_images,orig_labels, orig_labels)
+show_digit(orig_images[i],orig_labels[i], orig_labels[i])
 
 
 a = np.array([1,2,3])

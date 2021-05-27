@@ -190,7 +190,7 @@ def get_adv_cso_example(model, x_clean, y_clean, n=100, pa=0.5, nest=784, iterat
   print("Attack result:{}, Dist:{}".format(attack_succ, dist))
   return x_adv, evaluate_acc.count, dist
 
-def get_adv_opyt_example(model,optimizer, x_clean, y_clean,
+def get_adv_opyt_example(model, x_clean, y_clean,
                         epsilon = 0.5, iterations=100, max_l_2=6, agents=20, l_2_step=1.5):
   eval_count = 0
   x_adv = None
@@ -246,6 +246,13 @@ def get_adv_opyt_example(model,optimizer, x_clean, y_clean,
   upper_bound = np.empty(n_variables)
   upper_bound.fill(1)
 
+  #Creates the optimizer
+  params={'model':model, 'x_clean':x_clean, 'x_adv': None,
+  'y_clean': y_clean,
+  'epsilon' : epsilon, 'l_2_step': l_2_step, 'l_2_min':False}
+  optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+  #optimizer = opytimizer.optimizers.misc.AOA()
+
   space = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
   function = Function(evaluate_acc)
   #function = ConstrainedFunction(evaluate_acc, [l_2_constraint], 10000.0)
@@ -265,6 +272,25 @@ def get_adv_opyt_example(model,optimizer, x_clean, y_clean,
   eval_count += iterations
   adv_pred = np.argmax(model.predict(x_adv.reshape((1,28,28,1))))
   attack_succ = np.argmax(y_clean) != adv_pred
+
+  if(attack_succ == True):
+    logger.info("\nRestarting L2 Minimization loop\n")
+    params={'model':model, 'x_clean':x_clean, 'x_adv': None,
+    'y_clean': y_clean,
+    'epsilon' : epsilon, 'l_2_step': l_2_step, 'l_2_min':True}
+    optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+
+    opt = Opytimizer(space, optimizer, function, save_agents=False)
+    #Runs the optimization task
+    opt.start(n_iterations = round(iterations/2))
+    xopt = opt.space.best_agent.position
+    x_adv = process_digit(x_clean, xopt.ravel(), epsilon)
+    x_adv = x_adv.reshape((28,28,1))
+    dist = l_2_dist(x_clean, x_adv)
+    eval_count += iterations
+    adv_pred = np.argmax(model.predict(x_adv.reshape((1,28,28,1))))
+    attack_succ = np.argmax(y_clean) != adv_pred
+
   logger.info(f"Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}")
   logger.to_file(f"Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}")
   return x_adv, eval_count, dist
@@ -284,13 +310,7 @@ def get_opyt_adv(model, x_test_random, y_test_random,
   l_2 = []
   for i in range(no_samples):
     logger.info(f"Generating example:{i}")
-    #Creates the optimizer
-    params={'model':model, 'x_clean':x_test_random[i], 'x_adv': None,
-    'y_clean': y_test_random[i],
-    'epsilon' : epsilon, 'l_2_step': l_2_step, 'l_2_min':False}
-    optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
-    #optimizer = opytimizer.optimizers.misc.AOA()
-    adv_nvg[i], count, dist = get_adv_opyt_example(model, optimizer,
+    adv_nvg[i], count, dist = get_adv_opyt_example(model,
                                                   x_test_random[i],
                                                   y_test_random[i],
                                                   epsilon = epsilon,

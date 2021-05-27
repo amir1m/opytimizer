@@ -45,6 +45,7 @@ class MODAOA(Optimizer):
         self.y_clean = np.argmax(params['y_clean'])
         self.epsilon = params['epsilon']
         self.l_2_step = params['l_2_step']
+        self.l_2_min = params['l_2_min']
 
         logger.to_file('Clean Label:%s', self.y_clean )
 

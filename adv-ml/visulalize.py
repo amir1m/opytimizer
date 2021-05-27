@@ -29,7 +29,7 @@ images = np.genfromtxt('x_test_random.csv', delimiter=',')
 orig_images = images.reshape((n_samples, 28,28,1))
 orig_labels = np.genfromtxt('y_test_random.csv', delimiter=',')
 
-images = np.genfromtxt('x_adv_l_2.csv', delimiter=',')
+images = np.genfromtxt('x_test_opyt.csv', delimiter=',')
 adv_images = images.reshape((n_samples, 28,28,1))
 adv_labels = np.genfromtxt('y_pred_opyt.csv', delimiter=',')
 
@@ -43,3 +43,9 @@ show_digit(adv_images,orig_labels, adv_labels)
 
 i=8
 show_digit(orig_images,orig_labels, orig_labels)
+
+
+a = np.array([1,2,3])
+for e in a:
+    if e == 2:
+        np.delete()

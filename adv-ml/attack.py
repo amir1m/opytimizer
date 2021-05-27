@@ -268,44 +268,7 @@ def get_adv_opyt_example(model,optimizer, x_clean, y_clean,
   attack_succ = np.argmax(y_clean) != adv_pred
   logger.info(f"Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}")
   logger.to_file(f"Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}")
-
-
-  logger.info(f"\n\n========STARTING L2 MINIMIZATION=================\n")
-  # del opt
-  # del xopt
-  # del space
-  # del optimizer
-  params_l_2 = {'model':model, 'x_clean':x_clean, 'x_adv':x_adv, 'y_clean': y_clean,
-  'epsilon' : epsilon, 'l_2_step': l_2_step, 'l_2_min':True}
-  optimizer_l_2 = opytimizer.optimizers.misc.MODAOA(params = params_l_2)
-  space_l_2 = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
-  function_l_2 = ConstrainedFunction(minimize_l_2, [inequality_contraint], 10000.0)
-  #function_l_2 = Function(minimize_l_2)
-  iterations_l_2 = iterations * 3
-  opt_l_2 = Opytimizer(space_l_2, optimizer_l_2, function_l_2, save_agents=False)
-  opt_l_2.start(n_iterations = iterations_l_2)
-  xopt_l_2 = opt_l_2.space.best_agent.position
-  #logger.info('xopt shape: %s', xopt.shape)
-  #x_adv = x_clean.ravel() + xopt.ravel() * epsilon
-  #x_adv = np.array(xopt.value)
-  x_adv_l_2 = process_digit(x_adv, xopt_l_2.ravel(), epsilon)
-  x_adv_l_2 = x_adv_l_2.reshape((28,28,1))
-  dist_l_2 = l_2_dist(x_clean, x_adv_l_2)
-  eval_count += iterations_l_2
-  adv_pred_l_2 = np.argmax(model.predict(x_adv_l_2.reshape((1,28,28,1))))
-  attack_succ_l_2 = np.argmax(y_clean) != adv_pred_l_2
-  logger.info(f"L2: Attack result:{attack_succ_l_2}, Queries: {eval_count} Dist:{dist_l_2}")
-  logger.to_file(f"L2: Attack result:{attack_succ_l_2}, Queries: {eval_count} Dist:{dist_l_2}")
-
-  if(l_2_dist(x_clean, x_adv) < l_2_dist(x_clean, x_adv_l_2)):
-    logger.info('L2: Minimization Failed')
-    np.savetxt('x_adv.csv', x_adv.reshape((1, 784)), delimiter=',')
-    return x_adv, eval_count, dist
-
-  logger.info('L2: Minimization Successful!')
-  np.savetxt('x_adv_l_2.csv', x_adv_l_2.reshape((1, 784)), delimiter=',')
-  return x_adv_l_2, eval_count, dist_l_2
-
+  return x_adv, eval_count, dist
 
 
 def get_opyt_adv(model, x_test_random, y_test_random,

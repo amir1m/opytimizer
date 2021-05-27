@@ -97,7 +97,7 @@ n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
                                                      x_test_random,
                                                      y_test_random,
-                                                     iterations=10,
+                                                     iterations=40,
                                                      epsilon=0.99,
                                                      max_l_2=3,
                                                      agents = 25,

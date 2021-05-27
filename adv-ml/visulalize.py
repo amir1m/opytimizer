@@ -17,28 +17,29 @@ np.random.seed(SEED)
 
 from attack_utils import *
 
-n_samples = 10
+#n_samples = 100
 
 # image = np.genfromtxt('x_test_opyt.csv', delimiter=',')
 # image1 = image.reshape((n_samples, 28,28,1))
 # show_digit(image1[0],1, model_logit.predict((image1[0].reshape((1,28,28,1)))))
 
 
-
+n_samples = 1
 images = np.genfromtxt('x_test_random.csv', delimiter=',')
 orig_images = images.reshape((n_samples, 28,28,1))
 orig_labels = np.genfromtxt('y_test_random.csv', delimiter=',')
 
-images = np.genfromtxt('x_test_opyt.csv', delimiter=',')
+images = np.genfromtxt('x_adv_l_2.csv', delimiter=',')
 adv_images = images.reshape((n_samples, 28,28,1))
 adv_labels = np.genfromtxt('y_pred_opyt.csv', delimiter=',')
 
 #np.savetxt('y_pred_opyt.csv', model_logit.predict(adv_images), delimiter=',')
 
+l_2_dist(orig_images, adv_images)
 browse_mis_samples(orig_images, adv_images,orig_labels, adv_labels)
 
-i=8
-show_digit(adv_images[i],orig_labels[i], adv_labels[i])
+i=13
+show_digit(adv_images,orig_labels, adv_labels)
 
 i=8
-show_digit(orig_images[i],orig_labels[i], adv_labels[i])
+show_digit(orig_images,orig_labels, orig_labels)

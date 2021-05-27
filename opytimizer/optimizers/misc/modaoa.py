@@ -10,6 +10,7 @@ from opytimizer.core.optimizer import Optimizer
 #sys.path.append('../adv-ml/')
 #from attack_utils import
 
+from copy import deepcopy
 from attack import *
 from attack_utils import *
 import numpy as np
@@ -40,10 +41,12 @@ class MODAOA(Optimizer):
         logger.info('Overriding class: Optimizer -> MODAOA.')
         l#ogger.info("Params is:%s",params)
         self.model = params['model']
-        self.x_clean = params['x_clean']
+        self.x_clean = deepcopy(params['x_clean'])
+        self.x_adv = deepcopy(params['x_adv'])
         self.y_clean = np.argmax(params['y_clean'])
         self.epsilon = params['epsilon']
         self.l_2_step = params['l_2_step']
+        self.l_2_min = params['l_2_min']
 
         logger.to_file('Clean Label:%s', self.y_clean )
 
@@ -154,13 +157,23 @@ class MODAOA(Optimizer):
         MOP = 1 - (iteration ** (1 / self.alpha) / n_iterations ** (1 / self.alpha))
 
         #logger.info('Shape of Best Agent: %s', space.best_agent.position.shape)
-        x_adv = process_digit(self.x_clean, space.best_agent.position.ravel(), self.epsilon)
+        x_adv = None
+        c_l_2_dist = None
+        if(self.l_2_min == True):
+            x_adv = process_digit(self.x_adv, space.best_agent.position.ravel(), self.epsilon)
+            c_l_2_dist = l_2_dist(self.x_adv.ravel(), x_adv)
+        else:
+            x_adv = process_digit(self.x_clean, space.best_agent.position.ravel(), self.epsilon)
+            c_l_2_dist = l_2_dist(self.x_clean.ravel(), x_adv)
+
         pred = self.model.predict(x_adv.reshape((1,28,28,1)))
         y_pred = np.argmax(pred)
+        y_true = np.argmax(self.y_clean)
         c_l_2_dist = l_2_dist(self.x_clean.ravel(), x_adv)
         logger.to_file("Predicted: %s", y_pred)
         logger.to_file("Clean Label: %s", np.argmax(self.y_clean))
         logger.to_file("l_2_dist: %s", c_l_2_dist)
+        logger.to_file("l_2_min: %s", self.l_2_min)
 
 
         # Iterates through all agents
@@ -174,7 +187,7 @@ class MODAOA(Optimizer):
                 search_partition = (agent.ub[j] - agent.lb[j]) * self.mu + agent.lb[j]
 
                 # If probability is bigger than MOA
-                if y_pred == np.argmax(self.y_clean):
+                if y_pred == y_true or (self.l_2_min==True):
                     # Generates an extra probability
                     r2 = r.generate_uniform_random_number()
 

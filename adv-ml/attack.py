@@ -191,8 +191,9 @@ def get_adv_cso_example(model, x_clean, y_clean, n=100, pa=0.5, nest=784, iterat
   return x_adv, evaluate_acc.count, dist
 
 def get_adv_opyt_example(model,optimizer, x_clean, y_clean,
-                        epsilon = 0.5, iterations=100, max_l_2=6, agents=20):
+                        epsilon = 0.5, iterations=100, max_l_2=6, agents=20, l_2_step=1.5):
   eval_count = 0
+  x_adv = None
 
   def evaluate_acc(x):
     nonlocal eval_count
@@ -205,7 +206,9 @@ def get_adv_opyt_example(model,optimizer, x_clean, y_clean,
       #print("SUCCESS:Actual:{} Predicted:{}".format(actual, result))
       #return float(predictions[actual] * (-100) * l_2_dist(x_clean, x_adv))
       #return float(predictions[actual]  * l_2_dist(x_clean, x_adv))
-      return float(l_2_dist(x_clean, x_adv))
+      fitness = float(l_2_dist(x_clean, x_adv))
+      logger.to_file(f'fitness in evaluate_acc {fitness}')
+      return fitness
       #return -1
     else:
       #print("NO SUCCESS:Actual:{} Predicted:{}".format(actual, result))
@@ -217,15 +220,23 @@ def get_adv_opyt_example(model,optimizer, x_clean, y_clean,
   def l_2_constraint(x):
     return l_2_dist(x_clean, x) < max_l_2
 
-  def minimize_l_2(x):
-    return l_2_dist(x_clean,x)
+  def minimize_l_2(z):
+    #logger.to_file(f'x_adv shape in minimize_l_2 {x_adv.shape}')
+    nonlocal x_adv
+    x_adv_l2 = process_digit(x_adv, z.ravel(), epsilon)
+    fitness = float(l_2_dist(x_clean.ravel(),x_adv_l2.ravel()))
+    #adv_pred = np.argmax(model.predict(x_adv_l2.reshape((1,28,28,1))))
+    #logger.to_file(f'fitness in minimize_l_2 {fitness}')
+    #logger.to_file(f'Prediction in minimize_l_2 {adv_pred}')
+    #np.savetxt('x_adv_l_2.csv', x_adv_l2.reshape((1, 784)), delimiter=',')
+    return fitness
 
   @counter
-  def unequality_contraint(x):
+  def inequality_contraint(x):
     x_adv = process_digit(x_clean, x.ravel(), epsilon)
     predictions = model.predict(x_adv.reshape((1,28,28,1)))[0]
-    result = predictions[np.argmax(y_clean)]
-    return np.argmax(result) != np.argmax(y_clean)
+    result = np.argmax(predictions)
+    return result != np.argmax(y_clean)
 
   # Number of agents and decision variables
   n_agents = agents
@@ -250,18 +261,58 @@ def get_adv_opyt_example(model,optimizer, x_clean, y_clean,
   #x_adv = x_clean.ravel() + xopt.ravel() * epsilon
   #x_adv = np.array(xopt.value)
   x_adv = process_digit(x_clean, xopt.ravel(), epsilon)
+  x_adv = x_adv.reshape((28,28,1))
   dist = l_2_dist(x_clean, x_adv)
+  eval_count += iterations
   adv_pred = np.argmax(model.predict(x_adv.reshape((1,28,28,1))))
   attack_succ = np.argmax(y_clean) != adv_pred
   logger.info(f"Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}")
   logger.to_file(f"Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}")
-  return x_adv.reshape((28,28,1)), eval_count, dist
+
+
+  logger.info(f"\n\n========STARTING L2 MINIMIZATION=================\n")
+  # del opt
+  # del xopt
+  # del space
+  # del optimizer
+  params_l_2 = {'model':model, 'x_clean':x_clean, 'x_adv':x_adv, 'y_clean': y_clean,
+  'epsilon' : epsilon, 'l_2_step': l_2_step, 'l_2_min':True}
+  optimizer_l_2 = opytimizer.optimizers.misc.MODAOA(params = params_l_2)
+  space_l_2 = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
+  function_l_2 = ConstrainedFunction(minimize_l_2, [inequality_contraint], 10000.0)
+  #function_l_2 = Function(minimize_l_2)
+  iterations_l_2 = iterations * 3
+  opt_l_2 = Opytimizer(space_l_2, optimizer_l_2, function_l_2, save_agents=False)
+  opt_l_2.start(n_iterations = iterations_l_2)
+  xopt_l_2 = opt_l_2.space.best_agent.position
+  #logger.info('xopt shape: %s', xopt.shape)
+  #x_adv = x_clean.ravel() + xopt.ravel() * epsilon
+  #x_adv = np.array(xopt.value)
+  x_adv_l_2 = process_digit(x_adv, xopt_l_2.ravel(), epsilon)
+  x_adv_l_2 = x_adv_l_2.reshape((28,28,1))
+  dist_l_2 = l_2_dist(x_clean, x_adv_l_2)
+  eval_count += iterations_l_2
+  adv_pred_l_2 = np.argmax(model.predict(x_adv_l_2.reshape((1,28,28,1))))
+  attack_succ_l_2 = np.argmax(y_clean) != adv_pred_l_2
+  logger.info(f"L2: Attack result:{attack_succ_l_2}, Queries: {eval_count} Dist:{dist_l_2}")
+  logger.to_file(f"L2: Attack result:{attack_succ_l_2}, Queries: {eval_count} Dist:{dist_l_2}")
+
+  if(l_2_dist(x_clean, x_adv) < l_2_dist(x_clean, x_adv_l_2)):
+    logger.info('L2: Minimization Failed')
+    np.savetxt('x_adv.csv', x_adv.reshape((1, 784)), delimiter=',')
+    return x_adv, eval_count, dist
+
+  logger.info('L2: Minimization Successful!')
+  np.savetxt('x_adv_l_2.csv', x_adv_l_2.reshape((1, 784)), delimiter=',')
+  return x_adv_l_2, eval_count, dist_l_2
+
+
 
 def get_opyt_adv(model, x_test_random, y_test_random,
                 iterations = 100, epsilon = 3.55, max_l_2=6, agents=20, l_2_step=0.1):
   iteration = round(iterations)
-  logger.info(f"\nIterations:{iteration}, espilon: {epsilon} and l_2_step:{l_2_step}")
-  logger.to_file(f"\nIterations:{iteration}, espilon: {epsilon} and l_2_step:{l_2_step}")
+  logger.info(f"\nIterations:{iteration}, epsilon: {epsilon} and l_2_step:{l_2_step}")
+  logger.to_file(f"\nIterations:{iteration}, epsilon: {epsilon} and l_2_step:{l_2_step}")
 
   no_samples = len(x_test_random)
   adv_nvg = np.empty((no_samples,28,28,1))
@@ -272,8 +323,9 @@ def get_opyt_adv(model, x_test_random, y_test_random,
   for i in range(no_samples):
     logger.info(f"Generating example:{i}")
     #Creates the optimizer
-    params={'model':model, 'x_clean':x_test_random[i], 'y_clean': y_test_random[i],
-    'epsilon' : epsilon, 'l_2_step': l_2_step}
+    params={'model':model, 'x_clean':x_test_random[i], 'x_adv': None,
+    'y_clean': y_test_random[i],
+    'epsilon' : epsilon, 'l_2_step': l_2_step, 'l_2_min':False}
     optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
     #optimizer = opytimizer.optimizers.misc.AOA()
     adv_nvg[i], count, dist = get_adv_opyt_example(model, optimizer,
@@ -282,7 +334,8 @@ def get_opyt_adv(model, x_test_random, y_test_random,
                                                   epsilon = epsilon,
                                                   iterations = iterations,
                                                    max_l_2 = max_l_2,
-                                                   agents = agents
+                                                   agents = agents,
+                                                   l_2_step=l_2_step
                                                   )
     query_count.append(count)
     l_2.append(dist)

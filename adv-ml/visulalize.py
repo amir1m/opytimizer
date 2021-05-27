@@ -24,7 +24,7 @@ from attack_utils import *
 # show_digit(image1[0],1, model_logit.predict((image1[0].reshape((1,28,28,1)))))
 
 
-n_samples = 1
+n_samples = 10
 images = np.genfromtxt('x_test_random.csv', delimiter=',')
 orig_images = images.reshape((n_samples, 28,28,1))
 orig_labels = np.genfromtxt('y_test_random.csv', delimiter=',')

@@ -202,17 +202,16 @@ def get_adv_opyt_example(model,optimizer, x_clean, y_clean,
     predictions = model.predict(x_adv.reshape((1,28,28,1)))[0]
     result = np.argmax(predictions)
     actual = np.argmax(y_clean)
+    dist = float(l_2_dist(x_clean, x_adv))
     if(result != actual):
       #print("SUCCESS:Actual:{} Predicted:{}".format(actual, result))
       #return float(predictions[actual] * (-100) * l_2_dist(x_clean, x_adv))
       #return float(predictions[actual]  * l_2_dist(x_clean, x_adv))
-      fitness = float(l_2_dist(x_clean, x_adv))
-      logger.to_file(f'fitness in evaluate_acc {fitness}')
-      return fitness
+      return float(dist)
       #return -1
     else:
       #print("NO SUCCESS:Actual:{} Predicted:{}".format(actual, result))
-      return float(predictions[actual] * (100) * l_2_dist(x_clean, x_adv))
+      return float(predictions[actual] * 100 * dist)
       #return 1
     #return float(result) # * l_2_dist(x_clean, x_adv))
     #return np.log(predictions[np.argmax(y_clean)]) #* l_2_dist(x_clean, x_adv))

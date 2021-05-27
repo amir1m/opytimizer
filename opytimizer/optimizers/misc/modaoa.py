@@ -163,6 +163,7 @@ class MODAOA(Optimizer):
         logger.to_file("Predicted: %s", y_pred)
         logger.to_file("Clean Label: %s", np.argmax(self.y_clean))
         logger.to_file("l_2_dist: %s", c_l_2_dist)
+        logger.to_file("MOP: %s",MOP)
 
         # Iterates through all agents
         for agent in space.agents:
@@ -187,7 +188,7 @@ class MODAOA(Optimizer):
                     # If probability is smaller than 0.5
                     else:
                         # Updates position with (eq. 3 - bottom)
-                        agent.position[j] = space.best_agent.position[j] * MOP * search_partition
+                        agent.position[j] = space.best_agent.position[j] * (MOP + c.EPSILON) * search_partition
 
                 # If probability is smaller than MOA
                 else:
@@ -197,9 +198,11 @@ class MODAOA(Optimizer):
                     # If probability is bigger than 0.5
                     if r3 > 0.5:
                         # Updates position with (eq. 5 - top)
-                        agent.position[j] = space.best_agent.position[j] - (MOP * search_partition * c_l_2_dist) / self.l_2_step
+                        #agent.position[j] = space.best_agent.position[j] - (MOP * search_partition * c_l_2_dist) / self.l_2_step
+                        agent.position[j] = space.best_agent.position[j] - r.generate_gaussian_random_number(mean=space.best_agent.position[j]) *  MOP * search_partition
 
                     # If probability is smaller than 0.5
                     else:
                         # Updates position with (eq. 5 - bottom)
-                        agent.position[j] = space.best_agent.position[j] + (MOP * search_partition * c_l_2_dist) / self.l_2_step
+                        #agent.position[j] = space.best_agent.position[j] + (MOP * search_partition * c_l_2_dist) / self.l_2_step
+                        agent.position[j] = space.best_agent.position[j] + r.generate_gaussian_random_number(mean=space.best_agent.position[j]) * MOP  * search_partition

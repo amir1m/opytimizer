@@ -199,10 +199,10 @@ class MODAOA(Optimizer):
                     if r3 > 0.5:
                         # Updates position with (eq. 5 - top)
                         #agent.position[j] = space.best_agent.position[j] - (MOP * search_partition * c_l_2_dist) / self.l_2_step
-                        agent.position[j] = space.best_agent.position[j] - r.generate_gaussian_random_number(mean=space.best_agent.position[j]) *  MOP * search_partition
+                        agent.position[j] = space.best_agent.position[j] - r.generate_gaussian_random_number(mean=space.best_agent.position[j], variance=MOP)* search_partition
 
                     # If probability is smaller than 0.5
                     else:
                         # Updates position with (eq. 5 - bottom)
                         #agent.position[j] = space.best_agent.position[j] + (MOP * search_partition * c_l_2_dist) / self.l_2_step
-                        agent.position[j] = space.best_agent.position[j] + r.generate_gaussian_random_number(mean=space.best_agent.position[j]) * MOP  * search_partition
+                        agent.position[j] = space.best_agent.position[j] + r.generate_gaussian_random_number(mean=space.best_agent.position[j], variance=MOP) * search_partition

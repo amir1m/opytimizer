@@ -38,6 +38,7 @@ from opytimizer.optimizers.evolutionary import GA, HS, FOA, GP, DE, IWO, EP, ES,
 from opytimizer.optimizers.misc.aoa import AOA
 from opytimizer.optimizers.misc.hc import HC
 from opytimizer.optimizers.misc.cem import CEM
+import opytimizer.optimizers.science
 from opytimizer.spaces import SearchSpace, TreeSpace
 
 import nevergrad as ng
@@ -86,7 +87,7 @@ keras.__version__
 
 model_logit = load_model('adv-ml/models/mnist', compile = False)
 
-n_samples = 1
+n_samples = 10
 x_test_random, y_test_random, rand_ind = get_random_correct_samples(
 n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 

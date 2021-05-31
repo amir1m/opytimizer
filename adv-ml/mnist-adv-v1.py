@@ -89,7 +89,7 @@ model_logit = load_model('adv-ml/models/mnist', compile = False)
 
 n_samples = 10
 x_test_random, y_test_random, rand_ind = get_random_correct_samples(
-n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
+n_samples, x_test, y_test, model_logit.predict(x_test), seed = 3)
 
 # from importlib import reload # reload
 # reload(opytimizer.optimizers.misc)
@@ -98,7 +98,7 @@ n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
                                                      x_test_random,
                                                      y_test_random,
-                                                     iterations=30,
+                                                     iterations=35,
                                                      epsilon=0.99,
                                                      max_l_2=3,
                                                      agents =25,

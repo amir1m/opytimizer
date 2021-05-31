@@ -3,6 +3,10 @@ SEED = 42
 import matplotlib.pyplot as plt
 import numpy as np
 from ipywidgets import interact
+from scipy.stats import wasserstein_distance
+from skimage.metrics import peak_signal_noise_ratio as psnr
+from skimage.metrics import structural_similarity as ssim
+
 def show_digit(x, y, pred=None):
   fig = plt.figure(figsize=(3, 2))
   plt.title('True: {label} and Predicted: {pred}'.format(label=np.argmax(y), pred=np.argmax(pred)))

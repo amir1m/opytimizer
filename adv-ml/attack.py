@@ -11,7 +11,8 @@ import numpy as np
 from copy import deepcopy
 from attack_utils import *
 
-
+from scipy.optimize import minimize
+from scipy.stats import wasserstein_distance, levy
 import opytimizer
 from opytimizer.spaces import SearchSpace
 from opytimizer.functions import ConstrainedFunction
@@ -203,6 +204,7 @@ def get_adv_opyt_example(model, x_clean, y_clean,
     result = np.argmax(predictions)
     actual = np.argmax(y_clean)
     dist = float(l_2_dist(x_clean, x_adv))
+    #dist = float(wasserstein_distance(x_clean.ravel(), x_adv.ravel()))
     if(result != actual):
       #print("SUCCESS:Actual:{} Predicted:{}".format(actual, result))
       #return float(predictions[actual] * (-100) * l_2_dist(x_clean, x_adv))
@@ -211,7 +213,7 @@ def get_adv_opyt_example(model, x_clean, y_clean,
       #return -1
     else:
       #print("NO SUCCESS:Actual:{} Predicted:{}".format(actual, result))
-      return float(predictions[actual] * 100 * dist)
+      return float(predictions[actual] * 100)
       #return 1
     #return float(result) # * l_2_dist(x_clean, x_adv))
     #return np.log(predictions[np.argmax(y_clean)]) #* l_2_dist(x_clean, x_adv))
@@ -263,9 +265,6 @@ def get_adv_opyt_example(model, x_clean, y_clean,
   opt.start(n_iterations = iterations)
 
   xopt = opt.space.best_agent.position
-  #logger.info('xopt shape: %s', xopt.shape)
-  #x_adv = x_clean.ravel() + xopt.ravel() * epsilon
-  #x_adv = np.array(xopt.value)
   x_adv = process_digit(x_clean, xopt.ravel(), epsilon)
   x_adv = x_adv.reshape((28,28,1))
   dist = l_2_dist(x_clean, x_adv)
@@ -285,7 +284,7 @@ def get_adv_opyt_example(model, x_clean, y_clean,
       #space_l_2 = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
       opt_l_2 = Opytimizer(space, optimizer, function, save_agents=False)
       opt_l_2.space.best_agent.position = opt.space.best_agent.position
-      l2_iter = round(iterations/2)
+      l2_iter = round(iterations)
       #opt_l_2.space.best_agent.position = opt.space.best_agent.position
       #Runs the optimization task
       opt_l_2.start(n_iterations = l2_iter)
@@ -301,12 +300,26 @@ def get_adv_opyt_example(model, x_clean, y_clean,
         x_adv = np.copy(x_adv_curr)
         dist = dist_curr
 
-  dist = l_2_dist(x_clean, x_adv)
-  adv_pred = np.argmax(model.predict(x_adv.reshape((1,28,28,1))))
-  attack_succ = np.argmax(y_clean) != adv_pred
+  # if(attack_succ == True):
+  #   logger.info('Starting L2 Minimization\n')
+  #   xopt_curr = minimize(evaluate_acc, x_adv.ravel(), method='nelder-mead',
+  #              options={'xatol': 1e-8, 'disp': True})
+  #   x_adv_curr = process_digit(x_clean, xopt_curr.ravel(), epsilon)
+  #   x_adv_curr = x_adv_curr.reshape((28,28,1))
+  #   adv_pred_curr = np.argmax(model.predict(x_adv_curr.reshape((1,28,28,1))))
+  #   eval_count += l2_iter + 1
+  #   attack_succ_curr = np.argmax(y_clean) != adv_pred_curr
+  #   dist_curr = l_2_dist(x_clean, x_adv_curr)
+  #   if(attack_succ_curr == True and dist_curr < dist):
+  #     opt = opt_l_2
+  #     x_adv = np.copy(x_adv_curr)
+  #     dist = dist_curr
 
-  logger.info(f"Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}")
-  logger.to_file(f"Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}")
+  # dist = l_2_dist(x_clean, x_adv)
+  # adv_pred = np.argmax(model.predict(x_adv.reshape((1,28,28,1))))
+  # attack_succ = np.argmax(y_clean) != adv_pred
+  all_dist = get_all_dist(x_clean, x_adv)
+  logger.info(f"Attack result:{attack_succ}, Queries: {eval_count} All Dist:{all_dist}")
   return x_adv, eval_count, dist
 
 
@@ -339,7 +352,6 @@ def get_opyt_adv(model, x_test_random, y_test_random,
   x_test_nvg = adv_nvg
   y_pred_nvg = model.predict(x_test_nvg)
   acc = get_accuracy(y_pred_nvg, y_test_random)
-  #l_2 = get_dataset_l_2_dist(x_test_random, x_test_nvg)
   l_2_mean = np.mean(l_2)
   query_mean = np.mean(query_count)
   logger.info(f"\nTotal Examples: {len(y_test_random)}, Iterations:{iterations}, espilon: {epsilon} and Max-L2:{max_l_2} Agents: {agents} l_2_step: {l_2_step}\nAccuracy: {acc} Mean L2 Counted: {l_2_mean} Query: {query_mean}")

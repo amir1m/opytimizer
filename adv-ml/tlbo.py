@@ -8,6 +8,8 @@ Implementation of Teaching-Learning Based Optimization [1].
 """
 import numpy as np
 from sklearn.utils import check_random_state
+import opytimizer.utils.logging as l
+logger = l.get_logger(__name__)
 
 
 #
@@ -107,5 +109,11 @@ class TeachingLearningBasedOptimizer(object):
 
         self.bestidx_ = np.argmin(self.fitness_)  # update details
         self.bestcosts_.append(self.fitness_[self.bestidx_])
+        #logger.to_file(f'Best Fiteness: {self.fitness_[self.bestidx_]}')
+
+def helper_n_generations(ga, n=100):
+    for i in range(n):
+        ga.next()
+    return ga
 
 TLBO = TeachingLearningBasedOptimizer  # shortcut to save our fingers

@@ -10,7 +10,7 @@ import numpy as np
 
 from copy import deepcopy
 from attack_utils import *
-
+from tlbo import TLBO, helper_n_generations
 from scipy.optimize import minimize
 from scipy.stats import wasserstein_distance, levy
 import opytimizer
@@ -284,7 +284,7 @@ def get_adv_opyt_example(model, x_clean, y_clean,
       #space_l_2 = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
       opt_l_2 = Opytimizer(space, optimizer, function, save_agents=False)
       opt_l_2.space.best_agent.position = opt.space.best_agent.position
-      l2_iter = round(iterations)
+      l2_iter = round(iterations/2)
       #opt_l_2.space.best_agent.position = opt.space.best_agent.position
       #Runs the optimization task
       opt_l_2.start(n_iterations = l2_iter)
@@ -618,6 +618,101 @@ def get_agfree_adv(model, x_test_random, y_test_random,
   print("\nTotal Examples: {}, Iterations:{}, espilon: {} and Max-L2:{} step: {}\nAccuracy: {} Mean L2 Counted: {} Query: {}".format(
       len(y_test_random), iterations, epsilon, max_l_2,step, acc, l_2_mean,query_mean,
       l_2_dist(x_test_random.ravel(), x_test_nvg.ravel())))
+
+  ##PRODUCTION
+  # if (acc == 0):
+  #   return -l_2_mean, l_2_mean, query_mean, x_test_nvg
+  # return  acc * (-l_2_mean),l_2_mean, query_mean, x_test_nvg
+  return  acc,l_2_mean, query_mean, x_test_nvg
+
+  # # #MAXIMIZE
+  # if (acc == 0):
+  #   return -l_2_mean
+  # return  acc * (-l_2_mean)
+  # # ##MINIMIZE
+  # if (acc == 0):
+  #   return np.log(l_2_mean)
+  # return  np.log(acc * l_2_mean)
+
+
+
+def get_adv_tlbo_example(model, x_clean, y_clean,
+                        epsilon = 0.5, iterations=100, max_l_2=6, agents=20, l_2_step=1.5):
+  eval_count = 0
+  x_adv = None
+
+  @counter
+  def evaluate_acc(x):
+    nonlocal eval_count
+    eval_count += 1
+    x_adv = process_digit(x_clean, x.ravel(), epsilon)
+    predictions = model.predict(x_adv.reshape((1,28,28,1)))[0]
+    result = np.argmax(predictions)
+    actual = np.argmax(y_clean)
+    dist = float(l_2_dist(x_clean, x_adv))
+    #dist = float(wasserstein_distance(x_clean.ravel(), x_adv.ravel()))
+    if(result != actual):
+      return float(dist)
+    else:
+      return float(predictions[actual] * 1000)
+
+  # Number of agents and decision variables
+  n_agents = agents
+  n_variables = 784
+  # Lower and upper bounds (has to be the same size as `n_variables`)
+  lower_bound = np.empty(n_variables)
+  lower_bound.fill(0)
+  upper_bound = np.empty(n_variables)
+  upper_bound.fill(1)
+
+  #Creates the optimizer
+  tlbo = TLBO(evaluate_acc, lower_bound, upper_bound, n_population=n_agents)
+  tlbo = helper_n_generations(tlbo, iterations)
+  xopt, best_fitness = tlbo.best()
+  x_adv = process_digit(x_clean, xopt.ravel(), epsilon)
+  x_adv = x_adv.reshape((28,28,1))
+  dist = l_2_dist(x_clean, x_adv)
+  adv_pred = np.argmax(model.predict(x_adv.reshape((1,28,28,1))))
+  eval_count += iterations + 1 # 1 for above prediction!
+  attack_succ = np.argmax(y_clean) != adv_pred
+  logger.info(f"\nResult: Attack result:{attack_succ},Fitness: {best_fitness}, Queries: {eval_count}, Dist:{dist}\n")
+
+  #all_dist = get_all_dist(x_clean, x_adv)
+  #logger.info(f"Attack result:{attack_succ}, Queries: {eval_count} All Dist:{all_dist}")
+  return x_adv, eval_count, dist
+
+
+def get_tlbo_adv(model, x_test_random, y_test_random,
+                iterations = 100, epsilon = 3.55, max_l_2=6, agents=20, l_2_step=0.1):
+  iteration = round(iterations)
+  logger.info(f"\nIterations:{iteration}, epsilon: {epsilon} and l_2_step:{l_2_step}")
+  
+  no_samples = len(x_test_random)
+  adv_nvg = np.empty((no_samples,28,28,1))
+
+  i = 0
+  query_count = []
+  l_2 = []
+  for i in range(no_samples):
+    logger.info(f"\nGenerating example:{i}")
+    adv_nvg[i], count, dist = get_adv_tlbo_example(model,
+                                                  x_test_random[i],
+                                                  y_test_random[i],
+                                                  epsilon = epsilon,
+                                                  iterations = iterations,
+                                                   max_l_2 = max_l_2,
+                                                   agents = agents,
+                                                   l_2_step=l_2_step
+                                                  )
+    query_count.append(count)
+    l_2.append(dist)
+
+  x_test_nvg = adv_nvg
+  y_pred_nvg = model.predict(x_test_nvg)
+  acc = get_accuracy(y_pred_nvg, y_test_random)
+  l_2_mean = np.mean(l_2)
+  query_mean = np.mean(query_count)
+  logger.info(f"\nTotal Examples: {len(y_test_random)}, Iterations:{iterations}, espilon: {epsilon} and Max-L2:{max_l_2} Agents: {agents} l_2_step: {l_2_step}\nAccuracy: {acc} Mean L2 Counted: {l_2_mean} Query: {query_mean}")
 
   ##PRODUCTION
   # if (acc == 0):

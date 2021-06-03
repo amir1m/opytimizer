@@ -45,7 +45,6 @@ class MODAOA(Optimizer):
         self.x_clean = deepcopy(params['x_clean'])
         self.y_clean = np.argmax(params['y_clean'])
         self.epsilon = params['epsilon']
-        self.l_2_step = params['l_2_step']
         self.l_2_min = params['l_2_min']
 
         logger.to_file('Clean Label:%s', self.y_clean )
@@ -68,8 +67,8 @@ class MODAOA(Optimizer):
         self.mu = 0.499
 
         # Brownin parameters
-        self.delta = 0.25
-        self.dt = 0.1
+        self.delta = 0.25 # 0.25, 0.75, 0.5
+        self.dt = 0.1 # 0.1,0.01, 0.01
 
         # Builds the class
         self.build(params)
@@ -184,7 +183,8 @@ class MODAOA(Optimizer):
                 search_partition = (agent.ub[j] - agent.lb[j]) * self.mu + agent.lb[j]
 
                 # If probability is bigger than MOA
-                if y_pred == y_true:
+                #if y_pred == y_true:
+                if r1 > MOA:
                     # Generates an extra probability
                     r2 = r.generate_uniform_random_number()
 
@@ -208,13 +208,13 @@ class MODAOA(Optimizer):
                     # If probability is bigger than 0.5
                     if r3 > 0.5:
                         # Updates position with (eq. 5 - top)
-                        #agent.position[j] = space.best_agent.position[j] - (MOP * search_partition * c_l_2_dist) / self.l_2_step
-                        agent.position[j] = space.best_agent.position[j] - r.generate_gaussian_random_number(mean=space.best_agent.position[j], variance=1)* search_partition
-                        #agent.position[j] = space.best_agent.position[j] - norm.rvs(scale=MOP**2*search_partition)
+                        #agent.position[j] = space.best_agent.position[j] - (MOP * search_partition)
+                        #agent.position[j] = space.best_agent.position[j] - r.generate_gaussian_random_number(mean=space.best_agent.position[j], variance=10*MOP)* search_partition
+                        agent.position[j] = space.best_agent.position[j] - norm.rvs(scale=self.delta**2*search_partition)
 
                     # If probability is smaller than 0.5
                     else:
                         # Updates position with (eq. 5 - bottom)
-                        #agent.position[j] = space.best_agent.position[j] + (MOP * search_partition * c_l_2_dist) / self.l_2_step
-                        agent.position[j] = space.best_agent.position[j] + r.generate_gaussian_random_number(mean=space.best_agent.position[j], variance=1) * search_partition
-                        #agent.position[j] = space.best_agent.position[j] + norm.rvs(scale=self.delta**2*search_partition)
+                        #agent.position[j] = space.best_agent.position[j] + (MOP * search_partition)
+                        #agent.position[j] = space.best_agent.position[j] + r.generate_gaussian_random_number(mean=space.best_agent.position[j], variance=10*MOP) * search_partition
+                        agent.position[j] = space.best_agent.position[j] + norm.rvs(scale=self.delta**2*search_partition)

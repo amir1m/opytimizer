@@ -200,7 +200,7 @@ def get_adv_opyt_example(model, x_clean, y_clean,
                         epsilon = 0.5, iterations=100, max_l_2=6, agents=20, l_2_mul=.5):
   eval_count = 0
   x_adv = None
-  l2_iter = round(iterations*l_2_mul)
+  l2_iter = round(iterations)
 
   def evaluate_acc(x):
     nonlocal eval_count
@@ -262,13 +262,13 @@ def get_adv_opyt_example(model, x_clean, y_clean,
   x_adv = x_adv.reshape((28,28,1))
   dist = l_2_dist(x_clean, x_adv)
   adv_pred = np.argmax(model.predict(x_adv.reshape((1,28,28,1))))
-  eval_count += iterations + 1 # 1 for above prediction!
+  eval_count += 1 # 1 for above prediction!
   attack_succ = np.argmax(y_clean) != adv_pred
   logger.info(f"\nExploration Phase#1 Result: Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}\n")
 
   if(attack_succ == True):
     logger.info("\nStarting Phase#2 Exploitation\n")
-    for i in range(1):
+    for i in range(2):
       logger.info(f"\nRestarting L2 Minimization loop: {i}")
       params={'model':model, 'x_clean':x_clean, 'x_adv': None,
       'y_clean': y_clean,'epsilon' : epsilon, 'l_2_min':True}
@@ -278,12 +278,12 @@ def get_adv_opyt_example(model, x_clean, y_clean,
       opt_l_2.space.best_agent.position = opt.space.best_agent.position
       #opt_l_2.space.best_agent.position = opt.space.best_agent.position
       #Runs the optimization task
-      opt_l_2.start(n_iterations = l2_iter)
+      opt_l_2.start(n_iterations = round(iterations*l_2_mul/(i+1)))
       xopt_curr = opt_l_2.space.best_agent.position
       x_adv_curr = process_digit(x_clean, xopt_curr.ravel(), epsilon)
       x_adv_curr = x_adv_curr.reshape((28,28,1))
       adv_pred_curr = np.argmax(model.predict(x_adv_curr.reshape((1,28,28,1))))
-      eval_count += l2_iter + 1
+      eval_count += 1
       attack_succ_curr = np.argmax(y_clean) != adv_pred_curr
       dist_curr = l_2_dist(x_clean, x_adv_curr)
       if(attack_succ_curr == True and dist_curr < dist):

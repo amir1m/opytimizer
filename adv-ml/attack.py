@@ -268,17 +268,17 @@ def get_adv_opyt_example(model, x_clean, y_clean,
 
   if(attack_succ == True):
     logger.info("\nStarting Phase#2 Exploitation\n")
-    for i in range(2):
+    for i in range(1):
       logger.info(f"\nRestarting L2 Minimization loop: {i}")
       params={'model':model, 'x_clean':x_clean, 'x_adv': None,
       'y_clean': y_clean,'epsilon' : epsilon, 'l_2_min':True}
       optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
       #space_l_2 = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
       opt_l_2 = Opytimizer(space, optimizer, function, save_agents=False)
-      opt_l_2.space.best_agent.position = opt.space.best_agent.position
+      #opt_l_2.space.best_agent.position = opt.space.best_agent.position
       #opt_l_2.space.best_agent.position = opt.space.best_agent.position
       #Runs the optimization task
-      opt_l_2.start(n_iterations = round(iterations*l_2_mul/(i+1)))
+      opt_l_2.start(n_iterations = round(iterations*l_2_mul))
       xopt_curr = opt_l_2.space.best_agent.position
       x_adv_curr = process_digit(x_clean, xopt_curr.ravel(), epsilon)
       x_adv_curr = x_adv_curr.reshape((28,28,1))

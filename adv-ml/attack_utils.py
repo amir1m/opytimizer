@@ -80,7 +80,9 @@ def get_accuracy(y_pred, y_true):
   return acc * 100
 
 def get_mis_preds(y_true, y_preds):
-  return np.where(np.argmax(y_true) != np.argmax(y_preds))[0]
+  if len(y_true) == 1:
+    return np.where(np.argmax(y_true) != np.argmax(y_preds))[0]
+  return np.where(np.argmax(y_true, axis=1) != np.argmax(y_preds, axis=1))[0]
 
 def get_correct_preds(y_true, y_preds):
   return np.where(np.argmax(y_true, axis=1) == np.argmax(y_preds, axis=1))[0]
@@ -89,19 +91,9 @@ def browse_mis_samples(clean_images, adv_images, y_true, y_pred, verbose=True):
   total_images = len(adv_images)
   mis_preds = get_mis_preds(y_true, y_pred)
 
-
-  #print("Before Clean shape: {} adv shape: {}".format
-   #     (clean_images.shape, adv_images.shape))
-
-
   clean_images = clean_images[mis_preds]
   adv_images = adv_images[mis_preds]
 
-  #print("Afer mispred Clean shape: {} adv shape: {}".format
-   #     (clean_images.shape, adv_images.shape))
-
-
-  #N = clean_images.shape[0]
   N = len(mis_preds)
   if (N == 0):
     print("There are zero mis-classified images!")

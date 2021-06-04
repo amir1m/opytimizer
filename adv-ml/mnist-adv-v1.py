@@ -89,7 +89,7 @@ keras.__version__
 
 model_logit = load_model('adv-ml/models/mnist', compile = False)
 
-n_samples = 1
+n_samples = 10
 x_test_random, y_test_random, rand_ind = get_random_correct_samples(
 n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 logger.info("SEED: 0")

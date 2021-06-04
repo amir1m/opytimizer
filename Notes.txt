@@ -1,0 +1,1594 @@
+1. Neuroevolution NIDS
+
+2. Using Shapely Values for adversarial example generation
+
+3. What is the impact tuning of NN on adversarial examples
+
+4. What is the impact of the PCA on accuracy with clean and adv examples?
+
+5. Use Bayesian Optimization/GITTINX INDEX
+
+6. RL
+
+
+ACM Article cls FILE:
+/usr/local/texlive/2020/texmf-dist/tex/latex/acmart
+
+Keywords:  
+
+=========
+2. Using Shapely Values for adversarial example generation
+
+Use shapely values using surrogate model : using training data
+get most important feature and modify only those values
+
+
+def combine_golden_adv(df_golden, df_adv):
+  df_temp = df_adv.copy()
+  df_temp[1] = df_golden['protocol_type']
+  df_temp[2] = df_golden['service']
+  df_temp[3] = df_golden['flag']
+  return df_temp
+
+
+=============================
+10 cso samples = 1min 14s = 75 s
+
+100 : 12min 22s
+query count : 2610, iteration : 5
+
+array([7340,  866, 5450, 5250, 5794, 6329,  469, 4480, 5638, 8393])
+=================================
+Generating adv examples using attack CSO
+n: 500 Iteration:1 and espilon: 1.7
+Attack result:True, Dist:9.181430864806401
+Attack result:True, Dist:8.963406305746902
+
+np.random.uniform() > 0.1)
+Generating adv examples using attack CSO
+n: 500 Iteration:1 and espilon: 1.25
+Attack result:True, Dist:7.58736751529512
+Attack result:True, Dist:7.857929773436392
+
+np.random.uniform() > 0.6
+Generating adv examples using attack CSO
+n: 500 Iteration:1 and espilon: 1.25
+Attack result:False, Dist:6.319192191432492
+Attack result:False, Dist:6.876457575513054
+
+np.random.uniform() > 0.2
+Generating adv examples using attack CSO
+n: 500 Iteration:1 and espilon: 1.25
+Attack result:False, Dist:8.11107252695127
+Attack result:False, Dist:8.154483103876279
+Attack result:True, Dist:8.333558532609942
+Attack result:False, Dist:8.41945501420868
+Attack result:True, Dist:8.340984609966698
+
+
+np.random.uniform() > 0.1
+Generating adv examples using attack CSO
+n: 500 Iteration:1 and espilon: 1.25
+Attack result:False, Dist:8.861137085387234
+Attack result:True, Dist:8.591211837257573
+Attack result:True, Dist:8.67477220385836
+
+np.random.uniform() > 0.1
+enerating adv examples using attack CSO
+n: 500 Iteration:1 and espilon: 1.2
+Attack result:False, Dist:8.66392655537402
+Attack result:True, Dist:8.51614548894333
+=============================
+DE:
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=.45)
+
+Iterations:1000 and espilon: 0.45
+Attack result:False, Dist:5.019737397593448
+Attack result:False, Dist:4.863944381054908
+Attack result:True, Dist:4.970602338786254
+Attack result:True, Dist:4.89228155017317
+Attack result:True, Dist:4.99584402538297
+Attack result:False, Dist:4.94516519011953
+Attack result:False, Dist:4.938930544625486
+Attack result:False, Dist:4.816357072874361
+Attack result:False, Dist:4.751093528413748
+Attack result:False, Dist:4.82537686249531
+Accuracy: 70.0 Mean L2 Counted: 4.901933289151918 Query: 1000.0
+CPU times: user 1min 6s, sys: 1.6 s, total: 1min 8s
+Wall time: 1min
+
+wITH Logs : 40% Accuracy
+
+
+============================
+Random Search
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=.5)
+
+Iterations:1000 and espilon: 0.5
+Attack result:False, Dist:5.316730172339174
+Attack result:False, Dist:5.347014454575164
+Attack result:True, Dist:5.101238323674636
+Attack result:False, Dist:5.24921495174708
+Attack result:False, Dist:5.25780461778672
+Attack result:False, Dist:5.435970120703747
+Attack result:False, Dist:5.165859445945569
+Attack result:False, Dist:5.21224068380571
+Attack result:False, Dist:5.188614516565905
+Attack result:False, Dist:5.289112078144403
+Accuracy: 90.0 Mean L2 Counted: 5.256379936528811 Query: 1000.0
+CPU times: user 46.1 s, sys: 1.82 s, total: 47.9 s
+Wall time: 40.3 s
+=========================
+NGO
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=.5)
+
+Iterations:1000 and espilon: 0.5
+Attack result:False, Dist:6.347642737276682
+Attack result:True, Dist:5.4209922832966635
+Attack result:True, Dist:5.337661729607772
+Attack result:True, Dist:5.509141721130904
+Attack result:False, Dist:6.250409520851199
+Attack result:False, Dist:5.888811622702151
+Attack result:False, Dist:6.335082753503778
+Attack result:False, Dist:6.431652267569109
+Attack result:False, Dist:6.211718854401541
+Attack result:False, Dist:6.4062093972608425
+Accuracy: 70.0 Mean L2 Counted: 6.013932288760064 Query: 1000.0
+CPU times: user 46.1 s, sys: 1.8 s, total: 47.9 s
+Wall time: 40 s
+==============================
+AlmostRotationInvariantDE
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=.5)
+
+Iterations:1000 and espilon: 0.5
+Attack result:True, Dist:5.711362904424352
+Attack result:True, Dist:5.647717867642203
+Attack result:True, Dist:5.809617274994155
+Attack result:True, Dist:5.435840319793891
+Attack result:True, Dist:5.723560649842279
+Attack result:True, Dist:5.70248784434632
+Attack result:False, Dist:5.262233569677695
+Attack result:True, Dist:5.676489400948493
+Attack result:False, Dist:4.979190627901659
+Attack result:False, Dist:5.267872540776969
+Accuracy: 30.0 Mean L2 Counted: 5.5216373000348025 Query: 1000.0
+CPU times: user 1min 1s, sys: 1.85 s, total: 1min 3s
+Wall time: 55.9 s
+
+=================================
+AlmostRotationInvariantDE - 2
+< 5.0
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=.4)
+Iterations:1000 and espilon: 0.4
+Generating example:  0
+Attack result:True, Dist:4.6638173638293035
+Generating example:  1
+Attack result:False, Dist:4.2861996834854175
+Generating example:  2
+Attack result:True, Dist:4.775267116018829
+Generating example:  3
+Attack result:False, Dist:4.3777150664503255
+Generating example:  4
+Attack result:True, Dist:4.947415876604732
+Generating example:  5
+Attack result:True, Dist:4.814196765733106
+Generating example:  6
+Attack result:False, Dist:4.430466062257674
+Generating example:  7
+Attack result:False, Dist:4.423528383776341
+Generating example:  8
+Attack result:False, Dist:4.622815545989643
+Generating example:  9
+Attack result:False, Dist:3.764135894149281
+Accuracy: 60.0 Mean L2 Counted: 4.510555775829466 Query: 1000.0
+CPU times: user 1min 56s, sys: 2.13 s, total: 1min 58s
+Wall time: 1min 50s
+
+==============================
+
+
+NoisyDE
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=.5)
+Iterations:1000 and espilon: 0.5
+Attack result:True, Dist:4.7852920672269486
+Attack result:False, Dist:4.615038218342785
+Attack result:True, Dist:4.6925195667297785
+Attack result:False, Dist:4.867191589110231
+Attack result:False, Dist:5.072185913154462
+Attack result:True, Dist:4.9247527975913705
+Attack result:False, Dist:4.69693930503171
+Attack result:False, Dist:4.917879715692998
+Attack result:False, Dist:4.650975985925122
+Attack result:False, Dist:4.580734427112369
+Accuracy: 70.0 Mean L2 Counted: 4.780350958591777 Query: 1000.0
+CPU times: user 1min 1s, sys: 1.77 s, total: 1min 3s
+Wall time: 55.6 s
+=======================
+QrDE
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=.5)
+
+Iterations:1000 and espilon: 0.5
+Attack result:False, Dist:5.608548405531219
+Attack result:False, Dist:5.230508333525551
+Attack result:True, Dist:5.034438894117907
+Attack result:False, Dist:5.351995452986522
+Attack result:False, Dist:5.531946435077415
+Attack result:True, Dist:5.389422237632586
+Attack result:False, Dist:5.123879121525398
+Attack result:False, Dist:5.161966699774338
+Attack result:False, Dist:5.354557987042499
+Attack result:False, Dist:5.209868670285826
+Accuracy: 80.0 Mean L2 Counted: 5.299713223749926 Query: 1000.0
+CPU times: user 1min 19s, sys: 1.89 s, total: 1min 21s
+Wall time: 1min 13s
+
+==========================
+LhsDE
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=.5)
+
+Iterations:1000 and espilon: 0.5
+Attack result:True, Dist:5.400914287500906
+Attack result:True, Dist:5.242480973201341
+Attack result:True, Dist:5.225884675868175
+Attack result:False, Dist:5.216690952041308
+Attack result:True, Dist:5.318725411163951
+Attack result:True, Dist:5.360350975255754
+Attack result:False, Dist:5.246416719514003
+Attack result:False, Dist:5.296142949099694
+Attack result:False, Dist:5.285384885516836
+Attack result:False, Dist:5.132779585526203
+Accuracy: 50.0 Mean L2 Counted: 5.272577141468817 Query: 1000.0
+CPU times: user 1min 1s, sys: 1.79 s, total: 1min 3s
+Wall time: 55.9 s
+=========================
+TwoPointsDE
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=.5)
+Iterations:1000 and espilon: 0.5
+Attack result:True, Dist:5.520692415587932
+Attack result:False, Dist:5.3076721686419335
+Attack result:True, Dist:5.450689670540337
+Attack result:False, Dist:5.103057187834907
+Attack result:True, Dist:5.49624950712273
+Attack result:True, Dist:5.452171906295758
+Attack result:False, Dist:5.127130436249276
+Attack result:False, Dist:5.334989989523171
+Attack result:False, Dist:5.043990207415815
+Attack result:False, Dist:5.218302564426528
+Accuracy: 60.0 Mean L2 Counted: 5.3054946053638385 Query: 1000.0
+CPU times: user 45.3 s, sys: 1.8 s, total: 47.1 s
+Wall time: 39.3 s
+=====================
+RotationInvariantDE
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=.5)
+
+Iterations:1000 and espilon: 0.5
+Attack result:False, Dist:5.233236387337322
+Attack result:False, Dist:5.1343678568457
+Attack result:True, Dist:5.29637172637919
+Attack result:False, Dist:5.052449692396923
+Attack result:False, Dist:5.330654384622045
+Attack result:False, Dist:5.381837312435976
+Attack result:False, Dist:5.061071561628017
+Attack result:False, Dist:5.235499478655243
+Attack result:False, Dist:5.041269359951897
+Attack result:False, Dist:4.973227839345345
+Accuracy: 90.0 Mean L2 Counted: 5.173998559959766 Query: 1000.0
+CPU times: user 49.6 s, sys: 1.83 s, total: 51.5 s
+Wall time: 43.4 s
+
+===============================
+RealSpacePSO
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=.5)
+
+Iterations:1000 and espilon: 0.5
+Generating example:  0
+Attack result:True, Dist:6.0024999599034485
+Generating example:  1
+Attack result:True, Dist:5.841677862622815
+Generating example:  2
+Attack result:True, Dist:5.6923593547855935
+Generating example:  3
+Attack result:False, Dist:5.645485977366437
+Generating example:  4
+Attack result:True, Dist:5.493535940854741
+Generating example:  5
+Attack result:True, Dist:5.964868561035624
+Generating example:  6
+Attack result:False, Dist:5.816605161459535
+Generating example:  7
+Attack result:True, Dist:5.7280680541907785
+Generating example:  8
+Attack result:False, Dist:5.656275727657212
+Generating example:  9
+Attack result:False, Dist:5.598347992332367
+Accuracy: 40.0 Mean L2 Counted: 5.7439724592208545 Query: 1000.0
+CPU times: user 51.3 s, sys: 3.77 s, total: 55.1 s
+Wall time: 44.2 s
+=============================
+PSO
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=.5)
+
+Iterations:1000 and espilon: 0.5
+Generating example:  0
+Attack result:False, Dist:4.014985567843444
+Generating example:  1
+Attack result:False, Dist:4.736358907342166
+Generating example:  2
+Attack result:True, Dist:4.482082367685106
+Generating example:  3
+Attack result:False, Dist:4.601803341534732
+Generating example:  4
+Attack result:False, Dist:5.925678695795299
+Generating example:  5
+Attack result:False, Dist:5.173464972770765
+Generating example:  6
+Attack result:False, Dist:4.548849395091995
+Generating example:  7
+Attack result:False, Dist:4.744438304616188
+Generating example:  8
+Attack result:False, Dist:4.063263736653003
+Generating example:  9
+Attack result:False, Dist:4.141154120398133
+Accuracy: 90.0 Mean L2 Counted: 4.643207940973083 Query: 1000.0
+CPU times: user 1min 45s, sys: 3.51 s, total: 1min 48s
+Wall time: 1min 37s
+==================
+AlmostRotationInvariantDE - 3
+x_clean_ravel += x_clean_ravel * x_prop
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=1,
+                                                     max_l_2=5 )
+
+Iterations:1000, espilon: 1 and Max-L2:5
+Attack result:False, Dist:0.8017571677291769
+Attack result:False, Dist:1.3255266301905584
+Attack result:True, Dist:3.2322840345521846
+Attack result:False, Dist:1.9401320828645154
+Attack result:False, Dist:0.9877902893200788
+Attack result:True, Dist:2.1635494990409008
+Attack result:False, Dist:1.9357274544193157
+Attack result:True, Dist:3.6249734178367152
+Attack result:False, Dist:1.446023573011867
+Attack result:False, Dist:1.7684367699693517
+Accuracy: 70.0 Mean L2 Counted: 1.9226200918934666 Query: 1000.0
+CPU times: user 2min 17s, sys: 3.04 s, total: 2min 20s
+Wall time: 2min 11s
+=====================
+AlmostRotationInvariantDE - 3
+x_clean_ravel += x_prop
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1500, epsilon=0.4,
+                                                     max_l_2=4 )
+
+Iterations:1500, espilon: 0.4 and Max-L2:4
+Attack result:True, Dist:3.999351916709374
+Attack result:False, Dist:3.993694925006626
+Attack result:True, Dist:3.997420496254065
+Attack result:False, Dist:3.81011161391769
+Attack result:True, Dist:3.9902668070017673
+Attack result:True, Dist:3.994956273838329
+Attack result:False, Dist:3.9642747642120186
+Attack result:False, Dist:3.988091889946067
+Attack result:False, Dist:3.9930375975022256
+Attack result:False, Dist:3.9894306713791696
+Accuracy: 60.0 Mean L2 Counted: 3.9720636955767326 Query: 1500.0
+CPU times: user 4min 31s, sys: 5.21 s, total: 4min 37s
+Wall time: 4min 22s
+=================================
+ DEthenPSO = ng.optimizers.Chaining([ng.optimizers.AlmostRotationInvariantDE,
+                                 ng.optimizers.RealSpacePSO], [iterations])
+    optimizer = DEthenPSO(budget=iterations, parametrization=params)
+x_clean_ravel += x_prop
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=2000, epsilon=1,
+                                                     max_l_2=5 )
+Iterations:2000, espilon: 1 and Max-L2:5
+Generating example:  0
+Attack result:False, Dist:4.998194895085863
+Generating example:  1
+Attack result:False, Dist:4.908277672436259
+Generating example:  2
+Attack result:True, Dist:4.962639887341153
+Generating example:  3
+Attack result:True, Dist:4.998012641182086
+Generating example:  4
+Attack result:True, Dist:4.997248633784309
+Generating example:  5
+Attack result:True, Dist:4.996889305436972
+Generating example:  6
+Attack result:False, Dist:4.987841787968389
+Generating example:  7
+Attack result:False, Dist:4.992179906605519
+Generating example:  8
+Attack result:False, Dist:4.993210173342932
+Generating example:  9
+Attack result:False, Dist:4.998552350503207
+Accuracy: 60.0 Mean L2 Counted: 4.983304725368669 Query: 2000.0
+CPU times: user 8min 33s, sys: 9.58 s, total: 8min 43s
+Wall time: 8min 22s
+===========================
+DEthenPSO = ng.optimizers.Chaining([ng.optimizers.AlmostRotationInvariantDE,
+                                 ng.optimizers.CMA], [iterations])
+    optimizer = DEthenPSO(budget=iterations, parametrization=params)
+
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=1,
+                                                     max_l_2=5 )
+
+Iterations:1000, espilon: 1 and Max-L2:5
+Generating example:  0
+Attack result:True, Dist:4.999167477753227
+Generating example:  1
+Attack result:True, Dist:4.9999919776556
+Generating example:  2
+Attack result:True, Dist:4.887896904128565
+Generating example:  3
+Attack result:False, Dist:4.996401093698546
+Generating example:  4
+Attack result:True, Dist:4.9420416780361425
+Generating example:  5
+Attack result:True, Dist:4.991364048536015
+Generating example:  6
+Attack result:False, Dist:4.996877810725053
+Generating example:  7
+Attack result:False, Dist:4.999335983667361
+Generating example:  8
+Attack result:False, Dist:4.993221840602165
+Generating example:  9
+Attack result:False, Dist:4.999902160601869
+Accuracy: 50.0 Mean L2 Counted: 4.980620097540455 Query: 1000.0
+CPU times: user 5min 2s, sys: 5.02 s, total: 5min 7s
+Wall time: 4min 56s
+==========================
+DEthenCMA = ng.optimizers.Chaining([ng.optimizers.AlmostRotationInvariantDE,
+                                 ng.optimizers.CMA], [iterations])
+    optimizer = DEthenCMA(budget=iterations, parametrization=params)
+
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=1,
+                                                     max_l_2=5)
+
+Iterations:1000, espilon: 1 and Max-L2:5
+Generating example:  0
+Attack result:True, Dist:4.999359796661817
+Generating example:  1
+Attack result:True, Dist:4.998850452534897
+
+
+Accuracy: 76.0 Mean L2 Counted: 4.98258754140058 Query: 1000.0
+CPU times: user 33min 4s, sys: 41 s, total: 33min 45s
+Wall time: 32min 7s
+
+======================================
+x_clean_ravel += x_prop * epsilon
+optimizer = ng.optimizers.AlmostRotationInvariantDE(budget=iterations, 
+                                  parametrization=params)
+
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, x_test_random, 
+                                                     y_test_random,
+                                                    iterations=1000, epsilon=0.5,
+                                                     max_l_2=5)
+Iterations:1000, espilon: 0.5 and Max-L2:5
+Generating example:  0
+Attack result:True, Dist:4.989393473095791
+Generating example:  1
+Attack result:True, Dist:4.993081581114644
+Generating example:  2
+Attack result:True, Dist:4.987487969725106
+Generating example:  3
+Attack result:True, Dist:4.9868828416364535
+Generating example:  4
+Attack result:True, Dist:4.987564155940938
+Generating example:  5
+Attack result:True, Dist:4.98567052072624
+Generating example:  6
+Attack result:False, Dist:4.969656370180551
+Generating example:  7
+Attack result:False, Dist:4.9775101455715705
+Generating example:  8
+Attack result:False, Dist:4.984431645545653
+Generating example:  9
+Attack result:False, Dist:4.994829340218293
+Accuracy: 40.0 Mean L2 Counted: 4.985650804375524 Query: 1000.0
+CPU times: user 2min 2s, sys: 3.12 s, total: 2min 5s
+Wall time: 1min 56s
+=====================
+  x_clean_ravel += x_prop * epsilon
+optimizer = ng.optimizers.AlmostRotationInvariantDE(budget=iterations, 
+                                  parametrization=params)
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, 
+                                                     x_test_random, 
+                                                     y_test_random,
+                                                     iterations=2000, 
+                                                     epsilon=0.4,
+                                                     max_l_2=5
+                                                     )
+Iterations:2000, espilon: 0.4 and Max-L2:5
+Generating example:  0
+Attack result:True, Dist:4.9203717857055
+Generating example:  1
+Attack result:False, Dist:4.8840259839935625
+Generating example:  2
+Attack result:True, Dist:4.876950805241371
+Generating example:  3
+Attack result:True, Dist:4.969783074750497
+Generating example:  4
+Attack result:True, Dist:4.992655335192094
+Generating example:  5
+Attack result:False, Dist:4.853196003065049
+Generating example:  6
+Attack result:True, Dist:4.990668267760154
+Generating example:  7
+Attack result:False, Dist:4.603283745337329
+Generating example:  8
+Attack result:False, Dist:4.987070396034762
+Generating example:  9
+Attack result:False, Dist:4.97742297762079
+Accuracy: 50.0 Mean L2 Counted: 4.905542837470111 Query: 2000.0
+CPU times: user 2min 57s, sys: 5.43 s, total: 3min 2s
+Wall time: 2min 45s	
+
+====================
+  x_clean_ravel += x_prop * epsilon
+
+ print("Generating example: ", i)
+    params = ng.p.Array(shape=(784,)).set_bounds(0, 1)
+    #params.value = np.zeros_like(x_test_random[i].ravel())
+    
+    optimizer = ng.optimizers.DE(budget=iterations, 
+                                  parametrization=params)
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, 
+                                                     x_test_random, 
+                                                     y_test_random,
+                                                     iterations=2000, 
+                                                     epsilon=0.5,
+                                                     max_l_2=5
+                                                     )
+
+Iterations:2000, espilon: 0.5 and Max-L2:5
+Generating example:  0
+Attack result:True, Dist:4.976767030383439
+Generating example:  1
+Attack result:False, Dist:4.980613610271095
+Generating example:  2
+Attack result:True, Dist:4.9301210858097795
+Generating example:  3
+Attack result:True, Dist:4.985587293574052
+Generating example:  4
+Attack result:True, Dist:4.959072695734455
+Generating example:  5
+Attack result:True, Dist:4.96035691403609
+Generating example:  6
+Attack result:True, Dist:4.9968794333798146
+Generating example:  7
+Attack result:False, Dist:4.99224669119419
+Generating example:  8
+Attack result:False, Dist:4.96120013991619
+Generating example:  9
+Attack result:True, Dist:4.9768149715033685
+Accuracy: 30.0 Mean L2 Counted: 4.971965986580246 Query: 2000.0
+CPU times: user 4min 15s, sys: 7.37 s, total: 4min 23s
+Wall time: 4min 4s
+====================
+  x_clean_ravel += x_prop * epsilon
+    optimizer = ng.optimizers.AlmostRotationInvariantDE(budget=iterations, 
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, 
+                                                     x_test_random, 
+                                                     y_test_random,
+                                                     iterations=4000, 
+                                                     epsilon=0.3,
+                                                     max_l_2=4
+                                                     )
+Iterations:4000, espilon: 0.3 and Max-L2:4
+Generating example:  0
+Attack result:True, Dist:3.993524772725924
+Generating example:  1
+Attack result:False, Dist:3.9311124757378133
+Generating example:  2
+Attack result:True, Dist:3.9869151049059774
+Generating example:  3
+Attack result:False, Dist:3.8367855003091837
+Generating example:  4
+Attack result:True, Dist:3.987083568957506
+Generating example:  5
+Attack result:True, Dist:3.998312624686095
+Generating example:  6
+Attack result:False, Dist:3.9961256957243085
+Generating example:  7
+Attack result:False, Dist:3.991265707076659
+Generating example:  8
+Attack result:False, Dist:3.992985272056655
+Generating example:  9
+Attack result:False, Dist:3.991252250070293
+Accuracy: 60.0 Mean L2 Counted: 3.970536297225042 Query: 4000.0
+CPU times: user 5min 26s, sys: 5.63 s, total: 5min 32s
+Wall time: 5min 3s
+========================================
+DEthenPSO = ng.optimizers.Chaining([
+                                         ng.optimizers.AlmostRotationInvariantDE,
+                                         ng.optimizers.RealSpacePSO], [iterations]
+                                        )
+
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, 
+                                                     x_test_random, 
+                                                     y_test_random,
+                                                     iterations=4000, 
+                                                     epsilon=0.2,
+                                                     max_l_2=3
+                                                     )
+
+Iterations:4000, espilon: 0.2 and Max-L2:3
+Generating example:  0
+Attack result:False, Queries: 4000 Dist:2.998021199826204
+Generating example:  1
+Attack result:False, Queries: 4000 Dist:2.951730424193578
+Generating example:  2
+Attack result:True, Queries: 4000 Dist:2.9945117493245226
+Generating example:  3
+Attack result:False, Queries: 4000 Dist:2.812488891071219
+Generating example:  4
+Attack result:False, Queries: 4000 Dist:2.991628442064048
+Generating example:  5
+Attack result:True, Queries: 4000 Dist:2.9784916215535313
+Generating example:  6
+Attack result:False, Queries: 4000 Dist:2.6520932063403584
+Generating example:  7
+Attack result:False, Queries: 4000 Dist:2.6791995758657037
+Generating example:  8
+Attack result:False, Queries: 4000 Dist:2.9925716973356855
+Generating example:  9
+Attack result:False, Queries: 4000 Dist:2.9589246661515802
+Accuracy: 80.0 Mean L2 Counted: 2.9009661473726434 Query: 4000.0
+CPU times: user 6min 11s, sys: 7.32 s, total: 6min 18s
+Wall time: 5min 46s
+
+=========================================
+optimizer = ng.optimizers.AlmostRotationInvariantDE(budget=iterations, 
+                                 parametrization=params)
+
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, 
+                                                     x_test_random, 
+                                                     y_test_random,
+                                                     iterations=4000, 
+                                                     epsilon=0.3,
+                                                     max_l_2=5
+                                                     )
+Iterations:4000, espilon: 0.3 and Max-L2:5
+Generating example:  0
+Attack result:False, Queries: 4000 Dist:3.815289551513252
+Generating example:  1
+Attack result:True, Queries: 4000 Dist:4.363331385448068
+Generating example:  2
+Attack result:True, Queries: 4000 Dist:4.095359534708239
+Generating example:  3
+Attack result:False, Queries: 4000 Dist:4.305965165040312
+Generating example:  4
+Attack result:True, Queries: 4000 Dist:4.2894867318796415
+Generating example:  5
+Attack result:False, Queries: 4000 Dist:3.960074461452562
+Generating example:  6
+Attack result:True, Queries: 4000 Dist:4.347678579819798
+Generating example:  7
+Attack result:True, Queries: 4000 Dist:4.387454720707053
+Generating example:  8
+Attack result:False, Queries: 4000 Dist:4.121252145151881
+Generating example:  9
+Attack result:False, Queries: 4000 Dist:4.107763032670736
+Accuracy: 50.0 Mean L2 Counted: 4.179365530839154 Query: 4000.0
+CPU times: user 4min 44s, sys: 6.34 s, total: 4min 50s
+Wall time: 4min 19s
+
+=============================
+optimizer = ng.optimizers.DE(budget=iterations, 
+                                 parametrization=params)
+%%time
+loss, l_2_mean, query_mean, x_test_nvg = get_nvg_adv(model_logit, 
+                                                     x_test_random, 
+                                                     y_test_random,
+                                                     iterations=4000, 
+                                                     epsilon=0.3,
+                                                     max_l_2=5
+                                                     )
+
+Iterations:4000, espilon: 0.3 and Max-L2:5
+Generating example:  0
+Attack result:False, Queries: 4000 Dist:3.802758099605549
+Generating example:  1
+Attack result:False, Queries: 4000 Dist:3.8655457308280776
+Generating example:  2
+Attack result:True, Queries: 4000 Dist:3.72299184608686
+Generating example:  3
+Attack result:False, Queries: 4000 Dist:3.792589628603476
+Generating example:  4
+Attack result:True, Queries: 4000 Dist:3.828706657997477
+Generating example:  5
+Attack result:True, Queries: 4000 Dist:4.003493634089942
+Generating example:  6
+Attack result:False, Queries: 4000 Dist:3.793418125538557
+Generating example:  7
+Attack result:False, Queries: 4000 Dist:3.8404895799111562
+Generating example:  8
+Attack result:False, Queries: 4000 Dist:3.884783741336758
+Generating example:  9
+Attack result:False, Queries: 4000 Dist:3.805931455950981
+Accuracy: 70.0 Mean L2 Counted: 3.834070849994883 Query: 4000.0
+CPU times: user 4min 43s, sys: 6.12 s, total: 4min 49s
+Wall time: 4min 18s
+
+===============================================================
+				cso
+===============================================================
+%%time
+loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit, 
+                                                     x_test_random, 
+                                                     y_test_random,
+                                                     iterations=250, 
+                                                     epsilon=0.25,
+                                                     max_l_2=3
+                                                     )
+Total Mis-classified Images:  4 out of 5
+Mis preds:  [0 2 3 4]
+Mean L2 Dist.:  3.7617959529096012
+query_mean 15020.0
+Time: 25 minutes
+===============================================================
+%%time
+loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit, 
+                                                     x_test_random, 
+                                                     y_test_random,
+                                                     iterations=200, 
+                                                     epsilon=0.25,
+                                                     max_l_2=3,
+                                                     agents = 25
+                                                     )
+
+
+Attack result:True, Queries: 15025 Dist:3.734974099420275
+Accuracy: 0.0 Mean L2 Counted: 3.734974099420275 Query: 15025.0
+CPU times: user 5min 1s, sys: 24.8 s, total: 5min 26s
+Wall time: 4min 51s
+=========================================
+3rd Accuracy: 50.0 Mean L2 Counted: 2.7249038360126967 Query: 1025.0
+============
+
+%%time
+loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit, 
+                                                     x_test_random, 
+                                                     y_test_random,
+                                                     iterations=50, 
+                                                     epsilon=0.15,
+                                                     max_l_2=3,
+                                                     agents = 25
+                                                     )
+
+ABC Accuracy 75% 2.69 l2 3875 QUERIES
+
+BA Accuracy: 75.0 Mean L2 Counted: 2.5784082236103183 Query: 2525.0
+
+BOA :
+Accuracy: 100.0 Mean L2 Counted: 2.0466192867317794 Query: 1275.0
+CPU times: user 1min 49s, sys: 15.3 s, total: 2min 5s
+Wall time: 1min 46s
+
+BWO - Still going on
+
+CSO
+Accuracy: 75.0 Mean L2 Counted: 2.339052154597315 Query: 3775.0
+CPU times: user 4min 28s, sys: 21.4 s, total: 4min 50s
+Wall time: 4min 18s
+
+*CSA
+Attack result:False, Queries: 1275 Dist:2.4749708074244596
+Accuracy: 75.0 Mean L2 Counted: 2.5199990683547417 Query: 1275.0
+CPU times: user 1min 50s, sys: 14.7 s, total: 2min 5s
+Wall time: 1min 46s
+
+EHO
+Attack result:False, Queries: 2275 Dist:2.058032723403563
+Accuracy: 100.0 Mean L2 Counted: 2.071385270125994 Query: 2275.0
+CPU times: user 3min 2s, sys: 19 s, total: 3min 21s
+Wall time: 2min 56s
+
+FA
+Attack result:False, Queries: 1275 Dist:2.0733896723121754
+Accuracy: 100.0 Mean L2 Counted: 2.0671098831862205 Query: 1275.0
+CPU times: user 1min 50s, sys: 15.3 s, total: 2min 6s
+Wall time: 1min 47s
+
+FFOA : D
+Attack result:False, Queries: 1275 Dist:2.0733896723121754
+Accuracy: 100.0 Mean L2 Counted: 2.0671098831862205 Query: 1275.0
+CPU times: user 1min 50s, sys: 15.3 s, total: 2min 6s
+Wall time: 1min 47s
+
+FPA
+Attack result:False, Queries: 2525 Dist:2.2454818693425502
+Accuracy: 75.0 Mean L2 Counted: 2.3704921306078353 Query: 2525.0
+CPU times: user 3min 15s, sys: 21.1 s, total: 3min 36s
+Wall time: 3min 8s
+
+GOA
+Attack result:False, Queries: 2525 Dist:2.130871197524279
+Accuracy: 75.0 Mean L2 Counted: 2.2578055525500615 Query: 2525.0
+CPU times: user 3min 23s, sys: 22.3 s, total: 3min 45s
+Wall time: 3min 16s
+
+*JS:
+Attack result:False, Queries: 1275 Dist:2.5902529669348966
+Accuracy: 75.0 Mean L2 Counted: 2.4570627757201904 Query: 1275.0
+CPU times: user 3min 10s, sys: 25.6 s, total: 3min 36s
+Wall time: 3min 5s
+
+*KH
+Accuracy: 75.0 Mean L2 Counted: 2.1998862790875977 Query: 1325.0
+CPU times: user 2min 30s, sys: 14.3 s, total: 2min 44s
+Wall time: 2min 26s
+
+*MFO
+Attack result:False, Queries: 1275 Dist:2.557037609072191
+Accuracy: 75.0 Mean L2 Counted: 2.5519602145609355 Query: 1275.0
+CPU times: user 2min 37s, sys: 16.9 s, total: 2min 54s
+Wall time: 2min 33s
+
+MRFO
+Accuracy: 75.0 Mean L2 Counted: 2.554603228704406 Query: 2525.0
+CPU times: user 3min 27s, sys: 24.8 s, total: 3min 52s
+Wall time: 3min 20s
+
+PIO
+Accuracy: 100.0 Mean L2 Counted: 2.4128556942777157 Query: 1275.0
+CPU times: user 1min 51s, sys: 15.8 s, total: 2min 7s
+Wall time: 1min 47s
+
+
+*PSO
+Accuracy: 75.0 Mean L2 Counted: 2.564425514317351 Query: 1275.0
+CPU times: user 1min 51s, sys: 15.9 s, total: 2min 7s
+Wall time: 1min 47s
+
+SBO
+Accuracy: 100.0 Mean L2 Counted: 2.047255962645094 Query: 2525.0
+CPU times: user 8min 22s, sys: 29 s, total: 8min 51s
+Wall time: 8min 13s
+
+SCA
+Accuracy: 100.0 Mean L2 Counted: 2.5187837890785127 Query: 1275.0
+CPU times: user 1min 49s, sys: 15.4 s, total: 2min 5s
+Wall time: 1min 46s
+
+SFO
+Accuracy: 100.0 Mean L2 Counted: 2.0495313927886634 Query: 15025.0
+CPU times: user 16min 47s, sys: 56.4 s, total: 17min 43s
+Wall time: 16min 6s
+
+SOS
+Accuracy: 75.0 Mean L2 Counted: 2.4832263838671653 Query: 6275.0
+CPU times: user 7min 23s, sys: 33.3 s, total: 7min 56s
+Wall time: 7min 5s
+
+SSA
+Accuracy: 100.0 Mean L2 Counted: 2.317135349271996 Query: 1275.0
+CPU times: user 1min 51s, sys: 15.2 s, total: 2min 6s
+Wall time: 1min 47s
+
+*SSO
+Accuracy: 75.0 Mean L2 Counted: 2.1272576126828624 Query: 1275.0
+CPU times: user 2min 12s, sys: 13.9 s, total: 2min 26s
+Wall time: 2min 9s
+
+*AOA
+Accuracy: 75.0 Mean L2 Counted: 1.956715367162444 Query: 1275.0
+CPU times: user 2min 41s, sys: 17.1 s, total: 2min 58s
+Wall time: 2min 37s
+==========
+With 10 samples:
+
+AOA: 
+iterations=50, 
+                                                     epsilon=0.15,
+                                                     max_l_2=3,
+                                                     agents = 25
+Accuracy: 90.0 Mean L2 Counted: 1.9803152315395323 Query: 1275.0
+CPU times: user 6min 42s, sys: 41.8 s, total: 7min 24s
+Wall time: 6min 32s
+
+AOA
+iterations=25, 
+                                                     epsilon=0.15,
+                                                     max_l_2=3,
+                                                     agents = 25
+Accuracy: 90.0 Mean L2 Counted: 1.87815550484577 Query: 650.0
+CPU times: user 3min 21s, sys: 20.8 s, total: 3min 42s
+Wall time: 3min 16s
+
+
+iterations=20
+Accuracy: 90.0 Mean L2 Counted: 1.8370917006757654 Query: 525.0
+CPU times: user 2min 41s, sys: 16.5 s, total: 2min 58s
+Wall time: 2min 37s
+
+iterations=10
+Accuracy: 90.0 Mean L2 Counted: 1.8514343448685167 Query: 275.0
+CPU times: user 1min 21s, sys: 8.31 s, total: 1min 30s
+Wall time: 1min 20s
+
+iterations=5
+Accuracy: 90.0 Mean L2 Counted: 1.9133019063658359 Query: 150.0
+CPU times: user 41.6 s, sys: 4.22 s, total: 45.8 s
+Wall time: 40.6 s
+
+iterations=40
+Accuracy: 90.0 Mean L2 Counted: 1.9502907920464694 Query: 1025.0
+CPU times: user 5min 23s, sys: 34.1 s, total: 5min 57s
+Wall time: 5min 15s
+
+==================================================	
+ALL AOAs:
+iterations=40, 
+                                                     epsilon=0.1,
+                                                     max_l_2=3,
+                                                     agents = 25
+
+Attack result:True, Queries: 1025 Dist:1.3699542490897796
+Generating example:  3
+
+Accuracy: 90.0 Mean L2 Counted: 1.3647139659218757 Query: 1025.0
+CPU times: user 5min 20s, sys: 32.8 s, total: 5min 53s
+Wall time: 5min 12s
+
+
+*Total Examples: 10, Iterations:5, espilon: 0.15 and Max-L2:3 
+Accuracy: 90.0 Mean L2 Counted: 1.8952830861792633 Query: 150.0
+CPU times: user 42.8 s, sys: 4.71 s, total: 47.5 s
+Wall time: 41.9 s
+
+Total Examples: 20, Iterations:5, espilon: 0.15 and Max-L2:3 
+Accuracy: 90.0 Mean L2 Counted: 1.8763486568447578 Query: 150.0
+CPU times: user 1min 24s, sys: 8.54 s, total: 1min 32s
+Wall time: 1min 22s
+
+Total Examples: 20, Iterations:10, espilon: 0.15 and Max-L2:3 
+Accuracy: 90.0 Mean L2 Counted: 1.828134889781073 Query: 275.0
+CPU times: user 2min 44s, sys: 17.1 s, total: 3min 1s
+Wall time: 2min 40s
+
+Total Examples: 20, Iterations:50, espilon: 0.15 and Max-L2:3 
+Accuracy: 90.0 Mean L2 Counted: 1.9613803299476928 Query: 1275.0
+CPU times: user 13min 19s, sys: 1min 22s, total: 14min 42s
+Wall time: 13min
+
+CSO <------
+Total Examples: 20, Iterations:50, espilon: 0.15 and Max-L2:3 
+Accuracy: 90.0 Mean L2 Counted: 2.4302112759329058 Query: 3775.0
+CPU times: user 22min 30s, sys: 1min 48s, total: 24min 19s
+Wall time: 21min 40s
+
+PSO <---------
+Total Examples: 20, Iterations:50, espilon: 0.15 and Max-L2:3 
+Accuracy: 90.0 Mean L2 Counted: 2.558486023431552 Query: 1275.0
+CPU times: user 9min 7s, sys: 1min 16s, total: 10min 23s
+Wall time: 8min 49s
+
+AOA
+Total Examples: 20, Iterations:1, espilon: 0.15 and Max-L2:3 
+Accuracy: 95.0 Mean L2 Counted: 1.5895571902894194 Query: 50.0
+CPU times: user 20.1 s, sys: 1.81 s, total: 21.9 s
+Wall time: 19.8 s
+
+Total Examples: 20, Iterations:1, espilon: 0.1 and Max-L2:3 
+Accuracy: 95.0 Mean L2 Counted: 1.0951898047052855 Query: 50.0
+CPU times: user 22 s, sys: 2.67 s, total: 24.7 s
+Wall time: 21.6 s
+
+Total Examples: 20, Iterations:1, espilon: 0.05 and Max-L2:3 
+Accuracy: 95.0 Mean L2 Counted: 0.5769732500637512 Query: 50.0
+CPU times: user 22.5 s, sys: 2.85 s, total: 25.4 s
+Wall time: 22.1 s
+
+
+Total Examples: 20, Iterations:10, espilon: 0.05 and Max-L2:3 
+Accuracy: 90.0 Mean L2 Counted: 0.6668423056576271 Query: 275.0
+CPU times: user 2min 44s, sys: 17 s, total: 3min 1s
+Wall time: 2min 40s
+
+*
+Total Examples: 20, Iterations:10, espilon: 0.05 and Max-L2:3 Agents: 20
+Accuracy: 90.0 Mean L2 Counted: 0.664152019998482 Query: 220.0
+CPU times: user 2min 10s, sys: 12.9 s, total: 2min 23s
+Wall time: 2min 7s
+
+Same as above *
+Total Examples: 20, Iterations:10, espilon: 0.05 and Max-L2:3 Agents: 20
+Accuracy: 90.0 Mean L2 Counted: 0.6653747959283669 Query: 220.0
+CPU times: user 2min 11s, sys: 13.7 s, total: 2min 25s
+Wall time: 2min 8s
+
+
+
+Total Examples: 20, Iterations:20, espilon: 0.05 and Max-L2:3 Agents: 20
+Accuracy: 90.0 Mean L2 Counted: 0.6669222870931872 Query: 420.0
+CPU times: user 4min 18s, sys: 26.4 s, total: 4min 45s
+Wall time: 4min 12s
+
+
+Total Examples: 20, Iterations:20, espilon: 0.1 and Max-L2:3 Agents: 25
+Accuracy: 90.0 Mean L2 Counted: 1.2841622472422127 Query: 525.0
+CPU times: user 5min 26s, sys: 33.7 s, total: 5min 59s
+Wall time: 5min 18s
+
+Total Examples: 20, Iterations:10, espilon: 0.05 and Max-L2:3 Agents: 20
+Accuracy: 95.0 Mean L2 Counted: 0.6676744229569005 Query: 220.0
+CPU times: user 2min 11s, sys: 13.2 s, total: 2min 24s
+Wall time: 2min 8s
+
+Total Examples: 20, Iterations:10, espilon: 0.05 and Max-L2:3 Agents: 25
+Accuracy: 95.0 Mean L2 Counted: 0.665847324349172 Query: 275.0
+CPU times: user 2min 47s, sys: 17.9 s, total: 3min 4s
+Wall time: 2min 43s
+
+
+Total Examples: 20, Iterations:10, espilon: 0.05 and Max-L2:3 Agents: 10
+Accuracy: 95.0 Mean L2 Counted: 0.6644193605358666 Query: 110.0
+CPU times: user 1min 6s, sys: 6.12 s, total: 1min 12s
+Wall time: 1min 5s
+
+Total Examples: 20, Iterations:10, espilon: 0.05 and Max-L2:3 Agents: 15
+Accuracy: 95.0 Mean L2 Counted: 0.6581064182531156 Query: 165.0
+CPU times: user 1min 41s, sys: 11.5 s, total: 1min 53s
+Wall time: 1min 40s
+
+
+Total Examples: 20, Iterations:10, espilon: 0.05 and Max-L2:3  agents=40
+Accuracy: 95.0 Mean L2 Counted: 0.664366790970557 Query: 440.0
+CPU times: user 4min 39s, sys: 35.7 s, total: 5min 15s
+Wall time: 4min 32s
+
+Total Examples: 20, Iterations:5, espilon: 0.05 and Max-L2:3 
+Accuracy: 95.0 Mean L2 Counted: 0.6807164976919482 Query: 150.0
+CPU times: user 1min 24s, sys: 8.95 s, total: 1min 33s
+Wall time: 1min 22s
+
+
+Total Examples: 20, Iterations:20, espilon: 0.05 and Max-L2:3 
+Accuracy: 95.0 Mean L2 Counted: 0.6790000053181349 Query: 840.0
+CPU times: user 9min 5s, sys: 1min 6s, total: 10min 12s
+Wall time: 8min 50s
+
+---
+Total Examples: 50, Iterations:10, espilon: 0.05 and Max-L2:3 Agents: 20
+Accuracy: 96.0 Mean L2 Counted: 0.6644767649081164 Query: 220.0
+CPU times: user 5min 29s, sys: 34.3 s, total: 6min 4s
+Wall time: 5min 22s
+
+Total Examples: 100, Iterations:10, espilon: 0.05 and Max-L2:3 Agents: 20
+Accuracy: 98.0 Mean L2 Counted: 0.6677288725494058 Query: 220.0
+CPU times: user 10min 56s, sys: 1min 6s, total: 12min 2s
+Wall time: 10min 43s
+---
+
+Total Examples: 10, Iterations:20, espilon: 0.5 and Max-L2:3 Agents: 20
+Accuracy: 80.0 Mean L2 Counted: 4.776483266337639 Query: 420.0
+CPU times: user 2min 8s, sys: 12.6 s, total: 2min 21s
+Wall time: 2min 5s
+
+
+
+
+
+
+
+
+
+================
+ParametrizedTBPSA
+SPSA : Simultaneous_perturbation_stochastic_approximation
+MultiCMA
+Chaining
+EMNA(
+# Running LHSSearch with budget num_workers and then DE:
+DEwithLHS = Chaining([LHSSearch, DE], ["num_workers"])
+
+
+['ASCMADEthird', 'AdaptiveDiscreteOnePlusOne', 'AlmostRotationInvariantDE', 'AnisotropicAdaptiveDiscreteOnePlusOne', 'AvgMetaRecenteringNoHull', 'BO', 'CM', 'CMA', 'CMandAS2', 'CMandAS3', 'CauchyLHSSearch', 'CauchyOnePlusOne', 'CauchyScrHammersleySearch', 'ChainCMAPowell', 'ChainDiagonalCMAPowell', 'ChainMetaModelPowell', 'ChainMetaModelSQP', 'ChainNaiveTBPSACMAPowell', 'ChainNaiveTBPSAPowell', 'Cobyla', 'DE', 'DiagonalCMA', 'DiscreteBSOOnePlusOne', 'DiscreteDoerrOnePlusOne', 'DiscreteLenglerOnePlusOne', 'DiscreteOnePlusOne', 'DoubleFastGADiscreteOnePlusOne', 'EDA', 'ES', 'FCMA', 'HAvgMetaRecentering', 'HaltonSearch', 'HaltonSearchPlusMiddlePoint', 'HammersleySearch', 'HammersleySearchPlusMiddlePoint', 'HyperOpt', 'LHSSearch', 'LargeHaltonSearch', 'LhsDE', 'MetaModel', 'MetaRecentering', 'MetaTuneRecentering', 'MixES', 'MultiCMA', 'MultiDiscrete', 'MultiScaleCMA', 'MutDE', 'NGO', 'NGOpt', 'NGOpt10', 'NGOpt4', 'NGOpt8', 'NGOptBase', 'NaiveIsoEMNA', 'NaiveTBPSA', 'NelderMead', 'NoisyBandit', 'NoisyDE', 'NoisyDiscreteOnePlusOne', 'NoisyOnePlusOne', 'NonNSGAIIES', 'ORandomSearch', 'OScrHammersleySearch', 'OnePlusOne', 'OptimisticDiscreteOnePlusOne', 'OptimisticNoisyOnePlusOne', 'PSO', 'PolyCMA', 'Portfolio', 'PortfolioDiscreteOnePlusOne', 'Powell', 'QORandomSearch', 'QOScrHammersleySearch', 'QrDE', 'RCobyla', 'RPowell', 'RSQP', 'RandomSearch', 'RandomSearchPlusMiddlePoint', 'RealSpacePSO', 'RecES', 'RecMixES', 'RecMutDE', 'RecombiningPortfolioOptimisticNoisyDiscreteOnePlusOne', 'RescaledCMA', 'RotationInvariantDE', 'SPSA', 'SQP', 'SQPCMA', 'ScrHaltonSearch', 'ScrHaltonSearchPlusMiddlePoint', 'ScrHammersleySearch', 'ScrHammersleySearchPlusMiddlePoint', 'Shiwa', 'TBPSA', 'TripleCMA', 'TwoPointsDE', 'cGA', 'chainCMAPowell', 'chainDiagonalCMAPowell', 'chainMetaModelPowell', 'chainMetaModelSQP', 'chainNaiveTBPSACMAPowell', 'chainNaiveTBPSAPowell']
+
+
+=======
+
+ @counter
+  def evaluate_l_2(x, x_adv):
+    x_adv = process_digit(x_adv, x, epsilon_l_2)
+    return l_2_dist(x_clean, x_adv)
+
+
+
+
+print("Optimizing for L2...")
+  instru = ng.p.Instrumentation(ng.p.Array(shape=(784,)).set_bounds(0, 1),
+                                x_adv)
+  l_2_optimizer = ng.optimizers.AlmostRotationInvariantDE(budget=l_2_iterations, 
+                                  parametrization=instru)
+  l_2_optimizer.parametrization.register_cheap_constraint(
+       lambda x: np.argmax(
+           model.predict(
+               np.array(x[0][0]).reshape((1,28,28,1)))) != np.argmax(y_clean)
+      #lambda x : print("X:",np.array(x[0][0]).shape)
+  )
+  l_2_xopt = l_2_optimizer.minimize(evaluate_l_2)
+  l_2_x = np.array(l_2_xopt.value)
+  l_2_x_adv = process_digit(x_clean, l_2_x, epsilon_l_2)
+  l_2_dist_adv = l_2_dist(x_clean, l_2_x_adv)
+  l_2_adv_pred = np.argmax(model.predict(l_2_x_adv.reshape((1,28,28,1))))
+  l_2_attack_succ = np.argmax(y_clean) != l_2_adv_pred
+  print("After minimzing L2 Attack result:{}, Dist:{}".format(
+      l_2_attack_succ, l_2_dist_adv))
+======================================
+
+Total Examples: 1, Iterations:50, espilon: 0.99 and Max-L2:3 Agents: 15
+Accuracy: 0.0 Mean L2 Counted: 5.446129916690185 Query: 765.0
+
+
+Total Examples: 1, Iterations:50, espilon: 0.99 and Max-L2:3 Agents: 15 l_2_step: 1.5
+Accuracy: 0.0 Mean L2 Counted: 5.307334984001537 Query: 765.0
+
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 15 l_2_step: 1.5
+Accuracy: 0.0 Mean L2 Counted: 5.014808019705537 Query: 465.0
+
+10 images Accuracy: 50.0 Mean L2 Counted: 6.5204829110999585 Query: 765.0"
+
+10 images:Total Examples: 10, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 15 l_2_step: 1.5 Accuracy: 40.0 Mean L2 Counted: 6.472184751242184 Query: 465.0
+
+Total Examples: 10, Iterations:10, espilon: 0.99 and Max-L2:3 Agents: 15 l_2_step: 1.5
+Accuracy: 40.0 Mean L2 Counted: 6.661683509207539 Query: 165.0
+
+Total Examples: 1, Iterations:30, espilon: 1 and Max-L2:3 Agents: 15 l_2_step: 1.5
+Accuracy: 0.0 Mean L2 Counted: 5.076630283606231 Query: 465.0
+
+
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 15 l_2_step: 1.5
+Accuracy: 0.0 Mean L2 Counted: 5.014808019705537 Query: 465.0
+
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 20 l_2_step: 1.5
+Accuracy: 0.0 Mean L2 Counted: 4.75578927903273 Query: 620.0
+
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.5
+Accuracy: 0.0 Mean L2 Counted: 4.696976940072306 Query: 775.0
+
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 30 l_2_step: 1.5
+Accuracy: 0.0 Mean L2 Counted: 5.189903411356611 Query: 930.0
+
+Total Examples: 1, Iterations:50, espilon: 0.99 and Max-L2:3 Agents: 30 l_2_step: 1.5
+Accuracy: 100.0 Mean L2 Counted: 4.554667407397224 Query: 1530.0
+
+*Total Examples: 10, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.5
+Accuracy: 40.0 Mean L2 Counted: 6.0451491569779225 Query: 775.0
+
+Total Examples: 10, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.5
+Accuracy: 30.0 Mean L2 Counted: 6.440940653741052 Query: 775.0
+
+*
+Total Examples: 100, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.5
+Accuracy: 41.0 Mean L2 Counted: 6.004526265643105 Query: 775.0
+
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.5
+Accuracy: 100.0 Mean L2 Counted: 5.9327541309959715 Query: 775.0
+
+
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.5
+Accuracy: 0.0 Mean L2 Counted: 4.7380198808096 Query: 775.0
+
+
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 2.5
+Accuracy: 0.0 Mean L2 Counted: 4.680259953598062 Query: 775.0
+
+*
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 2.5
+Accuracy: 0.0 Mean L2 Counted: 4.597070177908568 Query: 775.0
+
+
+
+===========
+
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 2.5
+Accuracy: 0.0 Mean L2 Counted: 4.597070177908568 Query: 805.0
+
+
+Total Examples: 1, Iterations:40, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 2.5
+Accuracy: 0.0 Mean L2 Counted: 4.906936243519434 Query: 1065.0
+
+*
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 2.5
+Accuracy: 0.0 Mean L2 Counted: 4.597070177908568 Query: 805.0
+
+
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 20 l_2_step: 2.5
+Accuracy: 0.0 Mean L2 Counted: 4.712338431891762 Query: 650.0
+
+
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 20 l_2_step: 2.5
+Accuracy: 0.0 Mean L2 Counted: 4.708129746910019 Query: 650.0
+
+
+Gaussian 
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 20 l_2_step: 2.5
+Accuracy: 0.0 Mean L2 Counted: 4.491940077046985 Query: 650.0
+	
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 4.460565584710261 Query: 805.0
+
+*
+Total Examples: 10, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 30.0 Mean L2 Counted: 6.0137032398282795 Query: 805.0
+
+* Gussian with mean at best and var at MOP
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 4.061304406626569 Query: 805.0
+
+
+------------
+https://github.com/amir1m/opytimizer/commit/1ffe9908a06242066af15e812c1b78f36a40beb8
+
+Total Examples: 10, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 30.0 Mean L2 Counted: 5.327154005146506 Query: 805.0
+
+Mis-classified Images: 7 out of Total: 10
+Mis preds:  [0 1 2 3 6 7 8]
+Mean L2 Dist.:  4.9376218697331336
+--------------
+
+*
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 4.031850137556072 Query: 1610.0
+
+
+* Restarting L2 min with same space
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 3.8938327383565983 Query: 1610.0
+
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 3.915821299963922 Query: 2360.0
+
+Restarting L2 min with same space, iterations for l2 half = 15
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 3.884713066075899 Query: 1235.0
+
+* Restarting L2 min with same space, iterations for l2 1/3rd = 10
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 3.8517700750915496 Query: 1110.0
+
+Restarting L2 min with same space, iterations for l2  = 8
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 3.8297901452497425 Query: 1060.0
+
+* l2 half
+Total Examples: 10, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 30.0 Mean L2 Counted: 5.000692598660452 Query: 1106.0
+
+l2 1/4
+Total Examples: 10, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1 
+Accuracy: 30.0 Mean L2 Counted: 5.428002780500041 Query: 969.8
+
+
+Wasterstein Distance:
+
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 4.274636768405374 Query: 1222.0
+
+Attack result:True, Queries: 1612 All Dist:{'L2': 4.4103, 'L-INF': 0.4985, 'WS': 0.045, 'ssim': 0.5817, 'psnr': 16.0537}
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 4.41034602424121 Query: 1612.0
+
+L2:
+True, Queries: 1222 All Dist:{'L2': 3.8847, 'L-INF': 0.4985, 'WS': 0.0669, 'ssim': 0.3888, 'psnr': 17.156}
+
+Brownian and L2:
+Attack result:True, Queries: 1222 All Dist:{'L2': 4.7609, 'L-INF': 0.501, 'WS': 0.0624, 'ssim': 0.4144, 'psnr': 15.3894}
+2021-05-31 17:55:57,290 - attack — INFO — 
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 4.760905596146415 Query: 1222.0
+
+Brownian with MOP and search_space 
+Attack result:True, Queries: 1222 All Dist:{'L2': 4.3623, 'L-INF': 0.5014, 'WS': 0.0865, 'ssim': 0.3162, 'psnr': 16.1489}
+2021-05-31 18:03:26,610 - attack — INFO — 
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 4.362251834430234 Query: 1222.0
+
+Brownian corrected for multiply and divide:
+Attack result:True, Queries: 1222 All Dist:{'L2': 5.6343, 'L-INF': 0.4987, 'WS': 0.1311, 'ssim': 0.2572, 'psnr': 13.9264}
+2021-05-31 18:11:17,485 - attack — INFO — 
+Total Examples: 1, Iterations:30, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 5.634296338213924 Query: 1222.0
+
+
+*
+no change in multiply and divide, L2 min using brownian motion
+Attack result:True, Queries: 3692 All Dist:{'L2': 3.4839, 'L-INF': 0.5397, 'WS': 0.078, 'ssim': 0.3441, 'psnr': 18.1018}
+2021-05-31 19:13:03,248 - attack — INFO — 
+Total Examples: 1, Iterations:70, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 3.483903801623683 Query: 3692.0
+
+
+ Attack result:True, Queries: 3692 All Dist:{'L2': 4.6896, 'L-INF': 0.4985, 'WS': 0.1124, 'ssim': 0.2851, 'psnr': 15.5204}
+2021-05-31 19:43:39,644 - attack — INFO — 
+Total Examples: 1, Iterations:70, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 4.689614753206652 Query: 3692.0
+
+
+Exploration Phase#1 Result: Attack result:True, Queries: 1846 Dist:5.289961451480857
+ Attack result:True, Queries: 5512 All Dist:{'L2': 4.1553, 'L-INF': 0.4668, 'WS': 0.107, 'ssim': 0.3064, 'psnr': 16.5711}
+
+*
+With L2 min else part Brownian motion, multiply and divide same 
+Exploration Phase#1 Result: Attack result:True, Queries: 1846 Dist:3.9091548213981278
+Total Examples: 1, Iterations:70, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 3.184005025296157 Query: 5512.0
+151.63 + 459.18 seconds
+
+
+Exploration Phase#1 Result: Attack result:True, Queries: 1846 Dist:3.924935808636075
+Exploration Phase#1 Result: Attack result:True, Queries: 1846 Dist:4.159613397400157
+Exploration Phase#1 Result: Attack result:True, Queries: 1846 Dist:4.159613397400157
+
+Brownian L2
+Total Examples: 10, Iterations:35, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 40.0 Mean L2 Counted: 5.6719557601631285 Query: 1497.6
+
+Gaussian L2
+Total Examples: 10, Iterations:35, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 40.0 Mean L2 Counted: 5.340705256273359 Query: 1497.6
+
+L2 half
+Total Examples: 10, Iterations:35, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 50.0 Mean L2 Counted: 5.322266083653812 Query: 1183.0
+
+
+Total Examples: 10, Iterations:35, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 50.0 Mean L2 Counted: 5.74059052318177 Query: 1183.0
+
+=======
+TLBO:4 minutes
+Total Examples: 1, Iterations:100, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 6.0931657001755495 Query: 5126.0
+
+8 minutes
+Total Examples: 1, Iterations:200, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 6.010918393589575 Query: 10226.0
+=============
+CSO
+	Total Examples: 1, Iterations:25, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 7.385099515846458 Query: 1926.0
+===========
+MODAOA:
+Total Examples: 1, Iterations:25, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 4.2333741537426315 Query: 1014.0
+
+Total Examples: 1, Iterations:50, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 6.78527050584216 Query: 2002.0 
+
+Total Examples: 1, Iterations:70, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 3.627732542733689 Query: 7332.0
+
+Total Examples: 1, Iterations:25, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 5.706134213978801 Query: 3952.0  
+
+Total Examples: 1, Iterations:25, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 5.334349789117493 Query: 3952.0
+
+Brownian
+Total Examples: 1, Iterations:25, espilon: 0.99 and Max-L2:3 Agents: 25 l_2_step: 1.1
+Accuracy: 0.0 Mean L2 Counted: 4.812225766179665 Query: 3952.0
+============================
+
+AlmostDE
+Attack result:True, Queries: 4000 Dist:7.4782519930220905
+
+=========
+MODAOA
+
+Same as original AOA with brownian motion everywhere
+Attack result:True, Queries: 3317 All Dist:{'L2': 5.1089, 'L-INF': 0.5258, 'WS': 0.096, 'ssim': 0.2898, 'psnr': 14.7767}, L2_Iters: 35
+
+MODA : pred==clean divide with all brownian
+Attack result:False, Queries: 2201 All Dist:{'L2': 6.6602, 'L-INF': 0.5258, 'WS': 0.083, 'ssim': 0.4237, 'psnr': 12.4735}, L2_Iters: 35
+
+pred==clean and divide as it was in AOA and brownian in add/sub l2_mul = 0.5
+Total Examples: 1, Iterations:70, espilon: 1.1 and Max-L2:5 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 5.363971923361585 Query: 3317.0
+
+pred==clean and divide as it was in AOA and Gaussian in add/sub l2_mul = 0.5
+Attack result:True, Queries: 3317 All Dist:{'L2': 5.4832, 'L-INF': 0.5268, 'WS': 0.1006, 'ssim': 0.2955, 'psnr': 14.1624}, L2_Iters: 35
+
+pred==clean and divide as it was in AOA and Gaussian in add/sub l2_mul = 0.5
+Attack result:True, Queries: 1430 All Dist:{'L2': 5.9365, 'L-INF': 0.5258, 'WS': 0.1171, 'ssim': 0.2573, 'psnr': 13.4725}, L2_Iters: 18
+
+r1>MOA and divide as it was in AOA and brownian in add/sub l2_mul = 0.5
+Attack result:True, Queries: 2782 All Dist:{'L2': 5.5293, 'L-INF': 0.5258, 'WS': 0.092, 'ssim': 0.3229, 'psnr': 14.0897}, L2_Iters: 35
+
+
+r1>MOA brownian everywhere l2_mul = 0.5
+Attack result:True, Queries: 2782 All Dist:{'L2': 5.1651, 'L-INF': 0.5733, 'WS': 0.0896, 'ssim': 0.3205, 'psnr': 14.6815}, L2_Iters: 35
+
+Total Examples: 1, Iterations:70, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 5.328321799142237 Query: 3692.0
+
+Total Examples: 1, Iterations:70, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 1, different Brownian parameters
+Accuracy: 0.0 Mean L2 Counted: 4.3117820111275496 Query: 3692.0
+
+-------
+SEED=0:
+-------
+* if r1 > MOA, Mul/Div original and brownian in add/sub, delta = 0.25, dt = 0.1 
+Exploration Phase#1 Result: Attack result:True, Queries: 1846 Dist:3.9434410582898143
+Total Examples: 1, Iterations:70, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 3.4719304184889457 Query: 3692.0
+
+* if pred==clean, Mul/Div original and brownian in add/sub delta = 0.25, dt = 0.1 
+Exploration Phase#1 Result: Attack result:True, Queries: 1846 Dist:4.485336609699615
+Total Examples: 1, Iterations:70, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 4.160757303668279 Query: 3692.0
+---
+* if r1>MOA, Mul/Div original and brownian in add/sub delta = 0.25, dt = 0.1 
+Exploration Phase#1 Result: Attack result:True, Queries: 1846 Dist:3.8464153766919114
+Total Examples: 1, Iterations:70, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 3.7070083424021885 Query: 3692.0
+
+- 100 iterations:
+Exploration Phase#1 Result: Attack result:True, Queries: 2626 Dist:4.519222600822486
+Total Examples: 1, Iterations:100, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 3.940875140740567 Query: 5252.0
+
+- 50 iteration
+Exploration Phase#1 Result: Attack result:True, Queries: 1326 Dist:4.034614796790148
+Total Examples: 1, Iterations:50, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 2.896043139981735 Query: 2652.0
+
+- 25 iterate and l_2_mul 2
+Exploration Phase#1 Result: Attack result:True, Queries: 676 Dist:4.940268246444534
+Total Examples: 1, Iterations:25, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 2
+Accuracy: 0.0 Mean L2 Counted: 4.302042910209968 Query: 2002.0
+
+*- 50 iterate and l_2_mul 3
+Exploration Phase#1 Result: Attack result:True, Queries: 1326 Dist:4.034614796790148
+Total Examples: 1, Iterations:50, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 3
+Accuracy: 0.0 Mean L2 Counted: 2.594671880348432 Query: 5252.0
+
+- 50 iterate and l_2_mul 3 and epsilon 0.9
+Total Examples: 1, Iterations:50, espilon: 0.9 and Max-L2:5 Agents: 25 l_2_mul: 3
+Accuracy: 0.0 Mean L2 Counted: 3.3263371479196433 Query: 5252.0
+
+- 50 iterate and l_2_mul 3 and epsilon 1.1 agents 35
+Exploration Phase#1 Result: Attack result:True, Queries: 1836 Dist:4.043657976645303
+Total Examples: 1, Iterations:50, espilon: 1.1 and Max-L2:5 Agents: 35 l_2_mul: 3
+Accuracy: 0.0 Mean L2 Counted: 3.3961418129698706 Query: 7272.0
+
+- 50 iterate and l_2_mul 3 and epsilon 1.15 agents 30
+Exploration Phase#1 Result: Attack result:True, Queries: 1581 Dist:4.226447177825936
+Total Examples: 1, Iterations:50, espilon: 1.15 and Max-L2:5 Agents: 30 l_2_mul: 3
+Accuracy: 0.0 Mean L2 Counted: 3.6774593776691415 Query: 6262.0
+
+
+- 50 iterate and l_2_mul 3 and epsilon 0.75 agents 30
+Exploration Phase#1 Result: Attack result:True, Queries: 1581 Dist:3.851001659114462
+Total Examples: 1, Iterations:50, espilon: 0.75 and Max-L2:5 Agents: 30 l_2_mul: 3
+Accuracy: 0.0 Mean L2 Counted: 3.132491778540104 Query: 6262.0
+
+- 25 iterate and l_2_mul 3 and epsilon 0.75 agents 30
+Exploration Phase#1 Result: Attack result:True, Queries: 676 Dist:4.924316224685893
+Total Examples: 1, Iterations:25, espilon: 0.75 and Max-L2:5 Agents: 25 l_2_mul: 3
+Accuracy: 0.0 Mean L2 Counted: 4.102053933974895 Query: 2652.0
+
+- 25 iterate and l_2_mul 3 and epsilon 1.25 agents 30
+Exploration Phase#1 Result: Attack result:True, Queries: 1326 Dist:4.021995050311684
+Total Examples: 1, Iterations:50, espilon: 1.25 and Max-L2:5 Agents: 25 l_2_mul: 3
+Accuracy: 0.0 Mean L2 Counted: 3.0145069971179597 Query: 5252.0
+
+- 50 iterate and l_2_mul 3 with 3 restarts and epsilon 1.1 agents 25
+Total Examples: 1, Iterations:50, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 3
+Accuracy: 0.0 Mean L2 Counted: 2.444935337406085 Query: 12604.0
+25 minutes!!!!
+
+- 50 iterate and l_2_mul 3 with 3 restarts of 75,50,38 ( and epsilon 1.1 agents 25
+Total Examples: 1, Iterations:50, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 3
+Accuracy: 0.0 Mean L2 Counted: 2.6436879024130926 Query: 5429.0
+
+
+- 50 iterate and l_2_mul 3 with 3 restarts of 150,75, 50 ( and epsilon 1.1 agents 25
+Total Examples: 1, Iterations:50, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 3
+Accuracy: 0.0 Mean L2 Counted: 2.5126176865402976 Query: 8229.0
+
+*
+- 50 iterate and l_2_mul 3 with 2 restarts of 150, 75 and epsilon 1.1 agents 25
+Total Examples: 1, Iterations:50, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 3
+Accuracy: 0.0 Mean L2 Counted: 2.5126176865402976 Query: 6953.0
+
+- 50 iterate and l_2_mul 3 with 2 restarts of 75, 50 ( and epsilon 1.1 agents 25
+Total Examples: 1, Iterations:50, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 3
+Accuracy: 0.0 Mean L2 Counted: 2.895408344272406 Query: 4453.0
+
+*
+- SEED = 0, Total Examples: 10, Iterations:50, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 3
+Accuracy: 0.0 Mean L2 Counted: 4.4605463352947865 Query: 5052.0
+
+
+if r1>MOA,  brownian everywhere delta = 0.25, dt = 0.1 
+Exploration Phase#1 Result: Attack result:True, Queries: 1846 Dist:4.194822226224946
+
+
+ALL Original AOA
+Exploration Phase#1 Result: Attack result:True, Queries: 1846 Dist:4.452227273923202
+Total Examples: 1, Iterations:70, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 4.252479244957861 Query: 3692.0
+
+IF PRED==CLEAN, all original same
+Exploration Phase#1 Result: Attack result:True, Queries: 1846 Dist:5.463979219865876
+
+if r1>MOA, Mul/Div original and Gaussian in add/sub 
+Total Examples: 1, Iterations:70, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 4.648034742732768 Query: 3692.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

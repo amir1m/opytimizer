@@ -23,6 +23,7 @@ from sklearn.metrics import classification_report, f1_score, confusion_matrix
 from sklearn.metrics import roc_curve,roc_auc_score, accuracy_score, precision_score, recall_score
 
 from art.attacks.evasion import FastGradientMethod, CarliniL2Method, ZooAttack, CarliniL2Method, BoundaryAttack, SimBA, HopSkipJump
+import art.attacks.evasion as evasion
 from art.estimators.classification import KerasClassifier
 from art.utils import load_dataset
 
@@ -80,6 +81,8 @@ for logger in loggers:
 tf.__version__
 import keras
 keras.__version__
+
+#tf.compat.v1.disable_eager_execution()
 # Read MNIST dataset
 (x_train, y_train), (x_test, y_test), min_, max_ = load_dataset(str("mnist"))
 
@@ -89,23 +92,26 @@ keras.__version__
 
 model_logit = load_model('adv-ml/models/mnist', compile = False)
 
-n_samples = 10
+n_samples = 1
 x_test_random, y_test_random, rand_ind = get_random_correct_samples(
 n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 logger.info("SEED: 0")
 
+show_digit(x_test_random,y_test_random)
 # from importlib import reload # reload
 # reload(opytimizer.optimizers.misc)
 
-
-loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
+y_target = np.array([0])
+y_target[0]
+loss, l_2_mean, query_mean, x_test_opyt = get_opyt_target_adv(model_logit,
                                                      x_test_random,
                                                      y_test_random,
-                                                     iterations=50,
+                                                     y_target=y_target,
+                                                     iterations=25,
                                                      epsilon=1.1,
                                                      agents=25,
                                                      max_l_2=5,
-                                                     l_2_mul=3
+                                                     l_2_mul=5,
                                                      )
 
 

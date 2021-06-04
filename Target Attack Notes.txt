@@ -1,0 +1,17 @@
+2021-06-04 18:09:29,048 - attack — INFO — Before Attack: Clean Prediction: 34.2617301940918 Target Prediction: 9.939762115478516 Label: 6
+2021-06-04 18:09:29,048 - attack — INFO — After Attack: Clean Prediction: 19.459434509277344 Target Prediction: 9.717246055603027 Label:6
+
+Total Examples: 1, Iterations:1, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 5.9510019981936875 Query: 51.
+
+
+
+Total Examples: 1, Iterations:50, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 1
+ASR: 1.0 Mean L2 Counted: 7.088750925747765 Query: 1276.0
+
+Total Examples: 1, Iterations:25, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 1
+ASR: 100.0 Mean L2 Counted: 6.453159071698516 Query: 1302.0
+
+
+Total Examples: 1, Iterations:25, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 3
+ASR: 100.0 Mean L2 Counted: 3.801842769872106 Query: 2604.0

@@ -15,7 +15,7 @@ import nevergrad as ng
 import SwarmPackagePy
 from copy import deepcopy
 from attack_utils import *
-from tlbo import TLBO, helper_n_generations
+#from tlbo import TLBO, helper_n_generations
 from scipy.optimize import minimize
 from scipy.stats import wasserstein_distance, levy
 import opytimizer
@@ -360,6 +360,169 @@ def get_opyt_adv(model, x_test_random, y_test_random,
   # if (acc == 0):
   #   return np.log(l_2_mean)
   # return  np.log(acc * l_2_mean)
+
+def get_adv_opyt_target_example(model, x_clean, y_clean, target=0,
+                        epsilon = 0.5, iterations=100, max_l_2=6, agents=20, l_2_mul=.5):
+  eval_count = 0
+  x_adv = None
+  l2_iter = round(iterations)
+  logger.info(f'Clean: {y_clean}, Generating Target {target}')
+
+  def evaluate_acc(x):
+    nonlocal eval_count
+    eval_count += 1
+    x_adv = process_digit(x_clean, x.ravel(), epsilon)
+    predictions = model.predict(x_adv.reshape((1,28,28,1)))[0]
+    target_pred = predictions[target]
+    #logger.info(f'Predictions: {predictions}, Target Predictions: {target_pred}')
+    result = np.argmax(predictions)
+    actual = np.argmax(y_clean)
+    # #logger.to_file(f'Result: {result}, target: {target}')
+    dist = float(l_2_dist(x_clean, x_adv))
+    if(result == target):
+      return float(dist)
+    else:
+      return 100 - float(target_pred)
+    # return -float(target_pred)
+
+  # Number of agents and decision variables
+  n_agents = agents
+  n_variables = 784
+  # Lower and upper bounds (has to be the same size as `n_variables`)
+  lower_bound = np.empty(n_variables)
+  lower_bound.fill(0)
+  upper_bound = np.empty(n_variables)
+  upper_bound.fill(1)
+
+  #Creates the optimizer
+  params={'model':model, 'x_clean':x_clean, 'x_adv': None,
+  'y_clean': y_clean,
+  'epsilon' : epsilon,'l_2_min':False}
+  optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+  #optimizer = opytimizer.optimizers.misc.AOA()
+
+  space = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
+  function = Function(evaluate_acc)
+  #function = ConstrainedFunction(evaluate_acc, [l_2_constraint], 10000.0)
+
+  # Bundles every piece into Opytimizer class
+  opt = Opytimizer(space, optimizer, function, save_agents=False)
+  #Runs the optimization task
+  opt.start(n_iterations = iterations)
+
+  xopt = opt.space.best_agent.position
+  x_adv = process_digit(x_clean, xopt.ravel(), epsilon)
+  x_adv = x_adv.reshape((28,28,1))
+  dist = l_2_dist(x_clean, x_adv)
+  adv_pred = model.predict(x_adv.reshape((1,28,28,1)))[0]
+  eval_count += 1
+  adv_pred_label = np.argmax(adv_pred)
+  before_attack_pred = model.predict(x_clean.reshape((1,28,28,1)))[0]
+  before_attack_label = np.argmax(before_attack_pred)
+  logger.info(f'Before Attack: Clean Prediction: {before_attack_pred[np.argmax(y_clean)]} Target Prediction: {before_attack_pred[target]} Label: {before_attack_label}')
+  logger.info(f'After Attack: Clean Prediction: {adv_pred[np.argmax(y_clean)]} Target Prediction: {adv_pred[target]} Label:{adv_pred_label}')
+  eval_count += 1 # 1 for above prediction!
+  attack_succ =  adv_pred_label == target
+  #logger.info(f"\nResult: Target Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}\n")
+
+  if(attack_succ == True):
+    logger.info("\nStarting Phase#2 Exploitation\n")
+    for i in range(l_2_mul):
+      logger.info(f"\nRestarting L2 Minimization loop: {i}")
+      params={'model':model, 'x_clean':x_clean, 'x_adv': None,
+      'y_clean': y_clean,'epsilon' : epsilon, 'l_2_min':True}
+      optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+      #space_l_2 = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
+      opt_l_2 = Opytimizer(space, optimizer, function, save_agents=False)
+      #opt_l_2.space.best_agent.position = opt.space.best_agent.position
+      #opt_l_2.space.best_agent.position = opt.space.best_agent.position
+      #Runs the optimization task
+      opt_l_2.start(n_iterations = round(iterations))
+      xopt_curr = opt_l_2.space.best_agent.position
+      x_adv_curr = process_digit(x_clean, xopt_curr.ravel(), epsilon)
+      x_adv_curr = x_adv_curr.reshape((28,28,1))
+      adv_pred_curr = np.argmax(model.predict(x_adv_curr.reshape((1,28,28,1)))[0])
+      eval_count += 1
+      attack_succ_curr = target == adv_pred_curr
+      dist_curr = l_2_dist(x_clean, x_adv_curr)
+      if(attack_succ_curr == True and dist_curr < dist):
+        opt = opt_l_2
+        x_adv = np.copy(x_adv_curr)
+        dist = dist_curr
+
+  # if(attack_succ == True):
+  #   logger.info('Starting L2 Minimization\n')
+  #   xopt_curr = minimize(evaluate_acc, x_adv.ravel(), method='nelder-mead',
+  #              options={'xatol': 1e-8, 'disp': True})
+  #   x_adv_curr = process_digit(x_clean, xopt_curr.ravel(), epsilon)
+  #   x_adv_curr = x_adv_curr.reshape((28,28,1))
+  #   adv_pred_curr = np.argmax(model.predict(x_adv_curr.reshape((1,28,28,1))))
+  #   eval_count += l2_iter + 1
+  #   attack_succ_curr = np.argmax(y_clean) != adv_pred_curr
+  #   dist_curr = l_2_dist(x_clean, x_adv_curr)
+  #   if(attack_succ_curr == True and dist_curr < dist):
+  #     opt = opt_l_2
+  #     x_adv = np.copy(x_adv_curr)
+  #     dist = dist_curr
+
+  # dist = l_2_dist(x_clean, x_adv)
+  # adv_pred = np.argmax(model.predict(x_adv.reshape((1,28,28,1))))
+  # attack_succ = np.argmax(y_clean) != adv_pred
+
+  all_dist = get_all_dist(x_clean, x_adv)
+  logger.info(f"Attack result:{attack_succ}, Queries: {eval_count} All Dist:{all_dist}, L2_Iters: {l2_iter}")
+  return x_adv, eval_count, dist
+
+
+def get_opyt_target_adv(model, x_test_random, y_test_random, y_target,
+                iterations = 100, epsilon = 3.55, max_l_2=6, agents=20, l_2_mul=0.5):
+  iteration = round(iterations)
+  logger.info(f"\nIterations:{iteration}, epsilon: {epsilon} and l_2_mul:{l_2_mul}")
+
+  no_samples = len(x_test_random)
+  adv_nvg = np.empty((no_samples,28,28,1))
+
+  i = 0
+  query_count = []
+  l_2 = []
+  for i in range(no_samples):
+    logger.info(f"\nGenerating example:{i}")
+    adv_nvg[i], count, dist = get_adv_opyt_target_example(model,
+                                                  x_test_random[i],
+                                                  y_test_random[i],
+                                                  y_target[i],
+                                                  epsilon = epsilon,
+                                                  iterations = iterations,
+                                                   max_l_2 = max_l_2,
+                                                   agents = agents,
+                                                   l_2_mul=l_2_mul
+                                                  )
+    query_count.append(count)
+    l_2.append(dist)
+
+  x_test_nvg = adv_nvg
+  y_pred_nvg = model.predict(x_test_nvg)
+  acc = (np.sum(np.argmax(y_pred_nvg, axis=1) == y_target) / len(y_target)) * 100
+  l_2_mean = np.mean(l_2)
+  query_mean = np.mean(query_count)
+  logger.info(f"\nTotal Examples: {len(y_test_random)}, Iterations:{iterations}, espilon: {epsilon} and Max-L2:{max_l_2} Agents: {agents} l_2_mul: {l_2_mul}\nASR: {acc} Mean L2 Counted: {l_2_mean} Query: {query_mean}")
+
+  ##PRODUCTION
+  # if (acc == 0):
+  #   return -l_2_mean, l_2_mean, query_mean, x_test_nvg
+  # return  acc * (-l_2_mean),l_2_mean, query_mean, x_test_nvg
+  return  acc,l_2_mean, query_mean, x_test_nvg
+
+  # # #MAXIMIZE
+  # if (acc == 0):
+  #   return -l_2_mean
+  # return  acc * (-l_2_mean)
+  # # ##MINIMIZE
+  # if (acc == 0):
+  #   return np.log(l_2_mean)
+  # return  np.log(acc * l_2_mean)
+
+
 
 def get_nvg_adv(model, x_test_random, y_test_random,
                 iterations = 100, epsilon = 3.55, max_l_2=6):

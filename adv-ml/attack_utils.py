@@ -80,8 +80,8 @@ def get_accuracy(y_pred, y_true):
   return acc * 100
 
 def get_mis_preds(y_true, y_preds):
-  if len(y_true) == 1:
-    return np.where(np.argmax(y_true) != np.argmax(y_preds))[0]
+  if y_true.shape[0] == 10:
+    return np.where(np.argmax(y_true, axis=0) != np.argmax(y_preds, axis=0))
   return np.where(np.argmax(y_true, axis=1) != np.argmax(y_preds, axis=1))[0]
 
 def get_correct_preds(y_true, y_preds):

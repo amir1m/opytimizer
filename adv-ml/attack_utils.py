@@ -90,6 +90,7 @@ def get_correct_preds(y_true, y_preds):
 def browse_mis_samples(clean_images, adv_images, y_true, y_pred, verbose=True):
   total_images = len(adv_images)
   mis_preds = get_mis_preds(y_true, y_pred)
+  print("MIS PREDS: ", mis_preds)
 
   clean_images = clean_images[mis_preds]
   adv_images = adv_images[mis_preds]
@@ -109,6 +110,9 @@ def browse_mis_samples(clean_images, adv_images, y_true, y_pred, verbose=True):
       fig = plt.figure(figsize=(5, 3))
       true_label = np.argmax(y_true[mis_preds[i]])
       pred_label = np.argmax(y_pred[mis_preds[i]])
+      print("mis_preds[i]: ", mis_preds[i])
+      print("Y pred:", y_pred)
+      print("pred_label : ", pred_label)
       fig.add_subplot(rows, columns, 1)
       plt.imshow(clean_images[i].reshape(28,28), cmap='Greys_r', interpolation='nearest')
       plt.axis('off')

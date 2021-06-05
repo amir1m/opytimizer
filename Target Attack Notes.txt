@@ -12,6 +12,21 @@ ASR: 1.0 Mean L2 Counted: 7.088750925747765 Query: 1276.0
 Total Examples: 1, Iterations:25, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 1
 ASR: 100.0 Mean L2 Counted: 6.453159071698516 Query: 1302.0
 
-
+* query efficient
 Total Examples: 1, Iterations:25, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 3
 ASR: 100.0 Mean L2 Counted: 3.801842769872106 Query: 2604.0
+
+*
+iterations=25 mul=3 two loops 125 each
+Total Examples: 1, Iterations:25, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 5
+ASR: 100.0 Mean L2 Counted: 3.4381223389606217 Query: 6954.0
+10 minutes!!!
+
+with 2 restarts, all 25 iterations
+Total Examples: 1, Iterations:25, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 3
+ASR: 100.0 Mean L2 Counted: 3.9353735971374593 Query: 1954.0
+
+*
+Total Examples: 5, Iterations:25, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 4
+ASR: 100.0 Mean L2 Counted: 4.572423374909198 Query: 3256.0
+40 minutes

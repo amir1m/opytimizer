@@ -33,6 +33,7 @@ images = np.genfromtxt('x_test_opyt.csv', delimiter=',')
 adv_images = images.reshape((n_samples, 28,28,1))
 adv_labels = np.genfromtxt('y_pred_opyt.csv', delimiter=',')
 
+#np.argmax(adv_labels)
 #np.savetxt('y_pred_opyt.csv', model_logit.predict(adv_images), delimiter=',')
 
 l_2_dist(orig_images, adv_images)
@@ -48,7 +49,17 @@ i=8
 show_digit(orig_images[i],orig_labels[i], orig_labels[i])
 
 
-a = np.array([1,2,3])
-for e in a:
-    if e == 2:
-        np.delete()
+n_samples = 1
+dim = (n_samples,28,28,1)
+images = np.genfromtxt('x_test_random.csv', delimiter=',')
+orig_images = images.reshape(dim)
+orig_labels = np.genfromtxt('y_test_random.csv', delimiter=',')
+
+images = np.genfromtxt('x_test_opyt.csv', delimiter=',')
+adv_images = images.reshape(dim)
+adv_labels = np.genfromtxt('y_pred_opyt.csv', delimiter=',')
+
+show_image(adv_images[0], adv_labels)
+
+
+show_image(orig_images[0], orig_labels)

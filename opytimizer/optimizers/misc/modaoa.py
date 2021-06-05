@@ -48,6 +48,10 @@ class MODAOA(Optimizer):
         self.y_clean = np.argmax(params['y_clean'])
         self.epsilon = params['epsilon']
         self.l_2_min = params['l_2_min']
+        if 'dim' in params:
+            self.dim = params['dim']
+        else:
+            self.dim = (1,28,28,1)
 
         logger.to_file('Clean Label:%s', self.y_clean )
         if(self.l_2_min == True):
@@ -164,8 +168,8 @@ class MODAOA(Optimizer):
         MOP = 1 - (iteration ** (1 / self.alpha) / n_iterations ** (1 / self.alpha))
 
         #logger.info('Shape of Best Agent: %s', space.best_agent.position.shape)
-        x_adv = process_digit(self.x_clean, space.best_agent.position.ravel(), self.epsilon)
-        pred = self.model.predict(x_adv.reshape((1,28,28,1)))
+        x_adv = process_digit(self.x_clean, space.best_agent.position.ravel(), self.epsilon, dim=self.dim)
+        pred = self.model.predict(x_adv.reshape(self.dim))
         y_pred = np.argmax(pred)
         #y_true = np.argmax(self.y_clean)
         c_l_2_dist = l_2_dist(self.x_clean.ravel(), x_adv)

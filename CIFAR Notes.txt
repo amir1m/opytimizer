@@ -1,0 +1,44 @@
+No L2 optimization
+Total Examples: 1, Iterations:10, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 3
+Accuracy: 0.0 Mean L2 Counted: 10.104492573677689 Query: 276.0
+
+
+With L2 Optimizaton - once
+Total Examples: 1, Iterations:25, espilon: 0.5 and Max-L2:5 Agents: 25 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 7.901947039002258 Query: 1302.0
+Time 3 minutes
+
+
+Total Examples: 1, Iterations:50, espilon: 0.5 and Max-L2:5 Agents: 25 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 7.013043252493959 Query: 2552.0
+Time 13 minutes
+
+*
+Total Examples: 1, Iterations:50, espilon: 0.25 and Max-L2:5 Agents: 25 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 4.622298702671254 Query: 2552.0
+
+20 agents
+Exploration Phase#1 Result: Attack result:True, Queries: 1021
+Dist:5.041628740381814
+Total Examples: 1, Iterations:50, espilon: 0.25 and Max-L2:5 Agents: 20 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 4.64991288219369 Query: 2042.0
+
+40 agents
+Total Examples: 1, Iterations:50, espilon: 0.25 and Max-L2:5 Agents: 40 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 4.795435306301153 Query: 4082.0
+
+
+*
+Exploration Phase#1 Result: Attack result:True, Queries: 1276 Dist:4.6760832698525565
+Total Examples: 1, Iterations:50, espilon: 0.25 and Max-L2:5 Agents: 25 l_2_mul: 2
+Accuracy: 0.0 Mean L2 Counted: 4.55472424960466 Query: 3802.0
+Time : 15 minutes
+
+l2 mul = 0.5 -> No use of L2 min
+Total Examples: 1, Iterations:50, espilon: 0.25 and Max-L2:5 Agents: 25 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 4.666634976218404 Query: 1927.0
+
+*
+Total Examples: 1, Iterations:50, espilon: 0.25 and Max-L2:5 Agents: 25 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 4.622298702671254 Query: 2552.0
+

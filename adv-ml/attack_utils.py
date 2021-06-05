@@ -12,6 +12,16 @@ def show_digit(x, y, pred=None):
   plt.title('True: {label} and Predicted: {pred}'.format(label=np.argmax(y), pred=np.argmax(pred)))
   plt.imshow(x.reshape((28,28)), cmap='Greys_r')
 
+cifar_class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
+               'dog', 'frog', 'horse', 'ship', 'truck']
+def show_image(image, predictions):
+  label = np.argmax(predictions)
+  fig = plt.figure()
+  fig.set_size_inches(5,2)
+  plt.imshow(image, cmap=plt.cm.binary)
+  plt.xlabel(cifar_class_names[label])
+  plt.show()
+
 def l_2_dist(orig_img, new_img):
     return np.sqrt(np.sum((orig_img.ravel()-new_img.ravel())**2))
 
@@ -87,7 +97,7 @@ def get_mis_preds(y_true, y_preds):
 def get_correct_preds(y_true, y_preds):
   return np.where(np.argmax(y_true, axis=1) == np.argmax(y_preds, axis=1))[0]
 
-def browse_mis_samples(clean_images, adv_images, y_true, y_pred, verbose=True):
+def browse_mis_samples(clean_images, adv_images, y_true, y_pred, dim=(1,28,28,1), verbose=True):
   total_images = len(adv_images)
   mis_preds = get_mis_preds(y_true, y_pred)
   print("MIS PREDS: ", mis_preds)
@@ -114,12 +124,12 @@ def browse_mis_samples(clean_images, adv_images, y_true, y_pred, verbose=True):
       print("Y pred:", y_pred)
       print("pred_label : ", pred_label)
       fig.add_subplot(rows, columns, 1)
-      plt.imshow(clean_images[i].reshape(28,28), cmap='Greys_r', interpolation='nearest')
+      plt.imshow(clean_images[i].reshape(dim[1], dim[2]), cmap='Greys_r', interpolation='nearest')
       plt.axis('off')
       plt.title("#{} Clean Img.True:{}".format(i,true_label))
 
       fig.add_subplot(rows, columns, 2)
-      plt.imshow(adv_images[i].reshape(28,28), cmap='Greys_r', interpolation='nearest')
+      plt.imshow(adv_images[i].reshape(dim[1], dim[2]), cmap='Greys_r', interpolation='nearest')
       plt.axis('off')
       plt.title("Adv Img. Predicted: {} ".format(pred_label))
       dist = "L2 Dist: {}".format(l_2_dist(clean_images[i], adv_images[i]))
@@ -137,12 +147,12 @@ def browse_all_samples(clean_images, adv_images, y_true, y_pred, mis= True):
       true_label = np.argmax(y_true[i])
       pred_label = np.argmax(y_pred[i])
       fig.add_subplot(rows, columns, 1)
-      plt.imshow(clean_images[i].reshape(28,28), cmap='Greys_r', interpolation='nearest')
+      plt.imshow(clean_images[i].reshape(dim[1], dim[2]), cmap='Greys_r', interpolation='nearest')
       plt.axis('off')
       plt.title("#{} Clean Image. True Label: {}".format(i,true_label))
 
       fig.add_subplot(rows, columns, 2)
-      plt.imshow(adv_images[i].reshape(28,28), cmap='Greys_r', interpolation='nearest')
+      plt.imshow(adv_images[i].reshape(dim[1], dim[2]), cmap='Greys_r', interpolation='nearest')
       plt.axis('off')
       plt.title("Adv Image. Predicted: {} ".format(pred_label))
   interact(view_image, i=(0, N-1))

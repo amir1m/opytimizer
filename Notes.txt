@@ -1498,7 +1498,8 @@ Exploration Phase#1 Result: Attack result:True, Queries: 676 Dist:4.940268246444
 Total Examples: 1, Iterations:25, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 2
 Accuracy: 0.0 Mean L2 Counted: 4.302042910209968 Query: 2002.0
 
-*- 50 iterate and l_2_mul 3
+*
+- 50 iterate and l_2_mul 3
 Exploration Phase#1 Result: Attack result:True, Queries: 1326 Dist:4.034614796790148
 Total Examples: 1, Iterations:50, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 3
 Accuracy: 0.0 Mean L2 Counted: 2.594671880348432 Query: 5252.0
@@ -1576,6 +1577,15 @@ Exploration Phase#1 Result: Attack result:True, Queries: 1846 Dist:5.46397921986
 if r1>MOA, Mul/Div original and Gaussian in add/sub 
 Total Examples: 1, Iterations:70, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 1
 Accuracy: 0.0 Mean L2 Counted: 4.648034742732768 Query: 3692.0
+===========================
+
+Nudging from local optima:
+STARTING BASE:
+Attack result:True, Queries: 3802 All Dist:{'L2': 3.0669, 'L-INF': 0.8258, 'WS': 0.0338, 'ssim': 0.6185, 'psnr': 19.2092}, L2_Iters: 50
+2021-06-05 15:46:56,006 - attack — INFO — 
+Total Examples: 1, Iterations:50, espilon: 1.1 and Max-L2:5 Agents: 25 l_2_mul: 2
+Accuracy: 0.0 Mean L2 Counted: 3.066892222194066 Query: 3802.0
+
 
 
 

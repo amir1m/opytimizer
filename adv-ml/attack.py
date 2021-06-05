@@ -117,11 +117,13 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
 
 """## Functions for Adv Example generation using CSO"""
 
-def process_digit(x_clean, x_prop, epsilon):
+def process_digit(x_clean, x_prop, epsilon, dim=(1,28,28,1)):
+  # logger.info(f"X CLEAN SHAPE:{x_clean.shape}")
+  # logger.info(f"X PROP SHAPE:{x_prop.shape}")
   x_clean_ravel = np.copy(x_clean.ravel())
   x_clean_ravel += x_prop * epsilon
   x_clean_ravel = (x_clean_ravel-min(x_clean_ravel)) / (max(x_clean_ravel)-min(x_clean_ravel))
-  return x_clean_ravel.reshape((28,28,1))
+  return x_clean_ravel.reshape(dim)
 
 # TAKES ARGUMENTS
 def get_cso_adv(model, x_test_random, y_test_random,
@@ -197,7 +199,8 @@ def get_adv_cso_example(model, x_clean, y_clean, n=100, pa=0.5, nest=784, iterat
   return x_adv, evaluate_acc.count, dist
 
 def get_adv_opyt_example(model, x_clean, y_clean,
-                        epsilon = 0.5, iterations=100, max_l_2=6, agents=20, l_2_mul=.5):
+                        epsilon = 0.5, iterations=100, max_l_2=6, agents=20, l_2_mul=.5,
+                        dim=(1,28,28,1)):
   eval_count = 0
   x_adv = None
   l2_iter = round(iterations)
@@ -205,8 +208,8 @@ def get_adv_opyt_example(model, x_clean, y_clean,
   def evaluate_acc(x):
     nonlocal eval_count
     eval_count += 1
-    x_adv = process_digit(x_clean, x.ravel(), epsilon)
-    predictions = model.predict(x_adv.reshape((1,28,28,1)))[0]
+    x_adv = process_digit(x_clean, x.ravel(), epsilon, dim=dim)
+    predictions = model.predict(x_adv.reshape(dim))[0]
     result = np.argmax(predictions)
     actual = np.argmax(y_clean)
     dist = float(l_2_dist(x_clean, x_adv))
@@ -215,26 +218,10 @@ def get_adv_opyt_example(model, x_clean, y_clean,
     else:
       return float(predictions[actual] * 100)
 
-  def l_2_constraint(x):
-    return l_2_dist(x_clean, x) < max_l_2
-
-  def minimize_l_2(z):
-    #logger.to_file(f'x_adv shape in minimize_l_2 {x_adv.shape}')
-    nonlocal x_adv
-    x_adv_l2 = process_digit(x_adv, z.ravel(), epsilon)
-    fitness = float(l_2_dist(x_clean.ravel(),x_adv_l2.ravel()))
-    return fitness
-
-  @counter
-  def inequality_contraint(x):
-    x_adv = process_digit(x_clean, x.ravel(), epsilon)
-    predictions = model.predict(x_adv.reshape((1,28,28,1)))[0]
-    result = np.argmax(predictions)
-    return result != np.argmax(y_clean)
 
   # Number of agents and decision variables
   n_agents = agents
-  n_variables = 784
+  n_variables = dim[1] * dim[2] * dim[3]
   # Lower and upper bounds (has to be the same size as `n_variables`)
   lower_bound = np.empty(n_variables)
   lower_bound.fill(0)
@@ -243,8 +230,7 @@ def get_adv_opyt_example(model, x_clean, y_clean,
 
   #Creates the optimizer
   params={'model':model, 'x_clean':x_clean, 'x_adv': None,
-  'y_clean': y_clean,
-  'epsilon' : epsilon,'l_2_min':False}
+  'y_clean': y_clean,'epsilon' : epsilon,'l_2_min':False, 'dim':dim}
   optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
   #optimizer = opytimizer.optimizers.misc.AOA()
 
@@ -258,20 +244,21 @@ def get_adv_opyt_example(model, x_clean, y_clean,
   opt.start(n_iterations = iterations)
 
   xopt = opt.space.best_agent.position
-  x_adv = process_digit(x_clean, xopt.ravel(), epsilon)
-  x_adv = x_adv.reshape((28,28,1))
+  x_adv = process_digit(x_clean, xopt.ravel(), epsilon, dim=dim)
+  #x_adv = x_adv.reshape(dim)
   dist = l_2_dist(x_clean, x_adv)
-  adv_pred = np.argmax(model.predict(x_adv.reshape((1,28,28,1))))
+  adv_pred = np.argmax(model.predict(x_adv.reshape(dim)))
   eval_count += 1 # 1 for above prediction!
   attack_succ = np.argmax(y_clean) != adv_pred
-  logger.info(f"\nExploration Phase#1 Result: Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}\n")
+  logger.info(f"Exploration Phase#1 Result: Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}\n")
 
   if(attack_succ == True):
-    logger.info("\nStarting Phase#2 Exploitation\n")
+    logger.info("Starting Phase#2 Exploitation")
     for i in range(1):
-      logger.info(f"\nRestarting L2 Minimization loop: {i}")
+      #epsilon = epsilon 
+      logger.info(f"Restarting L2 Minimization loop: {i} with epsilon: {epsilon}")
       params={'model':model, 'x_clean':x_clean, 'x_adv': None,
-      'y_clean': y_clean,'epsilon' : epsilon, 'l_2_min':True}
+      'y_clean': y_clean,'epsilon' : epsilon, 'l_2_min':True, 'dim':dim}
       optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
       #space_l_2 = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
       opt_l_2 = Opytimizer(space, optimizer, function, save_agents=False)
@@ -280,9 +267,9 @@ def get_adv_opyt_example(model, x_clean, y_clean,
       #Runs the optimization task
       opt_l_2.start(n_iterations = round(iterations*l_2_mul))
       xopt_curr = opt_l_2.space.best_agent.position
-      x_adv_curr = process_digit(x_clean, xopt_curr.ravel(), epsilon)
-      x_adv_curr = x_adv_curr.reshape((28,28,1))
-      adv_pred_curr = np.argmax(model.predict(x_adv_curr.reshape((1,28,28,1))))
+      x_adv_curr = process_digit(x_clean, xopt_curr.ravel(), epsilon, dim=dim)
+      x_adv_curr = x_adv_curr.reshape(dim)
+      adv_pred_curr = np.argmax(model.predict(x_adv_curr.reshape(dim)))
       eval_count += 1
       attack_succ_curr = np.argmax(y_clean) != adv_pred_curr
       dist_curr = l_2_dist(x_clean, x_adv_curr)
@@ -291,42 +278,24 @@ def get_adv_opyt_example(model, x_clean, y_clean,
         x_adv = np.copy(x_adv_curr)
         dist = dist_curr
 
-  # if(attack_succ == True):
-  #   logger.info('Starting L2 Minimization\n')
-  #   xopt_curr = minimize(evaluate_acc, x_adv.ravel(), method='nelder-mead',
-  #              options={'xatol': 1e-8, 'disp': True})
-  #   x_adv_curr = process_digit(x_clean, xopt_curr.ravel(), epsilon)
-  #   x_adv_curr = x_adv_curr.reshape((28,28,1))
-  #   adv_pred_curr = np.argmax(model.predict(x_adv_curr.reshape((1,28,28,1))))
-  #   eval_count += l2_iter + 1
-  #   attack_succ_curr = np.argmax(y_clean) != adv_pred_curr
-  #   dist_curr = l_2_dist(x_clean, x_adv_curr)
-  #   if(attack_succ_curr == True and dist_curr < dist):
-  #     opt = opt_l_2
-  #     x_adv = np.copy(x_adv_curr)
-  #     dist = dist_curr
-
-  # dist = l_2_dist(x_clean, x_adv)
-  # adv_pred = np.argmax(model.predict(x_adv.reshape((1,28,28,1))))
-  # attack_succ = np.argmax(y_clean) != adv_pred
   all_dist = get_all_dist(x_clean, x_adv)
   logger.info(f"Attack result:{attack_succ}, Queries: {eval_count} All Dist:{all_dist}, L2_Iters: {l2_iter}")
   return x_adv, eval_count, dist
 
 
 def get_opyt_adv(model, x_test_random, y_test_random,
-                iterations = 100, epsilon = 3.55, max_l_2=6, agents=20, l_2_mul=0.5):
+                iterations = 100, epsilon = 3.55, max_l_2=6, agents=20, l_2_mul=0.5, dim=(1,28,28,1)):
   iteration = round(iterations)
   logger.info(f"\nIterations:{iteration}, epsilon: {epsilon} and l_2_mul:{l_2_mul}")
 
   no_samples = len(x_test_random)
-  adv_nvg = np.empty((no_samples,28,28,1))
+  adv_nvg = np.empty(dim)
 
   i = 0
   query_count = []
   l_2 = []
   for i in range(no_samples):
-    logger.info(f"\nGenerating example:{i}")
+    logger.info(f"\n\nGenerating example:{i}")
     adv_nvg[i], count, dist = get_adv_opyt_example(model,
                                                   x_test_random[i],
                                                   y_test_random[i],
@@ -334,7 +303,8 @@ def get_opyt_adv(model, x_test_random, y_test_random,
                                                   iterations = iterations,
                                                    max_l_2 = max_l_2,
                                                    agents = agents,
-                                                   l_2_mul=l_2_mul
+                                                   l_2_mul=l_2_mul,
+                                                   dim=(1, dim[1], dim[2], dim[3])
                                                   )
     query_count.append(count)
     l_2.append(dist)

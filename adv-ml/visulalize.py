@@ -50,15 +50,15 @@ show_digit(orig_images[i],orig_labels[i], orig_labels[i])
 
 
 n_samples = 1
-dim = (n_samples,28,28,1)
-images = np.genfromtxt('x_test_random.csv', delimiter=',')
+dim = (n_samples,32,32,3)
+images = np.genfromtxt('x_test_random_cifar10.csv', delimiter=',')
 orig_images = images.reshape(dim)
-orig_labels = np.genfromtxt('y_test_random.csv', delimiter=',')
+orig_labels = np.genfromtxt('y_test_random_cifar10.csv', delimiter=',')
 
-images = np.genfromtxt('x_test_opyt.csv', delimiter=',')
+images = np.genfromtxt('x_test_opyt_cifar10.csv', delimiter=',')
 adv_images = images.reshape(dim)
-adv_labels = np.genfromtxt('y_pred_opyt.csv', delimiter=',')
-
+adv_labels = np.genfromtxt('y_pred_opyt_cifar10.csv', delimiter=',')
+l_2_dist(orig_images, adv_images)
 show_image(adv_images[0], adv_labels)
 
 

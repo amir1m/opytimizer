@@ -172,12 +172,12 @@ class MODAOA(Optimizer):
         pred = self.model.predict(x_adv.reshape(self.dim))
         y_pred = np.argmax(pred)
         #y_true = np.argmax(self.y_clean)
-        c_l_2_dist = l_2_dist(self.x_clean.ravel(), x_adv)
+        #c_l_2_dist = l_2_dist(self.x_clean.ravel(), x_adv)
         logger.to_file("Predicted: %s", y_pred)
         # logger.to_file("Clean Label: %s", np.argmax(self.y_clean))
-        logger.to_file("l_2_dist: %s", c_l_2_dist)
-        logger.to_file("MOP: %s",MOP)
-        logger.to_file("MOA: %s",MOA)
+        #logger.to_file("l_2_dist: %s", c_l_2_dist)
+        #logger.to_file("MOP: %s",MOP)
+        #logger.to_file("MOA: %s",MOA)
 
         # Iterates through all agents
         for agent in space.agents:

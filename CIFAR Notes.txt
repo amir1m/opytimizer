@@ -13,7 +13,7 @@ Total Examples: 1, Iterations:50, espilon: 0.5 and Max-L2:5 Agents: 25 l_2_mul: 
 Accuracy: 0.0 Mean L2 Counted: 7.013043252493959 Query: 2552.0
 Time 13 minutes
 
-*
+
 Total Examples: 1, Iterations:50, espilon: 0.25 and Max-L2:5 Agents: 25 l_2_mul: 1
 Accuracy: 0.0 Mean L2 Counted: 4.622298702671254 Query: 2552.0
 
@@ -41,4 +41,95 @@ Accuracy: 0.0 Mean L2 Counted: 4.666634976218404 Query: 1927.0
 *
 Total Examples: 1, Iterations:50, espilon: 0.25 and Max-L2:5 Agents: 25 l_2_mul: 1
 Accuracy: 0.0 Mean L2 Counted: 4.622298702671254 Query: 2552.0
+
+------
+
+Not much use of L2 min iteration
+iterations=60,epsilon=0.20,agents=30,max_l_2=5,l_2_mul=1,
+Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:3.9917537985653504
+Total Examples: 1, Iterations:60, espilon: 0.2 and Max-L2:5 Agents: 30 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 3.9744836457994333 Query: 3662.0
+
+Total Examples: 1, Iterations:60, espilon: 0.2 and Max-L2:5 Agents: 25 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 4.337649980845224 Query: 2302.0	
+
+Total Examples: 1, Iterations:60, espilon: 0.2 and Max-L2:5 Agents: 35 l_2_mul: 0.5
+Accuracy: 100.0 Mean L2 Counted: 4.290160323083682 Query: 2136.0
+
+*
+Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:3.9917537985653504
+Total Examples: 1, Iterations:60, espilon: 0.2 and Max-L2:5 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 3.921451926733489 Query: 2762.0
+
+L2 loop ran twice : 30 and 15
+Total Examples: 1, Iterations:60, espilon: 0.2 and Max-L2:5 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 3.9156009151876376 Query: 3693.0
+
+dist > max_l_2
+Total Examples: 1, Iterations:50, espilon: 0.2 and Max-L2:4.5 Agents: 50 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 4.312771363333028 Query: 2551.0
+
+*
+dist > max_l_2
+Total Examples: 1, Iterations:50, espilon: 0.2 and Max-L2:4.0 Agents: 50 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 3.9363957943806684 Query: 2551.0
+
+Max 3.5?
+Total Examples: 1, Iterations:50, espilon: 0.2 and Max-L2:3.5 Agents: 55 l_2_mul: 0.5
+Accuracy: 100.0 Mean L2 Counted: 3.4521871870963885 Query: 2806.0
+
+--------
+CSO
+-------
+With No L2 Min:
+Total Examples: 1, Iterations:50, espilon: 0.2 and Max-L2:3.5 Agents: 25 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 4.33059070934474 Query: 3776.0
+6 minutes
+
+Total Examples: 1, Iterations:75, espilon: 0.2 and Max-L2:3 Agents: 35 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 3.1136776100624566 Query: 7911.0
+13 minutes
+
+Total Examples: 1, Iterations:50, espilon: 0.15 and Max-L2:2 Agents: 25 l_2_mul: 0.5
+Accuracy: 100.0 Mean L2 Counted: 3.5380175721359866 Query: 3776.0
+7 MINUTES
+
+
+Total Examples: 1, Iterations:50, espilon: 0.2 and Max-L2:3 Agents: 25 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 3.484765533395896 Query: 3776.0
+
+Total Examples: 1, Iterations:50, espilon: 0.2 and Max-L2:2 Agents: 25 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 3.484765533395896 Query: 3776.0
+
+*
+Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:2 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 3.1525240372760797 Query: 5431.0
+11 minutes
+
+Total Examples: 1, Iterations:30, espilon: 0.15 and Max-L2:2 Agents: 20 l_2_mul: 0.5
+Accuracy: 100.0 Mean L2 Counted: 3.597460198010065 Query: 1821.0
+
+Total Examples: 1, Iterations:30, espilon: 0.15 and Max-L2:2 Agents: 30 l_2_mul: 0.5
+Accuracy: 100.0 Mean L2 Counted: 3.5872452022394414 Query: 2731.0
+
+
+
+
+AOA :
+Total Examples: 1, Iterations:75, espilon: 0.2 and Max-L2:3 Agents: 35 l_2_mul: 0.5
+Accuracy: 100.0 Mean L2 Counted: 2.997861342339607 Query: 2661.0
+
+---------
+MODAOA:
+---------
+Total Examples: 1, Iterations:70, espilon: 0.15 and Max-L2:2 Agents: 30 l_2_mul: 0.5
+Accuracy: 100.0 Mean L2 Counted: 1.9832313032430926 Query: 2131.0
+
+Total Examples: 1, Iterations:100, espilon: 0.15 and Max-L2:2 Agents: 50 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 4.373897981668384 Query: 5051.0
+
+
+Total Examples: 1, Iterations:60, espilon: 0.1 and Max-L2:2 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 8.958349759200658 Query: 1831.0
+
 

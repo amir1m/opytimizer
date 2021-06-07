@@ -82,16 +82,17 @@ tf.__version__
 import keras
 keras.__version__
 
+dataset = 'mnist'
 #tf.compat.v1.disable_eager_execution()
 # Read MNIST dataset
 #(x_train, y_train), (x_test, y_test), min_, max_ = load_dataset(str("cifar10"))
-(x_train, y_train), (x_test, y_test), min_, max_ = load_dataset(str("mnist"))
+(x_train, y_train), (x_test, y_test), min_, max_ = load_dataset(str(dataset))
 
 #model_logit = create_model()
 #classifier = KerasClassifier(model=model_logit)
 #model_logit.fit(x_train, y_train, epochs=20, batch_size=128)
 
-model_logit = load_model('adv-ml/models/mnist', compile = False)
+model_logit = load_model('adv-ml/models/'+dataset, compile = False)
 #model_cifar = load_model('adv-ml/models/cifar-10', compile = False)
 
 # n_samples = 1
@@ -152,8 +153,8 @@ loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
 #                                                      )
 
 
-np.savetxt('x_test_random.csv', x_test_random.reshape((dim[0], dim[1]*dim[2]*dim[3])), delimiter=',')
-np.savetxt('y_test_random.csv', y_test_random, delimiter=',')
+np.savetxt('x_test_random_'+dataset+'.csv', x_test_random.reshape((dim[0], dim[1]*dim[2]*dim[3])), delimiter=',')
+np.savetxt('y_test_random_'+dataset+'.csv', y_test_random, delimiter=',')
 
-np.savetxt('x_test_opyt.csv', x_test_opyt.reshape((dim[0], dim[1]*dim[2]*dim[3])), delimiter=',')
-np.savetxt('y_pred_opyt.csv', model_logit.predict(x_test_opyt), delimiter=',')
+np.savetxt('x_test_opyt_'+dataset+'.csv', x_test_opyt.reshape((dim[0], dim[1]*dim[2]*dim[3])), delimiter=',')
+np.savetxt('y_pred_opyt_'+dataset+'.csv', model_logit.predict(x_test_opyt), delimiter=',')

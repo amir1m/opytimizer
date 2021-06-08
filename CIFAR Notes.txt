@@ -131,5 +131,18 @@ Accuracy: 0.0 Mean L2 Counted: 4.373897981668384 Query: 5051.0
 
 Total Examples: 1, Iterations:60, espilon: 0.1 and Max-L2:2 Agents: 30 l_2_mul: 0.5
 Accuracy: 0.0 Mean L2 Counted: 8.958349759200658 Query: 1831.0
+---------
+L2 min very ineffective
+Total Examples: 1, Iterations:50, espilon: 0.25 and Max-L2:5 Agents: 25 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 4.666634976218404 Query: 1927.0
+
+
+
+Exploration Phase#1 Result: Attack result:True, Queries: 2026 Dist:4.0805234550649985
+Total Examples: 1, Iterations:80, espilon: 0.2 and Max-L2:4 Agents: 25 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 4.061012562763257 Query: 3052.0
+ Attack result:True, Queries: 3052 All Dist:{'L2': 4.061, 'L-INF': 0.1751, 'WS': 0.0229, 'ssim': 0.821, 'psnr': 22.7015}, L2_Iters: 80
+10 minutes phase 1 and 10 minutes phase 2
+
 
 

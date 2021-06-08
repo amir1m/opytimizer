@@ -214,9 +214,12 @@ def get_adv_opyt_example(model, x_clean, y_clean,
     actual = np.argmax(y_clean)
     dist = float(l_2_dist(x_clean, x_adv))
     if(result != actual):
-      return float(dist)
+      if (dist > max_l_2):
+        return float(dist) * 10
+      else:
+        return float(dist)
     else:
-      return float(predictions[actual] * 100)
+        return float(predictions[actual] * 100)
 
 
   # Number of agents and decision variables
@@ -252,31 +255,31 @@ def get_adv_opyt_example(model, x_clean, y_clean,
   attack_succ = np.argmax(y_clean) != adv_pred
   logger.info(f"Exploration Phase#1 Result: Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}\n")
 
-  if(attack_succ == True):
-    logger.info("Starting Phase#2 Exploitation")
-    for i in range(1):
-      #epsilon = epsilon 
-      logger.info(f"Restarting L2 Minimization loop: {i} with epsilon: {epsilon}")
-      params={'model':model, 'x_clean':x_clean, 'x_adv': None,
-      'y_clean': y_clean,'epsilon' : epsilon, 'l_2_min':True, 'dim':dim}
-      optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
-      #space_l_2 = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
-      opt_l_2 = Opytimizer(space, optimizer, function, save_agents=False)
-      #opt_l_2.space.best_agent.position = opt.space.best_agent.position
-      #opt_l_2.space.best_agent.position = opt.space.best_agent.position
-      #Runs the optimization task
-      opt_l_2.start(n_iterations = round(iterations*l_2_mul))
-      xopt_curr = opt_l_2.space.best_agent.position
-      x_adv_curr = process_digit(x_clean, xopt_curr.ravel(), epsilon, dim=dim)
-      x_adv_curr = x_adv_curr.reshape(dim)
-      adv_pred_curr = np.argmax(model.predict(x_adv_curr.reshape(dim)))
-      eval_count += 1
-      attack_succ_curr = np.argmax(y_clean) != adv_pred_curr
-      dist_curr = l_2_dist(x_clean, x_adv_curr)
-      if(attack_succ_curr == True and dist_curr < dist):
-        opt = opt_l_2
-        x_adv = np.copy(x_adv_curr)
-        dist = dist_curr
+  # if(attack_succ == True):
+  #   logger.info("Starting Phase#2 Exploitation")
+  #   for i in range(1):
+  #     #epsilon = epsilon
+  #     logger.info(f"Restarting L2 Minimization loop: {i} with epsilon: {epsilon}")
+  #     params={'model':model, 'x_clean':x_clean, 'x_adv': None,
+  #     'y_clean': y_clean,'epsilon' : epsilon, 'l_2_min':True, 'dim':dim}
+  #     optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+  #     #space_l_2 = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
+  #     opt_l_2 = Opytimizer(space, optimizer, function, save_agents=False)
+  #     #opt_l_2.space.best_agent.position = opt.space.best_agent.position
+  #     #opt_l_2.space.best_agent.position = opt.space.best_agent.position
+  #     #Runs the optimization task
+  #     opt_l_2.start(n_iterations = round(iterations*l_2_mul))
+  #     xopt_curr = opt_l_2.space.best_agent.position
+  #     x_adv_curr = process_digit(x_clean, xopt_curr.ravel(), epsilon, dim=dim)
+  #     x_adv_curr = x_adv_curr.reshape(dim)
+  #     adv_pred_curr = np.argmax(model.predict(x_adv_curr.reshape(dim)))
+  #     eval_count += 1
+  #     attack_succ_curr = np.argmax(y_clean) != adv_pred_curr
+  #     dist_curr = l_2_dist(x_clean, x_adv_curr)
+  #     if(attack_succ_curr == True and dist_curr < dist):
+  #       opt = opt_l_2
+  #       x_adv = np.copy(x_adv_curr)
+  #       dist = dist_curr
 
   all_dist = get_all_dist(x_clean, x_adv)
   logger.info(f"Attack result:{attack_succ}, Queries: {eval_count} All Dist:{all_dist}, L2_Iters: {l2_iter}")

@@ -82,7 +82,7 @@ tf.__version__
 import keras
 keras.__version__
 
-dataset = 'mnist'
+dataset = 'cifar10'
 #tf.compat.v1.disable_eager_execution()
 # Read MNIST dataset
 #(x_train, y_train), (x_test, y_test), min_, max_ = load_dataset(str("cifar10"))
@@ -118,16 +118,16 @@ dim = x_test_random.shape
 # from importlib import reload # reload
 # reload(opytimizer.optimizers.misc)
 
-loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
-                                                     x_test_random,
-                                                     y_test_random,
-                                                     iterations=50,
-                                                     epsilon=1.1,
-                                                     agents=25,
-                                                     max_l_2=5,
-                                                     l_2_mul=3,
-                                                     dim=dim
-                                                     )
+# loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
+#                                                      x_test_random,
+#                                                      y_test_random,
+#                                                      iterations=50,
+#                                                      epsilon=1.1,
+#                                                      agents=25,
+#                                                      max_l_2=5,
+#                                                      l_2_mul=3,
+#                                                      dim=dim
+#                                                      )
 
 # y_target = np.array([5, 8, 1, 3, 6])
 # loss, l_2_mean, query_mean, x_test_opyt = get_opyt_target_adv(model_logit,
@@ -141,16 +141,16 @@ loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
 #                                                      l_2_mul=4,
 #                                                      )
 
-# loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_cifar,
-#                                                      x_test_random,
-#                                                      y_test_random,
-#                                                      iterations=50,
-#                                                      epsilon=0.25,
-#                                                      agents=25,
-#                                                      max_l_2=5,
-#                                                      l_2_mul=2,
-#                                                      dim=dim
-#                                                      )
+loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
+                                                     x_test_random,
+                                                     y_test_random,
+                                                     iterations=80,
+                                                     epsilon=0.2,
+                                                     agents=25,
+                                                     max_l_2=4,
+                                                     l_2_mul=0.5,
+                                                     dim=dim
+                                                     )
 
 
 np.savetxt('x_test_random_'+dataset+'.csv', x_test_random.reshape((dim[0], dim[1]*dim[2]*dim[3])), delimiter=',')

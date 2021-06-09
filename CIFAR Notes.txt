@@ -145,4 +145,43 @@ Accuracy: 0.0 Mean L2 Counted: 4.061012562763257 Query: 3052.0
 10 minutes phase 1 and 10 minutes phase 2
 
 
+Total Examples: 1, Iterations:80, espilon: 0.2 and Max-L2:4 Agents: 25 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 4.0805234550649985 Query: 2026.0
+11 minutes
+
+Just added L2 Constraint
+Total Examples: 1, Iterations:80, espilon: 0.2 and Max-L2:4 Agents: 25 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 4.0805234550649985 Query: 2026.0
+--------
+
+Minimize prediction such that dist < MaxL2(constraint) = 4
+Total Examples: 1, Iterations:80, espilon: 0.2 and Max-L2:4 Agents: 25 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 4.3558673596512545 Query: 2026.0
+10 minutes
+
+Minimize prediction such that dist < MaxL2(constraint) = 2
+Total Examples: 1, Iterations:80, espilon: 0.2 and Max-L2:2 Agents: 25 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 4.3558673596512545 Query: 2026.0
+
+
+Minimize prediction such that dist < MaxL2(constraint) = 2 AND epsilon=0.15
+Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:2 Agents: 25 l_2_mul: 0.5
+Accuracy: 100.0 Mean L2 Counted: 3.4978513699031946 Query: 1526.0
+
+Minimize prediction such that dist < MaxL2(constraint) = 2 AND epsilon=0.15
+Total Examples: 1, Iterations:80, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 100.0 Mean L2 Counted: 3.3763153854115786 Query: 2431.0
+
+Minimize prediction such that dist < MaxL2(constraint) = 2 AND epsilon=0.15
+Total Examples: 1, Iterations:50, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 100.0 Mean L2 Counted: 3.3662948591711257 Query: 1531.0
+
+-----
+
+Total Examples: 1, Iterations:60, espilon: 0.25 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 4.562521013539898 Query: 1831.0
+
+Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 3.3074719988402874 Query: 1831.0
+10 minutes
 

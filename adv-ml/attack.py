@@ -213,13 +213,27 @@ def get_adv_opyt_example(model, x_clean, y_clean,
     result = np.argmax(predictions)
     actual = np.argmax(y_clean)
     dist = float(l_2_dist(x_clean, x_adv))
+    #return float(predictions[actual] + 10 * dist)
     if(result != actual):
       if (dist > max_l_2):
         return float(dist) * 10
       else:
         return float(dist)
     else:
-        return float(predictions[actual] * 100)
+      predictions.sort()
+      return float(10*(predictions[-1] - predictions[-2]) + 10 * dist)
+      #return float(predictions[actual] + 100 * dist)
+
+  def l_2_constraint(x):
+    return l_2_dist(x_clean, x) < max_l_2
+
+  @counter
+  def inequality_constraint(x):
+    x_adv = process_digit(x_clean, x.ravel(), epsilon, dim=dim)
+    predictions = model.predict(x_adv.reshape(dim))[0]
+    result = np.argmax(predictions)
+    actual = np.argmax(y_clean)
+    return result != actual
 
 
   # Number of agents and decision variables
@@ -254,6 +268,7 @@ def get_adv_opyt_example(model, x_clean, y_clean,
   eval_count += 1 # 1 for above prediction!
   attack_succ = np.argmax(y_clean) != adv_pred
   logger.info(f"Exploration Phase#1 Result: Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}\n")
+  #logger.info(f"Inequality constraint count: {inequality_constraint.count}")
 
   # if(attack_succ == True):
   #   logger.info("Starting Phase#2 Exploitation")

@@ -144,10 +144,10 @@ dim = x_test_random.shape
 loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
                                                      x_test_random,
                                                      y_test_random,
-                                                     iterations=80,
-                                                     epsilon=0.2,
-                                                     agents=25,
-                                                     max_l_2=4,
+                                                     iterations=60,
+                                                     epsilon=0.15,
+                                                     agents=30,
+                                                     max_l_2=3,
                                                      l_2_mul=0.5,
                                                      dim=dim
                                                      )

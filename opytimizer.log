@@ -1,4 +1,6 @@
-2021-06-08 00:05:54,030 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
-2021-06-08 00:05:54,030 - opytimizer.optimizers.misc.modaoa — INFO — Clean Label:8
-2021-06-08 00:05:54,031 - opytimizer.optimizers.misc.modaoa — INFO — L2_Min:True
-2021-06-08 00:05:54,032 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-09 00:06:54,344 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:3.3074719988402874
+
+2021-06-09 00:06:54,350 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 3.3075, 'L-INF': 0.1333, 'WS': 0.0243, 'ssim': 0.8807, 'psnr': 24.4843}, L2_Iters: 60
+2021-06-09 00:06:54,450 - attack — INFO — 
+Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 3.3074719988402874 Query: 1831.0

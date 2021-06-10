@@ -9,7 +9,6 @@ import os
 import sys
 #sys.path.append('.')
 sys.path.append('/Users/amirmukeri/Projects/opytimizer/nevergrad/')
-
 import numpy as np
 import nevergrad as ng
 import SwarmPackagePy
@@ -213,7 +212,7 @@ def get_adv_opyt_example(model, x_clean, y_clean,
     result = np.argmax(predictions)
     actual = np.argmax(y_clean)
     dist = float(l_2_dist(x_clean, x_adv))
-    #return float(predictions[actual] + 10 * dist)
+    #dist = np.exp(-(l_2_dist(x_clean, x_adv)**2)/2)
     if(result != actual):
       if (dist > max_l_2):
         return float(dist) * 10
@@ -222,7 +221,6 @@ def get_adv_opyt_example(model, x_clean, y_clean,
     else:
       predictions.sort()
       return float(10*(predictions[-1] - predictions[-2]) + 10 * dist)
-      #return float(predictions[actual] + 100 * dist)
 
   def l_2_constraint(x):
     return l_2_dist(x_clean, x) < max_l_2
@@ -249,6 +247,8 @@ def get_adv_opyt_example(model, x_clean, y_clean,
   params={'model':model, 'x_clean':x_clean, 'x_adv': None,
   'y_clean': y_clean,'epsilon' : epsilon,'l_2_min':False, 'dim':dim}
   optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+  #optimizer = opytimizer.optimizers.swarm.CS()
+  #optimizer = opytimizer.optimizers.swarm.PSO()
   #optimizer = opytimizer.optimizers.misc.AOA()
 
   space = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
@@ -270,31 +270,32 @@ def get_adv_opyt_example(model, x_clean, y_clean,
   logger.info(f"Exploration Phase#1 Result: Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}\n")
   #logger.info(f"Inequality constraint count: {inequality_constraint.count}")
 
-  # if(attack_succ == True):
-  #   logger.info("Starting Phase#2 Exploitation")
-  #   for i in range(1):
-  #     #epsilon = epsilon
-  #     logger.info(f"Restarting L2 Minimization loop: {i} with epsilon: {epsilon}")
-  #     params={'model':model, 'x_clean':x_clean, 'x_adv': None,
-  #     'y_clean': y_clean,'epsilon' : epsilon, 'l_2_min':True, 'dim':dim}
-  #     optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
-  #     #space_l_2 = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
-  #     opt_l_2 = Opytimizer(space, optimizer, function, save_agents=False)
-  #     #opt_l_2.space.best_agent.position = opt.space.best_agent.position
-  #     #opt_l_2.space.best_agent.position = opt.space.best_agent.position
-  #     #Runs the optimization task
-  #     opt_l_2.start(n_iterations = round(iterations*l_2_mul))
-  #     xopt_curr = opt_l_2.space.best_agent.position
-  #     x_adv_curr = process_digit(x_clean, xopt_curr.ravel(), epsilon, dim=dim)
-  #     x_adv_curr = x_adv_curr.reshape(dim)
-  #     adv_pred_curr = np.argmax(model.predict(x_adv_curr.reshape(dim)))
-  #     eval_count += 1
-  #     attack_succ_curr = np.argmax(y_clean) != adv_pred_curr
-  #     dist_curr = l_2_dist(x_clean, x_adv_curr)
-  #     if(attack_succ_curr == True and dist_curr < dist):
-  #       opt = opt_l_2
-  #       x_adv = np.copy(x_adv_curr)
-  #       dist = dist_curr
+  if(attack_succ == True):
+    logger.info("Starting Phase#2 Exploitation")
+    for i in range(1):
+      #epsilon = epsilon
+      logger.info(f"Restarting L2 Minimization loop: {i} with epsilon: {epsilon}")
+      params={'model':model, 'x_clean':x_clean, 'x_adv': None,
+      'y_clean': y_clean,'epsilon' : epsilon, 'l_2_min':True, 'dim':dim}
+      #optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+      #optimizer = opytimizer.optimizers.swarm.CS()
+      #space_l_2 = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
+      opt_l_2 = Opytimizer(space, optimizer, function, save_agents=False)
+      #opt_l_2.space.best_agent.position = opt.space.best_agent.position
+      #opt_l_2.space.best_agent.position = opt.space.best_agent.position
+      #Runs the optimization task
+      opt_l_2.start(n_iterations = round(iterations*l_2_mul))
+      xopt_curr = opt_l_2.space.best_agent.position
+      x_adv_curr = process_digit(x_clean, xopt_curr.ravel(), epsilon, dim=dim)
+      x_adv_curr = x_adv_curr.reshape(dim)
+      adv_pred_curr = np.argmax(model.predict(x_adv_curr.reshape(dim)))
+      eval_count += 1
+      attack_succ_curr = np.argmax(y_clean) != adv_pred_curr
+      dist_curr = l_2_dist(x_clean, x_adv_curr)
+      if(attack_succ_curr == True and dist_curr < dist):
+        opt = opt_l_2
+        x_adv = np.copy(x_adv_curr)
+        dist = dist_curr
 
   all_dist = get_all_dist(x_clean, x_adv)
   logger.info(f"Attack result:{attack_succ}, Queries: {eval_count} All Dist:{all_dist}, L2_Iters: {l2_iter}")
@@ -415,11 +416,12 @@ def get_adv_opyt_target_example(model, x_clean, y_clean, target=0,
 
   if(attack_succ == True):
     logger.info("\nStarting Phase#2 Exploitation\n")
-    for i in range(l_2_mul):
+    for i in range(1):
       logger.info(f"\nRestarting L2 Minimization loop: {i}")
       params={'model':model, 'x_clean':x_clean, 'x_adv': None,
       'y_clean': y_clean,'epsilon' : epsilon, 'l_2_min':True}
-      optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+      #optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+      optimizer = opytimizer.optimizers.swarm.CS()
       #space_l_2 = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
       opt_l_2 = Opytimizer(space, optimizer, function, save_agents=False)
       #opt_l_2.space.best_agent.position = opt.space.best_agent.position

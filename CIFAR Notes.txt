@@ -185,3 +185,78 @@ Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul:
 Accuracy: 0.0 Mean L2 Counted: 3.3074719988402874 Query: 1831.0
 10 minutes
 
+RBF Distance
+Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:2 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 3.5289537965775897 Query: 1831.0
+-----
+
+Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 3.3074719988402874 Query: 1831.0
+
+Total Examples: 1, Iterations:60, espilon: 0.1 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 100.0 Mean L2 Counted: 2.2420399538038667 Query: 1831.0
+
+With L2 Min Both ModAOA
+Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:3.3074719988402874
+Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 3.2480989924794232 Query: 2762.0
+18 minutes
+
+* ModAOA phase1 and CS for Phase 2
+Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:3.3074719988402874
+Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 2.7752822677151503 Query: 4562.0
+14 minutes
+
+*
+CS both
+Exploration Phase#1 Result: Attack result:True, Queries: 5431 Dist:2.919838758662887
+Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 2.238234721709772 Query: 8162.0
+14 minutes
+
+Phase1: CS and Phase2: ModAOA
+Exploration Phase#1 Result: Attack result:True, Queries: 5431 Dist:2.919838758662887
+Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 2.919838758662887 Query: 6362.0
+
+ModAOA phase1 and CS for Phase 2 2 iterations
+Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:3.3074719988402874
+Ph2Iter1 2.7752822677151503
+Ph2Iter2 2.685052779936019
+Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 2.685052779936019 Query: 7293.0
+20 MINUTES
+
+MODAOA + PSO + PSO
+Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 3.0771545636244078 Query: 3693.0
+
+CS + PSO + PSO
+Exploration Phase#1 Result: Attack result:True, Queries: 5431 Dist:2.919838758662887
+2.274307454090615
+2.2741122242177836
+Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 2.2741122242177836 Query: 7293.0
+16 minutes
+
+
+PSO + CS + CS
+Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:3.9978431768622107
+
+CS + MODAOA + MODAOA
+Exploration Phase#1 Result: Attack result:True, Queries: 9641 Dist:2.610644931663695
+Total Examples: 1, Iterations:80, espilon: 0.15 and Max-L2:2 Agents: 40 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 2.6082003360588395 Query: 12923.0
+
+
+MODAOA + CS Same no. of iterations 60 
+Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:3.3074719988402874
+Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 1
+Accuracy: 0.0 Mean L2 Counted: 2.685052779936019 Query: 7262.0
+
+MODAOA + CS 1/2:
+Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:3.3074719988402874
+Total Examples: 1, Iterations:60, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 2.7752822677151503 Query: 4562.0
+13 MINUTES

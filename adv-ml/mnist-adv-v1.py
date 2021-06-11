@@ -82,7 +82,7 @@ tf.__version__
 import keras
 keras.__version__
 
-dataset = 'cifar10'
+dataset = 'mnist'
 #tf.compat.v1.disable_eager_execution()
 # Read MNIST dataset
 #(x_train, y_train), (x_test, y_test), min_, max_ = load_dataset(str("cifar10"))
@@ -100,7 +100,7 @@ model_logit = load_model('adv-ml/models/'+dataset, compile = False)
 # n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 # logger.info("SEED: 0")
 
-n_samples = 1
+n_samples = 3
 x_test_random, y_test_random, rand_ind = get_random_correct_samples(
 n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 
@@ -118,16 +118,29 @@ dim = x_test_random.shape
 # from importlib import reload # reload
 # reload(opytimizer.optimizers.misc)
 
+# CIFAR
 # loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
 #                                                      x_test_random,
 #                                                      y_test_random,
-#                                                      iterations=50,
-#                                                      epsilon=1.1,
-#                                                      agents=25,
-#                                                      max_l_2=5,
-#                                                      l_2_mul=3,
+#                                                      iterations=60,
+#                                                      epsilon=.15,
+#                                                      agents=30,
+#                                                      max_l_2=3,
+#                                                      l_2_mul=0.5,
 #                                                      dim=dim
 #                                                      )
+
+## MNIST
+loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
+                                                     x_test_random,
+                                                     y_test_random,
+                                                     iterations=120,
+                                                     epsilon=.1,
+                                                     agents=60,
+                                                     max_l_2=3,
+                                                     l_2_mul=1,
+                                                     dim=dim
+                                                     )
 
 # y_target = np.array([5, 8, 1, 3, 6])
 # loss, l_2_mean, query_mean, x_test_opyt = get_opyt_target_adv(model_logit,
@@ -141,16 +154,15 @@ dim = x_test_random.shape
 #                                                      l_2_mul=4,
 #                                                      )
 
-loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
-                                                     x_test_random,
-                                                     y_test_random,
-                                                     iterations=60,
-                                                     epsilon=0.15,
-                                                     agents=30,
-                                                     max_l_2=3,
-                                                     l_2_mul=0.5,
-                                                     dim=dim
-                                                     )
+
+# loss, l_2_mean, query_mean, x_test_opyt = get_nvg_adv(model_logit,
+#                                                      x_test_random,
+#                                                      y_test_random,
+#                                                      iterations=4000,
+#                                                      epsilon=1.1,
+#                                                      max_l_2=3,
+#                                                      dim=dim
+#                                                      )
 
 
 np.savetxt('x_test_random_'+dataset+'.csv', x_test_random.reshape((dim[0], dim[1]*dim[2]*dim[3])), delimiter=',')

@@ -14,6 +14,8 @@ def show_digit(x, y, pred=None):
 
 cifar_class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
                'dog', 'frog', 'horse', 'ship', 'truck']
+mnist_class_names = ['0', '1', '2', '3', '4',
+               '5', '6', '7', '8', '9']
 def show_image(image, predictions):
   label = np.argmax(predictions)
   fig = plt.figure()
@@ -101,6 +103,7 @@ def browse_mis_samples(clean_images, adv_images, y_true, y_pred, dim=(1,28,28,1)
   total_images = len(adv_images)
   mis_preds = get_mis_preds(y_true, y_pred)
   print("MIS PREDS: ", mis_preds)
+  print("Y True array:", y_true)
 
   clean_images = clean_images[mis_preds]
   adv_images = adv_images[mis_preds]
@@ -120,9 +123,6 @@ def browse_mis_samples(clean_images, adv_images, y_true, y_pred, dim=(1,28,28,1)
       fig = plt.figure(figsize=(5, 3))
       true_label = np.argmax(y_true[mis_preds[i]])
       pred_label = np.argmax(y_pred[mis_preds[i]])
-      print("mis_preds[i]: ", mis_preds[i])
-      print("Y pred:", y_pred)
-      print("pred_label : ", pred_label)
       fig.add_subplot(rows, columns, 1)
       plt.imshow(clean_images[i].reshape(dim[1], dim[2]), cmap='Greys_r', interpolation='nearest')
       plt.axis('off')
@@ -140,6 +140,7 @@ def browse_all_samples(clean_images, adv_images, y_true, y_pred, mis= True):
 
   N = len(clean_images)
   print("Total  Images: ", N)
+  print("True label array:", y_true)
   rows = 1
   columns = 2
   def view_image(i=0):

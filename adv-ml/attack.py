@@ -278,7 +278,7 @@ def get_adv_opyt_example(model, x_clean, y_clean,
       params={'model':model, 'x_clean':x_clean, 'x_adv': None,
       'y_clean': y_clean,'epsilon' : epsilon, 'l_2_min':True, 'dim':dim}
       #optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
-      #optimizer = opytimizer.optimizers.swarm.CS()
+      optimizer = opytimizer.optimizers.swarm.CS()
       #space_l_2 = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
       opt_l_2 = Opytimizer(space, optimizer, function, save_agents=False)
       #opt_l_2.space.best_agent.position = opt.space.best_agent.position
@@ -515,21 +515,21 @@ def get_opyt_target_adv(model, x_test_random, y_test_random, y_target,
 
 
 def get_nvg_adv(model, x_test_random, y_test_random,
-                iterations = 100, epsilon = 3.55, max_l_2=6):
+                iterations = 100, epsilon = 3.55, max_l_2=6, dim=(1,28,28,1)):
   iteration = round(iterations)
   logger.info(f"Iterations:{iteration}, espilon: {epsilon} and Max-L2:{max_l_2}")
 
   no_samples = len(x_test_random)
-  adv_nvg = np.empty((no_samples,28,28,1))
+  adv_nvg = np.empty(dim)
 
   i = 0
   query_count = []
   l_2 = []
-  params = ng.p.Array(shape=(784,)).set_bounds(0, 1)
+  params = ng.p.Array(shape=(dim[1] * dim[2] * dim[3],)).set_bounds(0, 1)
 
   for i in range(no_samples):
     logger.info(f'Generating example:{i}')
-    params = ng.p.Array(shape=(784,)).set_bounds(0, 1)
+    params = ng.p.Array(shape=(dim[1] * dim[2] * dim[3],)).set_bounds(0, 1)
     #params.value = np.zeros_like(x_test_random[i].ravel())
 
     optimizer = ng.optimizers.AlmostRotationInvariantDE(budget=iterations,
@@ -542,12 +542,14 @@ def get_nvg_adv(model, x_test_random, y_test_random,
 
     optimizer.parametrization.register_cheap_constraint(
        lambda x: l_2_dist(
-           process_digit(x_test_random[i], x, epsilon), x_test_random[i]) < max_l_2)
+           process_digit(x_test_random[i], x, epsilon, dim=(1, dim[1], dim[2], dim[3])), x_test_random[i]) < max_l_2)
 
     adv_nvg[i], count, dist = get_adv_nvg_example(model, optimizer,
                                                   x_test_random[i],
                                                   y_test_random[i] ,
-                                                  epsilon = epsilon
+                                                  epsilon = epsilon,
+                                                  max_l_2 = max_l_2,
+                                                  dim=(1, dim[1], dim[2], dim[3])
                                                   )
     query_count.append(count)
     l_2.append(dist)
@@ -575,32 +577,49 @@ def get_nvg_adv(model, x_test_random, y_test_random,
   # return  np.log(acc * l_2_mean)
 
 def get_adv_nvg_example(model,optimizer, x_clean, y_clean,
-                        epsilon = 0.5):
+                        epsilon = 0.5, max_l_2=3, dim=(1,28,28,1)):
+  # @counter
+  # def evaluate_acc(x):
+  #   x_adv = process_digit(x_clean, x, epsilon)
+  #   predictions = model.predict(x_adv.reshape((1,28,28,1)))[0]
+  #   result = np.argmax(predictions)
+  #   actual = np.argmax(y_clean)
+  #   dist = float(l_2_dist(x_clean, x_adv))
+  #   if(result != actual):
+  #     return float(dist)
+  #     logger.to_file(f'result:{result}, dist:{dist}')
+  #   else:
+  #     fitness = float(predictions[actual] * 100 * dist)
+  #     logger.to_file(f'result:{result}, dist:{dist} fitness:{fitness}')
+  #     return float(predictions[actual] * 100 * dist)
+  #   #return np.log(predictions[np.argmax(y_clean)]) # * l_2_dist(x_clean, x_adv))
+  #   #return np.log(predictions[np.argmax(y_clean)]) #* l_2_dist(x_clean, x_adv))
+
   @counter
   def evaluate_acc(x):
-    x_adv = process_digit(x_clean, x, epsilon)
-    predictions = model.predict(x_adv.reshape((1,28,28,1)))[0]
+    x_adv = process_digit(x_clean, x.ravel(), epsilon, dim=dim)
+    predictions = model.predict(x_adv.reshape(dim))[0]
     result = np.argmax(predictions)
     actual = np.argmax(y_clean)
     dist = float(l_2_dist(x_clean, x_adv))
+    #dist = np.exp(-(l_2_dist(x_clean, x_adv)**2)/2)
     if(result != actual):
-      return float(dist)
-      logger.to_file(f'result:{result}, dist:{dist}')
+      if (dist > max_l_2):
+        return float(dist) * 10
+      else:
+        return float(dist)
     else:
-      fitness = float(predictions[actual] * 100 * dist)
-      logger.to_file(f'result:{result}, dist:{dist} fitness:{fitness}')
-      return float(predictions[actual] * 100 * dist)
-    #return np.log(predictions[np.argmax(y_clean)]) # * l_2_dist(x_clean, x_adv))
-    #return np.log(predictions[np.argmax(y_clean)]) #* l_2_dist(x_clean, x_adv))
+      predictions.sort()
+      return float(10*(predictions[-1] - predictions[-2]) + 10 * dist)
 
   xopt = optimizer.minimize(evaluate_acc)
   x = np.array(xopt.value)
-  x_adv = process_digit(x_clean, x, epsilon)
+  x_adv = process_digit(x_clean, x, epsilon, dim=dim)
   dist = l_2_dist(x_clean, x_adv)
-  adv_pred = np.argmax(model.predict(x_adv.reshape((1,28,28,1))))
+  adv_pred = np.argmax(model.predict(x_adv.reshape(dim)))
   attack_succ = np.argmax(y_clean) != adv_pred
-  logger.info("Attack result:{}, Queries: {} Dist:{}".format(attack_succ,
-                                                       evaluate_acc.count, dist))
+  all_dist = get_all_dist(x_clean, x_adv)
+  logger.info(f"Attack result:{attack_succ}, Queries: {evaluate_acc.count} Dist:{dist} All dist: {all_dist}")
   return x_adv, evaluate_acc.count, dist
 
 

@@ -25,13 +25,13 @@ from attack_utils import *
 
 
 n_samples = 1
-images = np.genfromtxt('x_test_random.csv', delimiter=',')
+images = np.genfromtxt('x_test_random_mnist.csv', delimiter=',')
 orig_images = images.reshape((n_samples, 28,28,1))
 orig_labels = np.genfromtxt('y_test_random.csv', delimiter=',')
 
-images = np.genfromtxt('x_test_opyt.csv', delimiter=',')
+images = np.genfromtxt('x_test_opyt_mnist.csv', delimiter=',')
 adv_images = images.reshape((n_samples, 28,28,1))
-adv_labels = np.genfromtxt('y_pred_opyt.csv', delimiter=',')
+adv_labels = np.genfromtxt('y_pred_opyt_mnist.csv', delimiter=',')
 
 #np.argmax(adv_labels)
 #np.savetxt('y_pred_opyt.csv', model_logit.predict(adv_images), delimiter=',')

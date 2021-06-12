@@ -93,17 +93,17 @@ def get_accuracy(y_pred, y_true):
 
 def get_mis_preds(y_true, y_preds):
   if y_true.shape[0] == 10:
-    return np.where(np.argmax(y_true, axis=0) != np.argmax(y_preds, axis=0))
+    return np.where(np.argmax(y_true, axis=0) != np.argmax(y_preds, axis=0))[0]
   return np.where(np.argmax(y_true, axis=1) != np.argmax(y_preds, axis=1))[0]
 
 def get_correct_preds(y_true, y_preds):
   return np.where(np.argmax(y_true, axis=1) == np.argmax(y_preds, axis=1))[0]
 
-def browse_mis_samples(clean_images, adv_images, y_true, y_pred, dim=(1,28,28,1), verbose=True):
+def browse_mis_samples(clean_images, adv_images, y_true, y_pred, dim=(1,28,28,1),class_name=mnist_class_names, verbose=True):
   total_images = len(adv_images)
   mis_preds = get_mis_preds(y_true, y_pred)
-  print("MIS PREDS: ", mis_preds)
-  print("Y True array:", y_true)
+  # print("MIS PREDS: ", mis_preds)
+  # print("Y True array:", y_true)
 
   clean_images = clean_images[mis_preds]
   adv_images = adv_images[mis_preds]
@@ -113,7 +113,7 @@ def browse_mis_samples(clean_images, adv_images, y_true, y_pred, dim=(1,28,28,1)
     print("There are zero mis-classified images!")
     return
 
-  print("Mis-classified Images: {} out of Total: {}".format(N, total_images))
+  print("CORRECTED Mis-classified Images: {} out of Total: {}".format(N, total_images))
   if(verbose):
     print("Mis preds: ", mis_preds)
     print("Mean L2 Dist.: ", get_dataset_l_2_dist(clean_images, adv_images))
@@ -121,17 +121,17 @@ def browse_mis_samples(clean_images, adv_images, y_true, y_pred, dim=(1,28,28,1)
   columns = 2
   def view_image(i=0):
       fig = plt.figure(figsize=(5, 3))
-      true_label = np.argmax(y_true[mis_preds[i]])
-      pred_label = np.argmax(y_pred[mis_preds[i]])
+      true_label = class_name[np.argmax(y_true[mis_preds[i]])]
+      pred_label = class_name[np.argmax(y_pred[mis_preds[i]])]
       fig.add_subplot(rows, columns, 1)
-      plt.imshow(clean_images[i].reshape(dim[1], dim[2]), cmap='Greys_r', interpolation='nearest')
+      plt.imshow(clean_images[i].reshape(dim[1], dim[2], dim[3]), cmap='Greys_r', interpolation='nearest')
       plt.axis('off')
-      plt.title("#{} Clean Img.True:{}".format(i,true_label))
+      plt.title("#{} True:{}".format(i,true_label))
 
       fig.add_subplot(rows, columns, 2)
-      plt.imshow(adv_images[i].reshape(dim[1], dim[2]), cmap='Greys_r', interpolation='nearest')
+      plt.imshow(adv_images[i].reshape(dim[1], dim[2], dim[3]), cmap='Greys_r', interpolation='nearest')
       plt.axis('off')
-      plt.title("Adv Img. Predicted: {} ".format(pred_label))
+      plt.title("Predicted: {} ".format(pred_label))
       dist = "L2 Dist: {}".format(l_2_dist(clean_images[i], adv_images[i]))
       fig.suptitle(dist, y=0.1)
   interact(view_image, i=(0, N-1))

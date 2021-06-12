@@ -82,7 +82,7 @@ tf.__version__
 import keras
 keras.__version__
 
-dataset = 'mnist'
+dataset = 'cifar10'
 #tf.compat.v1.disable_eager_execution()
 # Read MNIST dataset
 #(x_train, y_train), (x_test, y_test), min_, max_ = load_dataset(str("cifar10"))
@@ -100,7 +100,7 @@ model_logit = load_model('adv-ml/models/'+dataset, compile = False)
 # n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 # logger.info("SEED: 0")
 
-n_samples = 10
+n_samples = 20
 x_test_random, y_test_random, rand_ind = get_random_correct_samples(
 n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 
@@ -118,28 +118,28 @@ dim = x_test_random.shape
 # from importlib import reload # reload
 # reload(opytimizer.optimizers.misc)
 
-## CIFAR
+# CIFAR
+loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
+                                                     x_test_random,
+                                                     y_test_random,
+                                                     iterations=60,
+                                                     epsilon=.05,
+                                                     agents=30,
+                                                     max_l_2=1,
+                                                     l_2_mul=0.5,
+                                                     dim=dim
+                                                     )
+## MNIST
 # loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
 #                                                      x_test_random,
 #                                                      y_test_random,
 #                                                      iterations=60,
-#                                                      epsilon=.15,
+#                                                      epsilon=.1,
 #                                                      agents=30,
-#                                                      max_l_2=3,
+#                                                      max_l_2=2,
 #                                                      l_2_mul=0.5,
 #                                                      dim=dim
 #                                                      )
-# MNIST
-loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
-                                                     x_test_random,
-                                                     y_test_random,
-                                                     iterations=80,
-                                                     epsilon=.15,
-                                                     agents=40,
-                                                     max_l_2=2,
-                                                     l_2_mul=0.5,
-                                                     dim=dim
-                                                     )
 
 # y_target = np.array([5, 8, 1, 3, 6])
 # loss, l_2_mean, query_mean, x_test_opyt = get_opyt_target_adv(model_logit,
@@ -158,7 +158,7 @@ loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
 #                                                      x_test_random,
 #                                                      y_test_random,
 #                                                      iterations=3000,
-#                                                      epsilon=.25,
+#                                                      epsilon=.1,
 #                                                      max_l_2=2,
 #                                                      dim=dim
 #                                                      )

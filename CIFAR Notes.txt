@@ -320,4 +320,21 @@ MODAOA + 1 CS:
 Total Examples: 2, Iterations:60, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 0.5
 Accuracy: 50.0 Mean L2 Counted: 3.1391134712331477 Query: 3196.5
 
+MODAOA + 0.5 CS:
+4/5 Attack successful
+Total Examples: 5, Iterations:60, espilon: 0.15 and Max-L2:3 Agents: 30 l_2_mul: 0.5
+Accuracy: 20.0 Mean L2 Counted: 3.6245151686995016 Query: 4015.8
+
+Attack result:True, Queries: 4562 All Dist:{'L2': 4.6047, 'L-INF': 0.1442, 'WS': 0.0726, 'ssim': 0.7972, 'psnr': 21.6102}, L2_Iters: 60
+
+Attack result:True, Queries: 4562 All Dist:{'L2': 1.7743, 'L-INF': 0.1179, 'WS': 0.0155, 'ssim': 0.8792, 'psnr': 29.8938}, L2_Iters: 60
+
+Attack result:False, Queries: 1831 All Dist:{'L2': 7.3018, 'L-INF': 0.1843, 'WS': 0.1177, 'ssim': 0.6871, 'psnr': 17.6056}, L2_Iters: 60
+
+Attack result:True, Queries: 4562 All Dist:{'L2': 2.6673, 'L-INF': 0.1316, 'WS': 0.0146, 'ssim': 0.8404, 'psnr': 26.3529}, L2_Iters: 60
+2021-06-11 14:18:18,025 - attack — INFO — 
+
+Attack result:True, Queries: 4562 All Dist:{'L2': 1.7746, 'L-INF': 0.1529, 'WS': 0.0117, 'ssim': 0.9398, 'psnr': 29.8924}, L2_Iters: 60
+
+
 

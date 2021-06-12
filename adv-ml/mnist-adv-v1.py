@@ -100,7 +100,7 @@ model_logit = load_model('adv-ml/models/'+dataset, compile = False)
 # n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 # logger.info("SEED: 0")
 
-n_samples = 3
+n_samples = 10
 x_test_random, y_test_random, rand_ind = get_random_correct_samples(
 n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 
@@ -118,7 +118,7 @@ dim = x_test_random.shape
 # from importlib import reload # reload
 # reload(opytimizer.optimizers.misc)
 
-# CIFAR
+## CIFAR
 # loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
 #                                                      x_test_random,
 #                                                      y_test_random,
@@ -129,16 +129,15 @@ dim = x_test_random.shape
 #                                                      l_2_mul=0.5,
 #                                                      dim=dim
 #                                                      )
-
-## MNIST
+# MNIST
 loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
                                                      x_test_random,
                                                      y_test_random,
-                                                     iterations=120,
-                                                     epsilon=.1,
-                                                     agents=60,
-                                                     max_l_2=3,
-                                                     l_2_mul=1,
+                                                     iterations=60,
+                                                     epsilon=.25,
+                                                     agents=30,
+                                                     max_l_2=2,
+                                                     l_2_mul=0.5,
                                                      dim=dim
                                                      )
 
@@ -158,9 +157,9 @@ loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
 # loss, l_2_mean, query_mean, x_test_opyt = get_nvg_adv(model_logit,
 #                                                      x_test_random,
 #                                                      y_test_random,
-#                                                      iterations=4000,
-#                                                      epsilon=1.1,
-#                                                      max_l_2=3,
+#                                                      iterations=3000,
+#                                                      epsilon=.25,
+#                                                      max_l_2=2,
 #                                                      dim=dim
 #                                                      )
 

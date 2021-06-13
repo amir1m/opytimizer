@@ -1,3 +1,6 @@
+grep 'Attack result:True' CIFAR\ 20\ Examples\ MODAOA.txt | grep L2 | awk -F':' '{print $7}' | awk -F',' '{print $1}'| awk '{ sum += $1; n++ } END { if (n > 0) print sum / n; }'
+1.25708
+
 To Install opytimark
 =====================
 Activate your conda environment source activate myenv
@@ -11,7 +14,7 @@ pip install git+git://github.com/Trusted-AI/adversarial-robustness-toolbox
 Then install all other requirements commenting out opytimark.
 conda install --file requirements.txt
 
-python -m ipykernel install --user --name opyt  
+python -m ipykernel install --user --name opyt
 
 Installed package of scikit-learn can be accelerated using scikit-learn-intelex.
     More details are available here: https://intel.github.io/scikit-learn-intelex

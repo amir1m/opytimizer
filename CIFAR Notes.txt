@@ -335,6 +335,25 @@ Attack result:True, Queries: 4562 All Dist:{'L2': 2.6673, 'L-INF': 0.1316, 'WS':
 2021-06-11 14:18:18,025 - attack — INFO — 
 
 Attack result:True, Queries: 4562 All Dist:{'L2': 1.7746, 'L-INF': 0.1529, 'WS': 0.0117, 'ssim': 0.9398, 'psnr': 29.8924}, L2_Iters: 60
+--------------
+MODAOA + 0.5 CS:
+3/10 successful
+Total Examples: 10, Iterations:60, espilon: 0.075 and Max-L2:1 Agents: 30 l_2_mul: 0.5
+Accuracy: 70.0 Mean L2 Counted: 2.0351072411375357 Query: 2650.3
 
+Attack result:True, Queries: 4562 All Dist:{'L2': 0.9115, 'L-INF': 0.0655, 'WS': 0.0031, 'ssim': 0.9842, 'psnr': 35.6787}, L2_Iters: 60
 
+Attack result:True, Queries: 4562 All Dist:{'L2': 2.2362, 'L-INF': 0.1216, 'WS': 0.0286, 'ssim': 0.9236, 'psnr': 27.8839}, L2_Iters: 60
+
+Attack result:True, Queries: 4562 All Dist:{'L2': 1.1072, 'L-INF': 0.072, 'WS': 0.0054, 'ssim': 0.9743, 'psnr': 33.9894}, L2_Iters: 60
+
+Mean L2: 
+1.5 hours
+-------------------
+
+amirmukeri@MacBook-Pro ~/P/opytimizer> grep 'Attack result:True' MODAOA_data/CIFAR\ 20\ Examples\ MODAOA.txt | grep L2 | awk -F':' '{print $7}' | awk -F',' '{print $1}'| awk '{ sum += $1; n++ } END { if (n > 0) print sum / n; }'
+1.25708	
+
+amirmukeri@MacBook-Pro ~/P/opytimizer> grep 'Attack result:True' AOA_data/CIFAR\ 20\ Examples\ AOA.txt | grep L2 | awk -F':' '{print $7}' | awk -F',' '{print $1}'| awk '{ sum += $1; n++ } END { if (n > 0) print sum / n; }'
+1.35448
 

@@ -1,0 +1,1812 @@
+^C^C⏎                                                                                                              amirmukeri@MacBook-Pro ~/P/opytimizer> python3 -W ignore adv-ml/mnist-adv-v1.py                             (opyt) 
+WARNING:tensorflow:SavedModel saved prior to TF 2.5 detected when loading Keras model. Please ensure that you are saving the model with model.save() or tf.keras.models.save_model(), *NOT* tf.saved_model.save(). To confirm, there should be a file named "keras_metadata.pb" in the SavedModel directory.
+WARNING:tensorflow:SavedModel saved prior to TF 2.5 detected when loading Keras model. Please ensure that you are saving the model with model.save() or tf.keras.models.save_model(), *NOT* tf.saved_model.save(). To confirm, there should be a file named "keras_metadata.pb" in the SavedModel directory.
+2021-06-13 00:34:57.867685: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2021-06-13 00:34:58.493584: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-06-13 00:35:09,855 - attack — INFO — 
+Iterations:60, epsilon: 0.05 and l_2_mul:0.5
+2021-06-13 00:35:09,856 - attack — INFO — 
+
+Generating example:0
+2021-06-13 00:35:09,856 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 00:35:09,858 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 00:35:09,858 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 00:35:10,464 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 00:35:10,465 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 00:35:10,465 - opytimizer.core.function — INFO — Class created.
+2021-06-13 00:35:10,465 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 00:35:10,465 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 00:35:10,466 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [09:50<00:00,  9.84s/it, fitness=139]
+2021-06-13 00:45:02,433 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 00:45:02,433 - opytimizer.opytimizer — INFO — It took 591.9673721790314 seconds.
+2021-06-13 00:45:02,480 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.0818469331880471
+
+2021-06-13 00:45:02,483 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.0818, 'L-INF': 0.0486, 'WS': 0.0054, 'ssim': 0.9829, 'psnr': 34.1909}, L2_Iters: 60
+2021-06-13 00:45:02,506 - attack — INFO — 
+
+Generating example:1
+2021-06-13 00:45:02,506 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 00:45:02,509 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 00:45:02,509 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 00:45:03,139 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 00:45:03,139 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 00:45:03,140 - opytimizer.core.function — INFO — Class created.
+2021-06-13 00:45:03,140 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 00:45:03,140 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 00:45:03,140 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [09:28<00:00,  9.47s/it, fitness=438]
+2021-06-13 00:54:32,780 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 00:54:32,780 - opytimizer.opytimizer — INFO — It took 569.6390600204468 seconds.
+2021-06-13 00:54:32,826 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:2.39012953332205
+
+2021-06-13 00:54:32,829 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 2.3901, 'L-INF': 0.1176, 'WS': 0.0349, 'ssim': 0.9692, 'psnr': 27.3058}, L2_Iters: 60
+2021-06-13 00:54:32,841 - attack — INFO — 
+
+Generating example:2
+2021-06-13 00:54:32,841 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 00:54:32,843 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 00:54:32,843 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 00:54:33,442 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 00:54:33,442 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 00:54:33,443 - opytimizer.core.function — INFO — Class created.
+2021-06-13 00:54:33,443 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 00:54:33,443 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 00:54:33,443 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [09:02<00:00,  9.04s/it, fitness=73.1]
+2021-06-13 01:03:36,904 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 01:03:36,904 - opytimizer.opytimizer — INFO — It took 543.4605078697205 seconds.
+2021-06-13 01:03:36,946 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.866680501347141
+
+2021-06-13 01:03:36,950 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.8667, 'L-INF': 0.044, 'WS': 0.0275, 'ssim': 0.9703, 'psnr': 29.4528}, L2_Iters: 60
+2021-06-13 01:03:37,003 - attack — INFO — 
+
+Generating example:3
+2021-06-13 01:03:37,004 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 01:03:37,007 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 01:03:37,007 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 01:03:37,575 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 01:03:37,575 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 01:03:37,575 - opytimizer.core.function — INFO — Class created.
+2021-06-13 01:03:37,576 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 01:03:37,576 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 01:03:37,576 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:47<00:00,  8.79s/it, fitness=162]
+2021-06-13 01:12:26,261 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 01:12:26,261 - opytimizer.opytimizer — INFO — It took 528.685179233551 seconds.
+2021-06-13 01:12:26,306 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:2.451201545655114
+
+2021-06-13 01:12:26,309 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 2.4512, 'L-INF': 0.0588, 'WS': 0.0398, 'ssim': 0.9554, 'psnr': 27.0866}, L2_Iters: 60
+2021-06-13 01:12:26,337 - attack — INFO — 
+
+Generating example:4
+2021-06-13 01:12:26,337 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 01:12:26,340 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 01:12:26,340 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 01:12:26,900 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 01:12:26,900 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 01:12:26,901 - opytimizer.core.function — INFO — Class created.
+2021-06-13 01:12:26,901 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 01:12:26,901 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 01:12:26,901 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:23<00:00,  8.38s/it, fitness=467]
+2021-06-13 01:20:51,180 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 01:20:51,180 - opytimizer.opytimizer — INFO — It took 504.2787940502167 seconds.
+2021-06-13 01:20:51,221 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.9221804559750728
+
+2021-06-13 01:20:51,224 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.9222, 'L-INF': 0.0902, 'WS': 0.0268, 'ssim': 0.9643, 'psnr': 29.1983}, L2_Iters: 60
+2021-06-13 01:20:51,247 - attack — INFO — 
+
+Generating example:5
+2021-06-13 01:20:51,248 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 01:20:51,252 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 01:20:51,252 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 01:20:51,803 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 01:20:51,803 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 01:20:51,804 - opytimizer.core.function — INFO — Class created.
+2021-06-13 01:20:51,804 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 01:20:51,804 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 01:20:51,804 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [08:22<00:00,  8.38s/it, fitness=0.968]
+2021-06-13 01:29:15,999 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 01:29:15,999 - opytimizer.opytimizer — INFO — It took 504.1947560310364 seconds.
+2021-06-13 01:29:16,040 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:0.9679406287339382
+
+2021-06-13 01:29:16,043 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 0.9679, 'L-INF': 0.0484, 'WS': 0.0044, 'ssim': 0.9806, 'psnr': 35.1572}, L2_Iters: 60
+2021-06-13 01:29:16,056 - attack — INFO — 
+
+Generating example:6
+2021-06-13 01:29:16,056 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 01:29:16,058 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 01:29:16,058 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 01:29:16,643 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 01:29:16,643 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 01:29:16,644 - opytimizer.core.function — INFO — Class created.
+2021-06-13 01:29:16,644 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 01:29:16,644 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 01:29:16,645 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:13<00:00,  8.23s/it, fitness=23.8]
+2021-06-13 01:37:31,883 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 01:37:31,883 - opytimizer.opytimizer — INFO — It took 495.2381041049957 seconds.
+2021-06-13 01:37:31,922 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:2.381731016358625
+
+2021-06-13 01:37:31,924 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 2.3817, 'L-INF': 0.1137, 'WS': 0.0332, 'ssim': 0.9329, 'psnr': 27.3364}, L2_Iters: 60
+2021-06-13 01:37:31,936 - attack — INFO — 
+
+Generating example:7
+2021-06-13 01:37:31,936 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 01:37:31,938 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 01:37:31,938 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 01:37:32,481 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 01:37:32,481 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 01:37:32,481 - opytimizer.core.function — INFO — Class created.
+2021-06-13 01:37:32,482 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 01:37:32,482 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 01:37:32,482 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:05<00:00,  8.09s/it, fitness=245]
+2021-06-13 01:45:39,364 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 01:45:39,364 - opytimizer.opytimizer — INFO — It took 486.8818461894989 seconds.
+2021-06-13 01:45:39,402 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.4144101597618217
+
+2021-06-13 01:45:39,404 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.4144, 'L-INF': 0.0423, 'WS': 0.016, 'ssim': 0.9651, 'psnr': 31.8627}, L2_Iters: 60
+2021-06-13 01:45:39,415 - attack — INFO — 
+
+Generating example:8
+2021-06-13 01:45:39,416 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 01:45:39,418 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 01:45:39,418 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 01:45:39,955 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 01:45:39,956 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 01:45:39,956 - opytimizer.core.function — INFO — Class created.
+2021-06-13 01:45:39,956 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 01:45:39,956 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 01:45:39,956 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:05<00:00,  8.09s/it, fitness=256]
+2021-06-13 01:53:46,434 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 01:53:46,434 - opytimizer.opytimizer — INFO — It took 486.47820019721985 seconds.
+2021-06-13 01:53:46,476 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.9238843291221537
+
+2021-06-13 01:53:46,478 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.9239, 'L-INF': 0.0486, 'WS': 0.0284, 'ssim': 0.9638, 'psnr': 29.1906}, L2_Iters: 60
+2021-06-13 01:53:46,489 - attack — INFO — 
+
+Generating example:9
+2021-06-13 01:53:46,490 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 01:53:46,492 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 01:53:46,492 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 01:53:47,030 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 01:53:47,031 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 01:53:47,031 - opytimizer.core.function — INFO — Class created.
+2021-06-13 01:53:47,031 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 01:53:47,031 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 01:53:47,031 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [08:10<00:00,  8.17s/it, fitness=0.932]
+2021-06-13 02:01:58,652 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 02:01:58,652 - opytimizer.opytimizer — INFO — It took 491.62043499946594 seconds.
+2021-06-13 02:01:58,692 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:0.932206868846364
+
+2021-06-13 02:01:58,694 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 0.9322, 'L-INF': 0.0471, 'WS': 0.0037, 'ssim': 0.9837, 'psnr': 35.484}, L2_Iters: 60
+2021-06-13 02:01:58,706 - attack — INFO — 
+
+Generating example:10
+2021-06-13 02:01:58,706 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 02:01:58,708 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 02:01:58,708 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 02:01:59,244 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 02:01:59,244 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 02:01:59,245 - opytimizer.core.function — INFO — Class created.
+2021-06-13 02:01:59,245 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 02:01:59,245 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 02:01:59,245 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:05<00:00,  8.08s/it, fitness=11.5]
+2021-06-13 02:10:05,541 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 02:10:05,541 - opytimizer.opytimizer — INFO — It took 486.29593229293823 seconds.
+2021-06-13 02:10:05,579 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:1.1476553821829742
+
+2021-06-13 02:10:05,582 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 1.1477, 'L-INF': 0.0488, 'WS': 0.0104, 'ssim': 0.9581, 'psnr': 33.678}, L2_Iters: 60
+2021-06-13 02:10:05,593 - attack — INFO — 
+
+Generating example:11
+2021-06-13 02:10:05,594 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 02:10:05,596 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 02:10:05,596 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 02:10:06,132 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 02:10:06,132 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 02:10:06,132 - opytimizer.core.function — INFO — Class created.
+2021-06-13 02:10:06,132 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 02:10:06,133 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 02:10:06,133 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.08s/it, fitness=15.3]
+2021-06-13 02:18:12,101 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 02:18:12,101 - opytimizer.opytimizer — INFO — It took 485.96803879737854 seconds.
+2021-06-13 02:18:12,140 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.3887537272633947
+
+2021-06-13 02:18:12,142 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.3888, 'L-INF': 0.0471, 'WS': 0.0141, 'ssim': 0.9695, 'psnr': 32.0217}, L2_Iters: 60
+2021-06-13 02:18:12,154 - attack — INFO — 
+
+Generating example:12
+2021-06-13 02:18:12,154 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 02:18:12,156 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 02:18:12,156 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 02:18:12,689 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 02:18:12,689 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 02:18:12,689 - opytimizer.core.function — INFO — Class created.
+2021-06-13 02:18:12,690 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 02:18:12,690 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 02:18:12,690 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [08:05<00:00,  8.10s/it, fitness=0.851]
+2021-06-13 02:26:19,771 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 02:26:19,771 - opytimizer.opytimizer — INFO — It took 487.08126521110535 seconds.
+2021-06-13 02:26:19,816 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:0.8506388044940458
+
+2021-06-13 02:26:19,819 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 0.8506, 'L-INF': 0.0824, 'WS': 0.0104, 'ssim': 0.9913, 'psnr': 36.2793}, L2_Iters: 60
+2021-06-13 02:26:19,830 - attack — INFO — 
+
+Generating example:13
+2021-06-13 02:26:19,831 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 02:26:19,832 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 02:26:19,833 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 02:26:20,382 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 02:26:20,382 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 02:26:20,383 - opytimizer.core.function — INFO — Class created.
+2021-06-13 02:26:20,383 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 02:26:20,383 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 02:26:20,383 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:08<00:00,  8.14s/it, fitness=235]
+2021-06-13 02:34:29,878 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 02:34:29,878 - opytimizer.opytimizer — INFO — It took 489.4944727420807 seconds.
+2021-06-13 02:34:29,916 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.6200524138051076
+
+2021-06-13 02:34:29,918 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.6201, 'L-INF': 0.0477, 'WS': 0.0195, 'ssim': 0.9583, 'psnr': 30.6836}, L2_Iters: 60
+2021-06-13 02:34:29,930 - attack — INFO — 
+
+Generating example:14
+2021-06-13 02:34:29,930 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 02:34:29,932 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 02:34:29,932 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 02:34:30,470 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 02:34:30,470 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 02:34:30,471 - opytimizer.core.function — INFO — Class created.
+2021-06-13 02:34:30,471 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 02:34:30,471 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 02:34:30,471 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.07s/it, fitness=201]
+2021-06-13 02:42:35,953 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 02:42:35,953 - opytimizer.opytimizer — INFO — It took 485.48184537887573 seconds.
+2021-06-13 02:42:35,992 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.8068410066296139
+
+2021-06-13 02:42:35,994 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.8068, 'L-INF': 0.0784, 'WS': 0.0252, 'ssim': 0.9489, 'psnr': 29.7358}, L2_Iters: 60
+2021-06-13 02:42:36,006 - attack — INFO — 
+
+Generating example:15
+2021-06-13 02:42:36,007 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 02:42:36,008 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 02:42:36,009 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 02:42:36,540 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 02:42:36,540 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 02:42:36,540 - opytimizer.core.function — INFO — Class created.
+2021-06-13 02:42:36,540 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 02:42:36,540 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 02:42:36,540 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:05<00:00,  8.09s/it, fitness=329]
+2021-06-13 02:50:42,939 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 02:50:42,939 - opytimizer.opytimizer — INFO — It took 486.3986179828644 seconds.
+2021-06-13 02:50:42,978 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:4.894439220333233
+
+2021-06-13 02:50:42,980 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 4.8944, 'L-INF': 0.1569, 'WS': 0.0786, 'ssim': 0.924, 'psnr': 21.0802}, L2_Iters: 60
+2021-06-13 02:50:42,992 - attack — INFO — 
+
+Generating example:16
+2021-06-13 02:50:42,992 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 02:50:42,994 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 02:50:42,995 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 02:50:43,530 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 02:50:43,530 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 02:50:43,530 - opytimizer.core.function — INFO — Class created.
+2021-06-13 02:50:43,530 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 02:50:43,530 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 02:50:43,531 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.08s/it, fitness=92.8]
+2021-06-13 02:58:49,279 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 02:58:49,279 - opytimizer.opytimizer — INFO — It took 485.74844121932983 seconds.
+2021-06-13 02:58:49,317 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.342713637598019
+
+2021-06-13 02:58:49,320 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.3427, 'L-INF': 0.0499, 'WS': 0.0146, 'ssim': 0.9746, 'psnr': 32.3145}, L2_Iters: 60
+2021-06-13 02:58:49,331 - attack — INFO — 
+
+Generating example:17
+2021-06-13 02:58:49,332 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 02:58:49,334 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 02:58:49,334 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 02:58:49,871 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 02:58:49,872 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 02:58:49,872 - opytimizer.core.function — INFO — Class created.
+2021-06-13 02:58:49,872 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 02:58:49,872 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 02:58:49,872 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:15<00:00,  8.26s/it, fitness=239]
+2021-06-13 03:07:06,701 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 03:07:06,701 - opytimizer.opytimizer — INFO — It took 496.8291640281677 seconds.
+2021-06-13 03:07:06,740 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.0773412549104555
+
+2021-06-13 03:07:06,742 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.0773, 'L-INF': 0.0456, 'WS': 0.0068, 'ssim': 0.954, 'psnr': 34.2271}, L2_Iters: 60
+2021-06-13 03:07:06,754 - attack — INFO — 
+
+Generating example:18
+2021-06-13 03:07:06,754 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 03:07:06,756 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 03:07:06,756 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 03:07:07,291 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 03:07:07,291 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 03:07:07,291 - opytimizer.core.function — INFO — Class created.
+2021-06-13 03:07:07,291 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 03:07:07,291 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 03:07:07,291 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.07s/it, fitness=93.1]
+2021-06-13 03:15:12,825 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 03:15:12,825 - opytimizer.opytimizer — INFO — It took 485.53351402282715 seconds.
+2021-06-13 03:15:12,869 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.3415305126309476
+
+2021-06-13 03:15:12,871 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.3415, 'L-INF': 0.0673, 'WS': 0.0135, 'ssim': 0.9631, 'psnr': 32.3222}, L2_Iters: 60
+2021-06-13 03:15:12,883 - attack — INFO — 
+
+Generating example:19
+2021-06-13 03:15:12,883 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 03:15:12,886 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 03:15:12,886 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 03:15:13,422 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 03:15:13,422 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 03:15:13,422 - opytimizer.core.function — INFO — Class created.
+2021-06-13 03:15:13,422 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 03:15:13,422 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 03:15:13,423 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:06<00:00,  8.10s/it, fitness=106]
+2021-06-13 03:23:21,024 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 03:23:21,024 - opytimizer.opytimizer — INFO — It took 487.60120701789856 seconds.
+2021-06-13 03:23:21,062 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:2.3156951015049256
+
+2021-06-13 03:23:21,065 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 2.3157, 'L-INF': 0.1373, 'WS': 0.0237, 'ssim': 0.9367, 'psnr': 27.5806}, L2_Iters: 60
+2021-06-13 03:23:21,076 - attack — INFO — 
+
+Generating example:20
+2021-06-13 03:23:21,077 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 03:23:21,079 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 03:23:21,079 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 03:23:21,616 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 03:23:21,617 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 03:23:21,617 - opytimizer.core.function — INFO — Class created.
+2021-06-13 03:23:21,617 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 03:23:21,617 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 03:23:21,617 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:05<00:00,  8.09s/it, fitness=10.3]
+2021-06-13 03:31:28,210 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 03:31:28,210 - opytimizer.opytimizer — INFO — It took 486.5921700000763 seconds.
+2021-06-13 03:31:28,248 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:1.0287424834525642
+
+2021-06-13 03:31:28,251 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 1.0287, 'L-INF': 0.041, 'WS': 0.0033, 'ssim': 0.9686, 'psnr': 34.6281}, L2_Iters: 60
+2021-06-13 03:31:28,263 - attack — INFO — 
+
+Generating example:21
+2021-06-13 03:31:28,263 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 03:31:28,265 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 03:31:28,265 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 03:31:28,804 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 03:31:28,804 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 03:31:28,804 - opytimizer.core.function — INFO — Class created.
+2021-06-13 03:31:28,805 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 03:31:28,805 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 03:31:28,805 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:05<00:00,  8.10s/it, fitness=172]
+2021-06-13 03:39:35,969 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 03:39:35,969 - opytimizer.opytimizer — INFO — It took 487.16415882110596 seconds.
+2021-06-13 03:39:36,008 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:7.937097805616741
+
+2021-06-13 03:39:36,010 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 7.9371, 'L-INF': 0.2392, 'WS': 0.1267, 'ssim': 0.7986, 'psnr': 16.881}, L2_Iters: 60
+2021-06-13 03:39:36,022 - attack — INFO — 
+
+Generating example:22
+2021-06-13 03:39:36,023 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 03:39:36,025 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 03:39:36,025 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 03:39:36,555 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 03:39:36,556 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 03:39:36,556 - opytimizer.core.function — INFO — Class created.
+2021-06-13 03:39:36,556 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 03:39:36,556 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 03:39:36,556 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:08<00:00,  8.14s/it, fitness=219]
+2021-06-13 03:47:46,149 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 03:47:46,149 - opytimizer.opytimizer — INFO — It took 489.5930531024933 seconds.
+2021-06-13 03:47:46,188 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:2.5876509751608188
+
+2021-06-13 03:47:46,191 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 2.5877, 'L-INF': 0.1209, 'WS': 0.037, 'ssim': 0.9111, 'psnr': 26.6161}, L2_Iters: 60
+2021-06-13 03:47:46,203 - attack — INFO — 
+
+Generating example:23
+2021-06-13 03:47:46,203 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 03:47:46,205 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 03:47:46,205 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 03:47:46,744 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 03:47:46,744 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 03:47:46,744 - opytimizer.core.function — INFO — Class created.
+2021-06-13 03:47:46,744 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 03:47:46,744 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 03:47:46,745 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.07s/it, fitness=375]
+2021-06-13 03:55:52,023 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 03:55:52,023 - opytimizer.opytimizer — INFO — It took 485.27847695350647 seconds.
+2021-06-13 03:55:52,063 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.222107217041114
+
+2021-06-13 03:55:52,065 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.2221, 'L-INF': 0.0464, 'WS': 0.0101, 'ssim': 0.9699, 'psnr': 33.132}, L2_Iters: 60
+2021-06-13 03:55:52,077 - attack — INFO — 
+
+Generating example:24
+2021-06-13 03:55:52,077 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 03:55:52,079 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 03:55:52,079 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 03:55:52,618 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 03:55:52,618 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 03:55:52,618 - opytimizer.core.function — INFO — Class created.
+2021-06-13 03:55:52,618 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 03:55:52,619 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 03:55:52,619 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:06<00:00,  8.10s/it, fitness=32.2]
+2021-06-13 04:03:59,869 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 04:03:59,869 - opytimizer.opytimizer — INFO — It took 487.25008893013 seconds.
+2021-06-13 04:03:59,908 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.2464947039530307
+
+2021-06-13 04:03:59,910 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.2465, 'L-INF': 0.0471, 'WS': 0.0111, 'ssim': 0.9478, 'psnr': 32.9604}, L2_Iters: 60
+2021-06-13 04:03:59,922 - attack — INFO — 
+
+Generating example:25
+2021-06-13 04:03:59,923 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 04:03:59,925 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 04:03:59,925 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 04:04:00,464 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 04:04:00,464 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 04:04:00,465 - opytimizer.core.function — INFO — Class created.
+2021-06-13 04:04:00,465 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 04:04:00,465 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 04:04:00,465 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:14<00:00,  8.25s/it, fitness=79.5]
+2021-06-13 04:12:16,616 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 04:12:16,616 - opytimizer.opytimizer — INFO — It took 496.1506576538086 seconds.
+2021-06-13 04:12:16,654 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:3.4991837824585454
+
+2021-06-13 04:12:16,656 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 3.4992, 'L-INF': 0.1482, 'WS': 0.0522, 'ssim': 0.9307, 'psnr': 23.9949}, L2_Iters: 60
+2021-06-13 04:12:16,668 - attack — INFO — 
+
+Generating example:26
+2021-06-13 04:12:16,668 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 04:12:16,671 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 04:12:16,671 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 04:12:17,205 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 04:12:17,205 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 04:12:17,206 - opytimizer.core.function — INFO — Class created.
+2021-06-13 04:12:17,206 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 04:12:17,206 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 04:12:17,206 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:03<00:00,  8.06s/it, fitness=52.7]
+2021-06-13 04:20:22,269 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 04:20:22,269 - opytimizer.opytimizer — INFO — It took 485.06267380714417 seconds.
+2021-06-13 04:20:22,309 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.1175441849286898
+
+2021-06-13 04:20:22,311 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.1175, 'L-INF': 0.0486, 'WS': 0.0067, 'ssim': 0.9731, 'psnr': 33.9089}, L2_Iters: 60
+2021-06-13 04:20:22,323 - attack — INFO — 
+
+Generating example:27
+2021-06-13 04:20:22,324 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 04:20:22,326 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 04:20:22,326 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 04:20:22,870 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 04:20:22,870 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 04:20:22,870 - opytimizer.core.function — INFO — Class created.
+2021-06-13 04:20:22,871 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 04:20:22,871 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 04:20:22,871 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:05<00:00,  8.10s/it, fitness=67.8]
+2021-06-13 04:28:29,886 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 04:28:29,886 - opytimizer.opytimizer — INFO — It took 487.01480889320374 seconds.
+2021-06-13 04:28:29,925 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.1677024483556204
+
+2021-06-13 04:28:29,927 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.1677, 'L-INF': 0.0497, 'WS': 0.011, 'ssim': 0.9953, 'psnr': 33.5276}, L2_Iters: 60
+2021-06-13 04:28:29,939 - attack — INFO — 
+
+Generating example:28
+2021-06-13 04:28:29,939 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 04:28:29,942 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 04:28:29,942 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 04:28:30,482 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 04:28:30,482 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 04:28:30,482 - opytimizer.core.function — INFO — Class created.
+2021-06-13 04:28:30,482 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 04:28:30,483 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 04:28:30,483 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.07s/it, fitness=17.4]
+2021-06-13 04:36:35,702 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 04:36:35,702 - opytimizer.opytimizer — INFO — It took 485.21876978874207 seconds.
+2021-06-13 04:36:35,740 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:1.7391102146647528
+
+2021-06-13 04:36:35,743 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 1.7391, 'L-INF': 0.0939, 'WS': 0.0234, 'ssim': 0.9772, 'psnr': 30.0677}, L2_Iters: 60
+2021-06-13 04:36:35,755 - attack — INFO — 
+
+Generating example:29
+2021-06-13 04:36:35,755 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 04:36:35,757 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 04:36:35,757 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 04:36:36,299 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 04:36:36,299 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 04:36:36,299 - opytimizer.core.function — INFO — Class created.
+2021-06-13 04:36:36,300 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 04:36:36,300 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 04:36:36,300 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:07<00:00,  8.13s/it, fitness=14.9]
+2021-06-13 04:44:45,305 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 04:44:45,305 - opytimizer.opytimizer — INFO — It took 489.00529527664185 seconds.
+2021-06-13 04:44:45,344 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:1.4903598836310268
+
+2021-06-13 04:44:45,347 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 1.4904, 'L-INF': 0.0588, 'WS': 0.0142, 'ssim': 0.9561, 'psnr': 31.4084}, L2_Iters: 60
+2021-06-13 04:44:45,360 - attack — INFO — 
+
+Generating example:30
+2021-06-13 04:44:45,360 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 04:44:45,362 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 04:44:45,362 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 04:44:45,920 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 04:44:45,920 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 04:44:45,920 - opytimizer.core.function — INFO — Class created.
+2021-06-13 04:44:45,920 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 04:44:45,920 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 04:44:45,920 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:03<00:00,  8.06s/it, fitness=126]
+2021-06-13 04:52:51,033 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 04:52:51,033 - opytimizer.opytimizer — INFO — It took 485.11285400390625 seconds.
+2021-06-13 04:52:51,072 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:2.0525189525305754
+
+2021-06-13 04:52:51,074 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 2.0525, 'L-INF': 0.0824, 'WS': 0.0306, 'ssim': 0.973, 'psnr': 28.6285}, L2_Iters: 60
+2021-06-13 04:52:51,087 - attack — INFO — 
+
+Generating example:31
+2021-06-13 04:52:51,087 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 04:52:51,089 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 04:52:51,089 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 04:52:51,625 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 04:52:51,626 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 04:52:51,626 - opytimizer.core.function — INFO — Class created.
+2021-06-13 04:52:51,626 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 04:52:51,626 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 04:52:51,626 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.07s/it, fitness=44.3]
+2021-06-13 05:00:56,852 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 05:00:56,852 - opytimizer.opytimizer — INFO — It took 485.22597193717957 seconds.
+2021-06-13 05:00:56,890 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:4.433649765842206
+
+2021-06-13 05:00:56,893 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 4.4336, 'L-INF': 0.2157, 'WS': 0.0594, 'ssim': 0.9193, 'psnr': 21.939}, L2_Iters: 60
+2021-06-13 05:00:56,906 - attack — INFO — 
+
+Generating example:32
+2021-06-13 05:00:56,906 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 05:00:56,908 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 05:00:56,908 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 05:00:57,432 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 05:00:57,432 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 05:00:57,432 - opytimizer.core.function — INFO — Class created.
+2021-06-13 05:00:57,432 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 05:00:57,432 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 05:00:57,433 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.07s/it, fitness=0.532]
+2021-06-13 05:09:03,042 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 05:09:03,042 - opytimizer.opytimizer — INFO — It took 485.6090319156647 seconds.
+2021-06-13 05:09:03,086 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:0.5322245050354004
+
+2021-06-13 05:09:03,088 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 0.5322, 'L-INF': 0.0493, 'WS': 0.0041, 'ssim': 0.9951, 'psnr': 40.3523}, L2_Iters: 60
+2021-06-13 05:09:03,100 - attack — INFO — 
+
+Generating example:33
+2021-06-13 05:09:03,101 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 05:09:03,103 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 05:09:03,103 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 05:09:03,642 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 05:09:03,642 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 05:09:03,642 - opytimizer.core.function — INFO — Class created.
+2021-06-13 05:09:03,642 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 05:09:03,642 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 05:09:03,642 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:15<00:00,  8.26s/it, fitness=265]
+2021-06-13 05:17:20,230 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 05:17:20,231 - opytimizer.opytimizer — INFO — It took 496.5881631374359 seconds.
+2021-06-13 05:17:20,269 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.734937659233656
+
+2021-06-13 05:17:20,271 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.7349, 'L-INF': 0.0408, 'WS': 0.0249, 'ssim': 0.9686, 'psnr': 30.0885}, L2_Iters: 60
+2021-06-13 05:17:20,284 - attack — INFO — 
+
+Generating example:34
+2021-06-13 05:17:20,284 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 05:17:20,287 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 05:17:20,287 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 05:17:20,821 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 05:17:20,821 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 05:17:20,822 - opytimizer.core.function — INFO — Class created.
+2021-06-13 05:17:20,822 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 05:17:20,822 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 05:17:20,822 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:05<00:00,  8.09s/it, fitness=52.7]
+2021-06-13 05:25:27,450 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 05:25:27,451 - opytimizer.opytimizer — INFO — It took 486.6285307407379 seconds.
+2021-06-13 05:25:27,489 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:3.9294056295608786
+
+2021-06-13 05:25:27,491 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 3.9294, 'L-INF': 0.1321, 'WS': 0.0633, 'ssim': 0.9222, 'psnr': 22.9877}, L2_Iters: 60
+2021-06-13 05:25:27,504 - attack — INFO — 
+
+Generating example:35
+2021-06-13 05:25:27,504 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 05:25:27,506 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 05:25:27,506 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 05:25:28,044 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 05:25:28,044 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 05:25:28,044 - opytimizer.core.function — INFO — Class created.
+2021-06-13 05:25:28,044 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 05:25:28,045 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 05:25:28,045 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.08s/it, fitness=10.7]
+2021-06-13 05:33:33,831 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 05:33:33,831 - opytimizer.opytimizer — INFO — It took 485.7865180969238 seconds.
+2021-06-13 05:33:33,869 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:1.0676072590793766
+
+2021-06-13 05:33:33,872 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 1.0676, 'L-INF': 0.0493, 'WS': 0.0097, 'ssim': 0.8458, 'psnr': 34.306}, L2_Iters: 60
+2021-06-13 05:33:33,884 - attack — INFO — 
+
+Generating example:36
+2021-06-13 05:33:33,884 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 05:33:33,887 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 05:33:33,887 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 05:33:34,419 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 05:33:34,419 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 05:33:34,420 - opytimizer.core.function — INFO — Class created.
+2021-06-13 05:33:34,420 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 05:33:34,420 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 05:33:34,420 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:08<00:00,  8.14s/it, fitness=552]
+2021-06-13 05:41:43,996 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 05:41:43,997 - opytimizer.opytimizer — INFO — It took 489.57635402679443 seconds.
+2021-06-13 05:41:44,035 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.8536227236813545
+
+2021-06-13 05:41:44,037 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.8536, 'L-INF': 0.0627, 'WS': 0.0252, 'ssim': 0.9743, 'psnr': 29.5138}, L2_Iters: 60
+2021-06-13 05:41:44,050 - attack — INFO — 
+
+Generating example:37
+2021-06-13 05:41:44,050 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 05:41:44,052 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 05:41:44,053 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 05:41:44,589 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 05:41:44,593 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 05:41:44,593 - opytimizer.core.function — INFO — Class created.
+2021-06-13 05:41:44,593 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 05:41:44,593 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 05:41:44,593 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.07s/it, fitness=43.3]
+2021-06-13 05:49:50,061 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 05:49:50,061 - opytimizer.opytimizer — INFO — It took 485.4674310684204 seconds.
+2021-06-13 05:49:50,100 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.2499676173035954
+
+2021-06-13 05:49:50,102 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.25, 'L-INF': 0.0389, 'WS': 0.0117, 'ssim': 0.9823, 'psnr': 32.9362}, L2_Iters: 60
+2021-06-13 05:49:50,115 - attack — INFO — 
+
+Generating example:38
+2021-06-13 05:49:50,115 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 05:49:50,117 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 05:49:50,117 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 05:49:50,653 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 05:49:50,653 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 05:49:50,654 - opytimizer.core.function — INFO — Class created.
+2021-06-13 05:49:50,654 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 05:49:50,654 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 05:49:50,654 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.08s/it, fitness=24.1]
+2021-06-13 05:57:56,624 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 05:57:56,624 - opytimizer.opytimizer — INFO — It took 485.9697358608246 seconds.
+2021-06-13 05:57:56,667 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:2.4102223797093933
+
+2021-06-13 05:57:56,670 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 2.4102, 'L-INF': 0.1451, 'WS': 0.0325, 'ssim': 0.9581, 'psnr': 27.2331}, L2_Iters: 60
+2021-06-13 05:57:56,683 - attack — INFO — 
+
+Generating example:39
+2021-06-13 05:57:56,683 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 05:57:56,685 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 05:57:56,685 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 05:57:57,215 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 05:57:57,216 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 05:57:57,216 - opytimizer.core.function — INFO — Class created.
+2021-06-13 05:57:57,216 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 05:57:57,216 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 05:57:57,216 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.08s/it, fitness=0.983]
+2021-06-13 06:06:03,266 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 06:06:03,266 - opytimizer.opytimizer — INFO — It took 486.04995584487915 seconds.
+2021-06-13 06:06:03,304 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:0.9828766009543595
+
+2021-06-13 06:06:03,307 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 0.9829, 'L-INF': 0.0396, 'WS': 0.0025, 'ssim': 0.9709, 'psnr': 35.0242}, L2_Iters: 60
+2021-06-13 06:06:03,320 - attack — INFO — 
+
+Generating example:40
+2021-06-13 06:06:03,320 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 06:06:03,322 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 06:06:03,322 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 06:06:03,848 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 06:06:03,849 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 06:06:03,849 - opytimizer.core.function — INFO — Class created.
+2021-06-13 06:06:03,849 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 06:06:03,849 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 06:06:03,849 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.08s/it, fitness=270]
+2021-06-13 06:14:09,871 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 06:14:09,871 - opytimizer.opytimizer — INFO — It took 486.0213098526001 seconds.
+2021-06-13 06:14:09,911 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:5.668185387818405
+
+2021-06-13 06:14:09,913 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 5.6682, 'L-INF': 0.1609, 'WS': 0.0944, 'ssim': 0.8904, 'psnr': 19.8053}, L2_Iters: 60
+2021-06-13 06:14:09,926 - attack — INFO — 
+
+Generating example:41
+2021-06-13 06:14:09,926 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 06:14:09,928 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 06:14:09,928 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 06:14:10,457 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 06:14:10,457 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 06:14:10,457 - opytimizer.core.function — INFO — Class created.
+2021-06-13 06:14:10,457 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 06:14:10,457 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 06:14:10,457 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|██████████████████████████████████████████████████████████████████| 60/60 [08:12<00:00,  8.21s/it, fitness=91]
+2021-06-13 06:22:24,198 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 06:22:24,198 - opytimizer.opytimizer — INFO — It took 493.74073600769043 seconds.
+2021-06-13 06:22:24,237 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:2.1813782691025683
+
+2021-06-13 06:22:24,239 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 2.1814, 'L-INF': 0.0744, 'WS': 0.0315, 'ssim': 0.9636, 'psnr': 28.0996}, L2_Iters: 60
+2021-06-13 06:22:24,252 - attack — INFO — 
+
+Generating example:42
+2021-06-13 06:22:24,252 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 06:22:24,254 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 06:22:24,254 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 06:22:24,787 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 06:22:24,787 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 06:22:24,787 - opytimizer.core.function — INFO — Class created.
+2021-06-13 06:22:24,788 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 06:22:24,788 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 06:22:24,788 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [08:05<00:00,  8.10s/it, fitness=0.907]
+2021-06-13 06:30:31,711 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 06:30:31,712 - opytimizer.opytimizer — INFO — It took 486.92362689971924 seconds.
+2021-06-13 06:30:31,751 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:0.9066279112684229
+
+2021-06-13 06:30:31,753 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 0.9066, 'L-INF': 0.0902, 'WS': 0.0117, 'ssim': 0.9941, 'psnr': 35.7256}, L2_Iters: 60
+2021-06-13 06:30:31,766 - attack — INFO — 
+
+Generating example:43
+2021-06-13 06:30:31,766 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 06:30:31,768 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 06:30:31,768 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 06:30:32,297 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 06:30:32,297 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 06:30:32,297 - opytimizer.core.function — INFO — Class created.
+2021-06-13 06:30:32,298 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 06:30:32,298 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 06:30:32,298 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.07s/it, fitness=108]
+2021-06-13 06:38:37,554 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 06:38:37,554 - opytimizer.opytimizer — INFO — It took 485.25585412979126 seconds.
+2021-06-13 06:38:37,592 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:2.7477715776744094
+
+2021-06-13 06:38:37,595 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 2.7478, 'L-INF': 0.0705, 'WS': 0.0453, 'ssim': 0.9621, 'psnr': 26.0946}, L2_Iters: 60
+2021-06-13 06:38:37,607 - attack — INFO — 
+
+Generating example:44
+2021-06-13 06:38:37,608 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 06:38:37,609 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 06:38:37,610 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 06:38:38,143 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 06:38:38,143 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 06:38:38,144 - opytimizer.core.function — INFO — Class created.
+2021-06-13 06:38:38,144 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 06:38:38,144 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 06:38:38,144 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:07<00:00,  8.12s/it, fitness=35.8]
+2021-06-13 06:46:46,704 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 06:46:46,704 - opytimizer.opytimizer — INFO — It took 488.55987215042114 seconds.
+2021-06-13 06:46:46,743 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.1908703008181452
+
+2021-06-13 06:46:46,745 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.1909, 'L-INF': 0.0487, 'WS': 0.0101, 'ssim': 0.8873, 'psnr': 33.3569}, L2_Iters: 60
+2021-06-13 06:46:46,758 - attack — INFO — 
+
+Generating example:45
+2021-06-13 06:46:46,758 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 06:46:46,760 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 06:46:46,761 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 06:46:47,300 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 06:46:47,300 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 06:46:47,300 - opytimizer.core.function — INFO — Class created.
+2021-06-13 06:46:47,300 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 06:46:47,300 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 06:46:47,300 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:03<00:00,  8.06s/it, fitness=386]
+2021-06-13 06:54:52,349 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 06:54:52,349 - opytimizer.opytimizer — INFO — It took 485.0486869812012 seconds.
+2021-06-13 06:54:52,387 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:3.397713505449722
+
+2021-06-13 06:54:52,390 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 3.3977, 'L-INF': 0.1451, 'WS': 0.0493, 'ssim': 0.9294, 'psnr': 24.2505}, L2_Iters: 60
+2021-06-13 06:54:52,403 - attack — INFO — 
+
+Generating example:46
+2021-06-13 06:54:52,403 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 06:54:52,405 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 06:54:52,406 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 06:54:52,946 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 06:54:52,947 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 06:54:52,947 - opytimizer.core.function — INFO — Class created.
+2021-06-13 06:54:52,947 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 06:54:52,947 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 06:54:52,947 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.07s/it, fitness=0.548]
+2021-06-13 07:02:58,600 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 07:02:58,600 - opytimizer.opytimizer — INFO — It took 485.65292501449585 seconds.
+2021-06-13 07:02:58,638 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:0.548263633081963
+
+2021-06-13 07:02:58,641 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 0.5483, 'L-INF': 0.038, 'WS': 0.0033, 'ssim': 0.9909, 'psnr': 40.0944}, L2_Iters: 60
+2021-06-13 07:02:58,654 - attack — INFO — 
+
+Generating example:47
+2021-06-13 07:02:58,655 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 07:02:58,657 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 07:02:58,657 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 07:02:59,188 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 07:02:59,188 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 07:02:59,189 - opytimizer.core.function — INFO — Class created.
+2021-06-13 07:02:59,189 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 07:02:59,189 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 07:02:59,189 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.08s/it, fitness=29.1]
+2021-06-13 07:11:05,194 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 07:11:05,194 - opytimizer.opytimizer — INFO — It took 486.0049660205841 seconds.
+2021-06-13 07:11:05,232 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:2.9090322405032953
+
+2021-06-13 07:11:05,235 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 2.909, 'L-INF': 0.2471, 'WS': 0.0412, 'ssim': 0.9513, 'psnr': 25.5992}, L2_Iters: 60
+2021-06-13 07:11:05,248 - attack — INFO — 
+
+Generating example:48
+2021-06-13 07:11:05,248 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 07:11:05,250 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 07:11:05,250 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 07:11:05,788 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 07:11:05,788 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 07:11:05,788 - opytimizer.core.function — INFO — Class created.
+2021-06-13 07:11:05,788 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 07:11:05,788 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 07:11:05,788 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:18<00:00,  8.31s/it, fitness=503]
+2021-06-13 07:19:25,704 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 07:19:25,704 - opytimizer.opytimizer — INFO — It took 499.91552782058716 seconds.
+2021-06-13 07:19:25,744 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:5.794946942746406
+
+2021-06-13 07:19:25,746 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 5.7949, 'L-INF': 0.1569, 'WS': 0.0986, 'ssim': 0.8869, 'psnr': 19.6132}, L2_Iters: 60
+2021-06-13 07:19:25,759 - attack — INFO — 
+
+Generating example:49
+2021-06-13 07:19:25,759 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 07:19:25,761 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 07:19:25,761 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 07:19:26,297 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 07:19:26,297 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 07:19:26,298 - opytimizer.core.function — INFO — Class created.
+2021-06-13 07:19:26,298 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 07:19:26,298 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 07:19:26,298 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:05<00:00,  8.10s/it, fitness=178]
+2021-06-13 07:27:33,247 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 07:27:33,247 - opytimizer.opytimizer — INFO — It took 486.94929695129395 seconds.
+2021-06-13 07:27:33,286 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.3563378271583195
+
+2021-06-13 07:27:33,288 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.3563, 'L-INF': 0.0476, 'WS': 0.0127, 'ssim': 0.949, 'psnr': 32.2269}, L2_Iters: 60
+2021-06-13 07:27:33,302 - attack — INFO — 
+
+Generating example:50
+2021-06-13 07:27:33,302 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 07:27:33,304 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 07:27:33,304 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 07:27:33,842 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 07:27:33,842 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 07:27:33,842 - opytimizer.core.function — INFO — Class created.
+2021-06-13 07:27:33,842 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 07:27:33,842 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 07:27:33,842 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [08:08<00:00,  8.14s/it, fitness=0.888]
+2021-06-13 07:35:43,611 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 07:35:43,611 - opytimizer.opytimizer — INFO — It took 489.76817512512207 seconds.
+2021-06-13 07:35:43,650 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:0.8875900217441314
+
+2021-06-13 07:35:43,652 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 0.8876, 'L-INF': 0.0627, 'WS': 0.0073, 'ssim': 0.9741, 'psnr': 35.91}, L2_Iters: 60
+2021-06-13 07:35:43,666 - attack — INFO — 
+
+Generating example:51
+2021-06-13 07:35:43,666 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 07:35:43,668 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 07:35:43,668 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 07:35:44,215 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 07:35:44,215 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 07:35:44,215 - opytimizer.core.function — INFO — Class created.
+2021-06-13 07:35:44,215 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 07:35:44,215 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 07:35:44,216 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.08s/it, fitness=10.6]
+2021-06-13 07:43:49,975 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 07:43:49,975 - opytimizer.opytimizer — INFO — It took 485.7594311237335 seconds.
+2021-06-13 07:43:50,013 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:1.056888870333261
+
+2021-06-13 07:43:50,015 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 1.0569, 'L-INF': 0.0902, 'WS': 0.015, 'ssim': 0.9903, 'psnr': 34.3936}, L2_Iters: 60
+2021-06-13 07:43:50,028 - attack — INFO — 
+
+Generating example:52
+2021-06-13 07:43:50,029 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 07:43:50,031 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 07:43:50,031 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 07:43:50,565 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 07:43:50,567 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 07:43:50,567 - opytimizer.core.function — INFO — Class created.
+2021-06-13 07:43:50,567 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 07:43:50,567 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 07:43:50,568 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:04<00:00,  8.08s/it, fitness=18.4]
+2021-06-13 07:51:56,613 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 07:51:56,613 - opytimizer.opytimizer — INFO — It took 486.04542422294617 seconds.
+2021-06-13 07:51:56,658 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:1.8413278887911948
+
+2021-06-13 07:51:56,661 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 1.8413, 'L-INF': 0.0745, 'WS': 0.0233, 'ssim': 0.9577, 'psnr': 29.5716}, L2_Iters: 60
+2021-06-13 07:51:56,674 - attack — INFO — 
+
+Generating example:53
+2021-06-13 07:51:56,674 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 07:51:56,676 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 07:51:56,676 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 07:51:57,218 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 07:51:57,218 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 07:51:57,218 - opytimizer.core.function — INFO — Class created.
+2021-06-13 07:51:57,218 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 07:51:57,218 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 07:51:57,218 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:03<00:00,  8.06s/it, fitness=75.3]
+2021-06-13 08:00:02,128 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 08:00:02,129 - opytimizer.opytimizer — INFO — It took 484.9099020957947 seconds.
+2021-06-13 08:00:02,168 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.3745071159223645
+
+2021-06-13 08:00:02,170 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.3745, 'L-INF': 0.0532, 'WS': 0.0159, 'ssim': 0.8991, 'psnr': 32.1113}, L2_Iters: 60
+2021-06-13 08:00:02,183 - attack — INFO — 
+
+Generating example:54
+2021-06-13 08:00:02,183 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 08:00:02,185 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 08:00:02,185 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 08:00:02,717 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 08:00:02,717 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 08:00:02,717 - opytimizer.core.function — INFO — Class created.
+2021-06-13 08:00:02,717 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 08:00:02,718 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 08:00:02,718 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:05<00:00,  8.09s/it, fitness=71.6]
+2021-06-13 08:08:09,196 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 08:08:09,197 - opytimizer.opytimizer — INFO — It took 486.4786581993103 seconds.
+2021-06-13 08:08:09,235 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.0436583708272789
+
+2021-06-13 08:08:09,237 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.0437, 'L-INF': 0.0411, 'WS': 0.0029, 'ssim': 0.9706, 'psnr': 34.503}, L2_Iters: 60
+2021-06-13 08:08:09,251 - attack — INFO — 
+
+Generating example:55
+2021-06-13 08:08:09,251 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 08:08:09,253 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 08:08:09,253 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 08:08:09,780 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 08:08:09,781 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 08:08:09,781 - opytimizer.core.function — INFO — Class created.
+2021-06-13 08:08:09,781 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 08:08:09,781 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 08:08:09,781 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [08:07<00:00,  8.12s/it, fitness=0.347]
+2021-06-13 08:16:18,468 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 08:16:18,468 - opytimizer.opytimizer — INFO — It took 488.68657898902893 seconds.
+2021-06-13 08:16:18,532 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:0.34740224493213345
+
+2021-06-13 08:16:18,536 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 0.3474, 'L-INF': 0.0469, 'WS': 0.0038, 'ssim': 0.9967, 'psnr': 44.0576}, L2_Iters: 60
+2021-06-13 08:16:18,549 - attack — INFO — 
+
+Generating example:56
+2021-06-13 08:16:18,550 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 08:16:18,552 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 08:16:18,552 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 08:16:19,180 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 08:16:19,180 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 08:16:19,180 - opytimizer.core.function — INFO — Class created.
+2021-06-13 08:16:19,180 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 08:16:19,180 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 08:16:19,181 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:11<00:00,  8.20s/it, fitness=26.8]
+2021-06-13 08:24:32,274 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 08:24:32,274 - opytimizer.opytimizer — INFO — It took 493.09364199638367 seconds.
+2021-06-13 08:24:32,313 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:2.664398089235714
+
+2021-06-13 08:24:32,315 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 2.6644, 'L-INF': 0.1216, 'WS': 0.0407, 'ssim': 0.9587, 'psnr': 26.3622}, L2_Iters: 60
+2021-06-13 08:24:32,328 - attack — INFO — 
+
+Generating example:57
+2021-06-13 08:24:32,329 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 08:24:32,331 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 08:24:32,331 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 08:24:32,869 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 08:24:32,869 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 08:24:32,869 - opytimizer.core.function — INFO — Class created.
+2021-06-13 08:24:32,869 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 08:24:32,869 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 08:24:32,869 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:05<00:00,  8.09s/it, fitness=45.8]
+2021-06-13 08:32:39,419 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 08:32:39,419 - opytimizer.opytimizer — INFO — It took 486.54955291748047 seconds.
+2021-06-13 08:32:39,457 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.2981106067355392
+
+2021-06-13 08:32:39,459 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.2981, 'L-INF': 0.0588, 'WS': 0.0146, 'ssim': 0.9719, 'psnr': 32.608}, L2_Iters: 60
+2021-06-13 08:32:39,472 - attack — INFO — 
+
+Generating example:58
+2021-06-13 08:32:39,473 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 08:32:39,475 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 08:32:39,475 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 08:32:40,006 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 08:32:40,006 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 08:32:40,006 - opytimizer.core.function — INFO — Class created.
+2021-06-13 08:32:40,006 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 08:32:40,006 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 08:32:40,006 - opytimizer.opytimizer — INFO — Starting optimization task.
+ 98%|██████████████████████████████████████████████████████████████▉ | 59/60 [08:13<00:10, 10.27s/it, fitness=56.9]
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:24<00:00,  8.40s/it, fitness=53.5]
+2021-06-13 08:41:05,425 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 08:41:05,425 - opytimizer.opytimizer — INFO — It took 505.41841316223145 seconds.
+2021-06-13 08:41:05,474 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.0356629583414878
+
+2021-06-13 08:41:05,476 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.0357, 'L-INF': 0.0406, 'WS': 0.0042, 'ssim': 0.9732, 'psnr': 34.5698}, L2_Iters: 60
+2021-06-13 08:41:05,502 - attack — INFO — 
+
+Generating example:59
+2021-06-13 08:41:05,502 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 08:41:05,505 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 08:41:05,505 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 08:41:06,072 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 08:41:06,073 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 08:41:06,073 - opytimizer.core.function — INFO — Class created.
+2021-06-13 08:41:06,073 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 08:41:06,074 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 08:41:06,074 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|██████████████████████████████████████████████████████████████████| 60/60 [08:31<00:00,  8.52s/it, fitness=16]
+2021-06-13 08:49:38,612 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 08:49:38,612 - opytimizer.opytimizer — INFO — It took 512.5379440784454 seconds.
+2021-06-13 08:49:38,651 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.5715994105116504
+
+2021-06-13 08:49:38,654 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.5716, 'L-INF': 0.0403, 'WS': 0.0217, 'ssim': 0.9892, 'psnr': 30.9474}, L2_Iters: 60
+2021-06-13 08:49:38,667 - attack — INFO — 
+
+Generating example:60
+2021-06-13 08:49:38,667 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 08:49:38,669 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 08:49:38,669 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 08:49:39,212 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 08:49:39,212 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 08:49:39,212 - opytimizer.core.function — INFO — Class created.
+2021-06-13 08:49:39,213 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 08:49:39,213 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 08:49:39,213 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:39<00:00,  8.65s/it, fitness=149]
+2021-06-13 08:58:19,642 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 08:58:19,642 - opytimizer.opytimizer — INFO — It took 520.4291341304779 seconds.
+2021-06-13 08:58:19,685 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.184949343319991
+
+2021-06-13 08:58:19,688 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.1849, 'L-INF': 0.0477, 'WS': 0.0081, 'ssim': 0.9607, 'psnr': 33.4002}, L2_Iters: 60
+2021-06-13 08:58:19,703 - attack — INFO — 
+
+Generating example:61
+2021-06-13 08:58:19,703 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 08:58:19,705 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 08:58:19,705 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 08:58:20,246 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 08:58:20,246 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 08:58:20,247 - opytimizer.core.function — INFO — Class created.
+2021-06-13 08:58:20,247 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 08:58:20,247 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 08:58:20,247 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:26<00:00,  8.43s/it, fitness=20.2]
+2021-06-13 09:06:47,551 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 09:06:47,551 - opytimizer.opytimizer — INFO — It took 507.3040671348572 seconds.
+2021-06-13 09:06:47,591 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:2.0197083036500354
+
+2021-06-13 09:06:47,593 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 2.0197, 'L-INF': 0.1059, 'WS': 0.0264, 'ssim': 0.9509, 'psnr': 28.7684}, L2_Iters: 60
+2021-06-13 09:06:47,610 - attack — INFO — 
+
+Generating example:62
+2021-06-13 09:06:47,610 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 09:06:47,612 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 09:06:47,613 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 09:06:48,156 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 09:06:48,156 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 09:06:48,157 - opytimizer.core.function — INFO — Class created.
+2021-06-13 09:06:48,157 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 09:06:48,157 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 09:06:48,157 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:42<00:00,  8.71s/it, fitness=168]
+2021-06-13 09:15:32,277 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 09:15:32,277 - opytimizer.opytimizer — INFO — It took 524.1195137500763 seconds.
+2021-06-13 09:15:32,316 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.0834595930102908
+
+2021-06-13 09:15:32,318 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.0835, 'L-INF': 0.048, 'WS': 0.0065, 'ssim': 0.959, 'psnr': 34.178}, L2_Iters: 60
+2021-06-13 09:15:32,332 - attack — INFO — 
+
+Generating example:63
+2021-06-13 09:15:32,332 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 09:15:32,334 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 09:15:32,335 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 09:15:32,889 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 09:15:32,889 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 09:15:32,889 - opytimizer.core.function — INFO — Class created.
+2021-06-13 09:15:32,890 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 09:15:32,890 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 09:15:32,890 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [08:18<00:00,  8.31s/it, fitness=0.486]
+2021-06-13 09:23:52,762 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 09:23:52,762 - opytimizer.opytimizer — INFO — It took 499.87222695350647 seconds.
+2021-06-13 09:23:52,802 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:0.48615152874859213
+
+2021-06-13 09:23:52,804 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 0.4862, 'L-INF': 0.0627, 'WS': 0.0031, 'ssim': 0.9961, 'psnr': 41.1388}, L2_Iters: 60
+2021-06-13 09:23:52,818 - attack — INFO — 
+
+Generating example:64
+2021-06-13 09:23:52,818 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 09:23:52,820 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 09:23:52,820 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 09:23:53,365 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 09:23:53,365 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 09:23:53,365 - opytimizer.core.function — INFO — Class created.
+2021-06-13 09:23:53,365 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 09:23:53,365 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 09:23:53,365 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:50<00:00,  8.85s/it, fitness=26.7]
+2021-06-13 09:32:45,428 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 09:32:45,428 - opytimizer.opytimizer — INFO — It took 532.0623409748077 seconds.
+2021-06-13 09:32:45,468 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:2.6699653607122174
+
+2021-06-13 09:32:45,471 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 2.67, 'L-INF': 0.1333, 'WS': 0.0354, 'ssim': 0.9655, 'psnr': 26.3441}, L2_Iters: 60
+2021-06-13 09:32:45,484 - attack — INFO — 
+
+Generating example:65
+2021-06-13 09:32:45,485 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 09:32:45,487 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 09:32:45,487 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 09:32:46,040 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 09:32:46,041 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 09:32:46,041 - opytimizer.core.function — INFO — Class created.
+2021-06-13 09:32:46,041 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 09:32:46,041 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 09:32:46,041 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:41<00:00,  8.70s/it, fitness=105]
+2021-06-13 09:41:29,007 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 09:41:29,008 - opytimizer.opytimizer — INFO — It took 522.9660289287567 seconds.
+2021-06-13 09:41:29,050 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.3816860890223162
+
+2021-06-13 09:41:29,052 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.3817, 'L-INF': 0.0397, 'WS': 0.017, 'ssim': 0.9887, 'psnr': 32.066}, L2_Iters: 60
+2021-06-13 09:41:29,066 - attack — INFO — 
+
+Generating example:66
+2021-06-13 09:41:29,067 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 09:41:29,068 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 09:41:29,069 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 09:41:29,607 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 09:41:29,608 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 09:41:29,608 - opytimizer.core.function — INFO — Class created.
+2021-06-13 09:41:29,608 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 09:41:29,608 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 09:41:29,608 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:21<00:00,  8.36s/it, fitness=45.1]
+2021-06-13 09:49:52,351 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 09:49:52,351 - opytimizer.opytimizer — INFO — It took 502.7423596382141 seconds.
+2021-06-13 09:49:52,392 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.2112597355888328
+
+2021-06-13 09:49:52,394 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.2113, 'L-INF': 0.0588, 'WS': 0.0111, 'ssim': 0.99, 'psnr': 33.2095}, L2_Iters: 60
+2021-06-13 09:49:52,420 - attack — INFO — 
+
+Generating example:67
+2021-06-13 09:49:52,421 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 09:49:52,425 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 09:49:52,425 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 09:49:52,991 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 09:49:52,991 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 09:49:52,992 - opytimizer.core.function — INFO — Class created.
+2021-06-13 09:49:52,992 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 09:49:52,992 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 09:49:52,992 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:11<00:00,  8.19s/it, fitness=10.7]
+2021-06-13 09:58:05,439 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 09:58:05,439 - opytimizer.opytimizer — INFO — It took 492.44678497314453 seconds.
+2021-06-13 09:58:05,478 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:1.0714559749690216
+
+2021-06-13 09:58:05,480 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 1.0715, 'L-INF': 0.0365, 'WS': 0.0066, 'ssim': 0.9741, 'psnr': 34.2747}, L2_Iters: 60
+2021-06-13 09:58:05,494 - attack — INFO — 
+
+Generating example:68
+2021-06-13 09:58:05,494 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 09:58:05,496 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 09:58:05,496 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 09:58:06,028 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 09:58:06,028 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 09:58:06,028 - opytimizer.core.function — INFO — Class created.
+2021-06-13 09:58:06,028 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 09:58:06,028 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 09:58:06,028 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:06<00:00,  8.11s/it, fitness=67.4]
+2021-06-13 10:06:13,796 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 10:06:13,796 - opytimizer.opytimizer — INFO — It took 487.7677068710327 seconds.
+2021-06-13 10:06:13,835 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:6.737098527159081
+
+2021-06-13 10:06:13,837 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 6.7371, 'L-INF': 0.2824, 'WS': 0.1014, 'ssim': 0.7853, 'psnr': 18.3048}, L2_Iters: 60
+2021-06-13 10:06:13,851 - attack — INFO — 
+
+Generating example:69
+2021-06-13 10:06:13,851 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 10:06:13,853 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 10:06:13,853 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 10:06:14,383 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 10:06:14,383 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 10:06:14,383 - opytimizer.core.function — INFO — Class created.
+2021-06-13 10:06:14,383 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 10:06:14,383 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 10:06:14,383 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:05<00:00,  8.10s/it, fitness=14.6]
+2021-06-13 10:14:21,387 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 10:14:21,387 - opytimizer.opytimizer — INFO — It took 487.003812789917 seconds.
+2021-06-13 10:14:21,426 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:1.4645685069806316
+
+2021-06-13 10:14:21,428 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 1.4646, 'L-INF': 0.051, 'WS': 0.017, 'ssim': 0.9816, 'psnr': 31.56}, L2_Iters: 60
+2021-06-13 10:14:21,442 - attack — INFO — 
+
+Generating example:70
+2021-06-13 10:14:21,442 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 10:14:21,444 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 10:14:21,445 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 10:14:21,976 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 10:14:21,977 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 10:14:21,977 - opytimizer.core.function — INFO — Class created.
+2021-06-13 10:14:21,977 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 10:14:21,977 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 10:14:21,977 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:14<00:00,  8.24s/it, fitness=164]
+2021-06-13 10:22:37,440 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 10:22:37,440 - opytimizer.opytimizer — INFO — It took 495.46286630630493 seconds.
+2021-06-13 10:22:37,481 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.2136630953338416
+
+2021-06-13 10:22:37,483 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.2137, 'L-INF': 0.0482, 'WS': 0.0101, 'ssim': 0.9643, 'psnr': 33.1922}, L2_Iters: 60
+2021-06-13 10:22:37,499 - attack — INFO — 
+
+Generating example:71
+2021-06-13 10:22:37,499 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 10:22:37,501 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 10:22:37,501 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 10:22:38,058 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 10:22:38,058 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 10:22:38,058 - opytimizer.core.function — INFO — Class created.
+2021-06-13 10:22:38,059 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 10:22:38,059 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 10:22:38,059 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [08:31<00:00,  8.53s/it, fitness=0.423]
+2021-06-13 10:31:11,220 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 10:31:11,220 - opytimizer.opytimizer — INFO — It took 513.1609287261963 seconds.
+2021-06-13 10:31:11,261 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:0.4234125455093003
+
+2021-06-13 10:31:11,263 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 0.4234, 'L-INF': 0.0503, 'WS': 0.0044, 'ssim': 0.9963, 'psnr': 42.3389}, L2_Iters: 60
+2021-06-13 10:31:11,286 - attack — INFO — 
+
+Generating example:72
+2021-06-13 10:31:11,286 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 10:31:11,289 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 10:31:11,289 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 10:31:11,891 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 10:31:11,891 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 10:31:11,891 - opytimizer.core.function — INFO — Class created.
+2021-06-13 10:31:11,891 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 10:31:11,891 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 10:31:11,891 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:07<00:00,  8.13s/it, fitness=29.1]
+2021-06-13 10:39:20,866 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 10:39:20,866 - opytimizer.opytimizer — INFO — It took 488.97462916374207 seconds.
+2021-06-13 10:39:20,911 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:2.9066002189443485
+
+2021-06-13 10:39:20,913 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 2.9066, 'L-INF': 0.098, 'WS': 0.0468, 'ssim': 0.9553, 'psnr': 25.6065}, L2_Iters: 60
+2021-06-13 10:39:20,927 - attack — INFO — 
+
+Generating example:73
+2021-06-13 10:39:20,927 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 10:39:20,929 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 10:39:20,930 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 10:39:21,463 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 10:39:21,463 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 10:39:21,463 - opytimizer.core.function — INFO — Class created.
+2021-06-13 10:39:21,463 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 10:39:21,463 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 10:39:21,463 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:05<00:00,  8.09s/it, fitness=72.4]
+2021-06-13 10:47:28,149 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 10:47:28,149 - opytimizer.opytimizer — INFO — It took 486.6853942871094 seconds.
+2021-06-13 10:47:28,187 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.3501690248809188
+
+2021-06-13 10:47:28,190 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.3502, 'L-INF': 0.0477, 'WS': 0.0116, 'ssim': 0.9634, 'psnr': 32.2664}, L2_Iters: 60
+2021-06-13 10:47:28,204 - attack — INFO — 
+
+Generating example:74
+2021-06-13 10:47:28,204 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 10:47:28,206 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 10:47:28,207 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 10:47:28,939 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 10:47:28,940 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 10:47:28,940 - opytimizer.core.function — INFO — Class created.
+2021-06-13 10:47:28,940 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 10:47:28,940 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 10:47:28,940 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:20<00:00,  8.34s/it, fitness=20.7]
+2021-06-13 10:55:50,813 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 10:55:50,813 - opytimizer.opytimizer — INFO — It took 501.8726999759674 seconds.
+2021-06-13 10:55:50,851 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:2.0717017855815105
+
+2021-06-13 10:55:50,853 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 2.0717, 'L-INF': 0.0745, 'WS': 0.0279, 'ssim': 0.9477, 'psnr': 28.5477}, L2_Iters: 60
+2021-06-13 10:55:50,867 - attack — INFO — 
+
+Generating example:75
+2021-06-13 10:55:50,867 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 10:55:50,869 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 10:55:50,869 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 10:55:51,420 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 10:55:51,420 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 10:55:51,421 - opytimizer.core.function — INFO — Class created.
+2021-06-13 10:55:51,421 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 10:55:51,421 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 10:55:51,421 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [09:07<00:00,  9.13s/it, fitness=333]
+2021-06-13 11:05:00,400 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 11:05:00,400 - opytimizer.opytimizer — INFO — It took 548.978905916214 seconds.
+2021-06-13 11:05:00,451 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.1230250464930713
+
+2021-06-13 11:05:00,454 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.123, 'L-INF': 0.0392, 'WS': 0.0058, 'ssim': 0.9406, 'psnr': 33.8664}, L2_Iters: 60
+2021-06-13 11:05:00,469 - attack — INFO — 
+
+Generating example:76
+2021-06-13 11:05:00,469 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 11:05:00,471 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 11:05:00,471 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 11:05:01,103 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 11:05:01,103 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 11:05:01,104 - opytimizer.core.function — INFO — Class created.
+2021-06-13 11:05:01,104 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 11:05:01,104 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 11:05:01,104 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [09:38<00:00,  9.65s/it, fitness=10.5]
+2021-06-13 11:14:41,496 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 11:14:41,496 - opytimizer.opytimizer — INFO — It took 580.3918693065643 seconds.
+2021-06-13 11:14:41,540 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:1.0478878091277235
+
+2021-06-13 11:14:41,543 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 1.0479, 'L-INF': 0.0481, 'WS': 0.0053, 'ssim': 0.9647, 'psnr': 34.4679}, L2_Iters: 60
+2021-06-13 11:14:41,557 - attack — INFO — 
+
+Generating example:77
+2021-06-13 11:14:41,557 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 11:14:41,562 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 11:14:41,562 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 11:14:42,159 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 11:14:42,159 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 11:14:42,160 - opytimizer.core.function — INFO — Class created.
+2021-06-13 11:14:42,160 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 11:14:42,160 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 11:14:42,160 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [09:07<00:00,  9.12s/it, fitness=17.2]
+2021-06-13 11:23:50,527 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 11:23:50,527 - opytimizer.opytimizer — INFO — It took 548.3665788173676 seconds.
+2021-06-13 11:23:50,570 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:1.7226133375263952
+
+2021-06-13 11:23:50,572 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 1.7226, 'L-INF': 0.0824, 'WS': 0.0199, 'ssim': 0.9628, 'psnr': 30.1505}, L2_Iters: 60
+2021-06-13 11:23:50,587 - attack — INFO — 
+
+Generating example:78
+2021-06-13 11:23:50,587 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 11:23:50,591 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 11:23:50,591 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 11:23:51,180 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 11:23:51,180 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 11:23:51,180 - opytimizer.core.function — INFO — Class created.
+2021-06-13 11:23:51,180 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 11:23:51,180 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 11:23:51,181 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [09:17<00:00,  9.30s/it, fitness=24.8]
+2021-06-13 11:33:10,407 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 11:33:10,407 - opytimizer.opytimizer — INFO — It took 559.226037979126 seconds.
+2021-06-13 11:33:10,454 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:2.47604601569852
+
+2021-06-13 11:33:10,457 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 2.476, 'L-INF': 0.1176, 'WS': 0.0339, 'ssim': 0.9573, 'psnr': 26.999}, L2_Iters: 60
+2021-06-13 11:33:10,472 - attack — INFO — 
+
+Generating example:79
+2021-06-13 11:33:10,472 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 11:33:10,475 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 11:33:10,476 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 11:33:11,073 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 11:33:11,073 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 11:33:11,073 - opytimizer.core.function — INFO — Class created.
+2021-06-13 11:33:11,073 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 11:33:11,073 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 11:33:11,073 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [09:24<00:00,  9.40s/it, fitness=17.6]
+2021-06-13 11:42:36,920 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 11:42:36,920 - opytimizer.opytimizer — INFO — It took 565.8470351696014 seconds.
+2021-06-13 11:42:36,963 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:1.7567898142097553
+
+2021-06-13 11:42:36,965 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 1.7568, 'L-INF': 0.1216, 'WS': 0.0196, 'ssim': 0.9675, 'psnr': 29.9798}, L2_Iters: 60
+2021-06-13 11:42:36,980 - attack — INFO — 
+
+Generating example:80
+2021-06-13 11:42:36,980 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 11:42:36,982 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 11:42:36,982 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 11:42:37,577 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 11:42:37,577 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 11:42:37,577 - opytimizer.core.function — INFO — Class created.
+2021-06-13 11:42:37,578 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 11:42:37,578 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 11:42:37,578 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [09:42<00:00,  9.72s/it, fitness=43.8]
+2021-06-13 11:52:21,940 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 11:52:21,940 - opytimizer.opytimizer — INFO — It took 584.3615717887878 seconds.
+2021-06-13 11:52:21,985 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:4.375260665817116
+
+2021-06-13 11:52:21,988 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 4.3753, 'L-INF': 0.1804, 'WS': 0.0692, 'ssim': 0.9286, 'psnr': 22.0541}, L2_Iters: 60
+2021-06-13 11:52:22,002 - attack — INFO — 
+
+Generating example:81
+2021-06-13 11:52:22,003 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 11:52:22,008 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 11:52:22,008 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 11:52:22,600 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 11:52:22,600 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 11:52:22,600 - opytimizer.core.function — INFO — Class created.
+2021-06-13 11:52:22,600 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 11:52:22,601 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 11:52:22,601 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [09:59<00:00,  9.99s/it, fitness=83.3]
+2021-06-13 12:02:23,282 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 12:02:23,282 - opytimizer.opytimizer — INFO — It took 600.6810460090637 seconds.
+2021-06-13 12:02:23,325 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.925311155352307
+
+2021-06-13 12:02:23,328 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.9253, 'L-INF': 0.1048, 'WS': 0.0235, 'ssim': 0.9598, 'psnr': 29.1842}, L2_Iters: 60
+2021-06-13 12:02:23,343 - attack — INFO — 
+
+Generating example:82
+2021-06-13 12:02:23,343 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 12:02:23,348 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 12:02:23,348 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 12:02:23,923 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 12:02:23,924 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 12:02:23,924 - opytimizer.core.function — INFO — Class created.
+2021-06-13 12:02:23,924 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 12:02:23,924 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 12:02:23,924 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:11<00:00,  8.18s/it, fitness=238]
+2021-06-13 12:10:36,266 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 12:10:36,266 - opytimizer.opytimizer — INFO — It took 492.3411829471588 seconds.
+2021-06-13 12:10:36,311 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:5.576754531462617
+
+2021-06-13 12:10:36,314 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 5.5768, 'L-INF': 0.1882, 'WS': 0.0834, 'ssim': 0.9239, 'psnr': 19.9466}, L2_Iters: 60
+2021-06-13 12:10:36,328 - attack — INFO — 
+
+Generating example:83
+2021-06-13 12:10:36,329 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 12:10:36,332 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 12:10:36,333 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 12:10:36,870 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 12:10:36,870 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 12:10:36,870 - opytimizer.core.function — INFO — Class created.
+2021-06-13 12:10:36,870 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 12:10:36,871 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 12:10:36,871 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:12<00:00,  8.21s/it, fitness=66.6]
+2021-06-13 12:18:50,645 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 12:18:50,645 - opytimizer.opytimizer — INFO — It took 493.77431297302246 seconds.
+2021-06-13 12:18:50,684 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:6.661535527047514
+
+2021-06-13 12:18:50,686 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 6.6615, 'L-INF': 0.302, 'WS': 0.1012, 'ssim': 0.8783, 'psnr': 18.4027}, L2_Iters: 60
+2021-06-13 12:18:50,700 - attack — INFO — 
+
+Generating example:84
+2021-06-13 12:18:50,700 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 12:18:50,702 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 12:18:50,703 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 12:18:51,241 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 12:18:51,241 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 12:18:51,241 - opytimizer.core.function — INFO — Class created.
+2021-06-13 12:18:51,241 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 12:18:51,241 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 12:18:51,242 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:44<00:00,  8.74s/it, fitness=79.3]
+2021-06-13 12:27:37,024 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 12:27:37,024 - opytimizer.opytimizer — INFO — It took 525.7826402187347 seconds.
+2021-06-13 12:27:37,079 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.7033620622749714
+
+2021-06-13 12:27:37,088 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.7034, 'L-INF': 0.0748, 'WS': 0.0227, 'ssim': 0.8926, 'psnr': 30.2481}, L2_Iters: 60
+2021-06-13 12:27:37,111 - attack — INFO — 
+
+Generating example:85
+2021-06-13 12:27:37,111 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 12:27:37,115 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 12:27:37,115 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 12:27:37,744 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 12:27:37,744 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 12:27:37,745 - opytimizer.core.function — INFO — Class created.
+2021-06-13 12:27:37,745 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 12:27:37,745 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 12:27:37,745 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [09:55<00:00,  9.92s/it, fitness=44.7]
+2021-06-13 12:37:34,930 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 12:37:34,930 - opytimizer.opytimizer — INFO — It took 597.1848590373993 seconds.
+2021-06-13 12:37:34,980 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:4.469259826943307
+
+2021-06-13 12:37:34,982 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 4.4693, 'L-INF': 0.2078, 'WS': 0.0613, 'ssim': 0.9199, 'psnr': 21.8695}, L2_Iters: 60
+2021-06-13 12:37:34,999 - attack — INFO — 
+
+Generating example:86
+2021-06-13 12:37:34,999 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 12:37:35,001 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 12:37:35,001 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 12:37:35,638 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 12:37:35,638 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 12:37:35,638 - opytimizer.core.function — INFO — Class created.
+2021-06-13 12:37:35,638 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 12:37:35,639 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 12:37:35,639 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [09:25<00:00,  9.42s/it, fitness=0.699]
+2021-06-13 12:47:02,263 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 12:47:02,263 - opytimizer.opytimizer — INFO — It took 566.6243641376495 seconds.
+2021-06-13 12:47:02,313 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:0.6992717469295512
+
+2021-06-13 12:47:02,315 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 0.6993, 'L-INF': 0.0361, 'WS': 0.0063, 'ssim': 0.9748, 'psnr': 37.9813}, L2_Iters: 60
+2021-06-13 12:47:02,330 - attack — INFO — 
+
+Generating example:87
+2021-06-13 12:47:02,331 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 12:47:02,337 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 12:47:02,337 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 12:47:03,255 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 12:47:03,257 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 12:47:03,257 - opytimizer.core.function — INFO — Class created.
+2021-06-13 12:47:03,257 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 12:47:03,258 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 12:47:03,258 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [09:24<00:00,  9.40s/it, fitness=293]
+2021-06-13 12:56:29,495 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 12:56:29,495 - opytimizer.opytimizer — INFO — It took 566.2372789382935 seconds.
+2021-06-13 12:56:29,539 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:4.8021564422917855
+
+2021-06-13 12:56:29,542 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 4.8022, 'L-INF': 0.1882, 'WS': 0.0707, 'ssim': 0.9457, 'psnr': 21.2455}, L2_Iters: 60
+2021-06-13 12:56:29,557 - attack — INFO — 
+
+Generating example:88
+2021-06-13 12:56:29,557 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 12:56:29,561 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 12:56:29,561 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 12:56:30,149 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 12:56:30,149 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 12:56:30,150 - opytimizer.core.function — INFO — Class created.
+2021-06-13 12:56:30,150 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 12:56:30,150 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 12:56:30,150 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [09:18<00:00,  9.31s/it, fitness=205]
+2021-06-13 13:05:50,178 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 13:05:50,178 - opytimizer.opytimizer — INFO — It took 560.0276410579681 seconds.
+2021-06-13 13:05:50,221 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:12.507160504362954
+
+2021-06-13 13:05:50,224 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 12.5072, 'L-INF': 0.5373, 'WS': 0.2021, 'ssim': 0.6201, 'psnr': 12.931}, L2_Iters: 60
+2021-06-13 13:05:50,242 - attack — INFO — 
+
+Generating example:89
+2021-06-13 13:05:50,242 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 13:05:50,246 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 13:05:50,246 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 13:05:50,826 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 13:05:50,826 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 13:05:50,826 - opytimizer.core.function — INFO — Class created.
+2021-06-13 13:05:50,826 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 13:05:50,826 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 13:05:50,826 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [09:15<00:00,  9.26s/it, fitness=242]
+2021-06-13 13:15:08,167 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 13:15:08,167 - opytimizer.opytimizer — INFO — It took 557.3401758670807 seconds.
+2021-06-13 13:15:08,212 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.588313914912055
+
+2021-06-13 13:15:08,214 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.5883, 'L-INF': 0.0476, 'WS': 0.0205, 'ssim': 0.9509, 'psnr': 30.8555}, L2_Iters: 60
+2021-06-13 13:15:08,231 - attack — INFO — 
+
+Generating example:90
+2021-06-13 13:15:08,231 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 13:15:08,233 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 13:15:08,233 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 13:15:08,855 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 13:15:08,855 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 13:15:08,855 - opytimizer.core.function — INFO — Class created.
+2021-06-13 13:15:08,856 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 13:15:08,856 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 13:15:08,856 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [09:38<00:00,  9.64s/it, fitness=119]
+2021-06-13 13:24:48,424 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 13:24:48,424 - opytimizer.opytimizer — INFO — It took 579.5682692527771 seconds.
+2021-06-13 13:24:48,469 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.4152521590917055
+
+2021-06-13 13:24:48,471 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.4153, 'L-INF': 0.0478, 'WS': 0.0159, 'ssim': 0.9664, 'psnr': 31.8575}, L2_Iters: 60
+2021-06-13 13:24:48,490 - attack — INFO — 
+
+Generating example:91
+2021-06-13 13:24:48,491 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 13:24:48,497 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 13:24:48,497 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 13:24:49,074 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 13:24:49,074 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 13:24:49,074 - opytimizer.core.function — INFO — Class created.
+2021-06-13 13:24:49,074 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 13:24:49,074 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 13:24:49,074 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [09:18<00:00,  9.30s/it, fitness=148]
+2021-06-13 13:34:08,692 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 13:34:08,692 - opytimizer.opytimizer — INFO — It took 559.6177959442139 seconds.
+2021-06-13 13:34:08,737 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.1547821383226353
+
+2021-06-13 13:34:08,740 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.1548, 'L-INF': 0.0409, 'WS': 0.0064, 'ssim': 0.9778, 'psnr': 33.6242}, L2_Iters: 60
+2021-06-13 13:34:08,758 - attack — INFO — 
+
+Generating example:92
+2021-06-13 13:34:08,758 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 13:34:08,760 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 13:34:08,761 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 13:34:09,354 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 13:34:09,354 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 13:34:09,354 - opytimizer.core.function — INFO — Class created.
+2021-06-13 13:34:09,354 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 13:34:09,354 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 13:34:09,354 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [09:37<00:00,  9.63s/it, fitness=15.6]
+2021-06-13 13:43:48,655 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 13:43:48,655 - opytimizer.opytimizer — INFO — It took 579.3003880977631 seconds.
+2021-06-13 13:43:48,704 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:1.5630858454199565
+
+2021-06-13 13:43:48,708 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 1.5631, 'L-INF': 0.0627, 'WS': 0.0176, 'ssim': 0.978, 'psnr': 30.9946}, L2_Iters: 60
+2021-06-13 13:43:48,724 - attack — INFO — 
+
+Generating example:93
+2021-06-13 13:43:48,725 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 13:43:48,727 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 13:43:48,727 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 13:43:49,310 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 13:43:49,310 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 13:43:49,310 - opytimizer.core.function — INFO — Class created.
+2021-06-13 13:43:49,310 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 13:43:49,310 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 13:43:49,310 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:45<00:00,  8.75s/it, fitness=17.9]
+2021-06-13 13:52:35,785 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 13:52:35,786 - opytimizer.opytimizer — INFO — It took 526.4750039577484 seconds.
+2021-06-13 13:52:35,825 - attack — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1831 Dist:1.7946462292155387
+
+2021-06-13 13:52:35,827 - attack — INFO — Attack result:True, Queries: 1831 All Dist:{'L2': 1.7946, 'L-INF': 0.098, 'WS': 0.0223, 'ssim': 0.9293, 'psnr': 29.7946}, L2_Iters: 60
+2021-06-13 13:52:35,844 - attack — INFO — 
+
+Generating example:94
+2021-06-13 13:52:35,844 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 13:52:35,848 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 13:52:35,849 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 13:52:36,390 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 13:52:36,390 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 13:52:36,391 - opytimizer.core.function — INFO — Class created.
+2021-06-13 13:52:36,391 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 13:52:36,391 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 13:52:36,391 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:17<00:00,  8.29s/it, fitness=95.3]
+2021-06-13 14:00:55,108 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 14:00:55,109 - opytimizer.opytimizer — INFO — It took 498.71719908714294 seconds.
+2021-06-13 14:00:55,148 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.504292357044488
+
+2021-06-13 14:00:55,150 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.5043, 'L-INF': 0.0353, 'WS': 0.0192, 'ssim': 0.9628, 'psnr': 31.3276}, L2_Iters: 60
+2021-06-13 14:00:55,165 - attack — INFO — 
+
+Generating example:95
+2021-06-13 14:00:55,165 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 14:00:55,169 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 14:00:55,169 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 14:00:55,707 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 14:00:55,707 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 14:00:55,707 - opytimizer.core.function — INFO — Class created.
+2021-06-13 14:00:55,707 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 14:00:55,708 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 14:00:55,708 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|██████████████████████████████████████████████████████████████████| 60/60 [08:07<00:00,  8.12s/it, fitness=73]
+2021-06-13 14:09:04,033 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 14:09:04,033 - opytimizer.opytimizer — INFO — It took 488.32504296302795 seconds.
+2021-06-13 14:09:04,072 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.1709046960508929
+
+2021-06-13 14:09:04,074 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.1709, 'L-INF': 0.0482, 'WS': 0.0094, 'ssim': 0.9625, 'psnr': 33.5038}, L2_Iters: 60
+2021-06-13 14:09:04,090 - attack — INFO — 
+
+Generating example:96
+2021-06-13 14:09:04,090 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 14:09:04,094 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 14:09:04,094 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 14:09:04,632 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 14:09:04,632 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 14:09:04,632 - opytimizer.core.function — INFO — Class created.
+2021-06-13 14:09:04,632 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 14:09:04,632 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 14:09:04,632 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [08:10<00:00,  8.17s/it, fitness=246]
+2021-06-13 14:17:16,186 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 14:17:16,186 - opytimizer.opytimizer — INFO — It took 491.55323815345764 seconds.
+2021-06-13 14:17:16,224 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.5683171468389137
+
+2021-06-13 14:17:16,227 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.5683, 'L-INF': 0.0476, 'WS': 0.0188, 'ssim': 0.9784, 'psnr': 30.9655}, L2_Iters: 60
+2021-06-13 14:17:16,241 - attack — INFO — 
+
+Generating example:97
+2021-06-13 14:17:16,241 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 14:17:16,246 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 14:17:16,246 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 14:17:16,785 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 14:17:16,785 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 14:17:16,786 - opytimizer.core.function — INFO — Class created.
+2021-06-13 14:17:16,786 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 14:17:16,786 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 14:17:16,786 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [08:10<00:00,  8.17s/it, fitness=41.4]
+2021-06-13 14:25:28,304 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 14:25:28,304 - opytimizer.opytimizer — INFO — It took 491.5179069042206 seconds.
+2021-06-13 14:25:28,347 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.1471069272322179
+
+2021-06-13 14:25:28,350 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.1471, 'L-INF': 0.0483, 'WS': 0.0101, 'ssim': 0.8983, 'psnr': 33.6821}, L2_Iters: 60
+2021-06-13 14:25:28,365 - attack — INFO — 
+
+Generating example:98
+2021-06-13 14:25:28,365 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 14:25:28,367 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 14:25:28,367 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 14:25:28,912 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 14:25:28,913 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 14:25:28,913 - opytimizer.core.function — INFO — Class created.
+2021-06-13 14:25:28,913 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 14:25:28,913 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 14:25:28,913 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [09:12<00:00,  9.20s/it, fitness=219]
+2021-06-13 14:34:42,394 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 14:34:42,394 - opytimizer.opytimizer — INFO — It took 553.4805989265442 seconds.
+2021-06-13 14:34:42,444 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.507488398613736
+
+2021-06-13 14:34:42,447 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.5075, 'L-INF': 0.0476, 'WS': 0.0177, 'ssim': 0.9544, 'psnr': 31.3091}, L2_Iters: 60
+2021-06-13 14:34:42,462 - attack — INFO — 
+
+Generating example:99
+2021-06-13 14:34:42,462 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-06-13 14:34:42,469 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-06-13 14:34:42,469 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-13 14:34:43,052 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-13 14:34:43,053 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-13 14:34:43,053 - opytimizer.core.function — INFO — Class created.
+2021-06-13 14:34:43,053 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-13 14:34:43,053 - opytimizer.opytimizer — INFO — Class created.
+2021-06-13 14:34:43,053 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [09:19<00:00,  9.32s/it, fitness=160]
+2021-06-13 14:44:04,128 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 14:44:04,128 - opytimizer.opytimizer — INFO — It took 561.0747911930084 seconds.
+2021-06-13 14:44:04,170 - attack — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1831 Dist:1.204385030327628
+
+2021-06-13 14:44:04,172 - attack — INFO — Attack result:False, Queries: 1831 All Dist:{'L2': 1.2044, 'L-INF': 0.0465, 'WS': 0.0084, 'ssim': 0.9657, 'psnr': 33.2589}, L2_Iters: 60
+2021-06-13 14:44:04,444 - attack — INFO — 
+Total Examples: 100, Iterations:60, espilon: 0.05 and Max-L2:1 Agents: 30 l_2_mul: 0.5
+Accuracy: 61.0 Mean L2 Counted: 2.1196403196087146 Query: 1831.0

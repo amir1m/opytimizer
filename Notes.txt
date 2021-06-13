@@ -1611,6 +1611,16 @@ MODAOA + 0.5 CS
 Total Examples: 10, Iterations:60, espilon: 0.75 and Max-L2:2 Agents: 30 l_2_mul: 0.5
 Accuracy: 0.0 Mean L2 Counted: 4.297850592399025 Query: 4562.0
 
+MODAOA + 0.5 CS
+Total Examples: 10, Iterations:60, espilon: 0.1 and Max-L2:2 Agents: 30 l_2_mul: 0.5
+Accuracy: 100.0 Mean L2 Counted: 1.29923995397128 Query: 1831.0
+
+=======
+DE MNIST
+Total Examples: 10, Iterations:3000, espilon: 0.1 and Max-L2:2 
+Accuracy: 100.0 Mean L2 Counted: 1.6033242296849237 Query: 3000.0
+===
+
 
 
 

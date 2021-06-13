@@ -1,0 +1,21 @@
+2021-06-13 00:00:05,049 - opytimizer.opytimizer — INFO — Fitness: 166.5172041079469
+2021-06-13 00:00:05,052 - opytimizer.opytimizer — INFO — Iteration 52/60
+2021-06-13 00:00:11,800 - opytimizer.opytimizer — INFO — Fitness: 166.5172041079469
+2021-06-13 00:00:11,801 - opytimizer.opytimizer — INFO — Iteration 53/60
+2021-06-13 00:00:18,620 - opytimizer.opytimizer — INFO — Fitness: 166.5172041079469
+2021-06-13 00:00:18,621 - opytimizer.opytimizer — INFO — Iteration 54/60
+2021-06-13 00:00:24,957 - opytimizer.opytimizer — INFO — Fitness: 166.5172041079469
+2021-06-13 00:00:24,957 - opytimizer.opytimizer — INFO — Iteration 55/60
+2021-06-13 00:00:31,166 - opytimizer.opytimizer — INFO — Fitness: 164.70439181665756
+2021-06-13 00:00:31,167 - opytimizer.opytimizer — INFO — Iteration 56/60
+2021-06-13 00:00:37,188 - opytimizer.opytimizer — INFO — Fitness: 164.70439181665756
+2021-06-13 00:00:37,188 - opytimizer.opytimizer — INFO — Iteration 57/60
+2021-06-13 00:00:43,246 - opytimizer.opytimizer — INFO — Fitness: 164.70439181665756
+2021-06-13 00:00:43,246 - opytimizer.opytimizer — INFO — Iteration 58/60
+2021-06-13 00:00:49,336 - opytimizer.opytimizer — INFO — Fitness: 164.70439181665756
+2021-06-13 00:00:49,337 - opytimizer.opytimizer — INFO — Iteration 59/60
+2021-06-13 00:00:56,038 - opytimizer.opytimizer — INFO — Fitness: 164.70439181665756
+2021-06-13 00:00:56,039 - opytimizer.opytimizer — INFO — Iteration 60/60
+2021-06-13 00:01:02,084 - opytimizer.opytimizer — INFO — Fitness: 164.70439181665756
+2021-06-13 00:01:02,084 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-13 00:01:02,084 - opytimizer.opytimizer — INFO — It took 361.49651312828064 seconds.

@@ -247,6 +247,7 @@ def get_adv_opyt_example(model, x_clean, y_clean,
   params={'model':model, 'x_clean':x_clean, 'x_adv': None,
   'y_clean': y_clean,'epsilon' : epsilon,'l_2_min':False, 'dim':dim}
   optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+  #optimizer = opytimizer.optimizers.evolutionary.GA()
   #optimizer = opytimizer.optimizers.swarm.CS()
   #optimizer = opytimizer.optimizers.swarm.PSO()
   #optimizer = opytimizer.optimizers.misc.AOA()

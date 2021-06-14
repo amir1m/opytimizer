@@ -60,6 +60,7 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
       x_adv[attack+'_Y'] = model.predict(x_adv[attack+'_X'])
       x_adv[attack+'_accu'] = accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(x_adv[attack+'_Y'],axis=1))
       mis_preds = get_mis_preds(y_test_random, x_adv[attack+'_Y'])
+      logger.info(f'Misclassified images by attack {attack}: {mis_preds}')
       if (len(mis_preds) == 0):
         logger.info(f'Attack {attack} was not successful on any input images')
         x_adv[attack+'_dist'] = {}

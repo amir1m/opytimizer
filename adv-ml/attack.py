@@ -47,6 +47,7 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
 
   x_test_random, y_test_random, rand_indices = get_random_correct_samples(
       n, x_test, y_test, model.predict(x_test), seed=seed)
+  logger.info(f'x_test_random shape:{x_test_random.shape} and y_test_random shape:{y_test_random.shape  }')
   x_adv['CLEAN_X'] = x_test_random
   x_adv['CLEAN_Y'] = y_test_random
 
@@ -58,9 +59,12 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
       x_adv[attack+'_X'] = adv_crafter.generate(x=x_test_random)
       x_adv[attack+'_Y'] = model.predict(x_adv[attack+'_X'])
       x_adv[attack+'_accu'] = accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(x_adv[attack+'_Y'],axis=1))
-      x_adv[attack+'_dist'] =  get_all_dist(x_test_random, x_adv[attack+'_X'])
-
-
+      mis_preds = get_mis_preds(y_test_random, x_adv[attack+'_Y'])
+      if (len(mis_preds) == 0):
+        logger.info(f'Attack {attack} was not successful on any input images')
+        x_adv[attack+'_dist'] = {}
+        return x_adv
+      x_adv[attack+'_dist'] =  get_all_dist(x_test_random[mis_preds], x_adv[attack+'_X'][mis_preds])
 
     if(attack == 'CWL2'):
       logger.info("Generating adv examples using attack CWL2")
@@ -69,7 +73,12 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
       x_adv[attack+'_X'] = adv_crafter.generate(x=x_test_random)
       x_adv[attack+'_Y'] = model.predict(x_adv[attack+'_X'])
       x_adv[attack+'_accu'] = accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(x_adv[attack+'_Y'],axis=1))
-      x_adv[attack+'_dist'] =  get_all_dist(x_test_random, x_adv[attack+'_X'])
+      mis_preds = get_mis_preds(y_test_random, x_adv[attack+'_Y'])
+      if (len(mis_preds) == 0):
+        logger.info(f'Attack {attack} was not successful on any input images')
+        x_adv[attack+'_dist'] = {}
+        return x_adv
+      x_adv[attack+'_dist'] =  get_all_dist(x_test_random[mis_preds], x_adv[attack+'_X'][mis_preds])
 
     elif(attack == 'BOUNDARY'):
       logger.info("Generating adv examples using attack BOUNDARY")
@@ -77,7 +86,12 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
       x_adv[attack+'_X'] = boundary.generate(x_test_random)
       x_adv[attack+'_Y'] = model.predict(x_adv[attack+'_X'])
       x_adv[attack+'_accu'] = accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(x_adv[attack+'_Y'],axis=1))
-      x_adv[attack+'_dist'] =  get_all_dist(x_test_random, x_adv[attack+'_X'])
+      mis_preds = get_mis_preds(y_test_random, x_adv[attack+'_Y'])
+      if (len(mis_preds) == 0):
+        logger.info(f'Attack {attack} was not successful on any input images')
+        x_adv[attack+'_dist'] = {}
+        return x_adv
+      x_adv[attack+'_dist'] =  get_all_dist(x_test_random[mis_preds], x_adv[attack+'_X'][mis_preds])
 
     elif(attack == 'ZOO'):
       logger.info("Generating adv examples using attack ZOO")
@@ -99,7 +113,12 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
       x_adv[attack+'_X'] = zoo.generate(x_test_random)
       x_adv[attack+'_Y'] = model.predict(x_adv[attack+'_X'])
       x_adv[attack+'_accu'] = accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(x_adv[attack+'_Y'],axis=1))
-      x_adv[attack+'_dist'] =  get_all_dist(x_test_random, x_adv[attack+'_X'])
+      mis_preds = get_mis_preds(y_test_random, x_adv[attack+'_Y'])
+      if (len(mis_preds) == 0):
+        logger.info(f'Attack {attack} was not successful on any input images')
+        x_adv[attack+'_dist'] = {}
+        return x_adv
+      x_adv[attack+'_dist'] =  get_all_dist(x_test_random[mis_preds], x_adv[attack+'_X'][mis_preds])
 
     elif(attack == 'SIMBA'):
       logger.info("Generating adv examples using attack SIMBA")
@@ -107,7 +126,12 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
       x_adv[attack+'_X'] = simba.generate(x_test_random)
       x_adv[attack+'_Y'] = model.predict(x_adv[attack+'_X'])
       x_adv[attack+'_accu'] = accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(x_adv[attack+'_Y'],axis=1))
-      x_adv[attack+'_dist'] =  get_all_dist(x_test_random, x_adv[attack+'_X'])
+      mis_preds = get_mis_preds(y_test_random, x_adv[attack+'_Y'])
+      if (len(mis_preds) == 0):
+        logger.info(f'Attack {attack} was not successful on any input images')
+        x_adv[attack+'_dist'] = {}
+        return x_adv
+      x_adv[attack+'_dist'] =  get_all_dist(x_test_random[mis_preds], x_adv[attack+'_X'][mis_preds])
 
     elif(attack == 'HOPSKIPJUMP'):
       logger.info("Generating adv examples using attack HOPSKIPJUMP")
@@ -115,7 +139,12 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
       x_adv[attack+'_X'] = hopskipjump.generate(x_test_random)
       x_adv[attack+'_Y'] = model.predict(x_adv[attack+'_X'])
       x_adv[attack+'_accu'] = accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(x_adv[attack+'_Y'],axis=1))
-      x_adv[attack+'_dist'] =  get_all_dist(x_test_random, x_adv[attack+'_X'])
+      mis_preds = get_mis_preds(y_test_random, x_adv[attack+'_Y'])
+      if (len(mis_preds) == 0):
+        logger.info(f'Attack {attack} was not successful on any input images')
+        x_adv[attack+'_dist'] = {}
+        return x_adv
+      x_adv[attack+'_dist'] =  get_all_dist(x_test_random[mis_preds], x_adv[attack+'_X'][mis_preds])
 
     elif(attack == 'OPYT'):
       logger.info("Generating adv examples using attack OPYT")
@@ -123,18 +152,23 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
       loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model,
                                                            x_test_random,
                                                            y_test_random,
-                                                           iterations=1,
+                                                           iterations=60,
                                                            epsilon=.05,
-                                                           agents=1,
+                                                           agents=30,
                                                            max_l_2=2,
                                                            l_2_mul=0.5,
                                                            dim=dim
                                                            )
       x_adv[attack+'_X'] = x_test_opyt
       x_adv[attack+'_Y'] = model.predict(x_adv[attack+'_X'])
-      x_adv[attack+'_accu'] = get_accuracy(y_test_random, x_adv[attack+'_Y'])
+      x_adv[attack+'_accu'] = accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(x_adv[attack+'_Y'],axis=1))
       mis_preds = get_mis_preds(y_test_random, x_adv[attack+'_Y'])
+      if (len(mis_preds) == 0):
+        logger.info(f'Attack {attack} was not successful on any input images')
+        x_adv[attack+'_dist'] = {}
+        return x_adv
       x_adv[attack+'_dist'] =  get_all_dist(x_test_random[mis_preds], x_adv[attack+'_X'][mis_preds])
+
   return x_adv
 
 ### USAGE:
@@ -351,7 +385,7 @@ def get_opyt_adv(model, x_test_random, y_test_random,
   query_count = []
   l_2 = []
   for i in range(no_samples):
-    logger.info(f"\n\nGenerating example:{i}")
+    logger.info(f"Generating example:{i}")
     adv_nvg[i], count, dist = get_adv_opyt_example(model,
                                                   x_test_random[i],
                                                   y_test_random[i],
@@ -365,18 +399,18 @@ def get_opyt_adv(model, x_test_random, y_test_random,
     query_count.append(count)
     l_2.append(dist)
 
-  x_test_nvg = adv_nvg
-  y_pred_nvg = model.predict(x_test_nvg)
-  acc = get_accuracy(y_pred_nvg, y_test_random)
+  logger.info(f'Shape of adv_nvg: {adv_nvg.shape} and shape of y_test_random:{y_test_random.shape}')
+  loss, acc = model.evaluate(adv_nvg, np.argmax(y_test_random, axis=1))
+  #acc = accuracy_score(y_pred_nvg, y_test_random)
   l_2_mean = np.mean(l_2)
   query_mean = np.mean(query_count)
-  logger.info(f"\nTotal Examples: {len(y_test_random)}, Iterations:{iterations}, espilon: {epsilon} and Max-L2:{max_l_2} Agents: {agents} l_2_mul: {l_2_mul}\nAccuracy: {acc} Mean L2 Counted: {l_2_mean} Query: {query_mean}")
+  logger.info(f"Total Examples: {len(y_test_random)}, Iterations:{iterations}, espilon: {epsilon} and Max-L2:{max_l_2} Agents: {agents} l_2_mul: {l_2_mul}\nAccuracy: {acc} Mean L2 Counted: {l_2_mean} Query: {query_mean}\n")
 
   ##PRODUCTION
   # if (acc == 0):
-  #   return -l_2_mean, l_2_mean, query_mean, x_test_nvg
-  # return  acc * (-l_2_mean),l_2_mean, query_mean, x_test_nvg
-  return  acc,l_2_mean, query_mean, x_test_nvg
+  #   return -l_2_mean, l_2_mean, query_mean, adv_nvg
+  # return  acc * (-l_2_mean),l_2_mean, query_mean, adv_nvg
+  return  acc,l_2_mean, query_mean, adv_nvg
 
   # # #MAXIMIZE
   # if (acc == 0):

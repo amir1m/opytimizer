@@ -1,6 +1,9 @@
 """## Evaluation Functions"""
 
 import numpy as np
+from sklearn.metrics import roc_curve,roc_auc_score, accuracy_score, precision_score, recall_score
+from sklearn.metrics import classification_report, f1_score, confusion_matrix
+
 
 def get_perf_metrics(actual, predictions, verbose = 1):
   accuracy = accuracy_score(np.argmax(actual, axis=1), np.argmax(predictions,

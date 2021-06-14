@@ -1,4 +1,12 @@
 """#Utility functions"""
+import sys
+sys.path.append('.')
+sys.path.append('./adv-ml/')
+
+
+import opytimizer.utils.logging as l
+logger = l.get_logger(__name__)
+
 SEED = 42
 import matplotlib.pyplot as plt
 import numpy as np
@@ -6,6 +14,12 @@ from ipywidgets import interact
 from scipy.stats import wasserstein_distance
 from skimage.metrics import peak_signal_noise_ratio as psnr
 from skimage.metrics import structural_similarity as ssim
+from sklearn.metrics import roc_curve,roc_auc_score, accuracy_score, precision_score, recall_score
+from sklearn.metrics import classification_report, f1_score, confusion_matrix
+
+
+
+from copy import deepcopy
 
 def show_digit(x, y, pred=None):
   fig = plt.figure(figsize=(3, 2))
@@ -92,8 +106,8 @@ def get_accuracy(y_pred, y_true):
   return acc * 100
 
 def get_mis_preds(y_true, y_preds):
-  if y_true.shape[0] == 10:
-    return np.where(np.argmax(y_true, axis=0) != np.argmax(y_preds, axis=0))[0]
+  if y_true.shape[0] == 1:
+    return np.where(np.argmax(y_true) != np.argmax(y_preds))
   return np.where(np.argmax(y_true, axis=1) != np.argmax(y_preds, axis=1))[0]
 
 def get_correct_preds(y_true, y_preds):
@@ -177,18 +191,20 @@ def get_random_any_samples(size,x_train, y_train):
   return x_train[rand_indices], y_train[rand_indices], rand_indices
 
 def save_dataset(dataset, basedir):
-  dataset_temp = copy.deepcopy(dataset)
-  clean_y = dataset_temp.pop('CLEAN_Y')
-  filename = basedir + "CLEAN_Y" + ".csv"
-  print("Saving CLEAN_Y: ", filename)
-  np.savetxt(filename, clean_y, delimiter=',' )
+  dataset_temp = deepcopy(dataset)
   for key in dataset_temp:
-    print("Saving..: ", key)
-    filename = basedir + key + ".csv"
-    print(filename)
-    x = np.reshape(dataset_temp[key], ((dataset_temp[key].shape[0],
-                                        dataset_temp[key].shape[1] * dataset_temp[key].shape[2])))
-    np.savetxt(filename, x, delimiter=',' )
+      if '_X' in key:
+          adv_x = dataset_temp[key]
+          filename = basedir + key + ".csv"
+          logger.info(f'Saving : {key}, filename:{filename}')
+          x = np.reshape(adv_x, ((adv_x.shape[0],
+                                              adv_x.shape[1] * adv_x.shape[2] * adv_x.shape[3])))
+          np.savetxt(filename, x, delimiter=',' )
+      elif '_Y' in key:
+        adv_y = dataset_temp[key]
+        filename = basedir + key + ".csv"
+        logger.info(f"Saving: {key}, filename:{filename}")
+        np.savetxt(filename, adv_y, delimiter=',' )
 
 def load_adv_dataset(params, basedir, x_dim):
   print("Loading dataset from dir: ", basedir)
@@ -229,17 +245,32 @@ def get_perf_metrics(actual, predictions, verbose = 1):
 
 def evaluate_classifier(classifier, eval_params):
   classifier_evals = {}
-  params = copy.deepcopy(eval_params)
+  params = deepcopy(eval_params)
   x_test_random = params.pop('CLEAN_X')
   y_test_random = params.pop('CLEAN_Y')
 
-  print("\nEvaluating CLEAN: ")
-  predictions = classifier.predict(x_test_random)
-  classifier_evals['CLEAN'] = get_perf_metrics(y_test_random, predictions)
+  dataset_x = ['_X' in eval_params.keys ]
+  dataset_y = ['_Y' in eval_params.keys]
+  logger.info(f"dataset_x: {dataset_x}")
+  logger.info(f"dataset_y: {dataset_y}")
 
-  for key in params:
-    print("\nEvaluating: ", key)
-    test_x = params[key]
-    predictions = classifier.predict(test_x)
-    classifier_evals[key] = get_perf_metrics(y_test_random, predictions)
+
+  logger.info("Evaluating CLEAN: ")
+  predictions = classifier.predict(x_test_random)
+  classifier_evals['CLEAN'] = { 'accuracy': accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(predictions,
+                                                                 axis=1))}
+
+  for x in dataset_x:
+    logger.info(f'Evaluating:{x}')
+    adv_x = params.pop(key)
+    adv_y = params.pop(key.replace('X', 'Y'))
+    mis_preds = get_mis_preds(y_test_random, adv_y)
+    #print("MIS PREDS: ", mis_preds)
+    #print("Y True array:", y_true)
+    clean_images = x_test_random[mis_preds]
+    adv_images = adv_x[mis_preds]
+    classifier_evals[key] = { 'accuracy': accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(adv_y,
+                                                                   axis=1)),
+                                                                   'dist':get_all_dist(clean_images,adv_x)}
+
   return classifier_evals

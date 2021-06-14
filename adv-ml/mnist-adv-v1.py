@@ -59,7 +59,7 @@ from datetime import datetime
 import os
 
 import tensorflow as tf
-#tf.compat.v1.disable_eager_execution()
+tf.compat.v1.disable_eager_execution()
 
 from skimage.metrics import structural_similarity as ssim
 from skimage.metrics import peak_signal_noise_ratio as psnr
@@ -89,10 +89,11 @@ dataset = 'cifar10'
 (x_train, y_train), (x_test, y_test), min_, max_ = load_dataset(str(dataset))
 
 #model_logit = create_model()
-#classifier = KerasClassifier(model=model_logit)
+
 #model_logit.fit(x_train, y_train, epochs=20, batch_size=128)
 
-model_logit = load_model('adv-ml/models/'+dataset, compile = False)
+model_logit = load_model('adv-ml/models/'+dataset)
+#classifier = KerasClassifier(model=model_logit)
 #model_cifar = load_model('adv-ml/models/cifar-10', compile = False)
 
 # n_samples = 1
@@ -100,16 +101,16 @@ model_logit = load_model('adv-ml/models/'+dataset, compile = False)
 # n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 # logger.info("SEED: 0")
 
-n_samples = 100
-x_test_random, y_test_random, rand_ind = get_random_correct_samples(
-n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
+# n_samples = 2
+# x_test_random, y_test_random, rand_ind = get_random_correct_samples(
+# n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 
 # x_test_random, y_test_random, rand_ind = get_random_correct_samples(
 # n_samples, x_test, y_test, model_cifar.predict(x_test), seed = 0)
 
 
 
-dim = x_test_random.shape
+dim = x_test.shape
 #dim
 #y_test_random[0]
 #show_image(x_test_random[0], np.argmax(y_test_random[0]))
@@ -119,16 +120,16 @@ dim = x_test_random.shape
 # reload(opytimizer.optimizers.misc)
 
 # CIFAR
-loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
-                                                     x_test_random,
-                                                     y_test_random,
-                                                     iterations=60,
-                                                     epsilon=.05,
-                                                     agents=30,
-                                                     max_l_2=1,
-                                                     l_2_mul=0.5,
-                                                     dim=dim
-                                                     )
+# loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
+#                                                      x_test_random,
+#                                                      y_test_random,
+#                                                      iterations=50,
+#                                                      epsilon=.05,
+#                                                      agents=25,
+#                                                      max_l_2=2,
+#                                                      l_2_mul=0.5,
+#                                                      dim=dim
+#                                                      )
 ## MNIST
 # loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
 #                                                      x_test_random,
@@ -164,8 +165,28 @@ loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model_logit,
 #                                                      )
 
 
-np.savetxt('x_test_random_'+dataset+'.csv', x_test_random.reshape((dim[0], dim[1]*dim[2]*dim[3])), delimiter=',')
-np.savetxt('y_test_random_'+dataset+'.csv', y_test_random, delimiter=',')
+# adv_dataset_soft = generate_adv_datsets(model_logit,x_test, y_test, n=2, seed=0,
+#                                         attack_list=['FGSM', 'BOUNDARY',
+#                                                      'SIMBA', 'HOPSKIPJUMP'])
 
-np.savetxt('x_test_opyt_'+dataset+'.csv', x_test_opyt.reshape((dim[0], dim[1]*dim[2]*dim[3])), delimiter=',')
-np.savetxt('y_pred_opyt_'+dataset+'.csv', model_logit.predict(x_test_opyt), delimiter=',')
+adv_dataset_soft = generate_adv_datsets(model_logit,x_test, y_test, n=2,
+                                        attack_list=['FGSM', 'SIMBA', 'HOPSKIPJUMP' ], dim=dim, seed=0)
+
+#evals = evaluate_classifier(model_logit, adv_dataset_soft)
+
+#logger.info(f'Evaluation Result: {evals}')
+
+for key in adv_dataset_soft:
+    if '_X' not in key and '_Y' not in key:
+        logger.info(f'{key} : {adv_dataset_soft[key]}')
+
+save_dataset(adv_dataset_soft,'soft/')
+
+
+
+
+# np.savetxt('x_test_random_'+dataset+'.csv', x_test_random.reshape((dim[0], dim[1]*dim[2]*dim[3])), delimiter=',')
+# np.savetxt('y_test_random_'+dataset+'.csv', y_test_random, delimiter=',')
+#
+# np.savetxt('x_test_opyt_'+dataset+'.csv', x_test_opyt.reshape((dim[0], dim[1]*dim[2]*dim[3])), delimiter=',')
+# np.savetxt('y_pred_opyt_'+dataset+'.csv', model_logit.predict(x_test_opyt), delimiter=',')

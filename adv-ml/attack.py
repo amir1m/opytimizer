@@ -23,6 +23,11 @@ from opytimizer.functions import ConstrainedFunction
 from opytimizer.core import Function
 from opytimizer import Opytimizer
 
+
+from art.attacks.evasion import FastGradientMethod, CarliniL2Method, ZooAttack, CarliniL2Method, BoundaryAttack, SimBA, HopSkipJump
+import art.attacks.evasion as evasion
+from art.estimators.classification import KerasClassifier
+
 def counter(func):
   def wrapper(*args, **kwargs):
     wrapper.count += 1
@@ -35,36 +40,47 @@ def counter(func):
 
 ## WIP
 def generate_adv_datsets(model, x_test, y_test, attack_list,
-                         n=10, epsilon=0.001, seed=SEED):
+                         n=10, epsilon=0.001, dim=(10, 28,28,1), seed=SEED):
   #np.random.seed(SEED)
   x_adv = {}
   classifier = KerasClassifier(model) #For ART attacks
 
   x_test_random, y_test_random, rand_indices = get_random_correct_samples(
-      n, x_test, y_test, model.predict(x_test))
+      n, x_test, y_test, model.predict(x_test), seed=seed)
   x_adv['CLEAN_X'] = x_test_random
   x_adv['CLEAN_Y'] = y_test_random
 
   for attack in attack_list:
     if(attack == 'FGSM'):
-      print("\nGenerating adv examples using attack FGSM")
+      logger.info("Generating adv examples using attack FGSM")
       epsilon = 0.1  # Maximum perturbation
       adv_crafter = FastGradientMethod(classifier, eps=epsilon)
-      x_adv[attack] = adv_crafter.generate(x=x_test_random)
+      x_adv[attack+'_X'] = adv_crafter.generate(x=x_test_random)
+      x_adv[attack+'_Y'] = model.predict(x_adv[attack+'_X'])
+      x_adv[attack+'_accu'] = accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(x_adv[attack+'_Y'],axis=1))
+      x_adv[attack+'_dist'] =  get_all_dist(x_test_random, x_adv[attack+'_X'])
+
+
 
     if(attack == 'CWL2'):
-      print("\nGenerating adv examples using attack CWL2")
+      logger.info("Generating adv examples using attack CWL2")
       #epsilon = 0.1  # Maximum perturbation
       adv_crafter = CarliniL2Method(classifier)
-      x_adv[attack] = adv_crafter.generate(x=x_test_random)
+      x_adv[attack+'_X'] = adv_crafter.generate(x=x_test_random)
+      x_adv[attack+'_Y'] = model.predict(x_adv[attack+'_X'])
+      x_adv[attack+'_accu'] = accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(x_adv[attack+'_Y'],axis=1))
+      x_adv[attack+'_dist'] =  get_all_dist(x_test_random, x_adv[attack+'_X'])
 
     elif(attack == 'BOUNDARY'):
-      print("\nGenerating adv examples using attack BOUNDARY")
+      logger.info("Generating adv examples using attack BOUNDARY")
       boundary = BoundaryAttack(classifier, targeted=False)
-      x_adv[attack] = boundary.generate(x_test_random)
+      x_adv[attack+'_X'] = boundary.generate(x_test_random)
+      x_adv[attack+'_Y'] = model.predict(x_adv[attack+'_X'])
+      x_adv[attack+'_accu'] = accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(x_adv[attack+'_Y'],axis=1))
+      x_adv[attack+'_dist'] =  get_all_dist(x_test_random, x_adv[attack+'_X'])
 
     elif(attack == 'ZOO'):
-      print("\nGenerating adv examples using attack ZOO")
+      logger.info("Generating adv examples using attack ZOO")
       zoo = ZooAttack(
           classifier=classifier,
           confidence=0.0,
@@ -80,25 +96,45 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
           batch_size=1,
           variable_h=0.01
       )
-      x_adv[attack] = zoo.generate(x_test_random)
+      x_adv[attack+'_X'] = zoo.generate(x_test_random)
+      x_adv[attack+'_Y'] = model.predict(x_adv[attack+'_X'])
+      x_adv[attack+'_accu'] = accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(x_adv[attack+'_Y'],axis=1))
+      x_adv[attack+'_dist'] =  get_all_dist(x_test_random, x_adv[attack+'_X'])
 
     elif(attack == 'SIMBA'):
-      print("\nGenerating adv examples using attack SIMBA")
+      logger.info("Generating adv examples using attack SIMBA")
       simba = SimBA(classifier)
-      x_adv[attack] = simba.generate(x_test_random)
+      x_adv[attack+'_X'] = simba.generate(x_test_random)
+      x_adv[attack+'_Y'] = model.predict(x_adv[attack+'_X'])
+      x_adv[attack+'_accu'] = accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(x_adv[attack+'_Y'],axis=1))
+      x_adv[attack+'_dist'] =  get_all_dist(x_test_random, x_adv[attack+'_X'])
 
     elif(attack == 'HOPSKIPJUMP'):
-      print("\nGenerating adv examples using attack HOPSKIPJUMP")
+      logger.info("Generating adv examples using attack HOPSKIPJUMP")
       hopskipjump = HopSkipJump(classifier)
-      x_adv[attack] = hopskipjump.generate(x_test_random)
+      x_adv[attack+'_X'] = hopskipjump.generate(x_test_random)
+      x_adv[attack+'_Y'] = model.predict(x_adv[attack+'_X'])
+      x_adv[attack+'_accu'] = accuracy_score(np.argmax(y_test_random, axis=1), np.argmax(x_adv[attack+'_Y'],axis=1))
+      x_adv[attack+'_dist'] =  get_all_dist(x_test_random, x_adv[attack+'_X'])
 
-    elif(attack == 'CSO'):
-      print("\nGenerating adv examples using attack CSO")
+    elif(attack == 'OPYT'):
+      logger.info("Generating adv examples using attack OPYT")
       #Already tuned hyper-parameters
-      loss, l_2_mean, query_mean, x_test_cso = get_cso_adv(model, x_test_random,
-                                                     y_test_random, n=800, pa=.25,
-                                                    iterations=1, epsilon=epsilon)
-      x_adv[attack] = x_test_cso
+      loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model,
+                                                           x_test_random,
+                                                           y_test_random,
+                                                           iterations=1,
+                                                           epsilon=.05,
+                                                           agents=1,
+                                                           max_l_2=2,
+                                                           l_2_mul=0.5,
+                                                           dim=dim
+                                                           )
+      x_adv[attack+'_X'] = x_test_opyt
+      x_adv[attack+'_Y'] = model.predict(x_adv[attack+'_X'])
+      x_adv[attack+'_accu'] = get_accuracy(y_test_random, x_adv[attack+'_Y'])
+      mis_preds = get_mis_preds(y_test_random, x_adv[attack+'_Y'])
+      x_adv[attack+'_dist'] =  get_all_dist(x_test_random[mis_preds], x_adv[attack+'_X'][mis_preds])
   return x_adv
 
 ### USAGE:
@@ -129,7 +165,7 @@ def get_cso_adv(model, x_test_random, y_test_random,
                 n=150, iterations = 1, pa=0.5, nest=784, epsilon = 3.55, max_l_2=4):
   iteration = round(iterations)
   n = round(n)
-  print("n: {} Iteration:{} and espilon: {}".format(n,iteration, epsilon))
+  logger.info("n: {} Iteration:{} and espilon: {}".format(n,iteration, epsilon))
 
   no_samples = len(x_test_random)
   adv_cso = np.empty((no_samples,28,28,1))
@@ -266,7 +302,7 @@ def get_adv_opyt_example(model, x_clean, y_clean,
   #x_adv = x_adv.reshape(dim)
   dist = l_2_dist(x_clean, x_adv)
   adv_pred = np.argmax(model.predict(x_adv.reshape(dim)))
-  eval_count += 1 # 1 for above prediction!
+  #eval_count += 1 # 1 for above prediction!
   attack_succ = np.argmax(y_clean) != adv_pred
   logger.info(f"Exploration Phase#1 Result: Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}\n")
   #logger.info(f"Inequality constraint count: {inequality_constraint.count}")

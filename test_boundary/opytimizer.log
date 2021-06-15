@@ -1,0 +1,8 @@
+2021-06-15 11:16:05,685 - attack_utils — INFO — x_test_random shape:(100, 32, 32, 3) and y_test_random shape:(100, 10)
+2021-06-15 11:16:05,685 - attack_utils — INFO — Generating adv examples using attack BOUNDARY
+2021-06-15 15:55:17,093 - opytimizer.optimizers.science.wwo — INFO — BOUNDARY_accu : 0.03
+2021-06-15 15:55:17,094 - opytimizer.optimizers.science.wwo — INFO — BOUNDARY_dist : {'L2': 3.9242, 'L-INF': 0.1289, 'WS': 0.0009, 'ssim': 0.9962, 'psnr': 42.8669}
+2021-06-15 15:55:17,095 - attack_utils — INFO — Saving : CLEAN_X, filename:test_boundary/CLEAN_X.csv
+2021-06-15 15:55:17,373 - attack_utils — INFO — Saving: CLEAN_Y, filename:test_boundary/CLEAN_Y.csv
+2021-06-15 15:55:17,375 - attack_utils — INFO — Saving : BOUNDARY_X, filename:test_boundary/BOUNDARY_X.csv
+2021-06-15 15:55:17,653 - attack_utils — INFO — Saving: BOUNDARY_Y, filename:test_boundary/BOUNDARY_Y.csv

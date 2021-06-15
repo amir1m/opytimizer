@@ -1,0 +1,1629 @@
+amirmukeri@MacBook-Pro ~/P/opytimizer> python3 -W ignore adv-ml/mnist-adv-v1.py                             (opyt) 
+WARNING:tensorflow:SavedModel saved prior to TF 2.5 detected when loading Keras model. Please ensure that you are saving the model with model.save() or tf.keras.models.save_model(), *NOT* tf.saved_model.save(). To confirm, there should be a file named "keras_metadata.pb" in the SavedModel directory.
+WARNING:tensorflow:SavedModel saved prior to TF 2.5 detected when loading Keras model. Please ensure that you are saving the model with model.save() or tf.keras.models.save_model(), *NOT* tf.saved_model.save(). To confirm, there should be a file named "keras_metadata.pb" in the SavedModel directory.
+2021-06-15 09:42:49.640159: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+INFO:art.estimators.classification.keras:Inferred 9 hidden layers on Keras classifier.
+2021-06-15 09:43:02,871 - attack_utils — INFO — x_test_random shape:(100, 32, 32, 3) and y_test_random shape:(100, 10)
+2021-06-15 09:43:02,871 - attack_utils — INFO — Generating adv examples using attack OPYT
+2021-06-15 09:43:02,872 - attack_utils — INFO — 
+Iterations:60, epsilon: 0.05 and l_2_mul:0.5
+2021-06-15 09:43:02,872 - attack_utils — INFO — Generating example:0
+2021-06-15 09:43:02,872 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 09:43:02,872 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 09:43:02,872 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 09:43:03,395 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 09:43:03,395 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 09:43:03,395 - opytimizer.core.function — INFO — Class created.
+2021-06-15 09:43:03,396 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 09:43:03,396 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 09:43:03,396 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:12<00:00,  2.21s/it, fitness=163]
+2021-06-15 09:45:15,978 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 09:45:15,978 - opytimizer.opytimizer — INFO — It took 132.5820689201355 seconds.
+2021-06-15 09:45:15,984 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.4751230466966696
+
+2021-06-15 09:45:15,988 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.4751, 'L-INF': 0.0478, 'WS': 0.009, 'ssim': 0.9704, 'psnr': 31.4976}, L2_Iters: 60
+2021-06-15 09:45:15,997 - attack_utils — INFO — Generating example:1
+2021-06-15 09:45:15,997 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 09:45:15,998 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 09:45:15,998 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 09:45:16,540 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 09:45:16,541 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 09:45:16,541 - opytimizer.core.function — INFO — Class created.
+2021-06-15 09:45:16,541 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 09:45:16,541 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 09:45:16,541 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:15<00:00,  2.25s/it, fitness=478]
+2021-06-15 09:47:31,824 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 09:47:31,824 - opytimizer.opytimizer — INFO — It took 135.2826750278473 seconds.
+2021-06-15 09:47:31,829 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:3.0214063525274444
+
+2021-06-15 09:47:31,832 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 3.0214, 'L-INF': 0.1176, 'WS': 0.0449, 'ssim': 0.9462, 'psnr': 25.27}, L2_Iters: 60
+2021-06-15 09:47:31,840 - attack_utils — INFO — Generating example:2
+2021-06-15 09:47:31,841 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 09:47:31,841 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 09:47:31,841 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 09:47:32,368 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 09:47:32,368 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 09:47:32,368 - opytimizer.core.function — INFO — Class created.
+2021-06-15 09:47:32,368 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 09:47:32,369 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 09:47:32,369 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:12<00:00,  2.20s/it, fitness=98.3]
+2021-06-15 09:49:44,786 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 09:49:44,786 - opytimizer.opytimizer — INFO — It took 132.41712164878845 seconds.
+2021-06-15 09:49:44,791 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.8375434976656515
+
+2021-06-15 09:49:44,794 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.8375, 'L-INF': 0.0497, 'WS': 0.0219, 'ssim': 0.9576, 'psnr': 29.5895}, L2_Iters: 60
+2021-06-15 09:49:44,802 - attack_utils — INFO — Generating example:3
+2021-06-15 09:49:44,802 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 09:49:44,803 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 09:49:44,803 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 09:49:45,332 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 09:49:45,333 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 09:49:45,333 - opytimizer.core.function — INFO — Class created.
+2021-06-15 09:49:45,333 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 09:49:45,333 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 09:49:45,333 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:12<00:00,  2.21s/it, fitness=195]
+2021-06-15 09:51:57,976 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 09:51:57,976 - opytimizer.opytimizer — INFO — It took 132.64271211624146 seconds.
+2021-06-15 09:51:57,982 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:2.195035264222177
+
+2021-06-15 09:51:57,984 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 2.195, 'L-INF': 0.0588, 'WS': 0.0305, 'ssim': 0.938, 'psnr': 28.0454}, L2_Iters: 60
+2021-06-15 09:51:57,992 - attack_utils — INFO — Generating example:4
+2021-06-15 09:51:57,992 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 09:51:57,992 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 09:51:57,992 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 09:51:58,526 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 09:51:58,527 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 09:51:58,527 - opytimizer.core.function — INFO — Class created.
+2021-06-15 09:51:58,527 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 09:51:58,527 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 09:51:58,527 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:13<00:00,  2.22s/it, fitness=503]
+2021-06-15 09:54:12,082 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 09:54:12,083 - opytimizer.opytimizer — INFO — It took 133.55506205558777 seconds.
+2021-06-15 09:54:12,088 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:2.669715590772152
+
+2021-06-15 09:54:12,091 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 2.6697, 'L-INF': 0.0902, 'WS': 0.039, 'ssim': 0.9326, 'psnr': 26.3449}, L2_Iters: 60
+2021-06-15 09:54:12,099 - attack_utils — INFO — Generating example:5
+2021-06-15 09:54:12,099 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 09:54:12,099 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 09:54:12,099 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 09:54:12,631 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 09:54:12,631 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 09:54:12,631 - opytimizer.core.function — INFO — Class created.
+2021-06-15 09:54:12,631 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 09:54:12,631 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 09:54:12,631 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:17<00:00,  2.29s/it, fitness=1.45]
+2021-06-15 09:56:30,157 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 09:56:30,157 - opytimizer.opytimizer — INFO — It took 137.52578592300415 seconds.
+2021-06-15 09:56:30,163 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:1.4474651659011832
+
+2021-06-15 09:56:30,190 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 1.4475, 'L-INF': 0.0482, 'WS': 0.0083, 'ssim': 0.9574, 'psnr': 31.662}, L2_Iters: 60
+2021-06-15 09:56:30,198 - attack_utils — INFO — Generating example:6
+2021-06-15 09:56:30,198 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 09:56:30,199 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 09:56:30,199 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 09:56:30,723 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 09:56:30,723 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 09:56:30,723 - opytimizer.core.function — INFO — Class created.
+2021-06-15 09:56:30,723 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 09:56:30,723 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 09:56:30,724 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.28s/it, fitness=24.8]
+2021-06-15 09:58:47,387 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 09:58:47,387 - opytimizer.opytimizer — INFO — It took 136.66346788406372 seconds.
+2021-06-15 09:58:47,393 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:2.4823736550838267
+
+2021-06-15 09:58:47,395 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 2.4824, 'L-INF': 0.1137, 'WS': 0.0322, 'ssim': 0.9051, 'psnr': 26.9769}, L2_Iters: 60
+2021-06-15 09:58:47,404 - attack_utils — INFO — Generating example:7
+2021-06-15 09:58:47,404 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 09:58:47,404 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 09:58:47,404 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 09:58:47,930 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 09:58:47,931 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 09:58:47,931 - opytimizer.core.function — INFO — Class created.
+2021-06-15 09:58:47,931 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 09:58:47,931 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 09:58:47,931 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.28s/it, fitness=271]
+2021-06-15 10:01:04,862 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:01:04,862 - opytimizer.opytimizer — INFO — It took 136.93074584007263 seconds.
+2021-06-15 10:01:04,867 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.5231948464409684
+
+2021-06-15 10:01:04,870 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.5232, 'L-INF': 0.0485, 'WS': 0.0105, 'ssim': 0.942, 'psnr': 31.2191}, L2_Iters: 60
+2021-06-15 10:01:04,878 - attack_utils — INFO — Generating example:8
+2021-06-15 10:01:04,878 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:01:04,878 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:01:04,878 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:01:05,406 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:01:05,406 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:01:05,407 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:01:05,407 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:01:05,407 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:01:05,407 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:17<00:00,  2.29s/it, fitness=275]
+2021-06-15 10:03:22,721 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:03:22,721 - opytimizer.opytimizer — INFO — It took 137.3135380744934 seconds.
+2021-06-15 10:03:22,726 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.692996513993639
+
+2021-06-15 10:03:22,729 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.693, 'L-INF': 0.0483, 'WS': 0.0167, 'ssim': 0.9313, 'psnr': 30.3011}, L2_Iters: 60
+2021-06-15 10:03:22,737 - attack_utils — INFO — Generating example:9
+2021-06-15 10:03:22,737 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:03:22,737 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:03:22,755 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:03:23,292 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:03:23,292 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:03:23,292 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:03:23,293 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:03:23,293 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:03:23,293 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.28s/it, fitness=1.11]
+2021-06-15 10:05:40,103 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:05:40,103 - opytimizer.opytimizer — INFO — It took 136.81043100357056 seconds.
+2021-06-15 10:05:40,109 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:1.1130329593243293
+
+2021-06-15 10:05:40,111 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 1.113, 'L-INF': 0.0299, 'WS': 0.0039, 'ssim': 0.9771, 'psnr': 33.9441}, L2_Iters: 60
+2021-06-15 10:05:40,119 - attack_utils — INFO — Generating example:10
+2021-06-15 10:05:40,120 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:05:40,120 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:05:40,120 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:05:40,653 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:05:40,653 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:05:40,653 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:05:40,654 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:05:40,654 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:05:40,654 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.28s/it, fitness=29.2]
+2021-06-15 10:07:57,779 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:07:57,779 - opytimizer.opytimizer — INFO — It took 137.12532782554626 seconds.
+2021-06-15 10:07:57,785 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.862148025591608
+
+2021-06-15 10:07:57,787 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.8621, 'L-INF': 0.0497, 'WS': 0.0226, 'ssim': 0.9185, 'psnr': 29.4739}, L2_Iters: 60
+2021-06-15 10:07:57,795 - attack_utils — INFO — Generating example:11
+2021-06-15 10:07:57,795 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:07:57,795 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:07:57,813 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:07:58,348 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:07:58,348 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:07:58,348 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:07:58,348 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:07:58,348 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:07:58,349 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.27s/it, fitness=25.9]
+2021-06-15 10:10:14,928 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:10:14,928 - opytimizer.opytimizer — INFO — It took 136.57895970344543 seconds.
+2021-06-15 10:10:14,933 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.7304388873612229
+
+2021-06-15 10:10:14,936 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.7304, 'L-INF': 0.0471, 'WS': 0.0182, 'ssim': 0.9514, 'psnr': 30.1111}, L2_Iters: 60
+2021-06-15 10:10:14,943 - attack_utils — INFO — Generating example:12
+2021-06-15 10:10:14,944 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:10:14,944 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:10:14,944 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:10:15,476 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:10:15,476 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:10:15,476 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:10:15,476 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:10:15,476 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:10:15,476 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:17<00:00,  2.28s/it, fitness=1.93]
+2021-06-15 10:12:32,637 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:12:32,637 - opytimizer.opytimizer — INFO — It took 137.1608362197876 seconds.
+2021-06-15 10:12:32,643 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:1.933625729756668
+
+2021-06-15 10:12:32,646 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 1.9336, 'L-INF': 0.0824, 'WS': 0.0277, 'ssim': 0.967, 'psnr': 29.1468}, L2_Iters: 60
+2021-06-15 10:12:32,654 - attack_utils — INFO — Generating example:13
+2021-06-15 10:12:32,654 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:12:32,654 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:12:32,671 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:12:33,198 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:12:33,198 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:12:33,198 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:12:33,199 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:12:33,199 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:12:33,199 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:17<00:00,  2.29s/it, fitness=266]
+2021-06-15 10:14:50,682 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:14:50,682 - opytimizer.opytimizer — INFO — It took 137.48299598693848 seconds.
+2021-06-15 10:14:50,687 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.6697267505637392
+
+2021-06-15 10:14:50,690 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.6697, 'L-INF': 0.0476, 'WS': 0.0168, 'ssim': 0.9309, 'psnr': 30.4213}, L2_Iters: 60
+2021-06-15 10:14:50,698 - attack_utils — INFO — Generating example:14
+2021-06-15 10:14:50,698 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:14:50,698 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:14:50,698 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:14:51,217 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:14:51,217 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:14:51,217 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:14:51,217 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:14:51,217 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:14:51,217 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.27s/it, fitness=222]
+2021-06-15 10:17:07,857 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:17:07,857 - opytimizer.opytimizer — INFO — It took 136.63967490196228 seconds.
+2021-06-15 10:17:07,862 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:2.477698611755248
+
+2021-06-15 10:17:07,893 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 2.4777, 'L-INF': 0.0784, 'WS': 0.0359, 'ssim': 0.9087, 'psnr': 26.9932}, L2_Iters: 60
+2021-06-15 10:17:07,901 - attack_utils — INFO — Generating example:15
+2021-06-15 10:17:07,902 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:17:07,902 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:17:07,902 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:17:08,424 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:17:08,424 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:17:08,424 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:17:08,424 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:17:08,424 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:17:08,424 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:21<00:00,  2.36s/it, fitness=356]
+2021-06-15 10:19:29,983 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:19:29,983 - opytimizer.opytimizer — INFO — It took 141.5581932067871 seconds.
+2021-06-15 10:19:29,988 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:4.762795778684108
+
+2021-06-15 10:19:29,998 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 4.7628, 'L-INF': 0.1608, 'WS': 0.0733, 'ssim': 0.9058, 'psnr': 21.317}, L2_Iters: 60
+2021-06-15 10:19:30,007 - attack_utils — INFO — Generating example:16
+2021-06-15 10:19:30,007 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:19:30,008 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:19:30,008 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:19:30,553 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:19:30,553 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:19:30,553 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:19:30,553 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:19:30,554 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:19:30,554 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:25<00:00,  2.43s/it, fitness=141]
+2021-06-15 10:21:56,640 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:21:56,640 - opytimizer.opytimizer — INFO — It took 146.08571887016296 seconds.
+2021-06-15 10:21:56,645 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.7992462270033307
+
+2021-06-15 10:21:56,650 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.7992, 'L-INF': 0.0495, 'WS': 0.0209, 'ssim': 0.9587, 'psnr': 29.7724}, L2_Iters: 60
+2021-06-15 10:21:56,658 - attack_utils — INFO — Generating example:17
+2021-06-15 10:21:56,659 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:21:56,659 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:21:56,659 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:21:57,185 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:21:57,185 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:21:57,185 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:21:57,185 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:21:57,185 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:21:57,185 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.27s/it, fitness=258]
+2021-06-15 10:24:13,830 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:24:13,830 - opytimizer.opytimizer — INFO — It took 136.64466500282288 seconds.
+2021-06-15 10:24:13,836 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.6974997252715702
+
+2021-06-15 10:24:13,855 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.6975, 'L-INF': 0.0456, 'WS': 0.0179, 'ssim': 0.9105, 'psnr': 30.278}, L2_Iters: 60
+2021-06-15 10:24:13,863 - attack_utils — INFO — Generating example:18
+2021-06-15 10:24:13,864 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:24:13,864 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:24:13,864 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:24:14,396 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:24:14,396 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:24:14,396 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:24:14,397 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:24:14,397 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:24:14,397 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.28s/it, fitness=108]
+2021-06-15 10:26:31,524 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:26:31,524 - opytimizer.opytimizer — INFO — It took 137.12700390815735 seconds.
+2021-06-15 10:26:31,529 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.953144458898072
+
+2021-06-15 10:26:31,559 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.9531, 'L-INF': 0.0667, 'WS': 0.0223, 'ssim': 0.9316, 'psnr': 29.0595}, L2_Iters: 60
+2021-06-15 10:26:31,568 - attack_utils — INFO — Generating example:19
+2021-06-15 10:26:31,568 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:26:31,568 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:26:31,568 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:26:32,107 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:26:32,107 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:26:32,107 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:26:32,107 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:26:32,107 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:26:32,108 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.28s/it, fitness=129]
+2021-06-15 10:28:49,105 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:28:49,105 - opytimizer.opytimizer — INFO — It took 136.99745512008667 seconds.
+2021-06-15 10:28:49,110 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:2.6014375830237344
+
+2021-06-15 10:28:49,113 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 2.6014, 'L-INF': 0.1529, 'WS': 0.0274, 'ssim': 0.8998, 'psnr': 26.5699}, L2_Iters: 60
+2021-06-15 10:28:49,120 - attack_utils — INFO — Generating example:20
+2021-06-15 10:28:49,120 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:28:49,121 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:28:49,121 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:28:49,653 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:28:49,653 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:28:49,653 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:28:49,653 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:28:49,653 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:28:49,653 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.28s/it, fitness=27.3]
+2021-06-15 10:31:06,374 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:31:06,374 - opytimizer.opytimizer — INFO — It took 136.72042608261108 seconds.
+2021-06-15 10:31:06,380 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.5275579938437753
+
+2021-06-15 10:31:06,382 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.5276, 'L-INF': 0.0452, 'WS': 0.0121, 'ssim': 0.9457, 'psnr': 31.1943}, L2_Iters: 60
+2021-06-15 10:31:06,390 - attack_utils — INFO — Generating example:21
+2021-06-15 10:31:06,391 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:31:06,391 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:31:06,391 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:31:06,925 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:31:06,925 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:31:06,925 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:31:06,926 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:31:06,926 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:31:06,926 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.27s/it, fitness=191]
+2021-06-15 10:33:23,393 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:33:23,393 - opytimizer.opytimizer — INFO — It took 136.46710801124573 seconds.
+2021-06-15 10:33:23,399 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:7.410255681163564
+
+2021-06-15 10:33:23,429 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 7.4103, 'L-INF': 0.2392, 'WS': 0.1146, 'ssim': 0.7617, 'psnr': 17.4775}, L2_Iters: 60
+2021-06-15 10:33:23,437 - attack_utils — INFO — Generating example:22
+2021-06-15 10:33:23,437 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:33:23,437 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:33:23,438 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:33:23,970 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:33:23,970 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:33:23,970 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:33:23,970 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:33:23,970 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:33:23,970 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.27s/it, fitness=235]
+2021-06-15 10:35:40,507 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:35:40,507 - opytimizer.opytimizer — INFO — It took 136.53662705421448 seconds.
+2021-06-15 10:35:40,512 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:3.11537201527331
+
+2021-06-15 10:35:40,533 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 3.1154, 'L-INF': 0.1176, 'WS': 0.0457, 'ssim': 0.8531, 'psnr': 25.004}, L2_Iters: 60
+2021-06-15 10:35:40,542 - attack_utils — INFO — Generating example:23
+2021-06-15 10:35:40,542 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:35:40,542 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:35:40,542 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:35:41,072 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:35:41,072 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:35:41,072 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:35:41,072 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:35:41,072 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:35:41,072 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.28s/it, fitness=408]
+2021-06-15 10:37:57,930 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:37:57,930 - opytimizer.opytimizer — INFO — It took 136.85748600959778 seconds.
+2021-06-15 10:37:57,935 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.4306368368522084
+
+2021-06-15 10:37:57,938 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.4306, 'L-INF': 0.048, 'WS': 0.0081, 'ssim': 0.9485, 'psnr': 31.7636}, L2_Iters: 60
+2021-06-15 10:37:57,946 - attack_utils — INFO — Generating example:24
+2021-06-15 10:37:57,946 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:37:57,946 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:37:57,946 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:37:58,481 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:37:58,482 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:37:58,482 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:37:58,482 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:37:58,482 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:37:58,482 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:24<00:00,  2.42s/it, fitness=64.4]
+2021-06-15 10:40:23,573 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:40:23,573 - opytimizer.opytimizer — INFO — It took 145.09096384048462 seconds.
+2021-06-15 10:40:23,579 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.4367724433702938
+
+2021-06-15 10:40:23,592 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.4368, 'L-INF': 0.0478, 'WS': 0.0085, 'ssim': 0.9136, 'psnr': 31.7265}, L2_Iters: 60
+2021-06-15 10:40:23,600 - attack_utils — INFO — Generating example:25
+2021-06-15 10:40:23,601 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:40:23,601 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:40:23,601 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:40:24,127 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:40:24,127 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:40:24,127 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:40:24,127 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:40:24,127 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:40:24,127 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.27s/it, fitness=134]
+2021-06-15 10:42:40,331 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:42:40,331 - opytimizer.opytimizer — INFO — It took 136.20372009277344 seconds.
+2021-06-15 10:42:40,336 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:3.187768480300787
+
+2021-06-15 10:42:40,346 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 3.1878, 'L-INF': 0.1451, 'WS': 0.0437, 'ssim': 0.9106, 'psnr': 24.8045}, L2_Iters: 60
+2021-06-15 10:42:40,354 - attack_utils — INFO — Generating example:26
+2021-06-15 10:42:40,355 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:42:40,355 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:42:40,355 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:42:40,873 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:42:40,873 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:42:40,874 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:42:40,874 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:42:40,874 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:42:40,874 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.28s/it, fitness=95.6]
+2021-06-15 10:44:57,910 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:44:57,910 - opytimizer.opytimizer — INFO — It took 137.03587293624878 seconds.
+2021-06-15 10:44:57,915 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.5435515103690907
+
+2021-06-15 10:44:57,918 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.5436, 'L-INF': 0.0485, 'WS': 0.0126, 'ssim': 0.954, 'psnr': 31.1038}, L2_Iters: 60
+2021-06-15 10:44:57,925 - attack_utils — INFO — Generating example:27
+2021-06-15 10:44:57,925 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:44:57,925 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:44:57,925 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:44:58,456 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:44:58,456 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:44:58,457 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:44:58,457 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:44:58,457 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:44:58,457 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:17<00:00,  2.29s/it, fitness=72.4]
+2021-06-15 10:47:16,055 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:47:16,055 - opytimizer.opytimizer — INFO — It took 137.5978660583496 seconds.
+2021-06-15 10:47:16,061 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.4855631848860011
+
+2021-06-15 10:47:16,063 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.4856, 'L-INF': 0.0478, 'WS': 0.0091, 'ssim': 0.9907, 'psnr': 31.4364}, L2_Iters: 60
+2021-06-15 10:47:16,071 - attack_utils — INFO — Generating example:28
+2021-06-15 10:47:16,071 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:47:16,072 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:47:16,072 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:47:16,596 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:47:16,596 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:47:16,597 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:47:16,597 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:47:16,597 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:47:16,597 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.27s/it, fitness=1.86]
+2021-06-15 10:49:32,971 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:49:32,971 - opytimizer.opytimizer — INFO — It took 136.37403392791748 seconds.
+2021-06-15 10:49:32,976 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:1.8571685119574486
+
+2021-06-15 10:49:32,979 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 1.8572, 'L-INF': 0.0941, 'WS': 0.0208, 'ssim': 0.964, 'psnr': 29.4972}, L2_Iters: 60
+2021-06-15 10:49:32,987 - attack_utils — INFO — Generating example:29
+2021-06-15 10:49:32,987 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:49:32,987 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:49:32,987 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:49:33,512 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:49:33,512 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:49:33,512 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:49:33,512 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:49:33,512 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:49:33,513 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.27s/it, fitness=34.1]
+2021-06-15 10:51:50,087 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:51:50,087 - opytimizer.opytimizer — INFO — It took 136.574059009552 seconds.
+2021-06-15 10:51:50,092 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.8941877064501904
+
+2021-06-15 10:51:50,120 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.8942, 'L-INF': 0.0588, 'WS': 0.0219, 'ssim': 0.9356, 'psnr': 29.3258}, L2_Iters: 60
+2021-06-15 10:51:50,127 - attack_utils — INFO — Generating example:30
+2021-06-15 10:51:50,128 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:51:50,128 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:51:50,128 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:51:50,666 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:51:50,667 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:51:50,667 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:51:50,667 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:51:50,667 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:51:50,667 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.28s/it, fitness=175]
+2021-06-15 10:54:07,451 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:54:07,451 - opytimizer.opytimizer — INFO — It took 136.7841637134552 seconds.
+2021-06-15 10:54:07,457 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:2.719307705517375
+
+2021-06-15 10:54:07,474 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 2.7193, 'L-INF': 0.0824, 'WS': 0.0411, 'ssim': 0.9524, 'psnr': 26.185}, L2_Iters: 60
+2021-06-15 10:54:07,482 - attack_utils — INFO — Generating example:31
+2021-06-15 10:54:07,482 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:54:07,482 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:54:07,482 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:54:08,002 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:54:08,002 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:54:08,003 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:54:08,003 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:54:08,003 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:54:08,003 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:17<00:00,  2.29s/it, fitness=59.4]
+2021-06-15 10:56:25,387 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:56:25,387 - opytimizer.opytimizer — INFO — It took 137.38372683525085 seconds.
+2021-06-15 10:56:25,392 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:5.295342210129238
+
+2021-06-15 10:56:25,395 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 5.2953, 'L-INF': 0.2157, 'WS': 0.0761, 'ssim': 0.8876, 'psnr': 20.3963}, L2_Iters: 60
+2021-06-15 10:56:25,403 - attack_utils — INFO — Generating example:32
+2021-06-15 10:56:25,403 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:56:25,403 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:56:25,403 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:56:25,930 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:56:25,930 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:56:25,930 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:56:25,930 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:56:25,930 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:56:25,930 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [02:24<00:00,  2.41s/it, fitness=0.628]
+2021-06-15 10:58:50,879 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 10:58:50,880 - opytimizer.opytimizer — INFO — It took 144.94893074035645 seconds.
+2021-06-15 10:58:50,885 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:0.6284403767300216
+
+2021-06-15 10:58:50,888 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.6284, 'L-INF': 0.0346, 'WS': 0.0062, 'ssim': 0.9933, 'psnr': 38.9089}, L2_Iters: 60
+2021-06-15 10:58:50,895 - attack_utils — INFO — Generating example:33
+2021-06-15 10:58:50,895 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 10:58:50,895 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 10:58:50,896 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 10:58:51,425 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 10:58:51,425 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 10:58:51,425 - opytimizer.core.function — INFO — Class created.
+2021-06-15 10:58:51,425 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 10:58:51,425 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 10:58:51,425 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:41<00:00,  2.70s/it, fitness=280]
+2021-06-15 11:01:33,388 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:01:33,388 - opytimizer.opytimizer — INFO — It took 161.96213626861572 seconds.
+2021-06-15 11:01:33,393 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.7408144232657308
+
+2021-06-15 11:01:33,396 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.7408, 'L-INF': 0.0494, 'WS': 0.0192, 'ssim': 0.9486, 'psnr': 30.0592}, L2_Iters: 60
+2021-06-15 11:01:33,404 - attack_utils — INFO — Generating example:34
+2021-06-15 11:01:33,404 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:01:33,404 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:01:33,404 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:01:33,964 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:01:33,964 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:01:33,965 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:01:33,965 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:01:33,965 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:01:33,965 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:31<00:00,  2.52s/it, fitness=80.2]
+2021-06-15 11:04:05,401 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:04:05,401 - opytimizer.opytimizer — INFO — It took 151.43583393096924 seconds.
+2021-06-15 11:04:05,407 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:3.7708874902914786
+
+2021-06-15 11:04:05,411 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 3.7709, 'L-INF': 0.1294, 'WS': 0.0594, 'ssim': 0.8979, 'psnr': 23.3453}, L2_Iters: 60
+2021-06-15 11:04:05,419 - attack_utils — INFO — Generating example:35
+2021-06-15 11:04:05,419 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:04:05,419 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:04:05,419 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:04:05,947 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:04:05,948 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:04:05,948 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:04:05,948 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:04:05,948 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:04:05,948 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:19<00:00,  2.33s/it, fitness=34.2]
+2021-06-15 11:06:25,734 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:06:25,734 - opytimizer.opytimizer — INFO — It took 139.78550505638123 seconds.
+2021-06-15 11:06:25,739 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.854029315228318
+
+2021-06-15 11:06:25,754 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.854, 'L-INF': 0.0493, 'WS': 0.0225, 'ssim': 0.6606, 'psnr': 29.5119}, L2_Iters: 60
+2021-06-15 11:06:25,762 - attack_utils — INFO — Generating example:36
+2021-06-15 11:06:25,762 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:06:25,762 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:06:25,763 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:06:26,297 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:06:26,297 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:06:26,298 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:06:26,298 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:06:26,298 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:06:26,298 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:19<00:00,  2.33s/it, fitness=632]
+2021-06-15 11:08:46,186 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:08:46,186 - opytimizer.opytimizer — INFO — It took 139.88834381103516 seconds.
+2021-06-15 11:08:46,192 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.7802759291090164
+
+2021-06-15 11:08:46,211 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.7803, 'L-INF': 0.0627, 'WS': 0.0167, 'ssim': 0.9625, 'psnr': 29.8645}, L2_Iters: 60
+2021-06-15 11:08:46,220 - attack_utils — INFO — Generating example:37
+2021-06-15 11:08:46,220 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:08:46,220 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:08:46,220 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:08:46,793 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:08:46,793 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:08:46,793 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:08:46,793 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:08:46,793 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:08:46,793 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:15<00:00,  2.27s/it, fitness=91.7]
+2021-06-15 11:11:03,026 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:11:03,026 - opytimizer.opytimizer — INFO — It took 136.2324080467224 seconds.
+2021-06-15 11:11:03,032 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.4419895457627394
+
+2021-06-15 11:11:03,062 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.442, 'L-INF': 0.0353, 'WS': 0.0075, 'ssim': 0.9698, 'psnr': 31.695}, L2_Iters: 60
+2021-06-15 11:11:03,071 - attack_utils — INFO — Generating example:38
+2021-06-15 11:11:03,071 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:11:03,071 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:11:03,072 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:11:03,627 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:11:03,627 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:11:03,627 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:11:03,627 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:11:03,627 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:11:03,628 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:21<00:00,  2.35s/it, fitness=32.3]
+2021-06-15 11:13:24,912 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:13:24,912 - opytimizer.opytimizer — INFO — It took 141.2845687866211 seconds.
+2021-06-15 11:13:24,918 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:3.065445468887866
+
+2021-06-15 11:13:24,921 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 3.0654, 'L-INF': 0.1451, 'WS': 0.0374, 'ssim': 0.9165, 'psnr': 25.1443}, L2_Iters: 60
+2021-06-15 11:13:24,929 - attack_utils — INFO — Generating example:39
+2021-06-15 11:13:24,929 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:13:24,929 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:13:24,929 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:13:25,454 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:13:25,455 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:13:25,455 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:13:25,455 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:13:25,455 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:13:25,455 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:21<00:00,  2.35s/it, fitness=1.36]
+2021-06-15 11:15:46,744 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:15:46,744 - opytimizer.opytimizer — INFO — It took 141.28852772712708 seconds.
+2021-06-15 11:15:46,749 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:1.3590267161126393
+
+2021-06-15 11:15:46,752 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 1.359, 'L-INF': 0.0299, 'WS': 0.0032, 'ssim': 0.9424, 'psnr': 32.2097}, L2_Iters: 60
+2021-06-15 11:15:46,759 - attack_utils — INFO — Generating example:40
+2021-06-15 11:15:46,760 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:15:46,760 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:15:46,760 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:15:47,306 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:15:47,306 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:15:47,306 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:15:47,306 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:15:47,306 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:15:47,306 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:29<00:00,  2.49s/it, fitness=282]
+2021-06-15 11:18:17,054 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:18:17,055 - opytimizer.opytimizer — INFO — It took 149.74800372123718 seconds.
+2021-06-15 11:18:17,060 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:5.303444014336643
+
+2021-06-15 11:18:17,087 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 5.3034, 'L-INF': 0.1647, 'WS': 0.0841, 'ssim': 0.8709, 'psnr': 20.3831}, L2_Iters: 60
+2021-06-15 11:18:17,095 - attack_utils — INFO — Generating example:41
+2021-06-15 11:18:17,095 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:18:17,096 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:18:17,096 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:18:17,743 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:18:17,743 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:18:17,743 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:18:17,744 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:18:17,744 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:18:17,744 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:28<00:00,  2.47s/it, fitness=113]
+2021-06-15 11:20:46,045 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:20:46,045 - opytimizer.opytimizer — INFO — It took 148.30067110061646 seconds.
+2021-06-15 11:20:46,052 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:2.223541568950264
+
+2021-06-15 11:20:46,054 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 2.2235, 'L-INF': 0.0784, 'WS': 0.0285, 'ssim': 0.9426, 'psnr': 27.9333}, L2_Iters: 60
+2021-06-15 11:20:46,062 - attack_utils — INFO — Generating example:42
+2021-06-15 11:20:46,062 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:20:46,062 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:20:46,063 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:20:46,588 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:20:46,588 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:20:46,589 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:20:46,589 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:20:46,589 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:20:46,589 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:25<00:00,  2.42s/it, fitness=1.8]
+2021-06-15 11:23:11,883 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:23:11,883 - opytimizer.opytimizer — INFO — It took 145.29341626167297 seconds.
+2021-06-15 11:23:11,889 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:1.8033704775542099
+
+2021-06-15 11:23:11,897 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 1.8034, 'L-INF': 0.098, 'WS': 0.0236, 'ssim': 0.9877, 'psnr': 29.7525}, L2_Iters: 60
+2021-06-15 11:23:11,909 - attack_utils — INFO — Generating example:43
+2021-06-15 11:23:11,910 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:23:11,910 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:23:11,910 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:23:12,581 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:23:12,582 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:23:12,582 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:23:12,582 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:23:12,582 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:23:12,582 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:28<00:00,  2.47s/it, fitness=150]
+2021-06-15 11:25:40,785 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:25:40,785 - opytimizer.opytimizer — INFO — It took 148.2027280330658 seconds.
+2021-06-15 11:25:40,792 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:2.2785691328308455
+
+2021-06-15 11:25:40,799 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 2.2786, 'L-INF': 0.0667, 'WS': 0.0319, 'ssim': 0.9449, 'psnr': 27.721}, L2_Iters: 60
+2021-06-15 11:25:40,808 - attack_utils — INFO — Generating example:44
+2021-06-15 11:25:40,808 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:25:40,808 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:25:40,808 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:25:41,415 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:25:41,415 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:25:41,415 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:25:41,415 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:25:41,415 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:25:41,416 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:18<00:00,  2.31s/it, fitness=68.9]
+2021-06-15 11:28:00,144 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:28:00,144 - opytimizer.opytimizer — INFO — It took 138.72840213775635 seconds.
+2021-06-15 11:28:00,150 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.7113356546176846
+
+2021-06-15 11:28:00,153 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.7113, 'L-INF': 0.0485, 'WS': 0.0176, 'ssim': 0.8065, 'psnr': 30.2075}, L2_Iters: 60
+2021-06-15 11:28:00,160 - attack_utils — INFO — Generating example:45
+2021-06-15 11:28:00,160 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:28:00,161 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:28:00,161 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:28:00,690 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:28:00,690 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:28:00,691 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:28:00,691 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:28:00,691 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:28:00,691 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:11<00:00,  2.19s/it, fitness=438]
+2021-06-15 11:30:12,401 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:30:12,402 - opytimizer.opytimizer — INFO — It took 131.71016192436218 seconds.
+2021-06-15 11:30:12,407 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:4.13626010860305
+
+2021-06-15 11:30:12,409 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 4.1363, 'L-INF': 0.149, 'WS': 0.0591, 'ssim': 0.8926, 'psnr': 22.5421}, L2_Iters: 60
+2021-06-15 11:30:12,417 - attack_utils — INFO — Generating example:46
+2021-06-15 11:30:12,417 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:30:12,417 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:30:12,417 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:30:12,949 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:30:12,949 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:30:12,949 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:30:12,949 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:30:12,950 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:30:12,950 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [02:17<00:00,  2.29s/it, fitness=0.378]
+2021-06-15 11:32:30,382 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:32:30,382 - opytimizer.opytimizer — INFO — It took 137.4319417476654 seconds.
+2021-06-15 11:32:30,387 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:0.3777267348687858
+
+2021-06-15 11:32:30,390 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.3777, 'L-INF': 0.0275, 'WS': 0.0018, 'ssim': 0.9952, 'psnr': 43.3307}, L2_Iters: 60
+2021-06-15 11:32:30,397 - attack_utils — INFO — Generating example:47
+2021-06-15 11:32:30,397 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:32:30,397 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:32:30,398 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:32:30,921 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:32:30,922 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:32:30,922 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:32:30,922 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:32:30,922 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:32:30,922 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:20<00:00,  2.33s/it, fitness=40.5]
+2021-06-15 11:34:51,111 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:34:51,111 - opytimizer.opytimizer — INFO — It took 140.1883499622345 seconds.
+2021-06-15 11:34:51,116 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:4.04772393357238
+
+2021-06-15 11:34:51,125 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 4.0477, 'L-INF': 0.2471, 'WS': 0.0551, 'ssim': 0.9264, 'psnr': 22.73}, L2_Iters: 60
+2021-06-15 11:34:51,133 - attack_utils — INFO — Generating example:48
+2021-06-15 11:34:51,134 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:34:51,134 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:34:51,134 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:34:51,682 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:34:51,682 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:34:51,682 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:34:51,682 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:34:51,682 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:34:51,683 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:22<00:00,  2.38s/it, fitness=535]
+2021-06-15 11:37:14,372 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:37:14,372 - opytimizer.opytimizer — INFO — It took 142.68889594078064 seconds.
+2021-06-15 11:37:14,377 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:5.283530749503188
+
+2021-06-15 11:37:14,380 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 5.2835, 'L-INF': 0.1569, 'WS': 0.0867, 'ssim': 0.8724, 'psnr': 20.4157}, L2_Iters: 60
+2021-06-15 11:37:14,388 - attack_utils — INFO — Generating example:49
+2021-06-15 11:37:14,388 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:37:14,388 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:37:14,388 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:37:15,003 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:37:15,003 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:37:15,003 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:37:15,004 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:37:15,004 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:37:15,004 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:27<00:00,  2.46s/it, fitness=214]
+2021-06-15 11:39:43,087 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:39:43,087 - opytimizer.opytimizer — INFO — It took 148.08260202407837 seconds.
+2021-06-15 11:39:43,094 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.5004898347695645
+
+2021-06-15 11:39:43,096 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.5005, 'L-INF': 0.0476, 'WS': 0.0104, 'ssim': 0.9139, 'psnr': 31.3496}, L2_Iters: 60
+2021-06-15 11:39:43,109 - attack_utils — INFO — Generating example:50
+2021-06-15 11:39:43,109 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:39:43,109 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:39:43,109 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:39:43,645 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:39:43,645 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:39:43,645 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:39:43,645 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:39:43,646 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:39:43,646 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:32<00:00,  2.55s/it, fitness=1.91]
+2021-06-15 11:42:16,637 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:42:16,637 - opytimizer.opytimizer — INFO — It took 152.99085521697998 seconds.
+2021-06-15 11:42:16,643 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:1.9145275251439888
+
+2021-06-15 11:42:16,646 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 1.9145, 'L-INF': 0.0627, 'WS': 0.0235, 'ssim': 0.9219, 'psnr': 29.233}, L2_Iters: 60
+2021-06-15 11:42:16,653 - attack_utils — INFO — Generating example:51
+2021-06-15 11:42:16,653 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:42:16,653 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:42:16,653 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:42:17,176 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:42:17,176 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:42:17,176 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:42:17,176 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:42:17,177 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:42:17,177 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:17<00:00,  2.29s/it, fitness=21.2]
+2021-06-15 11:44:34,477 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:44:34,477 - opytimizer.opytimizer — INFO — It took 137.29997420310974 seconds.
+2021-06-15 11:44:34,482 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:2.1183506141286683
+
+2021-06-15 11:44:34,491 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 2.1184, 'L-INF': 0.0902, 'WS': 0.0274, 'ssim': 0.9494, 'psnr': 28.3543}, L2_Iters: 60
+2021-06-15 11:44:34,498 - attack_utils — INFO — Generating example:52
+2021-06-15 11:44:34,498 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:44:34,499 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:44:34,499 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:44:35,045 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:44:35,045 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:44:35,046 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:44:35,046 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:44:35,046 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:44:35,046 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:13<00:00,  2.22s/it, fitness=21.8]
+2021-06-15 11:46:48,688 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:46:48,688 - opytimizer.opytimizer — INFO — It took 133.64221692085266 seconds.
+2021-06-15 11:46:48,694 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:2.1846335697865418
+
+2021-06-15 11:46:48,702 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 2.1846, 'L-INF': 0.0745, 'WS': 0.0335, 'ssim': 0.9499, 'psnr': 28.0866}, L2_Iters: 60
+2021-06-15 11:46:48,710 - attack_utils — INFO — Generating example:53
+2021-06-15 11:46:48,710 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:46:48,710 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:46:48,710 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:46:49,237 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:46:49,237 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:46:49,237 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:46:49,237 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:46:49,238 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:46:49,238 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:12<00:00,  2.21s/it, fitness=120]
+2021-06-15 11:49:01,892 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:49:01,892 - opytimizer.opytimizer — INFO — It took 132.65457892417908 seconds.
+2021-06-15 11:49:01,898 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:2.63376361318503
+
+2021-06-15 11:49:01,905 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 2.6338, 'L-INF': 0.0997, 'WS': 0.0384, 'ssim': 0.8162, 'psnr': 26.4627}, L2_Iters: 60
+2021-06-15 11:49:01,913 - attack_utils — INFO — Generating example:54
+2021-06-15 11:49:01,913 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:49:01,913 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:49:01,913 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:49:02,438 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:49:02,438 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:49:02,439 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:49:02,439 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:49:02,439 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:49:02,439 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:12<00:00,  2.21s/it, fitness=103]
+2021-06-15 11:51:15,174 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:51:15,174 - opytimizer.opytimizer — INFO — It took 132.7351679801941 seconds.
+2021-06-15 11:51:15,182 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.4485939535569885
+
+2021-06-15 11:51:15,184 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.4486, 'L-INF': 0.0377, 'WS': 0.0087, 'ssim': 0.9485, 'psnr': 31.6553}, L2_Iters: 60
+2021-06-15 11:51:15,194 - attack_utils — INFO — Generating example:55
+2021-06-15 11:51:15,195 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:51:15,195 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:51:15,195 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:51:15,815 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:51:15,815 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:51:15,815 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:51:15,815 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:51:15,816 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:51:15,816 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [02:15<00:00,  2.26s/it, fitness=0.307]
+2021-06-15 11:53:31,850 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:53:31,850 - opytimizer.opytimizer — INFO — It took 136.03375792503357 seconds.
+2021-06-15 11:53:31,855 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:0.30716867318183566
+
+2021-06-15 11:53:31,864 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.3072, 'L-INF': 0.0238, 'WS': 0.0021, 'ssim': 0.997, 'psnr': 45.1267}, L2_Iters: 60
+2021-06-15 11:53:31,872 - attack_utils — INFO — Generating example:56
+2021-06-15 11:53:31,872 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:53:31,873 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:53:31,873 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:53:32,398 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:53:32,398 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:53:32,398 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:53:32,398 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:53:32,398 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:53:32,398 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.27s/it, fitness=32.4]
+2021-06-15 11:55:49,052 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:55:49,052 - opytimizer.opytimizer — INFO — It took 136.6531240940094 seconds.
+2021-06-15 11:55:49,057 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:3.243351295819556
+
+2021-06-15 11:55:49,068 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 3.2434, 'L-INF': 0.1216, 'WS': 0.0508, 'ssim': 0.938, 'psnr': 24.6543}, L2_Iters: 60
+2021-06-15 11:55:49,076 - attack_utils — INFO — Generating example:57
+2021-06-15 11:55:49,076 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:55:49,077 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:55:49,077 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:55:49,600 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:55:49,601 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:55:49,601 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:55:49,601 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:55:49,601 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:55:49,601 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:17<00:00,  2.29s/it, fitness=49.4]
+2021-06-15 11:58:07,378 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 11:58:07,378 - opytimizer.opytimizer — INFO — It took 137.77665781974792 seconds.
+2021-06-15 11:58:07,383 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.7073196171884057
+
+2021-06-15 11:58:07,385 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.7073, 'L-INF': 0.0457, 'WS': 0.0182, 'ssim': 0.9472, 'psnr': 30.2279}, L2_Iters: 60
+2021-06-15 11:58:07,392 - attack_utils — INFO — Generating example:58
+2021-06-15 11:58:07,393 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 11:58:07,393 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 11:58:07,393 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 11:58:07,923 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 11:58:07,923 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 11:58:07,923 - opytimizer.core.function — INFO — Class created.
+2021-06-15 11:58:07,923 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 11:58:07,923 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 11:58:07,923 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|██████████████████████████████████████████████████████████████████| 60/60 [02:18<00:00,  2.31s/it, fitness=76]
+2021-06-15 12:00:26,963 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:00:26,963 - opytimizer.opytimizer — INFO — It took 139.03926610946655 seconds.
+2021-06-15 12:00:26,968 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.6178240445175889
+
+2021-06-15 12:00:26,970 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.6178, 'L-INF': 0.0454, 'WS': 0.0152, 'ssim': 0.9484, 'psnr': 30.6956}, L2_Iters: 60
+2021-06-15 12:00:26,978 - attack_utils — INFO — Generating example:59
+2021-06-15 12:00:26,978 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:00:26,978 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:00:26,978 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:00:27,579 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:00:27,579 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:00:27,580 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:00:27,580 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:00:27,580 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:00:27,580 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:14<00:00,  2.25s/it, fitness=17.5]
+2021-06-15 12:02:42,483 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:02:42,483 - opytimizer.opytimizer — INFO — It took 134.90252709388733 seconds.
+2021-06-15 12:02:42,488 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.6094471848128196
+
+2021-06-15 12:02:42,491 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.6094, 'L-INF': 0.0491, 'WS': 0.0147, 'ssim': 0.9821, 'psnr': 30.7407}, L2_Iters: 60
+2021-06-15 12:02:42,500 - attack_utils — INFO — Generating example:60
+2021-06-15 12:02:42,500 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:02:42,500 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:02:42,501 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:02:43,031 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:02:43,031 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:02:43,031 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:02:43,031 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:02:43,031 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:02:43,032 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:12<00:00,  2.21s/it, fitness=203]
+2021-06-15 12:04:55,566 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:04:55,566 - opytimizer.opytimizer — INFO — It took 132.53404688835144 seconds.
+2021-06-15 12:04:55,571 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.5250469838545588
+
+2021-06-15 12:04:55,574 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.525, 'L-INF': 0.0476, 'WS': 0.0121, 'ssim': 0.9347, 'psnr': 31.2085}, L2_Iters: 60
+2021-06-15 12:04:55,581 - attack_utils — INFO — Generating example:61
+2021-06-15 12:04:55,581 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:04:55,582 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:04:55,582 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:04:56,109 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:04:56,109 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:04:56,110 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:04:56,110 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:04:56,110 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:04:56,110 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:23<00:00,  2.39s/it, fitness=32.7]
+2021-06-15 12:07:19,447 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:07:19,447 - opytimizer.opytimizer — INFO — It took 143.33631992340088 seconds.
+2021-06-15 12:07:19,453 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:2.293847448231198
+
+2021-06-15 12:07:19,456 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 2.2938, 'L-INF': 0.0784, 'WS': 0.0314, 'ssim': 0.9177, 'psnr': 27.6629}, L2_Iters: 60
+2021-06-15 12:07:19,465 - attack_utils — INFO — Generating example:62
+2021-06-15 12:07:19,465 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:07:19,465 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:07:19,465 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:07:20,098 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:07:20,098 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:07:20,098 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:07:20,098 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:07:20,098 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:07:20,099 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:57<00:00,  2.96s/it, fitness=187]
+2021-06-15 12:10:18,197 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:10:18,197 - opytimizer.opytimizer — INFO — It took 178.09849882125854 seconds.
+2021-06-15 12:10:18,203 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.5178446443807092
+
+2021-06-15 12:10:18,206 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.5178, 'L-INF': 0.0476, 'WS': 0.0117, 'ssim': 0.9269, 'psnr': 31.2497}, L2_Iters: 60
+2021-06-15 12:10:18,215 - attack_utils — INFO — Generating example:63
+2021-06-15 12:10:18,216 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:10:18,216 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:10:18,216 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:10:18,863 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:10:18,864 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:10:18,864 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:10:18,864 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:10:18,864 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:10:18,865 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [02:30<00:00,  2.51s/it, fitness=0.849]
+2021-06-15 12:12:49,513 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:12:49,513 - opytimizer.opytimizer — INFO — It took 150.6484670639038 seconds.
+2021-06-15 12:12:49,519 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:0.8494638133101999
+
+2021-06-15 12:12:49,521 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.8495, 'L-INF': 0.0627, 'WS': 0.0066, 'ssim': 0.9892, 'psnr': 36.2913}, L2_Iters: 60
+2021-06-15 12:12:49,530 - attack_utils — INFO — Generating example:64
+2021-06-15 12:12:49,530 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:12:49,530 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:12:49,530 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:12:50,117 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:12:50,118 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:12:50,118 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:12:50,118 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:12:50,118 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:12:50,118 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:24<00:00,  2.40s/it, fitness=35.6]
+2021-06-15 12:15:14,427 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:15:14,427 - opytimizer.opytimizer — INFO — It took 144.3083620071411 seconds.
+2021-06-15 12:15:14,432 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:3.560644122308147
+
+2021-06-15 12:15:14,462 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 3.5606, 'L-INF': 0.1373, 'WS': 0.0482, 'ssim': 0.9392, 'psnr': 23.8436}, L2_Iters: 60
+2021-06-15 12:15:14,470 - attack_utils — INFO — Generating example:65
+2021-06-15 12:15:14,470 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:15:14,471 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:15:14,471 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:15:15,008 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:15:15,008 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:15:15,008 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:15:15,008 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:15:15,009 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:15:15,009 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:27<00:00,  2.47s/it, fitness=131]
+2021-06-15 12:17:43,094 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:17:43,094 - opytimizer.opytimizer — INFO — It took 148.0854251384735 seconds.
+2021-06-15 12:17:43,100 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.424655741503012
+
+2021-06-15 12:17:43,115 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.4247, 'L-INF': 0.0415, 'WS': 0.0136, 'ssim': 0.9833, 'psnr': 31.8}, L2_Iters: 60
+2021-06-15 12:17:43,125 - attack_utils — INFO — Generating example:66
+2021-06-15 12:17:43,125 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:17:43,125 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:17:43,125 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:17:43,692 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:17:43,692 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:17:43,693 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:17:43,693 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:17:43,693 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:17:43,693 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:19<00:00,  2.33s/it, fitness=60.9]
+2021-06-15 12:20:03,847 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:20:03,847 - opytimizer.opytimizer — INFO — It took 140.15318298339844 seconds.
+2021-06-15 12:20:03,853 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.6110471876797325
+
+2021-06-15 12:20:03,872 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.611, 'L-INF': 0.0431, 'WS': 0.0144, 'ssim': 0.9824, 'psnr': 30.732}, L2_Iters: 60
+2021-06-15 12:20:03,880 - attack_utils — INFO — Generating example:67
+2021-06-15 12:20:03,880 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:20:03,880 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:20:03,880 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:20:04,451 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:20:04,452 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:20:04,452 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:20:04,452 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:20:04,452 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:20:04,452 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:20<00:00,  2.34s/it, fitness=18.9]
+2021-06-15 12:22:24,908 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:22:24,909 - opytimizer.opytimizer — INFO — It took 140.4561619758606 seconds.
+2021-06-15 12:22:24,914 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.4309152735504818
+
+2021-06-15 12:22:24,926 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.4309, 'L-INF': 0.0482, 'WS': 0.0065, 'ssim': 0.9509, 'psnr': 31.7619}, L2_Iters: 60
+2021-06-15 12:22:24,936 - attack_utils — INFO — Generating example:68
+2021-06-15 12:22:24,937 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:22:24,937 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:22:24,937 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:22:25,681 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:22:25,681 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:22:25,681 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:22:25,681 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:22:25,682 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:22:25,682 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:25<00:00,  2.43s/it, fitness=163]
+2021-06-15 12:24:51,873 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:24:51,873 - opytimizer.opytimizer — INFO — It took 146.19116806983948 seconds.
+2021-06-15 12:24:51,881 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:7.545862575416633
+
+2021-06-15 12:24:51,883 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 7.5459, 'L-INF': 0.2824, 'WS': 0.1137, 'ssim': 0.697, 'psnr': 17.32}, L2_Iters: 60
+2021-06-15 12:24:51,891 - attack_utils — INFO — Generating example:69
+2021-06-15 12:24:51,891 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:24:51,891 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:24:51,891 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:24:52,499 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:24:52,499 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:24:52,499 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:24:52,499 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:24:52,499 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:24:52,500 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:22<00:00,  2.38s/it, fitness=1.83]
+2021-06-15 12:27:15,448 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:27:15,448 - opytimizer.opytimizer — INFO — It took 142.94839191436768 seconds.
+2021-06-15 12:27:15,454 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:1.8259877579028887
+
+2021-06-15 12:27:15,484 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 1.826, 'L-INF': 0.051, 'WS': 0.0212, 'ssim': 0.97, 'psnr': 29.6443}, L2_Iters: 60
+2021-06-15 12:27:15,492 - attack_utils — INFO — Generating example:70
+2021-06-15 12:27:15,492 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:27:15,493 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:27:15,493 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:27:16,063 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:27:16,064 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:27:16,064 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:27:16,064 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:27:16,064 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:27:16,065 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:26<00:00,  2.44s/it, fitness=206]
+2021-06-15 12:29:42,910 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:29:42,910 - opytimizer.opytimizer — INFO — It took 146.84510493278503 seconds.
+2021-06-15 12:29:42,917 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.5921446572042162
+
+2021-06-15 12:29:42,939 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.5921, 'L-INF': 0.0471, 'WS': 0.0112, 'ssim': 0.9386, 'psnr': 30.8346}, L2_Iters: 60
+2021-06-15 12:29:42,947 - attack_utils — INFO — Generating example:71
+2021-06-15 12:29:42,948 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:29:42,948 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:29:42,948 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:29:43,738 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:29:43,738 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:29:43,738 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:29:43,738 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:29:43,738 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:29:43,739 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [02:39<00:00,  2.66s/it, fitness=0.479]
+2021-06-15 12:32:23,716 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:32:23,717 - opytimizer.opytimizer — INFO — It took 159.97779989242554 seconds.
+2021-06-15 12:32:23,723 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:0.4793805525714625
+
+2021-06-15 12:32:23,744 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.4794, 'L-INF': 0.0314, 'WS': 0.0028, 'ssim': 0.9928, 'psnr': 41.2606}, L2_Iters: 60
+2021-06-15 12:32:23,760 - attack_utils — INFO — Generating example:72
+2021-06-15 12:32:23,760 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:32:23,760 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:32:23,761 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:32:24,413 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:32:24,418 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:32:24,419 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:32:24,419 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:32:24,419 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:32:24,419 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:25<00:00,  2.43s/it, fitness=28.7]
+2021-06-15 12:34:50,337 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:34:50,337 - opytimizer.opytimizer — INFO — It took 145.91759204864502 seconds.
+2021-06-15 12:34:50,348 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:2.8694783493670397
+
+2021-06-15 12:34:50,351 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 2.8695, 'L-INF': 0.098, 'WS': 0.0482, 'ssim': 0.9688, 'psnr': 25.7182}, L2_Iters: 60
+2021-06-15 12:34:50,358 - attack_utils — INFO — Generating example:73
+2021-06-15 12:34:50,358 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:34:50,358 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:34:50,358 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:34:51,053 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:34:51,053 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:34:51,054 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:34:51,054 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:34:51,056 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:34:51,057 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:33<00:00,  2.56s/it, fitness=98.7]
+2021-06-15 12:37:25,122 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:37:25,122 - opytimizer.opytimizer — INFO — It took 154.0648958683014 seconds.
+2021-06-15 12:37:25,127 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.547481171145739
+
+2021-06-15 12:37:25,152 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.5475, 'L-INF': 0.0476, 'WS': 0.0124, 'ssim': 0.9359, 'psnr': 31.0817}, L2_Iters: 60
+2021-06-15 12:37:25,160 - attack_utils — INFO — Generating example:74
+2021-06-15 12:37:25,160 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:37:25,161 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:37:25,161 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:37:25,713 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:37:25,714 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:37:25,714 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:37:25,714 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:37:25,714 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:37:25,714 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:39<00:00,  2.67s/it, fitness=1.96]
+2021-06-15 12:40:05,859 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:40:05,860 - opytimizer.opytimizer — INFO — It took 160.14161109924316 seconds.
+2021-06-15 12:40:05,889 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:1.9594374261183198
+
+2021-06-15 12:40:06,234 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 1.9594, 'L-INF': 0.0745, 'WS': 0.0226, 'ssim': 0.9332, 'psnr': 29.0316}, L2_Iters: 60
+2021-06-15 12:40:06,273 - attack_utils — INFO — Generating example:75
+2021-06-15 12:40:06,274 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:40:06,276 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:40:06,277 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:40:07,279 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:40:07,279 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:40:07,279 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:40:07,279 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:40:07,279 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:40:07,279 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:33<00:00,  2.56s/it, fitness=331]
+2021-06-15 12:42:40,913 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:42:40,913 - opytimizer.opytimizer — INFO — It took 153.6329960823059 seconds.
+2021-06-15 12:42:40,918 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.4452720740933631
+
+2021-06-15 12:42:40,921 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.4453, 'L-INF': 0.0353, 'WS': 0.007, 'ssim': 0.9066, 'psnr': 31.6752}, L2_Iters: 60
+2021-06-15 12:42:40,928 - attack_utils — INFO — Generating example:76
+2021-06-15 12:42:40,928 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:42:40,928 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:42:40,928 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:42:41,473 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:42:41,473 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:42:41,473 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:42:41,473 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:42:41,473 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:42:41,473 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:31<00:00,  2.53s/it, fitness=36.9]
+2021-06-15 12:45:13,235 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:45:13,235 - opytimizer.opytimizer — INFO — It took 151.76148104667664 seconds.
+2021-06-15 12:45:13,244 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.4299394971748538
+
+2021-06-15 12:45:13,267 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.4299, 'L-INF': 0.0442, 'WS': 0.0072, 'ssim': 0.9342, 'psnr': 31.7679}, L2_Iters: 60
+2021-06-15 12:45:13,279 - attack_utils — INFO — Generating example:77
+2021-06-15 12:45:13,279 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:45:13,279 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:45:13,279 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:45:13,962 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:45:13,963 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:45:13,963 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:45:13,964 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:45:13,964 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:45:13,964 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:39<00:00,  2.65s/it, fitness=71.1]
+2021-06-15 12:47:53,486 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:47:53,486 - opytimizer.opytimizer — INFO — It took 159.5215039253235 seconds.
+2021-06-15 12:47:53,493 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:2.3733504938747756
+
+2021-06-15 12:47:53,521 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 2.3734, 'L-INF': 0.0824, 'WS': 0.0316, 'ssim': 0.9416, 'psnr': 27.367}, L2_Iters: 60
+2021-06-15 12:47:53,531 - attack_utils — INFO — Generating example:78
+2021-06-15 12:47:53,531 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:47:53,531 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:47:53,531 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:47:54,095 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:47:54,096 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:47:54,096 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:47:54,096 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:47:54,096 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:47:54,096 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:17<00:00,  2.30s/it, fitness=51.3]
+2021-06-15 12:50:12,034 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:50:12,034 - opytimizer.opytimizer — INFO — It took 137.93758988380432 seconds.
+2021-06-15 12:50:12,040 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:2.881262157524522
+
+2021-06-15 12:50:12,042 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 2.8813, 'L-INF': 0.1176, 'WS': 0.0376, 'ssim': 0.9394, 'psnr': 25.6826}, L2_Iters: 60
+2021-06-15 12:50:12,049 - attack_utils — INFO — Generating example:79
+2021-06-15 12:50:12,049 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:50:12,049 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:50:12,049 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:50:12,575 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:50:12,575 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:50:12,575 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:50:12,576 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:50:12,576 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:50:12,576 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|██████████████████████████████████████████████████████████████████| 60/60 [02:13<00:00,  2.23s/it, fitness=29]
+2021-06-15 12:52:26,658 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:52:26,658 - opytimizer.opytimizer — INFO — It took 134.0824167728424 seconds.
+2021-06-15 12:52:26,664 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:2.89625405269023
+
+2021-06-15 12:52:26,679 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 2.8963, 'L-INF': 0.1059, 'WS': 0.0402, 'ssim': 0.9401, 'psnr': 25.6375}, L2_Iters: 60
+2021-06-15 12:52:26,687 - attack_utils — INFO — Generating example:80
+2021-06-15 12:52:26,687 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:52:26,687 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:52:26,687 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:52:27,226 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:52:27,226 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:52:27,226 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:52:27,227 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:52:27,227 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:52:27,227 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:14<00:00,  2.24s/it, fitness=73.8]
+2021-06-15 12:54:41,986 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:54:41,987 - opytimizer.opytimizer — INFO — It took 134.7595579624176 seconds.
+2021-06-15 12:54:41,992 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:5.090774295468962
+
+2021-06-15 12:54:41,994 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 5.0908, 'L-INF': 0.1804, 'WS': 0.0816, 'ssim': 0.891, 'psnr': 20.7385}, L2_Iters: 60
+2021-06-15 12:54:42,001 - attack_utils — INFO — Generating example:81
+2021-06-15 12:54:42,002 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:54:42,002 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:54:42,002 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:54:42,536 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:54:42,536 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:54:42,536 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:54:42,536 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:54:42,536 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:54:42,536 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:13<00:00,  2.23s/it, fitness=115]
+2021-06-15 12:56:56,605 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:56:56,605 - opytimizer.opytimizer — INFO — It took 134.06810998916626 seconds.
+2021-06-15 12:56:56,610 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:2.3933078890896184
+
+2021-06-15 12:56:56,637 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 2.3933, 'L-INF': 0.1059, 'WS': 0.0283, 'ssim': 0.9318, 'psnr': 27.2942}, L2_Iters: 60
+2021-06-15 12:56:56,645 - attack_utils — INFO — Generating example:82
+2021-06-15 12:56:56,645 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:56:56,645 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:56:56,646 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:56:57,174 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:56:57,174 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:56:57,174 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:56:57,175 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:56:57,175 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:56:57,175 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:19<00:00,  2.33s/it, fitness=292]
+2021-06-15 12:59:16,849 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 12:59:16,849 - opytimizer.opytimizer — INFO — It took 139.6740701198578 seconds.
+2021-06-15 12:59:16,854 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:6.091078344225705
+
+2021-06-15 12:59:16,857 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 6.0911, 'L-INF': 0.1843, 'WS': 0.0929, 'ssim': 0.885, 'psnr': 19.1803}, L2_Iters: 60
+2021-06-15 12:59:16,864 - attack_utils — INFO — Generating example:83
+2021-06-15 12:59:16,864 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 12:59:16,864 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 12:59:16,865 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 12:59:17,409 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 12:59:17,409 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 12:59:17,409 - opytimizer.core.function — INFO — Class created.
+2021-06-15 12:59:17,410 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 12:59:17,410 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 12:59:17,410 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:26<00:00,  2.44s/it, fitness=100]
+2021-06-15 13:01:43,884 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:01:43,885 - opytimizer.opytimizer — INFO — It took 146.474445104599 seconds.
+2021-06-15 13:01:43,895 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:7.371632271836799
+
+2021-06-15 13:01:43,898 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 7.3716, 'L-INF': 0.302, 'WS': 0.1135, 'ssim': 0.826, 'psnr': 17.5229}, L2_Iters: 60
+2021-06-15 13:01:43,905 - attack_utils — INFO — Generating example:84
+2021-06-15 13:01:43,905 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:01:43,905 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:01:43,906 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:01:44,462 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:01:44,462 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:01:44,462 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:01:44,462 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:01:44,463 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:01:44,463 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:17<00:00,  2.30s/it, fitness=127]
+2021-06-15 13:04:02,528 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:04:02,529 - opytimizer.opytimizer — INFO — It took 138.06553983688354 seconds.
+2021-06-15 13:04:02,534 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:2.2953288832503165
+
+2021-06-15 13:04:02,536 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 2.2953, 'L-INF': 0.0745, 'WS': 0.0318, 'ssim': 0.8323, 'psnr': 27.6573}, L2_Iters: 60
+2021-06-15 13:04:02,543 - attack_utils — INFO — Generating example:85
+2021-06-15 13:04:02,544 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:04:02,544 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:04:02,544 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:04:03,116 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:04:03,117 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:04:03,117 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:04:03,117 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:04:03,117 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:04:03,118 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.28s/it, fitness=67.1]
+2021-06-15 13:06:20,102 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:06:20,102 - opytimizer.opytimizer — INFO — It took 136.98470401763916 seconds.
+2021-06-15 13:06:20,108 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:5.188313704315795
+
+2021-06-15 13:06:20,110 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 5.1883, 'L-INF': 0.2078, 'WS': 0.069, 'ssim': 0.8843, 'psnr': 20.5737}, L2_Iters: 60
+2021-06-15 13:06:20,118 - attack_utils — INFO — Generating example:86
+2021-06-15 13:06:20,118 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:06:20,118 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:06:20,118 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:06:20,653 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:06:20,653 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:06:20,653 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:06:20,654 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:06:20,654 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:06:20,654 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|███████████████████████████████████████████████████████████████| 60/60 [02:21<00:00,  2.36s/it, fitness=0.336]
+2021-06-15 13:08:42,254 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:08:42,255 - opytimizer.opytimizer — INFO — It took 141.6005539894104 seconds.
+2021-06-15 13:08:42,262 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:0.3358324023786288
+
+2021-06-15 13:08:42,265 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.3358, 'L-INF': 0.0257, 'WS': 0.0016, 'ssim': 0.9931, 'psnr': 44.3518}, L2_Iters: 60
+2021-06-15 13:08:42,272 - attack_utils — INFO — Generating example:87
+2021-06-15 13:08:42,273 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:08:42,273 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:08:42,273 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:08:42,888 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:08:42,888 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:08:42,888 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:08:42,889 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:08:42,889 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:08:42,889 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:45<00:00,  2.76s/it, fitness=333]
+2021-06-15 13:11:28,980 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:11:28,980 - opytimizer.opytimizer — INFO — It took 166.09058022499084 seconds.
+2021-06-15 13:11:28,987 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:5.587544101018689
+
+2021-06-15 13:11:28,989 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 5.5875, 'L-INF': 0.1922, 'WS': 0.0837, 'ssim': 0.9246, 'psnr': 19.9298}, L2_Iters: 60
+2021-06-15 13:11:29,004 - attack_utils — INFO — Generating example:88
+2021-06-15 13:11:29,005 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:11:29,005 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:11:29,005 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:11:29,650 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:11:29,650 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:11:29,651 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:11:29,651 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:11:29,651 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:11:29,651 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [03:21<00:00,  3.36s/it, fitness=192]
+2021-06-15 13:14:51,179 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:14:51,179 - opytimizer.opytimizer — INFO — It took 201.52712202072144 seconds.
+2021-06-15 13:14:51,190 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:12.642709139180884
+
+2021-06-15 13:14:51,193 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 12.6427, 'L-INF': 0.5059, 'WS': 0.2069, 'ssim': 0.5756, 'psnr': 12.8374}, L2_Iters: 60
+2021-06-15 13:14:51,274 - attack_utils — INFO — Generating example:89
+2021-06-15 13:14:51,275 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:14:51,275 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:14:51,276 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:14:52,807 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:14:52,807 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:14:52,807 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:14:52,807 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:14:52,808 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:14:52,808 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [03:15<00:00,  3.26s/it, fitness=251]
+2021-06-15 13:18:08,960 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:18:08,962 - opytimizer.opytimizer — INFO — It took 196.15253496170044 seconds.
+2021-06-15 13:18:08,968 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.6493446708308985
+
+2021-06-15 13:18:08,982 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.6493, 'L-INF': 0.0476, 'WS': 0.0168, 'ssim': 0.9019, 'psnr': 30.528}, L2_Iters: 60
+2021-06-15 13:18:08,991 - attack_utils — INFO — Generating example:90
+2021-06-15 13:18:08,991 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:18:08,991 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:18:08,992 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:18:09,558 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:18:09,558 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:18:09,559 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:18:09,559 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:18:09,560 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:18:09,560 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:19<00:00,  2.32s/it, fitness=148]
+2021-06-15 13:20:29,209 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:20:29,209 - opytimizer.opytimizer — INFO — It took 139.6492600440979 seconds.
+2021-06-15 13:20:29,215 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.472141139092355
+
+2021-06-15 13:20:29,232 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.4721, 'L-INF': 0.0476, 'WS': 0.0092, 'ssim': 0.9409, 'psnr': 31.5152}, L2_Iters: 60
+2021-06-15 13:20:29,240 - attack_utils — INFO — Generating example:91
+2021-06-15 13:20:29,240 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:20:29,240 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:20:29,240 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:20:29,773 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:20:29,773 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:20:29,773 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:20:29,773 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:20:29,773 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:20:29,773 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:12<00:00,  2.21s/it, fitness=193]
+2021-06-15 13:22:42,253 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:22:42,253 - opytimizer.opytimizer — INFO — It took 132.479150056839 seconds.
+2021-06-15 13:22:42,258 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.43285566248901
+
+2021-06-15 13:22:42,284 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.4329, 'L-INF': 0.0392, 'WS': 0.005, 'ssim': 0.9642, 'psnr': 31.7502}, L2_Iters: 60
+2021-06-15 13:22:42,292 - attack_utils — INFO — Generating example:92
+2021-06-15 13:22:42,292 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:22:42,292 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:22:42,292 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:22:42,821 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:22:42,821 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:22:42,821 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:22:42,821 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:22:42,821 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:22:42,821 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:14<00:00,  2.25s/it, fitness=26.9]
+2021-06-15 13:24:57,972 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:24:57,972 - opytimizer.opytimizer — INFO — It took 135.150737285614 seconds.
+2021-06-15 13:24:57,977 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:2.6893440658754177
+
+2021-06-15 13:24:57,990 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 2.6893, 'L-INF': 0.0824, 'WS': 0.0411, 'ssim': 0.961, 'psnr': 26.2813}, L2_Iters: 60
+2021-06-15 13:24:57,999 - attack_utils — INFO — Generating example:93
+2021-06-15 13:24:57,999 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:24:57,999 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:24:57,999 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:24:58,526 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:24:58,526 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:24:58,526 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:24:58,526 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:24:58,526 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:24:58,526 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:14<00:00,  2.24s/it, fitness=1.56]
+2021-06-15 13:27:12,878 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:27:12,878 - opytimizer.opytimizer — INFO — It took 134.35165882110596 seconds.
+2021-06-15 13:27:12,884 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:True, Queries: 1830 Dist:1.5630594321179345
+
+2021-06-15 13:27:12,889 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 1.5631, 'L-INF': 0.098, 'WS': 0.0222, 'ssim': 0.9776, 'psnr': 30.9947}, L2_Iters: 60
+2021-06-15 13:27:12,898 - attack_utils — INFO — Generating example:94
+2021-06-15 13:27:12,898 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:27:12,899 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:27:12,899 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:27:13,463 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:27:13,463 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:27:13,463 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:27:13,463 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:27:13,463 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:27:13,463 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:17<00:00,  2.29s/it, fitness=129]
+2021-06-15 13:29:31,027 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:29:31,027 - opytimizer.opytimizer — INFO — It took 137.56335163116455 seconds.
+2021-06-15 13:29:31,032 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.7748962187233743
+
+2021-06-15 13:29:31,043 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.7749, 'L-INF': 0.0459, 'WS': 0.0201, 'ssim': 0.9368, 'psnr': 29.8908}, L2_Iters: 60
+2021-06-15 13:29:31,052 - attack_utils — INFO — Generating example:95
+2021-06-15 13:29:31,053 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:29:31,053 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:29:31,053 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:29:31,582 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:29:31,582 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:29:31,583 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:29:31,583 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:29:31,583 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:29:31,583 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:17<00:00,  2.28s/it, fitness=129]
+2021-06-15 13:31:48,840 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:31:48,840 - opytimizer.opytimizer — INFO — It took 137.2565279006958 seconds.
+2021-06-15 13:31:48,845 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.4757067256623617
+
+2021-06-15 13:31:48,847 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.4757, 'L-INF': 0.048, 'WS': 0.0097, 'ssim': 0.9344, 'psnr': 31.4942}, L2_Iters: 60
+2021-06-15 13:31:48,855 - attack_utils — INFO — Generating example:96
+2021-06-15 13:31:48,855 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:31:48,855 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:31:48,855 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:31:49,391 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:31:49,391 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:31:49,391 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:31:49,391 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:31:49,391 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:31:49,391 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.28s/it, fitness=291]
+2021-06-15 13:34:06,356 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:34:06,356 - opytimizer.opytimizer — INFO — It took 136.9643530845642 seconds.
+2021-06-15 13:34:06,361 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.5502218616205163
+
+2021-06-15 13:34:06,364 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.5502, 'L-INF': 0.0476, 'WS': 0.0127, 'ssim': 0.9641, 'psnr': 31.0663}, L2_Iters: 60
+2021-06-15 13:34:06,371 - attack_utils — INFO — Generating example:97
+2021-06-15 13:34:06,371 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:34:06,372 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:34:06,372 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:34:06,900 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:34:06,901 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:34:06,901 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:34:06,901 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:34:06,901 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:34:06,901 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.28s/it, fitness=86.7]
+2021-06-15 13:36:23,950 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:36:23,950 - opytimizer.opytimizer — INFO — It took 137.04806303977966 seconds.
+2021-06-15 13:36:23,955 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.6991182722593252
+
+2021-06-15 13:36:23,957 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.6991, 'L-INF': 0.0483, 'WS': 0.0173, 'ssim': 0.8043, 'psnr': 30.2697}, L2_Iters: 60
+2021-06-15 13:36:23,965 - attack_utils — INFO — Generating example:98
+2021-06-15 13:36:23,965 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:36:23,965 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:36:23,965 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:36:24,499 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:36:24,500 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:36:24,500 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:36:24,500 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:36:24,500 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:36:24,500 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.28s/it, fitness=254]
+2021-06-15 13:38:41,267 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:38:41,267 - opytimizer.opytimizer — INFO — It took 136.7662651538849 seconds.
+2021-06-15 13:38:41,272 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.5751256311558786
+
+2021-06-15 13:38:41,274 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.5751, 'L-INF': 0.0476, 'WS': 0.0132, 'ssim': 0.9181, 'psnr': 30.9279}, L2_Iters: 60
+2021-06-15 13:38:41,282 - attack_utils — INFO — Generating example:99
+2021-06-15 13:38:41,282 - opytimizer.optimizers.swarm.pso — INFO — Overriding class: Optimizer -> PSO.
+2021-06-15 13:38:41,282 - opytimizer.optimizers.swarm.pso — INFO — Class overrided.
+2021-06-15 13:38:41,282 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-06-15 13:38:41,815 - opytimizer.spaces.search — INFO — Class overrided.
+2021-06-15 13:38:41,815 - opytimizer.core.function — INFO — Creating class: Function.
+2021-06-15 13:38:41,815 - opytimizer.core.function — INFO — Class created.
+2021-06-15 13:38:41,816 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-06-15 13:38:41,816 - opytimizer.opytimizer — INFO — Class created.
+2021-06-15 13:38:41,816 - opytimizer.opytimizer — INFO — Starting optimization task.
+100%|█████████████████████████████████████████████████████████████████| 60/60 [02:16<00:00,  2.28s/it, fitness=204]
+2021-06-15 13:40:58,813 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-06-15 13:40:58,813 - opytimizer.opytimizer — INFO — It took 136.99654603004456 seconds.
+2021-06-15 13:40:58,818 - attack_utils — INFO — Exploration Phase#1 Result: Attack result:False, Queries: 1830 Dist:1.5150247445939322
+
+2021-06-15 13:40:58,820 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.515, 'L-INF': 0.0478, 'WS': 0.0118, 'ssim': 0.9434, 'psnr': 31.2658}, L2_Iters: 60
+2021-06-15 13:40:58,828 - attack_utils — INFO — Shape of adv_nvg: (100, 32, 32, 3) and shape of y_test_random:(100, 10)
+2021-06-15 13:40:59,374 - attack_utils — INFO — Total Examples: 100, Iterations:60, espilon: 0.05 and Max-L2:2 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.75 Mean L2 Counted: 2.46393689952055 Query: 1830.0
+
+2021-06-15 13:40:59,606 - opytimizer.optimizers.science.wwo — INFO — OPYT_accu : 0.75
+2021-06-15 13:40:59,607 - opytimizer.optimizers.science.wwo — INFO — OPYT_dist : {'L2': 10.4622, 'L-INF': 0.2471, 'WS': 0.0069, 'ssim': 0.9615, 'psnr': 28.4611}
+2021-06-15 13:40:59,681 - attack_utils — INFO — Saving : CLEAN_X, filename:test-PSO/CLEAN_X.csv
+2021-06-15 13:40:59,954 - attack_utils — INFO — Saving: CLEAN_Y, filename:test-PSO/CLEAN_Y.csv
+2021-06-15 13:40:59,956 - attack_utils — INFO — Saving : OPYT_X, filename:test-PSO/OPYT_X.csv
+2021-06-15 13:41:00,297 - attack_utils — INFO — Saving: OPYT_Y, filename:test-PSO/OPYT_Y.csv
+
+
+amirmukeri@MacBook-Pro ~/P/opytimizer> 
+grep 'Exploration Phase#1 Result: Attack result:True' opytimizer.log| awk -F',' '{print $3}' | awk -F':' '{print $3}' | awk '{ sum += $0; n++ } END { if (n > 0) print sum / n; }'
+1.83387
+amirmukeri@MacBook-Pro ~/P/opytimizer> 
+grep 'Exploration Phase#1 Result: Attack result:True' opytimizer.log| awk -F',' '{print $3}' | awk -F':' '{print $3}'| wc -l
+      25
+

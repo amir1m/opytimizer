@@ -169,9 +169,9 @@ dim = x_test.shape
 #                                         attack_list=['FGSM', 'BOUNDARY',
 #                                                      'SIMBA', 'HOPSKIPJUMP'])
 
-n_samples = 10
+n_samples = 100
 adv_dataset_soft = generate_adv_datsets(model_logit,x_test, y_test, n=n_samples,
-                                        attack_list=['FGSM','SIMBA','HOPSKIPJUMP','OPYT'], dim=
+                                        attack_list=['OPYT'], dim=
                                         (n_samples, dim[1], dim[2],dim[3]), seed=0)
 
 #evals = evaluate_classifier(model_logit, adv_dataset_soft)
@@ -182,7 +182,7 @@ for key in adv_dataset_soft:
     if '_X' not in key and '_Y' not in key:
         logger.info(f'{key} : {adv_dataset_soft[key]}')
 
-save_dataset(adv_dataset_soft,'soft/')
+save_dataset(adv_dataset_soft,'test_MODAOA_100/')
 
 
 

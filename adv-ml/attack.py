@@ -338,8 +338,9 @@ def get_adv_opyt_example(model, x_clean, y_clean,
   dist = l_2_dist(x_clean, x_adv)
   adv_pred = np.argmax(model.predict(x_adv.reshape(dim)))
   #eval_count += 1 # 1 for above prediction!
-  attack_succ = np.argmax(y_clean) != adv_pred
-  logger.info(f"Exploration Phase#1 Result: Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}\n")
+  attack_succ = np.argmax(y_clean) != adv_pred and dist <= max_l_2
+  logger.info(f'Prediction Not Equal?: {np.argmax(y_clean) != adv_pred }')
+  logger.info(f"Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}\n")
   #logger.info(f"Inequality constraint count: {inequality_constraint.count}")
 
   # if(attack_succ == True):

@@ -156,7 +156,7 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
                                                            iterations=60,
                                                            epsilon=.05,
                                                            agents=30,
-                                                           max_l_2=2,
+                                                           max_l_2=1,
                                                            l_2_mul=0.5,
                                                            dim=dim
                                                            )

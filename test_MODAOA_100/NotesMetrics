@@ -1,0 +1,58 @@
+amirmukeri@Amirs-MacBook-Pro ~/opytimizer (master)> grep 'Attack result:True' test_MODAOA_100/CIFAR\ 100\ Examples.txt | grep '{'
+2021-06-23 20:47:57,561 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.9679, 'L-INF': 0.0484, 'WS': 0.0044, 'ssim': 0.9806, 'psnr': 35.1572}, L2_Iters: 60
+2021-06-23 21:12:52,036 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.9322, 'L-INF': 0.0471, 'WS': 0.0037, 'ssim': 0.9837, 'psnr': 35.484}, L2_Iters: 60
+2021-06-23 21:31:41,234 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.8506, 'L-INF': 0.0824, 'WS': 0.0104, 'ssim': 0.9913, 'psnr': 36.2793}, L2_Iters: 60
+2021-06-23 23:37:08,671 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.5322, 'L-INF': 0.0493, 'WS': 0.0041, 'ssim': 0.9951, 'psnr': 40.3523}, L2_Iters: 60
+2021-06-24 00:21:21,288 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.9829, 'L-INF': 0.0396, 'WS': 0.0025, 'ssim': 0.9709, 'psnr': 35.0242}, L2_Iters: 60
+2021-06-24 00:40:16,445 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.9066, 'L-INF': 0.0902, 'WS': 0.0117, 'ssim': 0.9941, 'psnr': 35.7256}, L2_Iters: 60
+2021-06-24 01:05:29,162 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.5483, 'L-INF': 0.038, 'WS': 0.0033, 'ssim': 0.9909, 'psnr': 40.0944}, L2_Iters: 60
+2021-06-24 01:30:44,863 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.8876, 'L-INF': 0.0627, 'WS': 0.0073, 'ssim': 0.9741, 'psnr': 35.91}, L2_Iters: 60
+2021-06-24 02:02:18,124 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.3474, 'L-INF': 0.0469, 'WS': 0.0038, 'ssim': 0.9967, 'psnr': 44.0576}, L2_Iters: 60
+2021-06-24 02:52:48,758 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.4862, 'L-INF': 0.0627, 'WS': 0.0031, 'ssim': 0.9961, 'psnr': 41.1388}, L2_Iters: 60
+2021-06-24 03:43:21,962 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.4234, 'L-INF': 0.0503, 'WS': 0.0044, 'ssim': 0.9963, 'psnr': 42.3389}, L2_Iters: 60
+2021-06-24 05:18:08,094 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.6993, 'L-INF': 0.0361, 'WS': 0.0063, 'ssim': 0.9748, 'psnr': 37.9813}, L2_Iters: 60
+amirmukeri@Amirs-MacBook-Pro ~/opytimizer (master)> grep 'Attack result:True' test_MODAOA_100/CIFAR\ 100\ Examples.txt | grep '{' | wc -l
+      12
+amirmukeri@Amirs-MacBook-Pro ~/opytimizer (master)> grep 'Attack result:True' test_MODAOA_100/CIFAR\ 100\ Examples.txt | grep '{' | wc -l^C
+amirmukeri@Amirs-MacBook-Pro ~/opytimizer (master)> grep 'Attack result:True' test_MODAOA_100/CIFAR\ 100\ Examples.txt | grep '{' |awk -F':' '{print $7}'
+ 0.9679, 'L-INF'
+ 0.9322, 'L-INF'
+ 0.8506, 'L-INF'
+ 0.5322, 'L-INF'
+ 0.9829, 'L-INF'
+ 0.9066, 'L-INF'
+ 0.5483, 'L-INF'
+ 0.8876, 'L-INF'
+ 0.3474, 'L-INF'
+ 0.4862, 'L-INF'
+ 0.4234, 'L-INF'
+ 0.6993, 'L-INF'
+amirmukeri@Amirs-MacBook-Pro ~/opytimizer (master)> grep 'Attack result:True' test_MODAOA_100/CIFAR\ 100\ Examples.txt | grep '{' |awk -F':' '{print $7}'|awk -F',' '{print $0}'
+ 0.9679, 'L-INF'
+ 0.9322, 'L-INF'
+ 0.8506, 'L-INF'
+ 0.5322, 'L-INF'
+ 0.9829, 'L-INF'
+ 0.9066, 'L-INF'
+ 0.5483, 'L-INF'
+ 0.8876, 'L-INF'
+ 0.3474, 'L-INF'
+ 0.4862, 'L-INF'
+ 0.4234, 'L-INF'
+ 0.6993, 'L-INF'
+amirmukeri@Amirs-MacBook-Pro ~/opytimizer (master)> grep 'Attack result:True' test_MODAOA_100/CIFAR\ 100\ Examples.txt | grep '{' |awk -F':' '{print $7}'|awk -F',' '{print $1}'
+ 0.9679
+ 0.9322
+ 0.8506
+ 0.5322
+ 0.9829
+ 0.9066
+ 0.5483
+ 0.8876
+ 0.3474
+ 0.4862
+ 0.4234
+ 0.6993
+amirmukeri@Amirs-MacBook-Pro ~/opytimizer (master)> grep 'Attack result:True' test_MODAOA_100/CIFAR\ 100\ Examples.txt | grep '{' |awk -F':' '{print $7}'|awk -F',' '{print $1}' | awk '{ sum += $0; n++ } END { if (n > 0) print sum / n; }'
+0.713717
+amirmukeri@Amirs-MacBook-Pro ~/opytimizer (master)> 

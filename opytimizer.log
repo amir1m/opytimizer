@@ -1,0 +1,2 @@
+2021-06-24 06:40:15,434 - opytimizer.optimizers.science.wwo — INFO — OPYT_accu : 0.61
+2021-06-24 06:40:15,435 - opytimizer.optimizers.science.wwo — INFO — OPYT_dist : {'L2': 15.3184, 'L-INF': 0.302, 'WS': 0.0137, 'ssim': 0.9566, 'psnr': 27.0806}

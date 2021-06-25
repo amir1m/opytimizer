@@ -1,0 +1,11 @@
+With Max l2 = 2, Bounds 0-0.25
+grep  'Prediction Not Equal?: True' opytimizer.log | wc -l
+      47
+Mean l2 : 1.617611268016677
+
+========
+grep  'Attack result:True' opytimizer.log | wc -l
+      36
+
+grep  'Attack result:True' opytimizer.log | awk -F':' '{print $7}'|awk -F',' '{print $1}' | awk '{ sum += $0; n++ } END { if (n > 0) print sum / n; }'
+      0.971725

@@ -1620,6 +1620,236 @@ DE MNIST
 Total Examples: 10, Iterations:3000, espilon: 0.1 and Max-L2:2 
 Accuracy: 100.0 Mean L2 Counted: 1.6033242296849237 Query: 3000.0
 ===
+MODAOA Alone, worst examples:
+31 4.433
+68 6.737
+83 6.66
+85 4.4
+
+====
+CSO
+1.841634568076101
+1.4846933278742058
+1.762743610140263
+1.108936081401974
+
+IOT 60CR SME IPO
+WORKING CAPITAL, SUPPLIER TURNED TO EQUITY 
+100 CR 
+CCTV
+
+jcs technologies
+
+===============
+Only MODAOA
+Attack success only when L2 less than max l2
+
+grep 'Exploration Phase#1 Result: Attack result:True' opytimizer.log| awk -F',' '{print $3}' | awk -F':' '{print $3}' | awk '{ sum += $0; n++ } END { if (n > 0) print sum / n; }'
+0.950371
+
+Attack result:True, Queries: 1830 All Dist:{'L2': 1.0443, 'L-INF': 0.0488, 'WS': 0.0052, 'ssim': 0.9781, 'psnr': 34.4975}, L2_Iters: 60
+Attack result:True, Queries: 1830 All Dist:{'L2': 0.8564, 'L-INF': 0.0414, 'WS': 0.0044, 'ssim': 0.985, 'psnr': 36.2205}, L2_Iters: 60
+
+Total Examples: 10, Iterations:60, espilon: 0.05 and Max-L2:2 Agents: 30 l_2_mul: 0.5
+Accuracy:  Mean L2 Counted: 1.7611259751699468 Query: 1830.0
+============
+Only CSO
+
+Total Examples: 10, Iterations:60, espilon: 0.1 and Max-L2:2 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.5 Mean L2 Counted: 2.3631778826921233 Query: 5430.0
+
+Attack result:True, Queries: 5430 All Dist:{'L2': 1.8416, 'L-INF': 0.0767, 'WS': 0.0156, 'ssim': 0.9484, 'psnr': 29.5701}, L2_Iters: 60
+Attack result:True, Queries: 5430 All Dist:{'L2': 1.6372, 'L-INF': 0.0865, 'WS': 0.0153, 'ssim': 0.9506, 'psnr': 30.5924}, L2_Iters: 60
+Attack result:True, Queries: 5430 All Dist:{'L2': 1.7627, 'L-INF': 0.1137, 'WS': 0.0207, 'ssim': 0.941, 'psnr': 29.9504}, L2_Iters: 60
+Attack result:True, Queries: 5430 All Dist:{'L2': 1.0676, 'L-INF': 0.0569, 'WS': 0.0071, 'ssim': 0.9775, 'psnr': 34.3061}, L2_Iters: 60
+
+1 HR+
+==================
+Only CSO with Max L2 = 1
+2021-06-19 22:26:31,155 - attack_utils — INFO — Attack result:True, Queries: 5430 All Dist:{'L2': 0.8516, 'L-INF': 0.0432, 'WS': 0.0074, 'ssim': 0.9824, 'psnr': 36.27}, L2_Iters: 60
+2021-06-19 22:58:14,350 - attack_utils — INFO — Attack result:True, Queries: 5430 All Dist:{'L2': 0.6053, 'L-INF': 0.0262, 'WS': 0.0024, 'ssim': 0.9923, 'psnr': 39.2345}, L2_Iters: 60
+
+Total Examples: 10, Iterations:60, espilon: 0.05 and Max-L2:1 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.699999988079071 Mean L2 Counted: 1.6585090524713024 Query: 5430.0
+====
+MODAOA
+Total Examples: 10, Iterations:80, espilon: 0.05 and Max-L2:1 Agents: 40 l_2_mul: 0.5
+
+Attack result:True, Queries: 3240 All Dist:{'L2': 0.9316, 'L-INF': 0.0493, 'WS': 0.0042, 'ssim': 0.9809, 'psnr': 35.49}, L2_Iters: 80
+Attack result:True, Queries: 3240 All Dist:{'L2': 0.7407, 'L-INF': 0.051, 'WS': 0.0049, 'ssim': 0.9871, 'psnr': 37.4815}, L2_Iters: 80
+=========
+CSO
+Total Examples: 10, Iterations:70, espilon: 0.05 and Max-L2:1 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.699999988079071 Mean L2 Counted: 1.6232189601532556 Query: 6330.0
+
+Attack result:True, Queries: 6330 All Dist:{'L2': 0.6702, 'L-INF': 0.0281, 'WS': 0.0036, 'ssim': 0.9914, 'psnr': 38.3506}, L2_Iters: 70
+Attack result:True, Queries: 6330 All Dist:{'L2': 0.8806, 'L-INF': 0.0413, 'WS': 0.0069, 'ssim': 0.9811, 'psnr': 35.9788}, L2_Iters: 70
+1 1/2 hrs
+============
+AOA:
+Attack result:True, Queries: 3240 All Dist:{'L2': 0.9325, 'L-INF': 0.0429, 'WS': 0.0035, 'ssim': 0.9825, 'psnr': 35.4816}, L2_Iters: 80
+Total Examples: 10, Iterations:80, espilon: 0.05 and Max-L2:1 Agents: 40 l_2_mul: 0.5
+Accuracy: 0.699999988079071 Mean L2 Counted: 1.8051403152776928 Query: 3240.0
+
+=============
+ModAOA
+Total Examples: 10, Iterations:60, espilon: 0.1 and Max-L2:1 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.6000000238418579 Mean L2 Counted: 2.4351927364113575 Query: 1830.0
+Attack result:True, Queries: 1830 All Dist:{'L2': 0.8546, 'L-INF': 0.1038, 'WS': 0.0057, 'ssim': 0.984, 'psnr': 36.2385}, L2_Iters: 60
+====
+ModAOA
+Total Examples: 10, Iterations:70, espilon: 0.05 and Max-L2:1 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.699999988079071 Mean L2 Counted: 1.6764608795423723 Query: 2130.0
+Attack result:True, Queries: 2130 All Dist:{'L2': 0.85, 'L-INF': 0.0471, 'WS': 0.0037, 'ssim': 0.9852, 'psnr': 36.286}, L2_Iters: 70
+
+=========
+MODAOA:
+=========
+Modified eval*
+
+2 out of 10 : Bound 0 - 0.1 and epsilon 1. 3 total with with 1 having max_l2>1
+Attack result:True, Queries: 1830 All Dist:{'L2': 0.9343, 'L-INF': 0.1, 'WS': 0.0093, 'ssim': 0.9875, 'psnr': 35.4648}, L2_Iters: 60
+Attack result:True, Queries: 1830 All Dist:{'L2': 0.8703, 'L-INF': 0.1, 'WS': 0.0073, 'ssim': 0.9776, 'psnr': 36.0803}, L2_Iters: 60
+-----
+10 out of 10 was attacked successful but l2 > max_l2 : Bound 0 - 0.5 and epsilon 1.
+Total Examples: 10, Iterations:60, espilon: 1 and Max-L2:1 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.0 Mean L2 Counted: 3.7882740976047247 Query: 1830.0
+----
+Bound 0 - 0.25 and epsilon 1
+6/10 successful but l2 exceeded 1, avg L2 of successful:2.25:
+Total Examples: 10, Iterations:60, espilon: 1 and Max-L2:1 Agents: 30 l_2_mul: 0.5
+Accuracy: 0.4000000059604645 Mean L2 Counted: 3.11886154726614 Query: 1830.0
+
+Prediction Not Equal?: True
+2021-06-24 18:20:39,780 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 3.5904, 'L-INF': 0.25, 'WS': 0.0323, 'ssim': 0.8916, 'psnr': 23.7715}, L2_Iters: 60
+
+Prediction Not Equal?: True
+2021-06-24 18:38:38,004 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 2.2386, 'L-INF': 0.25, 'WS': 0.017, 'ssim': 0.9245, 'psnr': 27.8746}, L2_Iters: 60
+
+Prediction Not Equal?: True
+2021-06-24 19:05:26,627 - attack_utils — INFO — Attack result:True, Queries: 1830 All Dist:{'L2': 0.9089, 'L-INF': 0.25, 'WS': 0.0069, 'ssim': 0.9839, 'psnr': 35.704}, L2_Iters: 60
+
+Prediction Not Equal?: True
+2021-06-24 19:13:53,712 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.0929, 'L-INF': 0.25, 'WS': 0.0085, 'ssim': 0.9688, 'psnr': 34.1023}, L2_Iters: 60
+
+Prediction Not Equal?: True
+2021-06-24 19:21:54,319 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 4.5117, 'L-INF': 0.25, 'WS': 0.045, 'ssim': 0.7631, 'psnr': 21.7875}, L2_Iters: 60
+
+Prediction Not Equal?: True
+2021-06-24 19:36:33,237 - attack_utils — INFO — Attack result:False, Queries: 1830 All Dist:{'L2': 1.1712, 'L-INF': 0.25, 'WS': 0.009, 'ssim': 0.9834, 'psnr': 33.5019}, L2_Iters: 60
+
+1 hr 15 minutes
+-------------
+*Score Based
+Bound 0 - 0.25 and epsilon 1 with reduced iterations 820, 
+4/10 successful but l2 exceeded 1, avg L2 of successful:1.372
+
+Total Examples: 10, Iterations:40, espilon: 1 and Max-L2:1 Agents: 20 l_2_mul: 0.5
+Accuracy: 0.6000000238418579 Mean L2 Counted: 2.959871426572902 Query: 820.0
+
+Prediction Not Equal?: True
+2021-06-24 19:54:00,183 - attack_utils — INFO — Attack result:False, Queries: 820 All Dist:{'L2': 1.9945, 'L-INF': 0.25, 'WS': 0.0154, 'ssim': 0.9481, 'psnr': 28.8776}, L2_Iters: 40
+
+Prediction Not Equal?: True
+2021-06-24 20:04:00,920 - attack_utils — INFO — Attack result:True, Queries: 820 All Dist:{'L2': 0.8118, 'L-INF': 0.25, 'WS': 0.0061, 'ssim': 0.9873, 'psnr': 36.6848}, L2_Iters: 40
+
+Prediction Not Equal?: True
+2021-06-24 20:07:16,750 - attack_utils — INFO — Attack result:False, Queries: 820 All Dist:{'L2': 1.3988, 'L-INF': 0.25, 'WS': 0.0108, 'ssim': 0.9488, 'psnr': 31.959}, L2_Iters: 40
+
+Prediction Not Equal?: True
+2021-06-24 20:18:30,621 - attack_utils — INFO — Attack result:False, Queries: 820 All Dist:{'L2': 1.283, 'L-INF': 0.25, 'WS': 0.0107, 'ssim': 0.9783, 'psnr': 32.7095}, L2_Iters: 40
+
+30 minutes
+--------
+CSO:Modified eval* and bound 0 - 0.25
+Total Examples: 10, Iterations:40, espilon: 1 and Max-L2:1 Agents: 20 l_2_mul: 0.5
+Accuracy: 0.4000000059604645 Mean L2 Counted: 7.732784721206625 Query: 2420.0
+------
+Back to ModAOA with modified max-l_2 = 2 and bounds back to 0 - 0.5
+
+HARD LABEL mean l2 = 4.6:0 - 0.5
+Total Examples: 10, Iterations:40, espilon: 1 and Max-L2:2 Agents: 20 l_2_mul: 0.5
+Accuracy: 0.20000000298023224 Mean L2 Counted: 6.614302740446488 Query: 820.0
+
+-----
+*
+HARD LABEL mean l2 = 1.27:0 - 0.25
+4/10
+Total Examples: 10, Iterations:40, espilon: 1 and Max-L2:2 Agents: 20 l_2_mul: 0.5
+Accuracy: 0.6000000238418579 Mean L2 Counted: 4.927293198322037 Query: 820.0
+2021-06-24 23:08:52,252 - opytimizer.optimizers.science.wwo — INFO — OPYT_accu : 0.6
+2021-06-24 23:08:52,252 - opytimizer.optimizers.science.wwo — INFO — OPYT_dist : {'L2': 2.7138, 'L-INF': 0.25, 'WS': 0.0097, 'ssim': 0.9685, 'psnr': 32.2232}
+
+Just change the norm, from L2 to L Inf : Gives very high L2 norm, aborting.
+
+Back to Score Based attack, Bound: 0-0.25, Mean L2 : 2.286379073155337 : return float(10*np.amax(predictions) + 10)
+Total Examples: 10, Iterations:20, espilon: 1 and Max-L2:2 Agents: 10 l_2_mul: 0.5
+Accuracy: 0.6000000238418579 Mean L2 Counted: 3.4409097199239618 Query: 210.0
+Time : 8 minutes
+----
+*
+Back to Hard Label Attack, L2 norm , 0 - 0.25 , Mean l2: 2.14, reduced queries to 210:
+3/10
+Total Examples: 10, Iterations:20, espilon: 1 and Max-L2:2 Agents: 10 l_2_mul: 0.5
+Accuracy: 0.699999988079071 Mean L2 Counted: 5.864225546113564 Query: 210.0
+2021-06-24 23:52:34,815 - opytimizer.optimizers.science.wwo — INFO — OPYT_accu : 0.7
+2021-06-24 23:52:34,815 - opytimizer.optimizers.science.wwo — INFO — OPYT_dist : {'L2': 4.1885, 'L-INF': 0.25, 'WS': 0.0171, 'ssim': 0.926, 'psnr': 27.2043}
+---
+Just increase the boundary to 0 - 0.5 for hard label attack above, mean l2 5.5:
+6/10
+Total Examples: 10, Iterations:20, espilon: 1 and Max-L2:2 Agents: 10 l_2_mul: 0.5
+Accuracy: 0.4000000059604645 Mean L2 Counted: 8.751326453157048 Query: 210.0
+
+2021-06-25 00:05:13,000 - opytimizer.optimizers.science.wwo — INFO — OPYT_accu : 0.4
+2021-06-25 00:05:13,002 - opytimizer.optimizers.science.wwo — INFO — OPYT_dist : {'L2': 15.8013, 'L-INF': 0.5, 'WS': 0.0477, 'ssim': 0.7632, 'psnr': 18.6818}
+---
+Hard Label, new bound 0 - 0.15,l2 2.18 
+1/10
+Total Examples: 10, Iterations:20, espilon: 1 and Max-L2:2 Agents: 10 l_2_mul: 0.5
+Accuracy: 0.8999999761581421 Mean L2 Counted: 4.341772092848859 Query: 210.0
+
+2021-06-25 00:16:58,410 - opytimizer.optimizers.science.wwo — INFO — OPYT_accu : 0.9
+2021-06-25 00:16:58,410 - opytimizer.optimizers.science.wwo — INFO — OPYT_dist : {'L2': 2.1869, 'L-INF': 0.15, 'WS': 0.0208, 'ssim': 0.9375, 'psnr': 28.0776}
+----
+Overnight:
+Bounds 0-0.25
+Total Examples: 100, Iterations:40, espilon: 1 and Max-L2:2 Agents: 20 l_2_mul: 0.5
+Accuracy: 0.5299999713897705 Mean L2 Counted: 4.80278205053893 Query: 820.0
+
+2021-06-25 06:09:29,620 - opytimizer.optimizers.science.wwo — INFO — OPYT_accu : 0.53
+2021-06-25 06:09:29,620 - opytimizer.optimizers.science.wwo — INFO — OPYT_dist : {'L2': 15.4208, 'L-INF': 0.25, 'WS': 0.0147, 'ssim': 0.939, 'psnr': 27.8331}
+
+Mean L2 Dist.:  1.617611268016677
+
+Time: 5 hours
+------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

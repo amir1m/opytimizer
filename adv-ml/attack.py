@@ -153,9 +153,9 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
       loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model,
                                                            x_test_random,
                                                            y_test_random,
-                                                           iterations=60,
-                                                           epsilon=.05,
-                                                           agents=30,
+                                                           iterations=40,
+                                                           epsilon=1,
+                                                           agents=20,
                                                            max_l_2=2,
                                                            l_2_mul=0.5,
                                                            dim=dim
@@ -192,7 +192,8 @@ def process_digit(x_clean, x_prop, epsilon, dim=(1,28,28,1)):
   # logger.info(f"X PROP SHAPE:{x_prop.shape}")
   x_clean_ravel = np.copy(x_clean.ravel())
   x_clean_ravel += x_prop * epsilon
-  x_clean_ravel = (x_clean_ravel-min(x_clean_ravel)) / (max(x_clean_ravel)-min(x_clean_ravel))
+  #x_clean_ravel = (x_clean_ravel-min(x_clean_ravel)) / (max(x_clean_ravel)-min(x_clean_ravel))
+  x_clean_ravel = x_clean_ravel.clip(0,1)
   return x_clean_ravel.reshape(dim)
 
 # TAKES ARGUMENTS
@@ -285,13 +286,16 @@ def get_adv_opyt_example(model, x_clean, y_clean,
     dist = float(l_2_dist(x_clean, x_adv))
     #dist = np.exp(-(l_2_dist(x_clean, x_adv)**2)/2)
     if(result != actual):
-      if (dist > max_l_2):
-        return float(dist) * 10
-      else:
-        return float(dist)
+      # if (dist > max_l_2):
+      #   return float(dist) * 10
+      # else:
+      #   return float(dist)
+      return float(dist)
     else:
-      predictions.sort()
-      return float(10*(predictions[-1] - predictions[-2]) + 10 * dist)
+      #predictions.sort()
+      #return float(10*(predictions[-1] - predictions[-2]) + 10 * dist)
+      #return float(10*np.amax(predictions) + 10)
+      return 100
 
   def l_2_constraint(x):
     return l_2_dist(x_clean, x) < max_l_2
@@ -312,7 +316,7 @@ def get_adv_opyt_example(model, x_clean, y_clean,
   lower_bound = np.empty(n_variables)
   lower_bound.fill(0)
   upper_bound = np.empty(n_variables)
-  upper_bound.fill(1)
+  upper_bound.fill(0.25)
 
   #Creates the optimizer
   params={'model':model, 'x_clean':x_clean, 'x_adv': None,
@@ -338,8 +342,8 @@ def get_adv_opyt_example(model, x_clean, y_clean,
   dist = l_2_dist(x_clean, x_adv)
   adv_pred = np.argmax(model.predict(x_adv.reshape(dim)))
   #eval_count += 1 # 1 for above prediction!
-  attack_succ = np.argmax(y_clean) != adv_pred
-  logger.info(f"Exploration Phase#1 Result: Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}\n")
+  attack_succ = np.argmax(y_clean) != adv_pred and dist <= max_l_2
+  logger.info(f'Prediction Not Equal?: {np.argmax(y_clean) != adv_pred }')
   #logger.info(f"Inequality constraint count: {inequality_constraint.count}")
 
   # if(attack_succ == True):

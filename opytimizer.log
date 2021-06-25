@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2021-06-25 00:50:25,284 - attack_utils — INFO — x_test_random shape:(100, 32, 32, 3) and y_test_random shape:(100, 10)
 2021-06-25 00:50:25,285 - attack_utils — INFO — Generating adv examples using attack OPYT
 2021-06-25 00:50:25,285 - attack_utils — INFO — 
@@ -9512,3 +9513,7 @@ Accuracy: 0.5299999713897705 Mean L2 Counted: 4.80278205053893 Query: 820.0
 2021-06-25 06:09:29,886 - attack_utils — INFO — Saving: CLEAN_Y, filename:soft/CLEAN_Y.csv
 2021-06-25 06:09:29,888 - attack_utils — INFO — Saving : OPYT_X, filename:soft/OPYT_X.csv
 2021-06-25 06:09:30,182 - attack_utils — INFO — Saving: OPYT_Y, filename:soft/OPYT_Y.csv
+=======
+2021-06-24 06:40:15,434 - opytimizer.optimizers.science.wwo — INFO — OPYT_accu : 0.61
+2021-06-24 06:40:15,435 - opytimizer.optimizers.science.wwo — INFO — OPYT_dist : {'L2': 15.3184, 'L-INF': 0.302, 'WS': 0.0137, 'ssim': 0.9566, 'psnr': 27.0806}
+>>>>>>> 0c4b3e528a9ac2abd3e950130bcbc3a0d4ee3820

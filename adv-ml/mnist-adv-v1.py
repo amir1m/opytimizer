@@ -182,7 +182,7 @@ for key in adv_dataset_soft:
     if '_X' not in key and '_Y' not in key:
         logger.info(f'{key} : {adv_dataset_soft[key]}')
 
-save_dataset(adv_dataset_soft,'soft/')
+save_dataset(adv_dataset_soft,'test_MODAOA_100/')
 
 
 

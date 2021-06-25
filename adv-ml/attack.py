@@ -153,10 +153,17 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
       loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model,
                                                            x_test_random,
                                                            y_test_random,
+<<<<<<< HEAD
                                                            iterations=40,
                                                            epsilon=1,
                                                            agents=20,
                                                            max_l_2=2,
+=======
+                                                           iterations=60,
+                                                           epsilon=.05,
+                                                           agents=30,
+                                                           max_l_2=1,
+>>>>>>> 0c4b3e528a9ac2abd3e950130bcbc3a0d4ee3820
                                                            l_2_mul=0.5,
                                                            dim=dim
                                                            )
@@ -344,6 +351,10 @@ def get_adv_opyt_example(model, x_clean, y_clean,
   #eval_count += 1 # 1 for above prediction!
   attack_succ = np.argmax(y_clean) != adv_pred and dist <= max_l_2
   logger.info(f'Prediction Not Equal?: {np.argmax(y_clean) != adv_pred }')
+<<<<<<< HEAD
+=======
+  logger.info(f"Attack result:{attack_succ}, Queries: {eval_count} Dist:{dist}\n")
+>>>>>>> 0c4b3e528a9ac2abd3e950130bcbc3a0d4ee3820
   #logger.info(f"Inequality constraint count: {inequality_constraint.count}")
 
   # if(attack_succ == True):

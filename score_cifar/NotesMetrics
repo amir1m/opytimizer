@@ -1,0 +1,12 @@
+grep 'Prediction Not Equal?: True' opytimizer.log | wc -l
+      69
+Mean L2:1.99
+
+--------
+grep 'Attack result:True' opytimizer.log | wc -l
+      37
+
+grep  'Attack result:True' opytimizer.log | awk -F':' '{print $7}'|awk -F',' '{print $1}' | awk '{ sum += $0; n++ } END { if (n > 0) print sum / n; }'
+      0.979522
+
+Time: 5 and 1/2 hours

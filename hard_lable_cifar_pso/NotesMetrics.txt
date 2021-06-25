@@ -1,0 +1,10 @@
+grep  'Prediction Not Equal?: True' opytimizer.log | wc -l
+      49
+
+Mean L2: 7.3
+===
+0 attacks with l2 less than 2
+grep  'Attack result:True' opytimizer.log | wc -l         (opyt) 
+       0
+
+1 and half hours

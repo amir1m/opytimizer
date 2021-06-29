@@ -176,7 +176,7 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
       loss, l_2_mean, query_mean, x_test_opyt = get_opyt_target_adv(model,
                                                            x_test_random,
                                                            y_test_random,
-                                                           iterations=40,
+                                                           iterations=20,
                                                            epsilon=1,
                                                            agents=20,
                                                            max_l_2=3,
@@ -500,12 +500,14 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
   #n_variables = 1
   # Lower and upper bounds (has to be the same size as `n_variables`)
   lower_bound = np.empty(n_variables)
-  lower_bound.fill(-15.5)
+  lower_bound.fill(-2)
   upper_bound = np.empty(n_variables)
-  upper_bound.fill(15.5)
+  upper_bound.fill(0)
 
   x_clean_mod =  x_clean * x_target
-  if np.argmax(model.predict(x_clean_mod.reshape(dim))[0]) != target_label:
+  pred = np.argmax(model.predict(x_clean_mod.reshape(dim)))
+  logger.info(f'pred: {pred}')
+  if  pred != target_label:
     logger.info(f'Couldn\'t generate targetted attack')
     #return x_clean_mod.clip(0,1), eval_count, l_2_dist(x_original, x_clean_mod)
 
@@ -555,15 +557,23 @@ def get_opyt_target_adv(model, x_test_random, y_test_random,
   l_2 = []
   for i in range(no_samples):
     i=1
+    target = None
     logger.info(f"Generating example:{i}")
     y_clean_label = np.argmax(y_test_random[i])
     logger.info(f'y_clean_label:{y_clean_label}')
     t = np.where(y_all_labels != y_clean_label)[0]
     logger.info(f't : {t}')
-    target = np.random.choice(t, size=1)
-    logger.info(f'target:{target}')
-    x_target = x_test_random[target]
-    y_target = y_test_random[target]
+    min_l_2 = 100
+    min_ind = None
+    for ind in t:
+      curr_l_2 = l_2_dist(x_test_random[i], x_test_random[ind])
+      if curr_l_2 < min_l_2:
+        min_l_2 = curr_l_2
+        min_ind = ind
+    #target = np.random.choice(t, size=1)
+    logger.info(f'min_ind:{min_ind}')
+    x_target = x_test_random[min_ind]
+    y_target = y_test_random[min_ind]
     adv_nvg[i], count, dist = get_adv_opyt_target_example(model,
                                                   x_test_random[i],
                                                   y_test_random[i],

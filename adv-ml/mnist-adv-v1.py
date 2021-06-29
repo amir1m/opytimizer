@@ -101,9 +101,9 @@ model_logit = load_model('adv-ml/models/'+dataset)
 # n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 # logger.info("SEED: 0")
 
-# n_samples = 2
-# x_test_random, y_test_random, rand_ind = get_random_correct_samples(
-# n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
+n_samples = 2
+x_test_random, y_test_random, rand_ind = get_random_correct_samples(
+n_samples, x_test, y_test, model_logit.predict(x_test), seed = 0)
 
 # x_test_random, y_test_random, rand_ind = get_random_correct_samples(
 # n_samples, x_test, y_test, model_cifar.predict(x_test), seed = 0)
@@ -142,11 +142,9 @@ dim = x_test.shape
 #                                                      dim=dim
 #                                                      )
 
-# y_target = np.array([5, 8, 1, 3, 6])
 # loss, l_2_mean, query_mean, x_test_opyt = get_opyt_target_adv(model_logit,
 #                                                      x_test_random,
 #                                                      y_test_random,
-#                                                      y_target=y_target,
 #                                                      iterations=25,
 #                                                      epsilon=1.1,
 #                                                      agents=25,
@@ -159,7 +157,7 @@ dim = x_test.shape
 #                                                      x_test_random,
 #                                                      y_test_random,
 #                                                      iterations=3000,
-#                                                      epsilon=.1,
+#                                                      epsilon=1,
 #                                                      max_l_2=2,
 #                                                      dim=dim
 #                                                      )
@@ -171,7 +169,7 @@ dim = x_test.shape
 
 n_samples = 2
 adv_dataset_soft = generate_adv_datsets(model_logit,x_test, y_test, n=n_samples,
-                                        attack_list=['OPYT'], dim=
+                                        attack_list=['OPYT_TARGET'], dim=
                                         (n_samples, dim[1], dim[2],dim[3]), seed=0)
 
 #evals = evaluate_classifier(model_logit, adv_dataset_soft)
@@ -182,13 +180,13 @@ for key in adv_dataset_soft:
     if '_X' not in key and '_Y' not in key:
         logger.info(f'{key} : {adv_dataset_soft[key]}')
 
-save_dataset(adv_dataset_soft,'test_MODAOA_100/')
+save_dataset(adv_dataset_soft,'target_opyt/')
 
 
 
 
-# np.savetxt('x_test_random_'+dataset+'.csv', x_test_random.reshape((dim[0], dim[1]*dim[2]*dim[3])), delimiter=',')
+# np.savetxt('x_test_random_'+dataset+'.csv', x_test_random.reshape((n_samples, dim[1]*dim[2]*dim[3])), delimiter=',')
 # np.savetxt('y_test_random_'+dataset+'.csv', y_test_random, delimiter=',')
 #
-# np.savetxt('x_test_opyt_'+dataset+'.csv', x_test_opyt.reshape((dim[0], dim[1]*dim[2]*dim[3])), delimiter=',')
+# np.savetxt('x_test_opyt_'+dataset+'.csv', x_test_opyt.reshape((n_samples, dim[1]*dim[2]*dim[3])), delimiter=',')
 # np.savetxt('y_pred_opyt_'+dataset+'.csv', model_logit.predict(x_test_opyt), delimiter=',')

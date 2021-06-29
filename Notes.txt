@@ -1823,28 +1823,25 @@ Mean L2 Dist.:  1.617611268016677
 
 Time: 5 hours
 ------
+PSO 100 examples:
+grep  'Prediction Not Equal?: True' opytimizer.log | wc -l
+      49
 
+Mean L2: 7.3
+===
+0 attacks with l2 less than 2
+grep  'Attack result:True' opytimizer.log | wc -l         (opyt) 
+       0
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+1 and half hours
+------
+==============================================================
+Targeted Attack
+==============================================================
+Bounds : -1 1
+1 out of 2 successful attack
+Prediction:8 and Target:8
+2021-06-28 21:39:50,599 - attack_utils — INFO — Attack result:True, Queries: 820 All Dist:{'L2': 0.9597, 'L-INF': 0.7942, 'WS': 0.0004, 'ssim': 0.9962, 'psnr': 35.2317}, L2_Iters: 40
 
 
 

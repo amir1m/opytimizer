@@ -153,9 +153,9 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
       loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model,
                                                            x_test_random,
                                                            y_test_random,
-                                                           iterations=40,
+                                                           iterations=60,
                                                            epsilon=1,
-                                                           agents=20,
+                                                           agents=30,
                                                            max_l_2=2,
                                                            l_2_mul=0.5,
                                                            dim=dim
@@ -500,11 +500,14 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
   #n_variables = 1
   # Lower and upper bounds (has to be the same size as `n_variables`)
   lower_bound = np.empty(n_variables)
-  lower_bound.fill(-1)
+  lower_bound.fill(-15.5)
   upper_bound = np.empty(n_variables)
-  upper_bound.fill(1)
+  upper_bound.fill(15.5)
 
-  x_clean_mod = x_clean + x_target * 0.25
+  x_clean_mod =  x_clean * x_target
+  if np.argmax(model.predict(x_clean_mod.reshape(dim))[0]) != target_label:
+    logger.info(f'Couldn\'t generate targetted attack')
+    #return x_clean_mod.clip(0,1), eval_count, l_2_dist(x_original, x_clean_mod)
 
   #Creates the optimizer
   params={'model':model, 'x_clean':x_clean_mod, 'x_adv': None,

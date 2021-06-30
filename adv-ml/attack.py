@@ -224,7 +224,7 @@ def process_image_target(x_clean, x_prop, x_target, epsilon, dim=(1,28,28,1)):
   # logger.info(f"X CLEAN SHAPE:{x_clean.shape}")
   # logger.info(f"X PROP SHAPE:{x_prop.shape}")
   x_clean_ravel = np.copy(x_clean.ravel())
-  x_clean_ravel +=  x_clean_ravel - x_prop
+  x_clean_ravel =  x_clean_ravel - x_prop
   #x_clean_ravel = (x_clean_ravel-min(x_clean_ravel)) / (max(x_clean_ravel)-min(x_clean_ravel))
   x_clean_ravel = x_clean_ravel.clip(0,1)
   return x_clean_ravel.reshape(dim)
@@ -466,9 +466,20 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
   x_adv = None
   x_clean_mod = np.copy(x_clean)
   x_original = np.copy(x_clean)
-  l2_iter = round(iterations)
+  l2_iter = round(iterations*2)
   target_label = np.argmax(y_target)
   logger.info(f'Clean:{np.argmax(y_clean)} and Target:{target_label}')
+
+  def minimize_l_2(x):
+    nonlocal eval_count
+    eval_count += 1
+    predictions = model.predict(x.reshape(dim))[0]
+    result = np.argmax(predictions)
+    if(result == target_label):
+      return float(l_2_dist(x, x_original))
+    else:
+      return 100.0
+
 
   def evaluate_acc(x):
     nonlocal eval_count
@@ -500,31 +511,63 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
   #n_variables = 1
   # Lower and upper bounds (has to be the same size as `n_variables`)
   lower_bound = np.empty(n_variables)
-  lower_bound.fill(-2)
+  lower_bound.fill(0)
   upper_bound = np.empty(n_variables)
-  upper_bound.fill(0)
+  upper_bound.fill(.5)
 
-  x_clean_mod =  x_clean * x_target
-  pred = np.argmax(model.predict(x_clean_mod.reshape(dim)))
-  logger.info(f'pred: {pred}')
-  if  pred != target_label:
-    logger.info(f'Couldn\'t generate targetted attack')
+  # x_clean_mod =  x_clean * x_target * 0.75
+  # pred = np.argmax(model.predict(x_clean_mod.reshape(dim)))
+  # logger.info(f'pred: {pred}')
+  # if  pred != target_label:
+  #   logger.info(f'Couldn\'t generate targetted attack')
     #return x_clean_mod.clip(0,1), eval_count, l_2_dist(x_original, x_clean_mod)
 
   #Creates the optimizer
   params={'model':model, 'x_clean':x_clean_mod, 'x_adv': None,
   'y_clean': y_clean,'epsilon' : epsilon,'l_2_min':False, 'dim':dim}
-  optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+  #optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
   #optimizer = opytimizer.optimizers.evolutionary.GA()
   #optimizer = opytimizer.optimizers.swarm.CS()
   #optimizer = opytimizer.optimizers.swarm.PSO()
   #optimizer = opytimizer.optimizers.misc.AOA()
 
+  # space = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
+  # function_l_2 = Function(minimize_l_2)
+  # opt = Opytimizer(space, optimizer, function_l_2, save_agents=False)
+  # #Runs the optimization task
+  x_adv_l_2_xopt = None
+  for i in range(5):
+    logger.info(f'Starting search for initial adv image loop {i}')
+    optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+    space = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
+    function_l_2 = Function(minimize_l_2)
+    opt = Opytimizer(space, optimizer, function_l_2, save_agents=False)
+    opt.start(n_iterations = round(l2_iter/8)*(i+1))
+    x_adv_l_2_xopt = opt.space.best_agent.position
+    x_adv_l_2_xopt = x_adv_l_2_xopt.reshape(dim)
+    pred = np.argmax(model.predict(x_adv_l_2_xopt))
+    logger.info(f'pred: {pred} and target_label:{target_label}')
+    if  pred != target_label:
+      logger.info(f'Couldn\'t find initial adv image. Queries:{eval_count}')
+    elif l_2_dist(x_adv_l_2_xopt, x_original) > 20:
+      logger.info(f'Found initial adv image with higher L2. Queries:{eval_count}')
+    else:
+      logger.info(f'Found initial adv image with L2 limit. Queries:{eval_count}')
+      break
+
+  logger.info(f'Starting attack!')
+  x_clean_mod =  x_original * x_adv_l_2_xopt
+  lower_bound = np.empty(n_variables)
+  lower_bound.fill(-1)
+  upper_bound = np.empty(n_variables)
+  upper_bound.fill(1)
+  optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
   space = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
   function = Function(evaluate_acc)
   #function = ConstrainedFunction(evaluate_acc, [l_2_constraint], 10000.0)
 
   # Bundles every piece into Opytimizer class
+  optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
   opt = Opytimizer(space, optimizer, function, save_agents=False)
   #Runs the optimization task
   opt.start(n_iterations = iterations)

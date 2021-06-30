@@ -473,6 +473,7 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
   def minimize_l_2(x):
     nonlocal eval_count
     eval_count += 1
+    x = x.clip(0,1)
     predictions = model.predict(x.reshape(dim))[0]
     result = np.argmax(predictions)
     if(result == target_label):
@@ -513,28 +514,11 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
   lower_bound = np.empty(n_variables)
   lower_bound.fill(0)
   upper_bound = np.empty(n_variables)
-  upper_bound.fill(.5)
-
-  # x_clean_mod =  x_clean * x_target * 0.75
-  # pred = np.argmax(model.predict(x_clean_mod.reshape(dim)))
-  # logger.info(f'pred: {pred}')
-  # if  pred != target_label:
-  #   logger.info(f'Couldn\'t generate targetted attack')
-    #return x_clean_mod.clip(0,1), eval_count, l_2_dist(x_original, x_clean_mod)
+  upper_bound.fill(0.25)
 
   #Creates the optimizer
   params={'model':model, 'x_clean':x_clean_mod, 'x_adv': None,
   'y_clean': y_clean,'epsilon' : epsilon,'l_2_min':False, 'dim':dim}
-  #optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
-  #optimizer = opytimizer.optimizers.evolutionary.GA()
-  #optimizer = opytimizer.optimizers.swarm.CS()
-  #optimizer = opytimizer.optimizers.swarm.PSO()
-  #optimizer = opytimizer.optimizers.misc.AOA()
-
-  # space = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
-  # function_l_2 = Function(minimize_l_2)
-  # opt = Opytimizer(space, optimizer, function_l_2, save_agents=False)
-  # #Runs the optimization task
   x_adv_l_2_xopt = None
   for i in range(5):
     logger.info(f'Starting search for initial adv image loop {i}')
@@ -544,6 +528,7 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
     opt = Opytimizer(space, optimizer, function_l_2, save_agents=False)
     opt.start(n_iterations = round(l2_iter/8)*(i+1))
     x_adv_l_2_xopt = opt.space.best_agent.position
+    x_adv_l_2_xopt = x_adv_l_2_xopt.clip(0,1)
     x_adv_l_2_xopt = x_adv_l_2_xopt.reshape(dim)
     pred = np.argmax(model.predict(x_adv_l_2_xopt))
     logger.info(f'pred: {pred} and target_label:{target_label}')
@@ -551,12 +536,13 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
       logger.info(f'Couldn\'t find initial adv image. Queries:{eval_count}')
     elif l_2_dist(x_adv_l_2_xopt, x_original) > 20:
       logger.info(f'Found initial adv image with higher L2. Queries:{eval_count}')
+      break
     else:
-      logger.info(f'Found initial adv image with L2 limit. Queries:{eval_count}')
+      logger.info(f'Found initial adv image within L2 limit. Queries:{eval_count}')
       break
 
   logger.info(f'Starting attack!')
-  x_clean_mod =  x_original * x_adv_l_2_xopt
+  x_clean_mod =  x_original + x_adv_l_2_xopt * 0.25
   lower_bound = np.empty(n_variables)
   lower_bound.fill(-1)
   upper_bound = np.empty(n_variables)
@@ -565,9 +551,6 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
   space = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
   function = Function(evaluate_acc)
   #function = ConstrainedFunction(evaluate_acc, [l_2_constraint], 10000.0)
-
-  # Bundles every piece into Opytimizer class
-  optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
   opt = Opytimizer(space, optimizer, function, save_agents=False)
   #Runs the optimization task
   opt.start(n_iterations = iterations)

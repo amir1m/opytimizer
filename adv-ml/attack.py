@@ -543,6 +543,7 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
 
   logger.info(f'Starting attack!')
   x_clean_mod =  x_original + x_adv_l_2_xopt * 0.25
+  x_clean_mod = x_clean_mod.clip(0,1)
   lower_bound = np.empty(n_variables)
   lower_bound.fill(-1)
   upper_bound = np.empty(n_variables)

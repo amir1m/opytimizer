@@ -474,12 +474,18 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
     nonlocal eval_count
     eval_count += 1
     x = x.clip(0,1)
+    #x = np.where(x > 0.5, 1, x)
+    x = np.where(x < 0.9, 0, x)
+    x = x * 0.5
     predictions = model.predict(x.reshape(dim))[0]
     result = np.argmax(predictions)
     if(result == target_label):
-      return float(l_2_dist(x, x_original))
+      #return float(l_2_dist(x, x_original))
+      logger.to_file(f'L2:{l_2_dist(x, x_original)}')
+      return -float(np.count_nonzero(x == 0))
+      #return l_2_dist(x, x_original)
     else:
-      return 100.0
+      return float(1e10)
 
 
   def evaluate_acc(x):
@@ -490,21 +496,10 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
     x_adv = process_image_target(x_clean_mod, x.ravel(), x_target, epsilon, dim=dim)
     predictions = model.predict(x_adv.reshape(dim))[0]
     result = np.argmax(predictions)
-    #actual = np.argmax(y_clean)
-    #dist = float(l_2_dist(x_adv, x_original))
-    #dist = np.exp(-(l_2_dist(x_clean_mod, x_adv)**2)/2)
     if(result == target_label):
-      # if (dist > max_l_2):
-      #   return float(dist) * 10
-      # else:
-      #   return float(dist)
       return float(l_2_dist(x_adv, x_original))
     else:
-      #predictions.sort()
-      #return float(10*(predictions[-1] - predictions[-2]) + 10 * dist)
-      #return float(10*np.amax(predictions) + 10)
       return 100.0
-      #return float(l_2_dist(x_adv, x_target))
 
   # Number of agents and decision variables
   n_agents = agents
@@ -514,7 +509,7 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
   lower_bound = np.empty(n_variables)
   lower_bound.fill(0)
   upper_bound = np.empty(n_variables)
-  upper_bound.fill(0.25)
+  upper_bound.fill(1)
 
   #Creates the optimizer
   params={'model':model, 'x_clean':x_clean_mod, 'x_adv': None,
@@ -529,21 +524,31 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
     opt.start(n_iterations = round(l2_iter/8)*(i+1))
     x_adv_l_2_xopt = opt.space.best_agent.position
     x_adv_l_2_xopt = x_adv_l_2_xopt.clip(0,1)
+    #x_adv_l_2_xopt = np.where(x_adv_l_2_xopt > 0.5, 1, x_adv_l_2_xopt)
+    x_adv_l_2_xopt = np.where(x_adv_l_2_xopt < 0.9, 0, x_adv_l_2_xopt)
+    x_adv_l_2_xopt = x_adv_l_2_xopt * 0.5
     x_adv_l_2_xopt = x_adv_l_2_xopt.reshape(dim)
     pred = np.argmax(model.predict(x_adv_l_2_xopt))
     logger.info(f'pred: {pred} and target_label:{target_label}')
     if  pred != target_label:
       logger.info(f'Couldn\'t find initial adv image. Queries:{eval_count}')
-    elif l_2_dist(x_adv_l_2_xopt, x_original) > 20:
+    elif l_2_dist(x_adv_l_2_xopt, x_original) > 15:
       logger.info(f'Found initial adv image with higher L2. Queries:{eval_count}')
       break
     else:
       logger.info(f'Found initial adv image within L2 limit. Queries:{eval_count}')
       break
 
+
   logger.info(f'Starting attack!')
-  x_clean_mod =  x_original + x_adv_l_2_xopt * 0.25
+  x_clean_mod =  x_original + x_adv_l_2_xopt
   x_clean_mod = x_clean_mod.clip(0,1)
+  eval_count +=1
+  pred = np.argmax(model.predict(x_clean_mod))
+  logger.info(f'After adding initial adv image, Pred: {pred},target_label:{target_label}, L2:{l_2_dist(x_original,x_clean_mod )}')
+  if  pred != target_label:
+    logger.info(f'Couldn\'t find adv image after adding initial adv image. Queries:{eval_count}')
+
   lower_bound = np.empty(n_variables)
   lower_bound.fill(-1)
   upper_bound = np.empty(n_variables)
@@ -553,7 +558,10 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
   function = Function(evaluate_acc)
   #function = ConstrainedFunction(evaluate_acc, [l_2_constraint], 10000.0)
   opt = Opytimizer(space, optimizer, function, save_agents=False)
-  #Runs the optimization task
+  #logger.info(f'Shape of x_adv_l_2_xopt:{x_adv_l_2_xopt.shape}')
+  # for agent in space.agents:
+  #   agent.fill_with_static(x_adv_l_2_xopt.ravel() + 0.01)
+  # #Runs the optimization task
   opt.start(n_iterations = iterations)
 
   xopt = opt.space.best_agent.position

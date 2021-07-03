@@ -224,6 +224,8 @@ def process_image_target(x_clean, x_prop, x_target, epsilon, dim=(1,28,28,1)):
   # logger.info(f"X CLEAN SHAPE:{x_clean.shape}")
   # logger.info(f"X PROP SHAPE:{x_prop.shape}")
   x_clean_ravel = np.copy(x_clean.ravel())
+  x_prop = np.where(x_prop >= 0.9, 1, x_prop)
+  x_prop = np.where(x_prop < 0.9, 0, x_prop)
   x_clean_ravel =  x_clean_ravel - x_prop
   #x_clean_ravel = (x_clean_ravel-min(x_clean_ravel)) / (max(x_clean_ravel)-min(x_clean_ravel))
   x_clean_ravel = x_clean_ravel.clip(0,1)

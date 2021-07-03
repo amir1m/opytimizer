@@ -474,7 +474,7 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
     nonlocal eval_count
     eval_count += 1
     x = x.clip(0,1)
-    #x = np.where(x > 0.5, 1, x)
+    x = np.where(x >= 0.9, 1, x)
     x = np.where(x < 0.9, 0, x)
     x = x * 0.5
     predictions = model.predict(x.reshape(dim))[0]
@@ -524,7 +524,7 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
     opt.start(n_iterations = round(l2_iter/8)*(i+1))
     x_adv_l_2_xopt = opt.space.best_agent.position
     x_adv_l_2_xopt = x_adv_l_2_xopt.clip(0,1)
-    #x_adv_l_2_xopt = np.where(x_adv_l_2_xopt > 0.5, 1, x_adv_l_2_xopt)
+    x_adv_l_2_xopt = np.where(x_adv_l_2_xopt >= 0.9, 1, x_adv_l_2_xopt)
     x_adv_l_2_xopt = np.where(x_adv_l_2_xopt < 0.9, 0, x_adv_l_2_xopt)
     x_adv_l_2_xopt = x_adv_l_2_xopt * 0.5
     x_adv_l_2_xopt = x_adv_l_2_xopt.reshape(dim)

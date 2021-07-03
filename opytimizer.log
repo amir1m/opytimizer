@@ -1,1412 +1,439 @@
-2021-07-02 16:25:09,930 - attack_utils — INFO — x_test_random shape:(20, 32, 32, 3) and y_test_random shape:(20, 10)
-2021-07-02 16:25:09,930 - attack_utils — INFO — Generating Targetted adv examples using attack OPYT
-2021-07-02 16:25:09,930 - attack_utils — INFO — 
+2021-07-03 11:37:48,828 - attack_utils — INFO — x_test_random shape:(20, 32, 32, 3) and y_test_random shape:(20, 10)
+2021-07-03 11:37:48,828 - attack_utils — INFO — Generating Targetted adv examples using attack OPYT
+2021-07-03 11:37:48,828 - attack_utils — INFO — 
 Iterations:20, epsilon: 1 and l_2_mul:0.5
-2021-07-02 16:25:09,932 - attack_utils — INFO — y_all_labels:[8 7 9 1 7 8 8 8 2 4 3 7 0 9 1 0 9 1 9 0]
-2021-07-02 16:25:09,932 - attack_utils — INFO — Generating example:1
-2021-07-02 16:25:09,932 - attack_utils — INFO — y_clean_label:7
-2021-07-02 16:25:09,932 - attack_utils — INFO — t : [ 0  2  3  5  6  7  8  9 10 12 13 14 15 16 17 18 19]
-2021-07-02 16:25:09,934 - attack_utils — INFO — min_ind:16
-2021-07-02 16:25:09,934 - attack_utils — INFO — Clean:7 and Target:9
-2021-07-02 16:25:09,934 - attack_utils — INFO — Starting search for initial adv image loop 0
-2021-07-02 16:25:09,934 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
-2021-07-02 16:25:09,934 - opytimizer.optimizers.misc.modaoa — INFO — Clean Label:7
-2021-07-02 16:25:09,938 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
-2021-07-02 16:25:09,938 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
-2021-07-02 16:25:10,295 - opytimizer.spaces.search — INFO — Class overrided.
-2021-07-02 16:25:10,295 - opytimizer.core.function — INFO — Creating class: Function.
-2021-07-02 16:25:10,295 - opytimizer.core.function — INFO — Class created.
-2021-07-02 16:25:10,295 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
-2021-07-02 16:25:10,295 - opytimizer.opytimizer — INFO — Class created.
-2021-07-02 16:25:10,296 - opytimizer.opytimizer — INFO — Starting optimization task.
-2021-07-02 16:25:10,314 - attack_utils — INFO — L2:21.03713969655411
-2021-07-02 16:25:10,323 - attack_utils — INFO — L2:21.16071731367279
-2021-07-02 16:25:10,355 - attack_utils — INFO — L2:21.078370708900348
-2021-07-02 16:25:10,368 - attack_utils — INFO — L2:21.186847647846587
-2021-07-02 16:25:10,373 - attack_utils — INFO — L2:21.151109207457527
-2021-07-02 16:25:10,384 - opytimizer.opytimizer — INFO — Iteration 1/5
-2021-07-02 16:25:13,711 - opytimizer.opytimizer — INFO — Fitness: -2790.0
-2021-07-02 16:25:13,713 - opytimizer.opytimizer — INFO — Iteration 2/5
-2021-07-02 16:25:17,492 - attack_utils — INFO — L2:20.429897592035925
-2021-07-02 16:25:17,496 - attack_utils — INFO — L2:20.373278766826505
-2021-07-02 16:25:17,533 - attack_utils — INFO — L2:20.17989949512592
-2021-07-02 16:25:17,553 - attack_utils — INFO — L2:20.391564362557133
-2021-07-02 16:25:17,570 - attack_utils — INFO — L2:20.376260223336505
-2021-07-02 16:25:17,571 - opytimizer.opytimizer — INFO — Fitness: -2790.0
-2021-07-02 16:25:17,571 - opytimizer.opytimizer — INFO — Iteration 3/5
-2021-07-02 16:25:21,939 - attack_utils — INFO — L2:19.95956388341494
-2021-07-02 16:25:21,944 - attack_utils — INFO — L2:20.220239077239626
-2021-07-02 16:25:21,960 - attack_utils — INFO — L2:20.266484639297474
-2021-07-02 16:25:21,969 - attack_utils — INFO — L2:20.29206066919154
-2021-07-02 16:25:21,981 - attack_utils — INFO — L2:20.259504579629915
-2021-07-02 16:25:22,006 - attack_utils — INFO — L2:20.10669341892471
-2021-07-02 16:25:22,011 - attack_utils — INFO — L2:20.242088270202647
-2021-07-02 16:25:22,021 - opytimizer.opytimizer — INFO — Fitness: -2790.0
-2021-07-02 16:25:22,021 - opytimizer.opytimizer — INFO — Iteration 4/5
-2021-07-02 16:25:26,911 - attack_utils — INFO — L2:20.40235891989094
-2021-07-02 16:25:26,919 - attack_utils — INFO — L2:20.398645738980733
-2021-07-02 16:25:26,927 - attack_utils — INFO — L2:20.316974167918623
-2021-07-02 16:25:26,940 - attack_utils — INFO — L2:20.442129019720973
-2021-07-02 16:25:26,944 - attack_utils — INFO — L2:20.210571914382516
-2021-07-02 16:25:26,952 - attack_utils — INFO — L2:20.457719359781358
-2021-07-02 16:25:26,961 - attack_utils — INFO — L2:20.228767894455945
-2021-07-02 16:25:26,965 - attack_utils — INFO — L2:20.368245693378842
-2021-07-02 16:25:26,973 - attack_utils — INFO — L2:20.412005562048552
-2021-07-02 16:25:26,987 - opytimizer.opytimizer — INFO — Fitness: -2790.0
-2021-07-02 16:25:26,987 - opytimizer.opytimizer — INFO — Iteration 5/5
-2021-07-02 16:25:32,472 - attack_utils — INFO — L2:20.757459007237543
-2021-07-02 16:25:32,476 - attack_utils — INFO — L2:20.749209935756756
-2021-07-02 16:25:32,485 - attack_utils — INFO — L2:20.700213050385777
-2021-07-02 16:25:32,493 - attack_utils — INFO — L2:20.6868274667055
-2021-07-02 16:25:32,498 - attack_utils — INFO — L2:20.65714437409452
-2021-07-02 16:25:32,506 - attack_utils — INFO — L2:20.822274154719995
-2021-07-02 16:25:32,515 - attack_utils — INFO — L2:20.70655351962611
-2021-07-02 16:25:32,527 - attack_utils — INFO — L2:20.694987663657013
-2021-07-02 16:25:32,535 - attack_utils — INFO — L2:20.646095965605696
-2021-07-02 16:25:32,544 - attack_utils — INFO — L2:20.637825888361185
-2021-07-02 16:25:32,548 - attack_utils — INFO — L2:20.715603347376067
-2021-07-02 16:25:32,550 - opytimizer.opytimizer — INFO — Fitness: -2790.0
-2021-07-02 16:25:32,550 - opytimizer.opytimizer — INFO — Optimization task ended.
-2021-07-02 16:25:32,551 - opytimizer.opytimizer — INFO — It took 22.254706144332886 seconds.
-2021-07-02 16:25:32,555 - attack_utils — INFO — pred: 9 and target_label:9
-2021-07-02 16:25:32,556 - attack_utils — INFO — Found initial adv image with higher L2. Queries:120
-2021-07-02 16:25:32,556 - attack_utils — INFO — Starting attack!
-2021-07-02 16:25:32,562 - attack_utils — INFO — After adding initial adv image, Pred: 7,target_label:9, L2:7.749924713260135
-2021-07-02 16:25:32,562 - attack_utils — INFO — Couldn't find adv image after adding initial adv image. Queries:121
-2021-07-02 16:25:32,562 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
-2021-07-02 16:25:32,562 - opytimizer.optimizers.misc.modaoa — INFO — Clean Label:7
-2021-07-02 16:25:32,564 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
-2021-07-02 16:25:32,564 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
-2021-07-02 16:25:32,927 - opytimizer.spaces.search — INFO — Class overrided.
-2021-07-02 16:25:32,927 - opytimizer.core.function — INFO — Creating class: Function.
-2021-07-02 16:25:32,927 - opytimizer.core.function — INFO — Class created.
-2021-07-02 16:25:32,927 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
-2021-07-02 16:25:32,927 - opytimizer.opytimizer — INFO — Class created.
-2021-07-02 16:25:32,928 - opytimizer.opytimizer — INFO — Starting optimization task.
-2021-07-02 16:25:33,011 - opytimizer.opytimizer — INFO — Iteration 1/20
-2021-07-02 16:25:36,378 - opytimizer.opytimizer — INFO — Fitness: 100.0
-2021-07-02 16:25:36,378 - opytimizer.opytimizer — INFO — Iteration 2/20
-2021-07-02 16:25:39,781 - opytimizer.opytimizer — INFO — Fitness: 100.0
-2021-07-02 16:25:39,782 - opytimizer.opytimizer — INFO — Iteration 3/20
-2021-07-02 16:25:43,364 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
-2021-07-02 16:25:43,364 - opytimizer.opytimizer — INFO — Iteration 4/20
-2021-07-02 16:25:47,236 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
-2021-07-02 16:25:47,236 - opytimizer.opytimizer — INFO — Iteration 5/20
-2021-07-02 16:25:51,103 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
-2021-07-02 16:25:51,103 - opytimizer.opytimizer — INFO — Iteration 6/20
-2021-07-02 16:25:55,060 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
-2021-07-02 16:25:55,060 - opytimizer.opytimizer — INFO — Iteration 7/20
-2021-07-02 16:25:59,186 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
-2021-07-02 16:25:59,187 - opytimizer.opytimizer — INFO — Iteration 8/20
-2021-07-02 16:26:03,416 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
-2021-07-02 16:26:03,416 - opytimizer.opytimizer — INFO — Iteration 9/20
-2021-07-02 16:26:08,118 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
-2021-07-02 16:26:08,119 - opytimizer.opytimizer — INFO — Iteration 10/20
-2021-07-02 16:26:13,576 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
-2021-07-02 16:26:13,577 - opytimizer.opytimizer — INFO — Iteration 11/20
-2021-07-02 16:26:23,101 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
-2021-07-02 16:26:23,102 - opytimizer.opytimizer — INFO — Iteration 12/20
-2021-07-02 16:26:29,744 - opytimizer.opytimizer — INFO — Fitness: 12.240779504904822
-2021-07-02 16:26:29,745 - opytimizer.opytimizer — INFO — Iteration 13/20
-2021-07-02 16:26:42,265 - opytimizer.opytimizer — INFO — Fitness: 12.240779504904822
-2021-07-02 16:26:42,265 - opytimizer.opytimizer — INFO — Iteration 14/20
-2021-07-02 16:26:52,113 - opytimizer.opytimizer — INFO — Fitness: 11.163469683835922
-2021-07-02 16:26:52,113 - opytimizer.opytimizer — INFO — Iteration 15/20
-2021-07-02 16:27:07,977 - opytimizer.opytimizer — INFO — Fitness: 10.34022611389735
-2021-07-02 16:27:07,978 - opytimizer.opytimizer — INFO — Iteration 16/20
-2021-07-02 16:27:28,299 - opytimizer.opytimizer — INFO — Fitness: 10.34022611389735
-2021-07-02 16:27:28,299 - opytimizer.opytimizer — INFO — Iteration 17/20
-2021-07-02 16:27:35,629 - opytimizer.opytimizer — INFO — Fitness: 10.34022611389735
-2021-07-02 16:27:35,629 - opytimizer.opytimizer — INFO — Iteration 18/20
-2021-07-02 16:27:43,615 - opytimizer.opytimizer — INFO — Fitness: 10.059039624386601
-2021-07-02 16:27:43,615 - opytimizer.opytimizer — INFO — Iteration 19/20
-2021-07-02 16:27:52,096 - opytimizer.opytimizer — INFO — Fitness: 9.984768246181895
-2021-07-02 16:27:52,096 - opytimizer.opytimizer — INFO — Iteration 20/20
-2021-07-02 16:28:02,130 - opytimizer.opytimizer — INFO — Fitness: 9.857954415215675
-2021-07-02 16:28:02,132 - opytimizer.opytimizer — INFO — Optimization task ended.
-2021-07-02 16:28:02,132 - opytimizer.opytimizer — INFO — It took 149.20357084274292 seconds.
-2021-07-02 16:28:02,140 - attack_utils — INFO — Prediction:9 and Target:9
-2021-07-02 16:28:02,156 - attack_utils — INFO — Attack result:False, Queries: 541 All Dist:{'L2': 9.858, 'L-INF': 0.8789, 'WS': 0.053, 'ssim': 0.535, 'psnr': 14.9985}, L2_Iters: 40
-2021-07-02 16:28:02,378 - attack_utils — INFO — Total Examples: 20, Iterations:20, espilon: 1 and Max-L2:3 Agents: 20 l_2_mul: 0.5
-Accuracy: 0.10000000149011612 Mean L2 Counted: 9.857954415215675 Query: 541.0
+2021-07-03 11:37:48,829 - attack_utils — INFO — y_all_labels:[8 7 9 1 7 8 8 8 2 4 3 7 0 9 1 0 9 1 9 0]
+2021-07-03 11:37:48,829 - attack_utils — INFO — Generating example:1
+2021-07-03 11:37:48,829 - attack_utils — INFO — y_clean_label:7
+2021-07-03 11:37:48,829 - attack_utils — INFO — t : [ 0  2  3  5  6  7  8  9 10 12 13 14 15 16 17 18 19]
+2021-07-03 11:37:48,830 - attack_utils — INFO — min_ind:16
+2021-07-03 11:37:48,830 - attack_utils — INFO — Clean:7 and Target:9
+2021-07-03 11:37:48,830 - attack_utils — INFO — Starting search for initial adv image loop 0
+2021-07-03 11:37:48,830 - opytimizer.optimizers.misc.aoa — INFO — Overriding class: Optimizer -> AOA.
+2021-07-03 11:37:48,832 - opytimizer.optimizers.misc.aoa — INFO — Class overrided.
+2021-07-03 11:37:48,833 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-07-03 11:37:49,208 - opytimizer.spaces.search — INFO — Class overrided.
+2021-07-03 11:37:49,208 - opytimizer.core.function — INFO — Creating class: Function.
+2021-07-03 11:37:49,208 - opytimizer.core.function — INFO — Class created.
+2021-07-03 11:37:49,208 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-07-03 11:37:49,208 - opytimizer.opytimizer — INFO — Class created.
+2021-07-03 11:37:49,209 - opytimizer.opytimizer — INFO — Starting optimization task.
+2021-07-03 11:37:49,227 - attack_utils — INFO — L2:21.03713969655411
+2021-07-03 11:37:49,234 - attack_utils — INFO — L2:21.16071731367279
+2021-07-03 11:37:49,268 - attack_utils — INFO — L2:21.078370708900348
+2021-07-03 11:37:49,280 - attack_utils — INFO — L2:21.186847647846587
+2021-07-03 11:37:49,284 - attack_utils — INFO — L2:21.151109207457527
+2021-07-03 11:37:49,292 - opytimizer.opytimizer — INFO — Iteration 1/5
+2021-07-03 11:37:51,824 - attack_utils — INFO — L2:21.425758340665286
+2021-07-03 11:37:51,828 - attack_utils — INFO — L2:21.482383787587324
+2021-07-03 11:37:51,840 - attack_utils — INFO — L2:21.478330150320453
+2021-07-03 11:37:51,844 - attack_utils — INFO — L2:21.424280109042616
+2021-07-03 11:37:51,852 - attack_utils — INFO — L2:21.468336086591794
+2021-07-03 11:37:51,862 - opytimizer.opytimizer — INFO — Fitness: -2903.0
+2021-07-03 11:37:51,862 - opytimizer.opytimizer — INFO — Iteration 2/5
+2021-07-03 11:37:54,414 - attack_utils — INFO — L2:21.506809654431077
+2021-07-03 11:37:54,423 - attack_utils — INFO — L2:21.484411574800717
+2021-07-03 11:37:54,427 - attack_utils — INFO — L2:21.61580136816325
+2021-07-03 11:37:54,439 - attack_utils — INFO — L2:21.575808994298132
+2021-07-03 11:37:54,459 - attack_utils — INFO — L2:21.5441785868118
+2021-07-03 11:37:54,487 - opytimizer.opytimizer — INFO — Fitness: -2942.0
+2021-07-03 11:37:54,488 - opytimizer.opytimizer — INFO — Iteration 3/5
+2021-07-03 11:37:57,009 - attack_utils — INFO — L2:20.96403873510616
+2021-07-03 11:37:57,014 - attack_utils — INFO — L2:21.0200947916152
+2021-07-03 11:37:57,018 - attack_utils — INFO — L2:21.045398295073543
+2021-07-03 11:37:57,030 - attack_utils — INFO — L2:20.891504164530083
+2021-07-03 11:37:57,034 - attack_utils — INFO — L2:20.948211301897082
+2021-07-03 11:37:57,042 - attack_utils — INFO — L2:20.971950696586223
+2021-07-03 11:37:57,050 - attack_utils — INFO — L2:21.063728511764452
+2021-07-03 11:37:57,058 - attack_utils — INFO — L2:20.979471134685383
+2021-07-03 11:37:57,062 - attack_utils — INFO — L2:20.90259196580736
+2021-07-03 11:37:57,066 - attack_utils — INFO — L2:20.910906520220635
+2021-07-03 11:37:57,070 - attack_utils — INFO — L2:21.009066694250542
+2021-07-03 11:37:57,074 - attack_utils — INFO — L2:20.924425469712546
+2021-07-03 11:37:57,080 - opytimizer.opytimizer — INFO — Fitness: -2942.0
+2021-07-03 11:37:57,080 - opytimizer.opytimizer — INFO — Iteration 4/5
+2021-07-03 11:37:59,851 - attack_utils — INFO — L2:20.95279046233001
+2021-07-03 11:37:59,862 - attack_utils — INFO — L2:21.000547005432704
+2021-07-03 11:37:59,867 - attack_utils — INFO — L2:21.007920806401994
+2021-07-03 11:37:59,871 - attack_utils — INFO — L2:21.034801179834353
+2021-07-03 11:37:59,876 - attack_utils — INFO — L2:20.9903219557574
+2021-07-03 11:37:59,883 - attack_utils — INFO — L2:20.972079128545058
+2021-07-03 11:37:59,889 - attack_utils — INFO — L2:21.069934396018077
+2021-07-03 11:37:59,899 - attack_utils — INFO — L2:21.016303036957257
+2021-07-03 11:37:59,906 - attack_utils — INFO — L2:21.06466671332869
+2021-07-03 11:37:59,927 - attack_utils — INFO — L2:20.96063394273783
+2021-07-03 11:37:59,937 - attack_utils — INFO — L2:20.927094716741625
+2021-07-03 11:37:59,945 - attack_utils — INFO — L2:20.94462681467698
+2021-07-03 11:37:59,963 - opytimizer.opytimizer — INFO — Fitness: -2942.0
+2021-07-03 11:37:59,963 - opytimizer.opytimizer — INFO — Iteration 5/5
+2021-07-03 11:38:02,687 - attack_utils — INFO — L2:21.284162005152986
+2021-07-03 11:38:02,699 - attack_utils — INFO — L2:21.266468595657205
+2021-07-03 11:38:02,707 - attack_utils — INFO — L2:21.317282750063523
+2021-07-03 11:38:02,711 - attack_utils — INFO — L2:21.25462678313694
+2021-07-03 11:38:02,719 - attack_utils — INFO — L2:21.120748269632912
+2021-07-03 11:38:02,724 - attack_utils — INFO — L2:21.271920401775102
+2021-07-03 11:38:02,728 - attack_utils — INFO — L2:21.261264248781032
+2021-07-03 11:38:02,740 - attack_utils — INFO — L2:21.198098431492486
+2021-07-03 11:38:02,744 - attack_utils — INFO — L2:21.266443437355118
+2021-07-03 11:38:02,753 - attack_utils — INFO — L2:21.25904966845815
+2021-07-03 11:38:02,761 - attack_utils — INFO — L2:21.085852072135552
+2021-07-03 11:38:02,766 - attack_utils — INFO — L2:21.262890742119545
+2021-07-03 11:38:02,767 - opytimizer.opytimizer — INFO — Fitness: -2942.0
+2021-07-03 11:38:02,768 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-07-03 11:38:02,768 - opytimizer.opytimizer — INFO — It took 13.55906891822815 seconds.
+2021-07-03 11:38:02,772 - attack_utils — INFO — pred: 9 and target_label:9
+2021-07-03 11:38:02,773 - attack_utils — INFO — Found initial adv image with higher L2. Queries:120
+2021-07-03 11:38:02,773 - attack_utils — INFO — Starting attack!
+2021-07-03 11:38:02,777 - attack_utils — INFO — After adding initial adv image, Pred: 7,target_label:9, L2:5.415658605562409
+2021-07-03 11:38:02,777 - attack_utils — INFO — Couldn't find adv image after adding initial adv image. Queries:121
+2021-07-03 11:38:02,778 - opytimizer.optimizers.misc.aoa — INFO — Overriding class: Optimizer -> AOA.
+2021-07-03 11:38:02,780 - opytimizer.optimizers.misc.aoa — INFO — Class overrided.
+2021-07-03 11:38:02,780 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-07-03 11:38:03,154 - opytimizer.spaces.search — INFO — Class overrided.
+2021-07-03 11:38:03,154 - opytimizer.core.function — INFO — Creating class: Function.
+2021-07-03 11:38:03,154 - opytimizer.core.function — INFO — Class created.
+2021-07-03 11:38:03,154 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-07-03 11:38:03,154 - opytimizer.opytimizer — INFO — Class created.
+2021-07-03 11:38:03,155 - opytimizer.opytimizer — INFO — Starting optimization task.
+2021-07-03 11:38:03,235 - opytimizer.opytimizer — INFO — Iteration 1/20
+2021-07-03 11:38:05,852 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:05,852 - opytimizer.opytimizer — INFO — Iteration 2/20
+2021-07-03 11:38:08,457 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:08,457 - opytimizer.opytimizer — INFO — Iteration 3/20
+2021-07-03 11:38:11,021 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:11,021 - opytimizer.opytimizer — INFO — Iteration 4/20
+2021-07-03 11:38:13,621 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:13,621 - opytimizer.opytimizer — INFO — Iteration 5/20
+2021-07-03 11:38:16,198 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:16,199 - opytimizer.opytimizer — INFO — Iteration 6/20
+2021-07-03 11:38:18,886 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:18,887 - opytimizer.opytimizer — INFO — Iteration 7/20
+2021-07-03 11:38:21,686 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:21,688 - opytimizer.opytimizer — INFO — Iteration 8/20
+2021-07-03 11:38:24,280 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:24,280 - opytimizer.opytimizer — INFO — Iteration 9/20
+2021-07-03 11:38:26,864 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:26,864 - opytimizer.opytimizer — INFO — Iteration 10/20
+2021-07-03 11:38:29,472 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:29,472 - opytimizer.opytimizer — INFO — Iteration 11/20
+2021-07-03 11:38:32,060 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:32,063 - opytimizer.opytimizer — INFO — Iteration 12/20
+2021-07-03 11:38:34,645 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:34,645 - opytimizer.opytimizer — INFO — Iteration 13/20
+2021-07-03 11:38:37,249 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:37,249 - opytimizer.opytimizer — INFO — Iteration 14/20
+2021-07-03 11:38:39,816 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:39,816 - opytimizer.opytimizer — INFO — Iteration 15/20
+2021-07-03 11:38:42,446 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:42,446 - opytimizer.opytimizer — INFO — Iteration 16/20
+2021-07-03 11:38:45,080 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:45,080 - opytimizer.opytimizer — INFO — Iteration 17/20
+2021-07-03 11:38:47,626 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:47,626 - opytimizer.opytimizer — INFO — Iteration 18/20
+2021-07-03 11:38:50,207 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:50,207 - opytimizer.opytimizer — INFO — Iteration 19/20
+2021-07-03 11:38:52,765 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:52,765 - opytimizer.opytimizer — INFO — Iteration 20/20
+2021-07-03 11:38:55,369 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 11:38:55,369 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-07-03 11:38:55,370 - opytimizer.opytimizer — INFO — It took 52.21414232254028 seconds.
+2021-07-03 11:38:55,374 - attack_utils — INFO — Prediction:6 and Target:9
+2021-07-03 11:38:55,377 - attack_utils — INFO — Attack result:False, Queries: 541 All Dist:{'L2': 22.7943, 'L-INF': 0.9878, 'WS': 0.2259, 'ssim': 0.0699, 'psnr': 7.7177}, L2_Iters: 40
+2021-07-03 11:38:55,526 - attack_utils — INFO — Total Examples: 20, Iterations:20, espilon: 1 and Max-L2:3 Agents: 20 l_2_mul: 0.5
+Accuracy: 0.10000000149011612 Mean L2 Counted: 22.794276188722417 Query: 541.0
 
-2021-07-02 16:28:02,465 - opytimizer.optimizers.science.wwo — INFO — OPYT_TARGET_accu : 0.1
-2021-07-02 16:28:02,465 - opytimizer.optimizers.science.wwo — INFO — OPYT_TARGET_dist : {'L2': 85574559.5691, 'L-INF': 60663455.8902, 'WS': 5775.2466, 'ssim': 0.0395, 'psnr': -111.22}
-2021-07-02 16:28:02,466 - attack_utils — INFO — Saving : CLEAN_X, filename:target_opyt/CLEAN_X.csv
-2021-07-02 16:28:02,553 - attack_utils — INFO — Saving: CLEAN_Y, filename:target_opyt/CLEAN_Y.csv
-2021-07-02 16:28:02,556 - attack_utils — INFO — Saving : OPYT_TARGET_X, filename:target_opyt/OPYT_TARGET_X.csv
-2021-07-02 16:28:02,611 - attack_utils — INFO — Saving: OPYT_TARGET_Y, filename:target_opyt/OPYT_TARGET_Y.csv
-2021-07-02 19:40:00,030 - attack_utils — INFO — x_test_random shape:(20, 32, 32, 3) and y_test_random shape:(20, 10)
-2021-07-02 19:40:00,032 - attack_utils — INFO — Generating Targetted adv examples using attack OPYT
-2021-07-02 19:40:00,033 - attack_utils — INFO — 
-Iterations:200, epsilon: 1 and l_2_mul:0.5
-2021-07-02 19:40:00,034 - attack_utils — INFO — y_all_labels:[8 7 9 1 7 8 8 8 2 4 3 7 0 9 1 0 9 1 9 0]
-2021-07-02 19:40:00,034 - attack_utils — INFO — Generating example:1
-2021-07-02 19:40:00,034 - attack_utils — INFO — y_clean_label:7
-2021-07-02 19:40:00,034 - attack_utils — INFO — t : [ 0  2  3  5  6  7  8  9 10 12 13 14 15 16 17 18 19]
-2021-07-02 19:40:00,035 - attack_utils — INFO — min_ind:16
-2021-07-02 19:40:00,036 - attack_utils — INFO — Clean:7 and Target:9
-2021-07-02 19:40:00,036 - attack_utils — INFO — Starting search for initial adv image loop 0
-2021-07-02 19:40:00,036 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
-2021-07-02 19:40:00,036 - opytimizer.optimizers.misc.modaoa — INFO — Clean Label:7
-2021-07-02 19:40:00,042 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
-2021-07-02 19:40:00,042 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
-2021-07-02 19:40:01,122 - opytimizer.spaces.search — INFO — Class overrided.
-2021-07-02 19:40:01,123 - opytimizer.core.function — INFO — Creating class: Function.
-2021-07-02 19:40:01,123 - opytimizer.core.function — INFO — Class created.
-2021-07-02 19:40:01,123 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
-2021-07-02 19:40:01,124 - opytimizer.opytimizer — INFO — Class created.
-2021-07-02 19:40:01,125 - opytimizer.opytimizer — INFO — Starting optimization task.
-2021-07-02 19:40:01,152 - attack_utils — INFO — L2:21.03713969655411
-2021-07-02 19:40:01,161 - attack_utils — INFO — L2:21.16071731367279
-2021-07-02 19:40:01,201 - attack_utils — INFO — L2:21.078370708900348
-2021-07-02 19:40:01,213 - attack_utils — INFO — L2:21.186847647846587
-2021-07-02 19:40:01,218 - attack_utils — INFO — L2:21.151109207457527
-2021-07-02 19:40:01,235 - attack_utils — INFO — L2:21.222705852156288
-2021-07-02 19:40:01,240 - attack_utils — INFO — L2:21.153507802019202
-2021-07-02 19:40:01,256 - attack_utils — INFO — L2:20.976061111581494
-2021-07-02 19:40:01,265 - attack_utils — INFO — L2:21.122020053179046
-2021-07-02 19:40:01,282 - attack_utils — INFO — L2:20.915119649420962
-2021-07-02 19:40:01,288 - attack_utils — INFO — L2:21.024128249888552
-2021-07-02 19:40:01,300 - attack_utils — INFO — L2:20.985401345311825
-2021-07-02 19:40:01,310 - attack_utils — INFO — L2:20.97434842527055
-2021-07-02 19:40:01,330 - attack_utils — INFO — L2:20.967147463961012
-2021-07-02 19:40:01,352 - attack_utils — INFO — L2:21.099335111299574
-2021-07-02 19:40:01,356 - attack_utils — INFO — L2:21.046246552693354
-2021-07-02 19:40:01,369 - attack_utils — INFO — L2:21.15976165097446
-2021-07-02 19:40:01,380 - attack_utils — INFO — L2:21.006529139647963
-2021-07-02 19:40:01,392 - opytimizer.opytimizer — INFO — Iteration 1/50
-2021-07-02 19:40:13,483 - opytimizer.opytimizer — INFO — Fitness: -2790.0
-2021-07-02 19:40:13,483 - opytimizer.opytimizer — INFO — Iteration 2/50
-2021-07-02 19:40:23,258 - opytimizer.opytimizer — INFO — Fitness: -2790.0
-2021-07-02 19:40:23,258 - opytimizer.opytimizer — INFO — Iteration 3/50
-2021-07-02 19:40:32,256 - attack_utils — INFO — L2:21.339108050983373
-2021-07-02 19:40:32,310 - attack_utils — INFO — L2:21.375152000602657
-2021-07-02 19:40:32,318 - attack_utils — INFO — L2:21.365818481207114
-2021-07-02 19:40:32,323 - attack_utils — INFO — L2:21.31795189904279
-2021-07-02 19:40:32,352 - attack_utils — INFO — L2:21.32298541316889
-2021-07-02 19:40:32,372 - attack_utils — INFO — L2:21.220908205438455
-2021-07-02 19:40:32,386 - attack_utils — INFO — L2:21.26133096682939
-2021-07-02 19:40:32,393 - attack_utils — INFO — L2:21.32703997392375
-2021-07-02 19:40:32,406 - attack_utils — INFO — L2:21.24475812190025
-2021-07-02 19:40:32,411 - attack_utils — INFO — L2:21.24398357418304
-2021-07-02 19:40:32,444 - attack_utils — INFO — L2:21.31310098331978
-2021-07-02 19:40:32,451 - attack_utils — INFO — L2:21.23865123498011
-2021-07-02 19:40:32,460 - attack_utils — INFO — L2:21.306488916118333
-2021-07-02 19:40:32,472 - attack_utils — INFO — L2:21.35896226442643
-2021-07-02 19:40:32,481 - attack_utils — INFO — L2:21.32281753127744
-2021-07-02 19:40:32,489 - opytimizer.opytimizer — INFO — Fitness: -2858.0
-2021-07-02 19:40:32,489 - opytimizer.opytimizer — INFO — Iteration 4/50
-2021-07-02 19:40:42,124 - attack_utils — INFO — L2:21.240770629287706
-2021-07-02 19:40:42,129 - attack_utils — INFO — L2:21.22654021025479
-2021-07-02 19:40:42,139 - attack_utils — INFO — L2:21.325071623368917
-2021-07-02 19:40:42,162 - attack_utils — INFO — L2:21.290282481273305
-2021-07-02 19:40:42,166 - attack_utils — INFO — L2:21.30297069283162
-2021-07-02 19:40:42,171 - attack_utils — INFO — L2:21.253458339924908
-2021-07-02 19:40:42,175 - attack_utils — INFO — L2:21.256566611682587
-2021-07-02 19:40:42,194 - attack_utils — INFO — L2:21.262238354214258
-2021-07-02 19:40:42,204 - attack_utils — INFO — L2:21.210729759999815
-2021-07-02 19:40:42,209 - attack_utils — INFO — L2:21.265308319818267
-2021-07-02 19:40:42,221 - attack_utils — INFO — L2:21.337085318466638
-2021-07-02 19:40:42,225 - attack_utils — INFO — L2:21.166236395960002
-2021-07-02 19:40:42,234 - attack_utils — INFO — L2:21.339725628108088
-2021-07-02 19:40:42,248 - attack_utils — INFO — L2:21.336783108370383
-2021-07-02 19:40:42,257 - attack_utils — INFO — L2:21.307367398054424
-2021-07-02 19:40:42,261 - attack_utils — INFO — L2:21.274196551307064
-2021-07-02 19:40:42,265 - attack_utils — INFO — L2:21.288568142917555
-2021-07-02 19:40:42,270 - attack_utils — INFO — L2:21.35968374264124
-2021-07-02 19:40:42,278 - attack_utils — INFO — L2:21.311732669358364
-2021-07-02 19:40:42,282 - attack_utils — INFO — L2:21.317716469155588
-2021-07-02 19:40:42,287 - attack_utils — INFO — L2:21.269478781995925
-2021-07-02 19:40:42,299 - attack_utils — INFO — L2:21.275667752302688
-2021-07-02 19:40:42,319 - attack_utils — INFO — L2:21.19085472775676
-2021-07-02 19:40:42,324 - attack_utils — INFO — L2:21.327121955977763
-2021-07-02 19:40:42,328 - attack_utils — INFO — L2:21.258790031860933
-2021-07-02 19:40:42,339 - opytimizer.opytimizer — INFO — Fitness: -2860.0
-2021-07-02 19:40:42,339 - opytimizer.opytimizer — INFO — Iteration 5/50
-2021-07-02 19:40:51,525 - attack_utils — INFO — L2:21.34751047329169
-2021-07-02 19:40:51,529 - attack_utils — INFO — L2:21.37094740980493
-2021-07-02 19:40:51,539 - attack_utils — INFO — L2:21.34241880288058
-2021-07-02 19:40:51,566 - attack_utils — INFO — L2:21.382373250234913
-2021-07-02 19:40:51,574 - attack_utils — INFO — L2:21.384780145393787
-2021-07-02 19:40:51,579 - attack_utils — INFO — L2:21.40362947142162
-2021-07-02 19:40:51,589 - attack_utils — INFO — L2:21.364383549068183
-2021-07-02 19:40:51,599 - attack_utils — INFO — L2:21.296668355813313
-2021-07-02 19:40:51,603 - attack_utils — INFO — L2:21.43038541358472
-2021-07-02 19:40:51,608 - attack_utils — INFO — L2:21.377200608413816
-2021-07-02 19:40:51,612 - attack_utils — INFO — L2:21.43360319901918
-2021-07-02 19:40:51,616 - attack_utils — INFO — L2:21.29551532840139
-2021-07-02 19:40:51,621 - attack_utils — INFO — L2:21.383529309165954
-2021-07-02 19:40:51,625 - attack_utils — INFO — L2:21.33381379634052
-2021-07-02 19:40:51,629 - attack_utils — INFO — L2:21.403332591389074
-2021-07-02 19:40:51,638 - attack_utils — INFO — L2:21.33767754601365
-2021-07-02 19:40:51,643 - attack_utils — INFO — L2:21.258039631014046
-2021-07-02 19:40:51,649 - attack_utils — INFO — L2:21.405393433922367
-2021-07-02 19:40:51,653 - attack_utils — INFO — L2:21.38805249391653
-2021-07-02 19:40:51,662 - attack_utils — INFO — L2:21.395275571490473
-2021-07-02 19:40:51,666 - attack_utils — INFO — L2:21.298815364409148
-2021-07-02 19:40:51,675 - attack_utils — INFO — L2:21.337669510534585
-2021-07-02 19:40:51,683 - attack_utils — INFO — L2:21.36078764315582
-2021-07-02 19:40:51,717 - attack_utils — INFO — L2:21.36612728684062
-2021-07-02 19:40:51,721 - attack_utils — INFO — L2:21.45151560722491
-2021-07-02 19:40:51,726 - attack_utils — INFO — L2:21.401594446639685
-2021-07-02 19:40:51,730 - attack_utils — INFO — L2:21.419908948004096
-2021-07-02 19:40:51,735 - attack_utils — INFO — L2:21.3024567968313
-2021-07-02 19:40:51,737 - opytimizer.opytimizer — INFO — Fitness: -2890.0
-2021-07-02 19:40:51,737 - opytimizer.opytimizer — INFO — Iteration 6/50
-2021-07-02 19:41:01,169 - attack_utils — INFO — L2:21.49622541853423
-2021-07-02 19:41:01,178 - attack_utils — INFO — L2:21.465271352858373
-2021-07-02 19:41:01,182 - attack_utils — INFO — L2:21.400866831700217
-2021-07-02 19:41:01,192 - attack_utils — INFO — L2:21.473364257626404
-2021-07-02 19:41:01,201 - attack_utils — INFO — L2:21.454190900103892
-2021-07-02 19:41:01,205 - attack_utils — INFO — L2:21.50220612209096
-2021-07-02 19:41:01,210 - attack_utils — INFO — L2:21.45851806680185
-2021-07-02 19:41:01,222 - attack_utils — INFO — L2:21.532613556312906
-2021-07-02 19:41:01,230 - attack_utils — INFO — L2:21.471657385353893
-2021-07-02 19:41:01,235 - attack_utils — INFO — L2:21.461452283018513
-2021-07-02 19:41:01,244 - attack_utils — INFO — L2:21.48151242948122
-2021-07-02 19:41:01,250 - attack_utils — INFO — L2:21.499600924109966
-2021-07-02 19:41:01,266 - attack_utils — INFO — L2:21.482863007535013
-2021-07-02 19:41:01,274 - attack_utils — INFO — L2:21.467013173905602
-2021-07-02 19:41:01,282 - attack_utils — INFO — L2:21.52141537055509
-2021-07-02 19:41:01,295 - attack_utils — INFO — L2:21.44314284641462
-2021-07-02 19:41:01,300 - attack_utils — INFO — L2:21.44134420032624
-2021-07-02 19:41:01,313 - attack_utils — INFO — L2:21.482333863181303
-2021-07-02 19:41:01,329 - attack_utils — INFO — L2:21.51954321819813
-2021-07-02 19:41:01,333 - attack_utils — INFO — L2:21.48296519047665
-2021-07-02 19:41:01,339 - attack_utils — INFO — L2:21.47351818296627
-2021-07-02 19:41:01,345 - attack_utils — INFO — L2:21.445004204695312
-2021-07-02 19:41:01,350 - attack_utils — INFO — L2:21.448761199506496
-2021-07-02 19:41:01,354 - attack_utils — INFO — L2:21.447429518201854
-2021-07-02 19:41:01,359 - attack_utils — INFO — L2:21.42082548582424
-2021-07-02 19:41:01,375 - attack_utils — INFO — L2:21.52858133742182
-2021-07-02 19:41:01,384 - attack_utils — INFO — L2:21.47816274720009
-2021-07-02 19:41:01,389 - attack_utils — INFO — L2:21.53830089546185
-2021-07-02 19:41:01,391 - opytimizer.opytimizer — INFO — Fitness: -2931.0
-2021-07-02 19:41:01,392 - opytimizer.opytimizer — INFO — Iteration 7/50
-2021-07-02 19:41:10,840 - attack_utils — INFO — L2:21.553226366869488
-2021-07-02 19:41:10,852 - attack_utils — INFO — L2:21.595456542860553
-2021-07-02 19:41:10,877 - attack_utils — INFO — L2:21.571752295567347
-2021-07-02 19:41:10,885 - attack_utils — INFO — L2:21.495610058572183
-2021-07-02 19:41:10,927 - attack_utils — INFO — L2:21.55662913862017
-2021-07-02 19:41:10,960 - attack_utils — INFO — L2:21.59813463954192
-2021-07-02 19:41:10,992 - attack_utils — INFO — L2:21.586075271770543
-2021-07-02 19:41:11,014 - attack_utils — INFO — L2:21.54458766219161
-2021-07-02 19:41:11,050 - opytimizer.opytimizer — INFO — Fitness: -2957.0
-2021-07-02 19:41:11,050 - opytimizer.opytimizer — INFO — Iteration 8/50
-2021-07-02 19:41:21,844 - attack_utils — INFO — L2:21.668715006707224
-2021-07-02 19:41:21,877 - attack_utils — INFO — L2:21.612777736419932
-2021-07-02 19:41:21,971 - attack_utils — INFO — L2:21.589107598655115
-2021-07-02 19:41:21,980 - opytimizer.opytimizer — INFO — Fitness: -2988.0
-2021-07-02 19:41:21,980 - opytimizer.opytimizer — INFO — Iteration 9/50
-2021-07-02 19:41:31,804 - attack_utils — INFO — L2:21.721928816349926
-2021-07-02 19:41:31,911 - attack_utils — INFO — L2:21.714292497039096
-2021-07-02 19:41:31,969 - attack_utils — INFO — L2:21.70993097204901
-2021-07-02 19:41:31,992 - opytimizer.opytimizer — INFO — Fitness: -2997.0
-2021-07-02 19:41:31,992 - opytimizer.opytimizer — INFO — Iteration 10/50
-2021-07-02 19:41:42,241 - opytimizer.opytimizer — INFO — Fitness: -2997.0
-2021-07-02 19:41:42,242 - opytimizer.opytimizer — INFO — Iteration 11/50
-2021-07-02 19:41:52,546 - attack_utils — INFO — L2:21.70658673709416
-2021-07-02 19:41:53,300 - opytimizer.opytimizer — INFO — Fitness: -2997.0
-2021-07-02 19:41:53,301 - opytimizer.opytimizer — INFO — Iteration 12/50
-2021-07-02 19:42:03,449 - attack_utils — INFO — L2:21.714471187896457
-2021-07-02 19:42:03,499 - opytimizer.opytimizer — INFO — Fitness: -2997.0
-2021-07-02 19:42:03,499 - opytimizer.opytimizer — INFO — Iteration 13/50
-2021-07-02 19:42:13,989 - attack_utils — INFO — L2:21.685801180102995
-2021-07-02 19:42:14,035 - attack_utils — INFO — L2:21.77093697306169
-2021-07-02 19:42:14,219 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:42:14,219 - opytimizer.opytimizer — INFO — Iteration 14/50
-2021-07-02 19:42:23,913 - attack_utils — INFO — L2:21.730778502002423
-2021-07-02 19:42:23,951 - attack_utils — INFO — L2:21.719708923410348
-2021-07-02 19:42:23,967 - attack_utils — INFO — L2:21.7448323929075
-2021-07-02 19:42:24,042 - attack_utils — INFO — L2:21.734339586455327
-2021-07-02 19:42:24,060 - attack_utils — INFO — L2:21.733759125231295
-2021-07-02 19:42:24,072 - attack_utils — INFO — L2:21.7391376418706
-2021-07-02 19:42:24,106 - attack_utils — INFO — L2:21.7192856967072
-2021-07-02 19:42:24,120 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:42:24,120 - opytimizer.opytimizer — INFO — Iteration 15/50
-2021-07-02 19:42:33,747 - attack_utils — INFO — L2:21.706722701226724
-2021-07-02 19:42:33,772 - attack_utils — INFO — L2:21.719806286914437
-2021-07-02 19:42:33,785 - attack_utils — INFO — L2:21.714629097655724
-2021-07-02 19:42:33,803 - attack_utils — INFO — L2:21.669700813651005
-2021-07-02 19:42:33,824 - attack_utils — INFO — L2:21.654477168833367
-2021-07-02 19:42:33,841 - attack_utils — INFO — L2:21.730947811362707
-2021-07-02 19:42:33,894 - attack_utils — INFO — L2:21.709796720835758
-2021-07-02 19:42:33,920 - attack_utils — INFO — L2:21.699198553644283
-2021-07-02 19:42:33,928 - attack_utils — INFO — L2:21.754030101990825
-2021-07-02 19:42:33,933 - attack_utils — INFO — L2:21.685089367430912
-2021-07-02 19:42:33,956 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:42:33,956 - opytimizer.opytimizer — INFO — Iteration 16/50
-2021-07-02 19:42:43,848 - attack_utils — INFO — L2:21.73443691798684
-2021-07-02 19:42:43,872 - attack_utils — INFO — L2:21.71339924699479
-2021-07-02 19:42:43,984 - attack_utils — INFO — L2:21.72814096207719
-2021-07-02 19:42:44,028 - attack_utils — INFO — L2:21.69660407940819
-2021-07-02 19:42:44,046 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:42:44,046 - opytimizer.opytimizer — INFO — Iteration 17/50
-2021-07-02 19:42:55,457 - attack_utils — INFO — L2:21.69951346958136
-2021-07-02 19:42:55,531 - attack_utils — INFO — L2:21.703351344907183
-2021-07-02 19:42:55,540 - attack_utils — INFO — L2:21.722339168068746
-2021-07-02 19:42:55,544 - attack_utils — INFO — L2:21.700943810197177
-2021-07-02 19:42:55,579 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:42:55,579 - opytimizer.opytimizer — INFO — Iteration 18/50
-2021-07-02 19:43:06,370 - attack_utils — INFO — L2:21.784334312423713
-2021-07-02 19:43:06,382 - attack_utils — INFO — L2:21.74364342375013
-2021-07-02 19:43:06,391 - attack_utils — INFO — L2:21.738027711222642
-2021-07-02 19:43:06,437 - attack_utils — INFO — L2:21.755530339992415
-2021-07-02 19:43:06,447 - attack_utils — INFO — L2:21.722670311234058
-2021-07-02 19:43:06,451 - attack_utils — INFO — L2:21.73350212972861
-2021-07-02 19:43:06,460 - attack_utils — INFO — L2:21.716656939865036
-2021-07-02 19:43:06,469 - attack_utils — INFO — L2:21.739363048122424
-2021-07-02 19:43:06,507 - attack_utils — INFO — L2:21.730819411298373
-2021-07-02 19:43:06,524 - attack_utils — INFO — L2:21.676238404345348
-2021-07-02 19:43:06,538 - attack_utils — INFO — L2:21.702174202576536
-2021-07-02 19:43:06,578 - attack_utils — INFO — L2:21.702872242564812
-2021-07-02 19:43:06,612 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:43:06,612 - opytimizer.opytimizer — INFO — Iteration 19/50
-2021-07-02 19:43:17,204 - attack_utils — INFO — L2:21.735718575198216
-2021-07-02 19:43:17,299 - attack_utils — INFO — L2:21.710795069843
-2021-07-02 19:43:17,308 - attack_utils — INFO — L2:21.720014582449185
-2021-07-02 19:43:17,367 - attack_utils — INFO — L2:21.712414154614564
-2021-07-02 19:43:17,380 - attack_utils — INFO — L2:21.73427861853665
-2021-07-02 19:43:17,396 - attack_utils — INFO — L2:21.722362878853293
-2021-07-02 19:43:17,407 - attack_utils — INFO — L2:21.67391974607759
-2021-07-02 19:43:17,413 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:43:17,413 - opytimizer.opytimizer — INFO — Iteration 20/50
-2021-07-02 19:43:27,682 - attack_utils — INFO — L2:21.703304437355033
-2021-07-02 19:43:27,723 - attack_utils — INFO — L2:21.697190635781006
-2021-07-02 19:43:27,734 - attack_utils — INFO — L2:21.683038906630294
-2021-07-02 19:43:27,824 - attack_utils — INFO — L2:21.740132327635493
-2021-07-02 19:43:27,832 - attack_utils — INFO — L2:21.7089614552749
-2021-07-02 19:43:27,853 - attack_utils — INFO — L2:21.694490986600368
-2021-07-02 19:43:27,871 - attack_utils — INFO — L2:21.750569777999665
-2021-07-02 19:43:27,884 - attack_utils — INFO — L2:21.725630900783727
-2021-07-02 19:43:27,892 - attack_utils — INFO — L2:21.73483575783487
-2021-07-02 19:43:27,894 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:43:27,894 - opytimizer.opytimizer — INFO — Iteration 21/50
-2021-07-02 19:43:38,563 - attack_utils — INFO — L2:21.727234864887418
-2021-07-02 19:43:38,579 - attack_utils — INFO — L2:21.714498587060564
-2021-07-02 19:43:38,583 - attack_utils — INFO — L2:21.62114705748767
-2021-07-02 19:43:38,588 - attack_utils — INFO — L2:21.711154956942792
-2021-07-02 19:43:38,605 - attack_utils — INFO — L2:21.709118631482394
-2021-07-02 19:43:38,610 - attack_utils — INFO — L2:21.68482341151604
-2021-07-02 19:43:38,632 - attack_utils — INFO — L2:21.693523251420142
-2021-07-02 19:43:38,648 - attack_utils — INFO — L2:21.698028283731098
-2021-07-02 19:43:38,658 - attack_utils — INFO — L2:21.73969768181075
-2021-07-02 19:43:38,706 - attack_utils — INFO — L2:21.686736181116753
-2021-07-02 19:43:38,711 - attack_utils — INFO — L2:21.718249623798318
-2021-07-02 19:43:38,741 - attack_utils — INFO — L2:21.673748847164887
-2021-07-02 19:43:38,770 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:43:38,771 - opytimizer.opytimizer — INFO — Iteration 22/50
-2021-07-02 19:43:49,373 - attack_utils — INFO — L2:21.668830936456583
-2021-07-02 19:43:49,395 - attack_utils — INFO — L2:21.668969693063065
-2021-07-02 19:43:49,403 - attack_utils — INFO — L2:21.747471603428835
-2021-07-02 19:43:49,426 - attack_utils — INFO — L2:21.69234516246983
-2021-07-02 19:43:49,464 - attack_utils — INFO — L2:21.711561334968632
-2021-07-02 19:43:49,469 - attack_utils — INFO — L2:21.70895189460111
-2021-07-02 19:43:49,475 - attack_utils — INFO — L2:21.712411847507138
-2021-07-02 19:43:49,519 - attack_utils — INFO — L2:21.687058943416588
-2021-07-02 19:43:49,524 - attack_utils — INFO — L2:21.68348496175728
-2021-07-02 19:43:49,544 - attack_utils — INFO — L2:21.683476582160548
-2021-07-02 19:43:49,572 - attack_utils — INFO — L2:21.67795936810908
-2021-07-02 19:43:49,582 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:43:49,582 - opytimizer.opytimizer — INFO — Iteration 23/50
-2021-07-02 19:44:00,883 - attack_utils — INFO — L2:21.66889569763479
-2021-07-02 19:44:00,888 - attack_utils — INFO — L2:21.723640722631053
-2021-07-02 19:44:00,912 - attack_utils — INFO — L2:21.660858070667974
-2021-07-02 19:44:01,037 - attack_utils — INFO — L2:21.627170301913893
-2021-07-02 19:44:01,054 - attack_utils — INFO — L2:21.684520591522972
-2021-07-02 19:44:01,058 - attack_utils — INFO — L2:21.734727633027077
-2021-07-02 19:44:01,071 - attack_utils — INFO — L2:21.711884316238528
-2021-07-02 19:44:01,081 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:44:01,081 - opytimizer.opytimizer — INFO — Iteration 24/50
-2021-07-02 19:44:12,861 - attack_utils — INFO — L2:21.680946498678146
-2021-07-02 19:44:12,893 - attack_utils — INFO — L2:21.650407704309426
-2021-07-02 19:44:12,931 - attack_utils — INFO — L2:21.637639192512115
-2021-07-02 19:44:12,948 - attack_utils — INFO — L2:21.69011939870096
-2021-07-02 19:44:12,970 - attack_utils — INFO — L2:21.750625417883242
-2021-07-02 19:44:12,980 - attack_utils — INFO — L2:21.739292618259384
-2021-07-02 19:44:13,065 - attack_utils — INFO — L2:21.689937238127975
-2021-07-02 19:44:13,070 - attack_utils — INFO — L2:21.715269631874225
-2021-07-02 19:44:13,074 - attack_utils — INFO — L2:21.665361839110858
-2021-07-02 19:44:13,083 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:44:13,083 - opytimizer.opytimizer — INFO — Iteration 25/50
-2021-07-02 19:44:24,024 - attack_utils — INFO — L2:21.638500998542124
-2021-07-02 19:44:24,033 - attack_utils — INFO — L2:21.664720265112976
-2021-07-02 19:44:24,037 - attack_utils — INFO — L2:21.654231608089226
-2021-07-02 19:44:24,050 - attack_utils — INFO — L2:21.607123183848255
-2021-07-02 19:44:24,058 - attack_utils — INFO — L2:21.696041712542808
-2021-07-02 19:44:24,068 - attack_utils — INFO — L2:21.67414739473479
-2021-07-02 19:44:24,075 - attack_utils — INFO — L2:21.654650032553356
-2021-07-02 19:44:24,084 - attack_utils — INFO — L2:21.68187530191703
-2021-07-02 19:44:24,118 - attack_utils — INFO — L2:21.596071134910506
-2021-07-02 19:44:24,149 - attack_utils — INFO — L2:21.71581374893345
-2021-07-02 19:44:24,201 - attack_utils — INFO — L2:21.649422570746324
-2021-07-02 19:44:24,206 - attack_utils — INFO — L2:21.716698401084564
-2021-07-02 19:44:24,215 - attack_utils — INFO — L2:21.70717268292107
-2021-07-02 19:44:24,231 - attack_utils — INFO — L2:21.684089139744696
-2021-07-02 19:44:24,237 - attack_utils — INFO — L2:21.58682087013707
-2021-07-02 19:44:24,247 - attack_utils — INFO — L2:21.7271942954132
-2021-07-02 19:44:24,248 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:44:24,248 - opytimizer.opytimizer — INFO — Iteration 26/50
-2021-07-02 19:44:35,321 - attack_utils — INFO — L2:21.70780519544645
-2021-07-02 19:44:35,326 - attack_utils — INFO — L2:21.63284765563857
-2021-07-02 19:44:35,330 - attack_utils — INFO — L2:21.763989621839176
-2021-07-02 19:44:35,351 - attack_utils — INFO — L2:21.636191695263566
-2021-07-02 19:44:35,369 - attack_utils — INFO — L2:21.64772106650149
-2021-07-02 19:44:35,404 - attack_utils — INFO — L2:21.62549776175511
-2021-07-02 19:44:35,420 - attack_utils — INFO — L2:21.698419168488783
-2021-07-02 19:44:35,444 - attack_utils — INFO — L2:21.713273860877507
-2021-07-02 19:44:35,453 - attack_utils — INFO — L2:21.728367238740336
-2021-07-02 19:44:35,471 - attack_utils — INFO — L2:21.744610133172316
-2021-07-02 19:44:35,482 - attack_utils — INFO — L2:21.64078557507447
-2021-07-02 19:44:35,500 - attack_utils — INFO — L2:21.691207711726786
-2021-07-02 19:44:35,504 - attack_utils — INFO — L2:21.659337851094687
-2021-07-02 19:44:35,515 - attack_utils — INFO — L2:21.658874330212793
-2021-07-02 19:44:35,535 - attack_utils — INFO — L2:21.69941569587721
-2021-07-02 19:44:35,539 - attack_utils — INFO — L2:21.66414478630886
-2021-07-02 19:44:35,545 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:44:35,545 - opytimizer.opytimizer — INFO — Iteration 27/50
-2021-07-02 19:44:46,936 - attack_utils — INFO — L2:21.69529534386524
-2021-07-02 19:44:46,948 - attack_utils — INFO — L2:21.695956461522215
-2021-07-02 19:44:46,961 - attack_utils — INFO — L2:21.65983363541081
-2021-07-02 19:44:46,988 - attack_utils — INFO — L2:21.67096504352363
-2021-07-02 19:44:47,012 - attack_utils — INFO — L2:21.706033868754357
-2021-07-02 19:44:47,039 - attack_utils — INFO — L2:21.653617977831846
-2021-07-02 19:44:47,063 - attack_utils — INFO — L2:21.70377703341992
-2021-07-02 19:44:47,068 - attack_utils — INFO — L2:21.68394153728733
-2021-07-02 19:44:47,072 - attack_utils — INFO — L2:21.664981682935228
-2021-07-02 19:44:47,079 - attack_utils — INFO — L2:21.63561060680403
-2021-07-02 19:44:47,084 - attack_utils — INFO — L2:21.656291848045253
-2021-07-02 19:44:47,093 - attack_utils — INFO — L2:21.59049264323559
-2021-07-02 19:44:47,131 - attack_utils — INFO — L2:21.62868815839678
-2021-07-02 19:44:47,154 - attack_utils — INFO — L2:21.65468154031931
-2021-07-02 19:44:47,159 - attack_utils — INFO — L2:21.697150730928826
-2021-07-02 19:44:47,181 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:44:47,182 - opytimizer.opytimizer — INFO — Iteration 28/50
-2021-07-02 19:44:58,541 - attack_utils — INFO — L2:21.63201625310474
-2021-07-02 19:44:58,545 - attack_utils — INFO — L2:21.680292717999034
-2021-07-02 19:44:58,558 - attack_utils — INFO — L2:21.70570546830953
-2021-07-02 19:44:58,566 - attack_utils — INFO — L2:21.649439498696303
-2021-07-02 19:44:58,571 - attack_utils — INFO — L2:21.688090881245973
-2021-07-02 19:44:58,589 - attack_utils — INFO — L2:21.61312028572252
-2021-07-02 19:44:58,645 - attack_utils — INFO — L2:21.686655565756993
-2021-07-02 19:44:58,670 - attack_utils — INFO — L2:21.668223325366586
-2021-07-02 19:44:58,697 - attack_utils — INFO — L2:21.69326289318474
-2021-07-02 19:44:58,716 - attack_utils — INFO — L2:21.727059367043744
-2021-07-02 19:44:58,733 - attack_utils — INFO — L2:21.653784761891497
-2021-07-02 19:44:58,756 - attack_utils — INFO — L2:21.699669837711046
-2021-07-02 19:44:58,762 - attack_utils — INFO — L2:21.641555361208912
-2021-07-02 19:44:58,766 - attack_utils — INFO — L2:21.674867629209654
-2021-07-02 19:44:58,772 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:44:58,772 - opytimizer.opytimizer — INFO — Iteration 29/50
-2021-07-02 19:45:10,166 - attack_utils — INFO — L2:21.65876463488164
-2021-07-02 19:45:10,170 - attack_utils — INFO — L2:21.71956823165921
-2021-07-02 19:45:10,174 - attack_utils — INFO — L2:21.645494222511378
-2021-07-02 19:45:10,198 - attack_utils — INFO — L2:21.676281561007624
-2021-07-02 19:45:10,212 - attack_utils — INFO — L2:21.6289852146554
-2021-07-02 19:45:10,217 - attack_utils — INFO — L2:21.675515451307763
-2021-07-02 19:45:10,233 - attack_utils — INFO — L2:21.672962273361243
-2021-07-02 19:45:10,237 - attack_utils — INFO — L2:21.677576544470856
-2021-07-02 19:45:10,242 - attack_utils — INFO — L2:21.67870637662907
-2021-07-02 19:45:10,255 - attack_utils — INFO — L2:21.660978192817367
-2021-07-02 19:45:10,277 - attack_utils — INFO — L2:21.651629019471045
-2021-07-02 19:45:10,298 - attack_utils — INFO — L2:21.68753437649917
-2021-07-02 19:45:10,317 - attack_utils — INFO — L2:21.705640180033644
-2021-07-02 19:45:10,341 - attack_utils — INFO — L2:21.643183802649983
-2021-07-02 19:45:10,349 - attack_utils — INFO — L2:21.72668664033418
-2021-07-02 19:45:10,386 - attack_utils — INFO — L2:21.667298824032667
-2021-07-02 19:45:10,399 - attack_utils — INFO — L2:21.6412014559277
-2021-07-02 19:45:10,404 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:45:10,404 - opytimizer.opytimizer — INFO — Iteration 30/50
-2021-07-02 19:45:22,410 - attack_utils — INFO — L2:21.66137334085984
-2021-07-02 19:45:22,423 - attack_utils — INFO — L2:21.632758044975535
-2021-07-02 19:45:22,428 - attack_utils — INFO — L2:21.589700808196454
-2021-07-02 19:45:22,433 - attack_utils — INFO — L2:21.683856362673342
-2021-07-02 19:45:22,437 - attack_utils — INFO — L2:21.66012982945306
-2021-07-02 19:45:22,464 - attack_utils — INFO — L2:21.604471524188526
-2021-07-02 19:45:22,501 - attack_utils — INFO — L2:21.629949965303606
-2021-07-02 19:45:22,506 - attack_utils — INFO — L2:21.6250028547908
-2021-07-02 19:45:22,512 - attack_utils — INFO — L2:21.712348950918074
-2021-07-02 19:45:22,522 - attack_utils — INFO — L2:21.681357772922368
-2021-07-02 19:45:22,550 - attack_utils — INFO — L2:21.722184741019962
-2021-07-02 19:45:22,561 - attack_utils — INFO — L2:21.67594356408125
-2021-07-02 19:45:22,602 - attack_utils — INFO — L2:21.62646811394147
-2021-07-02 19:45:22,624 - attack_utils — INFO — L2:21.65121842758152
-2021-07-02 19:45:22,656 - attack_utils — INFO — L2:21.653928943499935
-2021-07-02 19:45:22,683 - attack_utils — INFO — L2:21.69452446400588
-2021-07-02 19:45:22,685 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:45:22,685 - opytimizer.opytimizer — INFO — Iteration 31/50
-2021-07-02 19:45:36,871 - attack_utils — INFO — L2:21.637351567254058
-2021-07-02 19:45:36,886 - attack_utils — INFO — L2:21.640800090688224
-2021-07-02 19:45:36,898 - attack_utils — INFO — L2:21.66164659746884
-2021-07-02 19:45:36,903 - attack_utils — INFO — L2:21.671258255588903
-2021-07-02 19:45:36,934 - attack_utils — INFO — L2:21.601393501696762
-2021-07-02 19:45:36,939 - attack_utils — INFO — L2:21.580588776534
-2021-07-02 19:45:36,951 - attack_utils — INFO — L2:21.62492568399101
-2021-07-02 19:45:36,956 - attack_utils — INFO — L2:21.676947146460144
-2021-07-02 19:45:36,960 - attack_utils — INFO — L2:21.65564484583234
-2021-07-02 19:45:36,964 - attack_utils — INFO — L2:21.708426676782263
-2021-07-02 19:45:36,969 - attack_utils — INFO — L2:21.62364990050655
-2021-07-02 19:45:36,983 - attack_utils — INFO — L2:21.663994875046768
-2021-07-02 19:45:36,992 - attack_utils — INFO — L2:21.67699534363235
-2021-07-02 19:45:37,000 - attack_utils — INFO — L2:21.68008043633001
-2021-07-02 19:45:37,012 - attack_utils — INFO — L2:21.615509102826234
-2021-07-02 19:45:37,026 - attack_utils — INFO — L2:21.61504097037631
-2021-07-02 19:45:37,031 - attack_utils — INFO — L2:21.643117876601767
-2021-07-02 19:45:37,059 - attack_utils — INFO — L2:21.657597981300636
-2021-07-02 19:45:37,065 - attack_utils — INFO — L2:21.673991696274822
-2021-07-02 19:45:37,100 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:45:37,100 - opytimizer.opytimizer — INFO — Iteration 32/50
-2021-07-02 19:45:50,598 - attack_utils — INFO — L2:21.61572290917696
-2021-07-02 19:45:50,611 - attack_utils — INFO — L2:21.641744067661886
-2021-07-02 19:45:50,629 - attack_utils — INFO — L2:21.653861812283356
-2021-07-02 19:45:50,646 - attack_utils — INFO — L2:21.691065785655713
-2021-07-02 19:45:50,658 - attack_utils — INFO — L2:21.761013260054213
-2021-07-02 19:45:50,694 - attack_utils — INFO — L2:21.650671091966604
-2021-07-02 19:45:50,711 - attack_utils — INFO — L2:21.69310725757878
-2021-07-02 19:45:50,717 - attack_utils — INFO — L2:21.65494882350958
-2021-07-02 19:45:50,728 - attack_utils — INFO — L2:21.69417232159481
-2021-07-02 19:45:50,744 - attack_utils — INFO — L2:21.706468301670114
-2021-07-02 19:45:50,759 - attack_utils — INFO — L2:21.704807149635105
-2021-07-02 19:45:50,763 - attack_utils — INFO — L2:21.62863054775259
-2021-07-02 19:45:50,774 - attack_utils — INFO — L2:21.71296305617443
-2021-07-02 19:45:50,780 - attack_utils — INFO — L2:21.73727763590004
-2021-07-02 19:45:50,786 - attack_utils — INFO — L2:21.6938329587608
-2021-07-02 19:45:50,790 - attack_utils — INFO — L2:21.659262000104977
-2021-07-02 19:45:50,810 - attack_utils — INFO — L2:21.674392072947526
-2021-07-02 19:45:50,816 - attack_utils — INFO — L2:21.655221475480126
-2021-07-02 19:45:50,837 - attack_utils — INFO — L2:21.641803130952464
-2021-07-02 19:45:50,865 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:45:50,865 - opytimizer.opytimizer — INFO — Iteration 33/50
-2021-07-02 19:46:04,999 - attack_utils — INFO — L2:21.674325025409814
-2021-07-02 19:46:05,003 - attack_utils — INFO — L2:21.660224251681875
-2021-07-02 19:46:05,015 - attack_utils — INFO — L2:21.696862857181106
-2021-07-02 19:46:05,020 - attack_utils — INFO — L2:21.668901558003398
-2021-07-02 19:46:05,027 - attack_utils — INFO — L2:21.69906259226172
-2021-07-02 19:46:05,056 - attack_utils — INFO — L2:21.683290113242812
-2021-07-02 19:46:05,064 - attack_utils — INFO — L2:21.648950377762194
-2021-07-02 19:46:05,072 - attack_utils — INFO — L2:21.62613474889241
-2021-07-02 19:46:05,076 - attack_utils — INFO — L2:21.689828422400318
-2021-07-02 19:46:05,080 - attack_utils — INFO — L2:21.63686304062898
-2021-07-02 19:46:05,085 - attack_utils — INFO — L2:21.693789979401895
-2021-07-02 19:46:05,112 - attack_utils — INFO — L2:21.713298588840672
-2021-07-02 19:46:05,116 - attack_utils — INFO — L2:21.617557668591626
-2021-07-02 19:46:05,121 - attack_utils — INFO — L2:21.644668361762996
-2021-07-02 19:46:05,136 - attack_utils — INFO — L2:21.60478144816186
-2021-07-02 19:46:05,144 - attack_utils — INFO — L2:21.704829371141365
-2021-07-02 19:46:05,171 - attack_utils — INFO — L2:21.69908609399869
-2021-07-02 19:46:05,184 - attack_utils — INFO — L2:21.685532018525834
-2021-07-02 19:46:05,188 - attack_utils — INFO — L2:21.652492954841478
-2021-07-02 19:46:05,194 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:46:05,194 - opytimizer.opytimizer — INFO — Iteration 34/50
-2021-07-02 19:46:29,057 - attack_utils — INFO — L2:21.63405171154311
-2021-07-02 19:46:29,070 - attack_utils — INFO — L2:21.597163003380423
-2021-07-02 19:46:29,075 - attack_utils — INFO — L2:21.72200559361897
-2021-07-02 19:46:29,104 - attack_utils — INFO — L2:21.604845134738454
-2021-07-02 19:46:29,118 - attack_utils — INFO — L2:21.672524260821035
-2021-07-02 19:46:29,127 - attack_utils — INFO — L2:21.714007021769966
-2021-07-02 19:46:29,132 - attack_utils — INFO — L2:21.61153758345437
-2021-07-02 19:46:29,146 - attack_utils — INFO — L2:21.639363008259703
-2021-07-02 19:46:29,164 - attack_utils — INFO — L2:21.662024982787123
-2021-07-02 19:46:29,177 - attack_utils — INFO — L2:21.680409599649277
-2021-07-02 19:46:29,202 - attack_utils — INFO — L2:21.60143232944919
-2021-07-02 19:46:29,213 - attack_utils — INFO — L2:21.627454581039206
-2021-07-02 19:46:29,226 - attack_utils — INFO — L2:21.63095751545087
-2021-07-02 19:46:29,235 - attack_utils — INFO — L2:21.641708844581405
-2021-07-02 19:46:29,240 - attack_utils — INFO — L2:21.67799737069575
-2021-07-02 19:46:29,256 - attack_utils — INFO — L2:21.67505567325467
-2021-07-02 19:46:29,262 - attack_utils — INFO — L2:21.59928876841065
-2021-07-02 19:46:29,282 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:46:29,285 - opytimizer.opytimizer — INFO — Iteration 35/50
-2021-07-02 19:46:45,306 - attack_utils — INFO — L2:21.69430824107755
-2021-07-02 19:46:45,311 - attack_utils — INFO — L2:21.707341590452597
-2021-07-02 19:46:45,333 - attack_utils — INFO — L2:21.64198610529281
-2021-07-02 19:46:45,339 - attack_utils — INFO — L2:21.657267342651913
-2021-07-02 19:46:45,360 - attack_utils — INFO — L2:21.694891258909887
-2021-07-02 19:46:45,446 - attack_utils — INFO — L2:21.69450742923002
-2021-07-02 19:46:45,452 - attack_utils — INFO — L2:21.6751328002422
-2021-07-02 19:46:45,463 - attack_utils — INFO — L2:21.679338807612528
-2021-07-02 19:46:45,478 - attack_utils — INFO — L2:21.707773350600213
-2021-07-02 19:46:45,486 - attack_utils — INFO — L2:21.651014328127957
-2021-07-02 19:46:45,502 - attack_utils — INFO — L2:21.637143172540718
-2021-07-02 19:46:45,523 - attack_utils — INFO — L2:21.54206078875175
-2021-07-02 19:46:45,528 - attack_utils — INFO — L2:21.642797966041815
-2021-07-02 19:46:45,544 - attack_utils — INFO — L2:21.64811041135427
-2021-07-02 19:46:45,561 - attack_utils — INFO — L2:21.683831119299303
-2021-07-02 19:46:45,579 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:46:45,580 - opytimizer.opytimizer — INFO — Iteration 36/50
-2021-07-02 19:47:11,135 - attack_utils — INFO — L2:21.60992844872461
-2021-07-02 19:47:11,141 - attack_utils — INFO — L2:21.6659319510713
-2021-07-02 19:47:11,164 - attack_utils — INFO — L2:21.64163587572801
-2021-07-02 19:47:11,168 - attack_utils — INFO — L2:21.71778596296041
-2021-07-02 19:47:11,186 - attack_utils — INFO — L2:21.659175298986742
-2021-07-02 19:47:11,198 - attack_utils — INFO — L2:21.633021496446457
-2021-07-02 19:47:11,205 - attack_utils — INFO — L2:21.666337544781562
-2021-07-02 19:47:11,218 - attack_utils — INFO — L2:21.607125181758658
-2021-07-02 19:47:11,228 - attack_utils — INFO — L2:21.655728617866618
-2021-07-02 19:47:11,233 - attack_utils — INFO — L2:21.67361272838146
-2021-07-02 19:47:11,250 - attack_utils — INFO — L2:21.681874502830883
-2021-07-02 19:47:11,264 - attack_utils — INFO — L2:21.714675235296053
-2021-07-02 19:47:11,281 - attack_utils — INFO — L2:21.68665476732326
-2021-07-02 19:47:11,286 - attack_utils — INFO — L2:21.631876192000817
-2021-07-02 19:47:11,309 - attack_utils — INFO — L2:21.633460403571604
-2021-07-02 19:47:11,317 - attack_utils — INFO — L2:21.62520949315942
-2021-07-02 19:47:11,340 - attack_utils — INFO — L2:21.676946258070107
-2021-07-02 19:47:11,364 - attack_utils — INFO — L2:21.656656244077944
-2021-07-02 19:47:11,386 - attack_utils — INFO — L2:21.585577540759918
-2021-07-02 19:47:11,395 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:47:11,395 - opytimizer.opytimizer — INFO — Iteration 37/50
-2021-07-02 19:47:37,320 - attack_utils — INFO — L2:21.663566510232275
-2021-07-02 19:47:37,335 - attack_utils — INFO — L2:21.660837156426332
-2021-07-02 19:47:37,354 - attack_utils — INFO — L2:21.627750784210594
-2021-07-02 19:47:37,359 - attack_utils — INFO — L2:21.61538160496311
-2021-07-02 19:47:37,368 - attack_utils — INFO — L2:21.661733942041423
-2021-07-02 19:47:37,373 - attack_utils — INFO — L2:21.643698498830044
-2021-07-02 19:47:37,386 - attack_utils — INFO — L2:21.700694029024152
-2021-07-02 19:47:37,390 - attack_utils — INFO — L2:21.589365994587265
-2021-07-02 19:47:37,402 - attack_utils — INFO — L2:21.70801016237314
-2021-07-02 19:47:37,419 - attack_utils — INFO — L2:21.593620507230334
-2021-07-02 19:47:37,432 - attack_utils — INFO — L2:21.5991502657433
-2021-07-02 19:47:37,454 - attack_utils — INFO — L2:21.65252914444127
-2021-07-02 19:47:37,463 - attack_utils — INFO — L2:21.610642763678502
-2021-07-02 19:47:37,469 - attack_utils — INFO — L2:21.65018821310795
-2021-07-02 19:47:37,484 - attack_utils — INFO — L2:21.624745779891263
-2021-07-02 19:47:37,495 - attack_utils — INFO — L2:21.64649074640707
-2021-07-02 19:47:37,549 - attack_utils — INFO — L2:21.65132771098706
-2021-07-02 19:47:37,604 - attack_utils — INFO — L2:21.636999383288067
-2021-07-02 19:47:37,638 - attack_utils — INFO — L2:21.60792480411149
-2021-07-02 19:47:37,703 - attack_utils — INFO — L2:21.60396765229199
-2021-07-02 19:47:37,729 - attack_utils — INFO — L2:21.638146526789367
-2021-07-02 19:47:37,766 - attack_utils — INFO — L2:21.609167317864248
-2021-07-02 19:47:37,799 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:47:37,799 - opytimizer.opytimizer — INFO — Iteration 38/50
-2021-07-02 19:47:58,267 - attack_utils — INFO — L2:21.647710737074107
-2021-07-02 19:47:58,275 - attack_utils — INFO — L2:21.666573788371796
-2021-07-02 19:47:58,284 - attack_utils — INFO — L2:21.628030514030385
-2021-07-02 19:47:58,293 - attack_utils — INFO — L2:21.651382719146465
-2021-07-02 19:47:58,298 - attack_utils — INFO — L2:21.58228842992597
-2021-07-02 19:47:58,316 - attack_utils — INFO — L2:21.683652126181403
-2021-07-02 19:47:58,325 - attack_utils — INFO — L2:21.610730184922982
-2021-07-02 19:47:58,351 - attack_utils — INFO — L2:21.677473146774272
-2021-07-02 19:47:58,357 - attack_utils — INFO — L2:21.62629662133572
-2021-07-02 19:47:58,364 - attack_utils — INFO — L2:21.601545819069198
-2021-07-02 19:47:58,370 - attack_utils — INFO — L2:21.70505119782932
-2021-07-02 19:47:58,374 - attack_utils — INFO — L2:21.651967227881592
-2021-07-02 19:47:58,387 - attack_utils — INFO — L2:21.660985194806106
-2021-07-02 19:47:58,396 - attack_utils — INFO — L2:21.60421992839751
-2021-07-02 19:47:58,402 - attack_utils — INFO — L2:21.663480566745466
-2021-07-02 19:47:58,409 - attack_utils — INFO — L2:21.65950683448214
-2021-07-02 19:47:58,419 - attack_utils — INFO — L2:21.678027370126557
-2021-07-02 19:47:58,423 - attack_utils — INFO — L2:21.641345294392345
-2021-07-02 19:47:58,432 - attack_utils — INFO — L2:21.683905387340044
-2021-07-02 19:47:58,444 - attack_utils — INFO — L2:21.655894816179963
-2021-07-02 19:47:58,458 - attack_utils — INFO — L2:21.647104724595145
-2021-07-02 19:47:58,479 - attack_utils — INFO — L2:21.6504853906234
-2021-07-02 19:47:58,483 - attack_utils — INFO — L2:21.638453292795994
-2021-07-02 19:47:58,487 - attack_utils — INFO — L2:21.5953480925797
-2021-07-02 19:47:58,492 - attack_utils — INFO — L2:21.702005937475292
-2021-07-02 19:47:58,510 - attack_utils — INFO — L2:21.652766879181698
-2021-07-02 19:47:58,513 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:47:58,513 - opytimizer.opytimizer — INFO — Iteration 39/50
-2021-07-02 19:48:18,107 - attack_utils — INFO — L2:21.679856123195076
-2021-07-02 19:48:18,113 - attack_utils — INFO — L2:21.626371492187833
-2021-07-02 19:48:18,122 - attack_utils — INFO — L2:21.649376589846987
-2021-07-02 19:48:18,126 - attack_utils — INFO — L2:21.667776134314337
-2021-07-02 19:48:18,131 - attack_utils — INFO — L2:21.62829475204111
-2021-07-02 19:48:18,141 - attack_utils — INFO — L2:21.650213297207905
-2021-07-02 19:48:18,150 - attack_utils — INFO — L2:21.619502162002608
-2021-07-02 19:48:18,167 - attack_utils — INFO — L2:21.6746725171664
-2021-07-02 19:48:18,176 - attack_utils — INFO — L2:21.65617859505905
-2021-07-02 19:48:18,188 - attack_utils — INFO — L2:21.692401815307623
-2021-07-02 19:48:18,198 - attack_utils — INFO — L2:21.63151274188451
-2021-07-02 19:48:18,231 - attack_utils — INFO — L2:21.638545773929383
-2021-07-02 19:48:18,250 - attack_utils — INFO — L2:21.652587578036826
-2021-07-02 19:48:18,261 - attack_utils — INFO — L2:21.665545982454745
-2021-07-02 19:48:18,270 - attack_utils — INFO — L2:21.72305440404376
-2021-07-02 19:48:18,298 - attack_utils — INFO — L2:21.659666036909965
-2021-07-02 19:48:18,330 - attack_utils — INFO — L2:21.640973953658932
-2021-07-02 19:48:18,342 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:48:18,342 - opytimizer.opytimizer — INFO — Iteration 40/50
-2021-07-02 19:48:41,269 - attack_utils — INFO — L2:21.631989166755197
-2021-07-02 19:48:41,290 - attack_utils — INFO — L2:21.678200455186953
-2021-07-02 19:48:41,379 - attack_utils — INFO — L2:21.663719753965754
-2021-07-02 19:48:41,384 - attack_utils — INFO — L2:21.668034521408334
-2021-07-02 19:48:41,394 - attack_utils — INFO — L2:21.663371965902016
-2021-07-02 19:48:41,401 - attack_utils — INFO — L2:21.69786405631691
-2021-07-02 19:48:41,410 - attack_utils — INFO — L2:21.64927655220868
-2021-07-02 19:48:41,420 - attack_utils — INFO — L2:21.699138789999168
-2021-07-02 19:48:41,477 - attack_utils — INFO — L2:21.6946085620599
-2021-07-02 19:48:41,495 - attack_utils — INFO — L2:21.639126295799464
-2021-07-02 19:48:41,522 - attack_utils — INFO — L2:21.655234412559846
-2021-07-02 19:48:41,545 - attack_utils — INFO — L2:21.65221752048608
-2021-07-02 19:48:41,551 - attack_utils — INFO — L2:21.6712110016487
-2021-07-02 19:48:41,558 - attack_utils — INFO — L2:21.63366949700142
-2021-07-02 19:48:41,573 - attack_utils — INFO — L2:21.683995786938922
-2021-07-02 19:48:41,597 - attack_utils — INFO — L2:21.66357679348775
-2021-07-02 19:48:41,620 - attack_utils — INFO — L2:21.665178025604362
-2021-07-02 19:48:41,629 - attack_utils — INFO — L2:21.62601163539244
-2021-07-02 19:48:41,646 - attack_utils — INFO — L2:21.655742170144382
-2021-07-02 19:48:41,648 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:48:41,648 - opytimizer.opytimizer — INFO — Iteration 41/50
-2021-07-02 19:48:57,295 - attack_utils — INFO — L2:21.63063562472884
-2021-07-02 19:48:57,299 - attack_utils — INFO — L2:21.62864739472089
-2021-07-02 19:48:57,325 - attack_utils — INFO — L2:21.62612848388127
-2021-07-02 19:48:57,357 - attack_utils — INFO — L2:21.636883583057667
-2021-07-02 19:48:57,385 - attack_utils — INFO — L2:21.65141419479375
-2021-07-02 19:48:57,404 - attack_utils — INFO — L2:21.641754124167825
-2021-07-02 19:48:57,411 - attack_utils — INFO — L2:21.62982569418164
-2021-07-02 19:48:57,419 - attack_utils — INFO — L2:21.642380385705568
-2021-07-02 19:48:57,427 - attack_utils — INFO — L2:21.620480366548872
-2021-07-02 19:48:57,435 - attack_utils — INFO — L2:21.667959687080103
-2021-07-02 19:48:57,455 - attack_utils — INFO — L2:21.655016237439593
-2021-07-02 19:48:57,473 - attack_utils — INFO — L2:21.695840198036986
-2021-07-02 19:48:57,478 - attack_utils — INFO — L2:21.685054236126458
-2021-07-02 19:48:57,483 - attack_utils — INFO — L2:21.658005086958603
-2021-07-02 19:48:57,501 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:48:57,501 - opytimizer.opytimizer — INFO — Iteration 42/50
-2021-07-02 19:49:17,444 - attack_utils — INFO — L2:21.678393813243787
-2021-07-02 19:49:17,449 - attack_utils — INFO — L2:21.657145247339322
-2021-07-02 19:49:17,454 - attack_utils — INFO — L2:21.604795301784783
-2021-07-02 19:49:17,461 - attack_utils — INFO — L2:21.591617633070392
-2021-07-02 19:49:17,466 - attack_utils — INFO — L2:21.678836791895478
-2021-07-02 19:49:17,475 - attack_utils — INFO — L2:21.651616125828472
-2021-07-02 19:49:17,601 - attack_utils — INFO — L2:21.650207118929774
-2021-07-02 19:49:17,607 - attack_utils — INFO — L2:21.642247397512364
-2021-07-02 19:49:17,715 - attack_utils — INFO — L2:21.68752927263996
-2021-07-02 19:49:17,736 - attack_utils — INFO — L2:21.619059311743563
-2021-07-02 19:49:17,812 - attack_utils — INFO — L2:21.7061977484744
-2021-07-02 19:49:17,829 - attack_utils — INFO — L2:21.604954277253
-2021-07-02 19:49:17,839 - attack_utils — INFO — L2:21.607188787139826
-2021-07-02 19:49:17,912 - attack_utils — INFO — L2:21.641780832640567
-2021-07-02 19:49:17,928 - attack_utils — INFO — L2:21.70836314900226
-2021-07-02 19:49:17,966 - attack_utils — INFO — L2:21.59589197067319
-2021-07-02 19:49:17,977 - attack_utils — INFO — L2:21.611571156766335
-2021-07-02 19:49:18,043 - attack_utils — INFO — L2:21.669477889274557
-2021-07-02 19:49:18,056 - attack_utils — INFO — L2:21.612505906853702
-2021-07-02 19:49:18,071 - attack_utils — INFO — L2:21.618184199321465
-2021-07-02 19:49:18,119 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:49:18,119 - opytimizer.opytimizer — INFO — Iteration 43/50
-2021-07-02 19:49:36,981 - attack_utils — INFO — L2:21.66239938805986
-2021-07-02 19:49:36,986 - attack_utils — INFO — L2:21.58888138183457
-2021-07-02 19:49:37,030 - attack_utils — INFO — L2:21.64963398857145
-2021-07-02 19:49:37,043 - attack_utils — INFO — L2:21.609903677558144
-2021-07-02 19:49:37,049 - attack_utils — INFO — L2:21.58309605256746
-2021-07-02 19:49:37,074 - attack_utils — INFO — L2:21.663382458136923
-2021-07-02 19:49:37,094 - attack_utils — INFO — L2:21.64302457108122
-2021-07-02 19:49:37,104 - attack_utils — INFO — L2:21.703677438089553
-2021-07-02 19:49:37,110 - attack_utils — INFO — L2:21.669184047648027
-2021-07-02 19:49:37,130 - attack_utils — INFO — L2:21.658731952557705
-2021-07-02 19:49:37,138 - attack_utils — INFO — L2:21.593965212200377
-2021-07-02 19:49:37,144 - attack_utils — INFO — L2:21.6374311901675
-2021-07-02 19:49:37,161 - attack_utils — INFO — L2:21.628644862210034
-2021-07-02 19:49:37,220 - attack_utils — INFO — L2:21.658309957921436
-2021-07-02 19:49:37,226 - attack_utils — INFO — L2:21.643206499047395
-2021-07-02 19:49:37,251 - attack_utils — INFO — L2:21.611469888201007
-2021-07-02 19:49:37,304 - attack_utils — INFO — L2:21.574176372608957
-2021-07-02 19:49:37,333 - attack_utils — INFO — L2:21.63751628558471
-2021-07-02 19:49:37,343 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:49:37,343 - opytimizer.opytimizer — INFO — Iteration 44/50
-2021-07-02 19:50:03,835 - attack_utils — INFO — L2:21.62979148848242
-2021-07-02 19:50:03,874 - attack_utils — INFO — L2:21.659849214430917
-2021-07-02 19:50:03,928 - attack_utils — INFO — L2:21.601577508667408
-2021-07-02 19:50:03,949 - attack_utils — INFO — L2:21.66880253510273
-2021-07-02 19:50:03,977 - attack_utils — INFO — L2:21.672074031349425
-2021-07-02 19:50:03,983 - attack_utils — INFO — L2:21.64693887262747
-2021-07-02 19:50:04,011 - attack_utils — INFO — L2:21.590015131017594
-2021-07-02 19:50:04,024 - attack_utils — INFO — L2:21.610691078423116
-2021-07-02 19:50:04,052 - attack_utils — INFO — L2:21.656636945943074
-2021-07-02 19:50:04,095 - attack_utils — INFO — L2:21.666712864518775
-2021-07-02 19:50:04,101 - attack_utils — INFO — L2:21.706876660079534
-2021-07-02 19:50:04,163 - attack_utils — INFO — L2:21.69101669689886
-2021-07-02 19:50:04,197 - attack_utils — INFO — L2:21.68803901760307
-2021-07-02 19:50:04,220 - attack_utils — INFO — L2:21.634593575083272
-2021-07-02 19:50:04,231 - attack_utils — INFO — L2:21.65466811435332
-2021-07-02 19:50:04,261 - attack_utils — INFO — L2:21.623159430429183
-2021-07-02 19:50:04,281 - attack_utils — INFO — L2:21.642164754850448
-2021-07-02 19:50:04,299 - attack_utils — INFO — L2:21.6853304762679
-2021-07-02 19:50:04,308 - attack_utils — INFO — L2:21.66406431158608
-2021-07-02 19:50:04,341 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:50:04,341 - opytimizer.opytimizer — INFO — Iteration 45/50
-2021-07-02 19:50:24,103 - attack_utils — INFO — L2:21.69182614081857
-2021-07-02 19:50:24,155 - attack_utils — INFO — L2:21.59628941767519
-2021-07-02 19:50:24,171 - attack_utils — INFO — L2:21.692238253670187
-2021-07-02 19:50:24,179 - attack_utils — INFO — L2:21.692533894001503
-2021-07-02 19:50:24,205 - attack_utils — INFO — L2:21.66427967320854
-2021-07-02 19:50:24,222 - attack_utils — INFO — L2:21.613749827773415
-2021-07-02 19:50:24,238 - attack_utils — INFO — L2:21.632174372561565
-2021-07-02 19:50:24,259 - attack_utils — INFO — L2:21.647477211259048
-2021-07-02 19:50:24,270 - attack_utils — INFO — L2:21.662528700114684
-2021-07-02 19:50:24,309 - attack_utils — INFO — L2:21.628178092409065
-2021-07-02 19:50:24,384 - attack_utils — INFO — L2:21.678086327716983
-2021-07-02 19:50:24,392 - attack_utils — INFO — L2:21.646030209586243
-2021-07-02 19:50:24,410 - attack_utils — INFO — L2:21.667285683939046
-2021-07-02 19:50:24,489 - attack_utils — INFO — L2:21.66479408084906
-2021-07-02 19:50:24,538 - attack_utils — INFO — L2:21.59327897860061
-2021-07-02 19:50:24,547 - attack_utils — INFO — L2:21.69782990502734
-2021-07-02 19:50:24,559 - attack_utils — INFO — L2:21.669948612710776
-2021-07-02 19:50:24,573 - attack_utils — INFO — L2:21.674880921554074
-2021-07-02 19:50:24,598 - attack_utils — INFO — L2:21.685482527662465
-2021-07-02 19:50:24,600 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:50:24,600 - opytimizer.opytimizer — INFO — Iteration 46/50
-2021-07-02 19:50:41,096 - attack_utils — INFO — L2:21.6710668321354
-2021-07-02 19:50:41,107 - attack_utils — INFO — L2:21.689765415952007
-2021-07-02 19:50:41,151 - attack_utils — INFO — L2:21.71728201152959
-2021-07-02 19:50:41,163 - attack_utils — INFO — L2:21.65438157814262
-2021-07-02 19:50:41,194 - attack_utils — INFO — L2:21.684507009996175
-2021-07-02 19:50:41,233 - attack_utils — INFO — L2:21.664981950832328
-2021-07-02 19:50:41,252 - attack_utils — INFO — L2:21.54678334026855
-2021-07-02 19:50:41,283 - attack_utils — INFO — L2:21.72317178494167
-2021-07-02 19:50:41,288 - attack_utils — INFO — L2:21.706862573296025
-2021-07-02 19:50:41,295 - attack_utils — INFO — L2:21.67298004907608
-2021-07-02 19:50:41,308 - attack_utils — INFO — L2:21.685132023728627
-2021-07-02 19:50:41,325 - attack_utils — INFO — L2:21.635050142233354
-2021-07-02 19:50:41,368 - attack_utils — INFO — L2:21.69112682303886
-2021-07-02 19:50:41,377 - attack_utils — INFO — L2:21.717450589788974
-2021-07-02 19:50:41,435 - attack_utils — INFO — L2:21.737382847621827
-2021-07-02 19:50:41,445 - attack_utils — INFO — L2:21.67619304637218
-2021-07-02 19:50:41,452 - attack_utils — INFO — L2:21.6766788845817
-2021-07-02 19:50:41,459 - attack_utils — INFO — L2:21.66711814009771
-2021-07-02 19:50:41,470 - attack_utils — INFO — L2:21.680794403364366
-2021-07-02 19:50:41,480 - attack_utils — INFO — L2:21.668326116765048
-2021-07-02 19:50:41,485 - attack_utils — INFO — L2:21.653224056963143
-2021-07-02 19:50:42,597 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:50:42,597 - opytimizer.opytimizer — INFO — Iteration 47/50
-2021-07-02 19:50:59,200 - attack_utils — INFO — L2:21.631430880571212
-2021-07-02 19:50:59,207 - attack_utils — INFO — L2:21.684581418502116
-2021-07-02 19:50:59,211 - attack_utils — INFO — L2:21.713755495512082
-2021-07-02 19:50:59,230 - attack_utils — INFO — L2:21.690381103086306
-2021-07-02 19:50:59,240 - attack_utils — INFO — L2:21.733389882332517
-2021-07-02 19:50:59,245 - attack_utils — INFO — L2:21.67734905672047
-2021-07-02 19:50:59,253 - attack_utils — INFO — L2:21.68206171914244
-2021-07-02 19:50:59,267 - attack_utils — INFO — L2:21.668914180152953
-2021-07-02 19:50:59,284 - attack_utils — INFO — L2:21.655831897484305
-2021-07-02 19:50:59,290 - attack_utils — INFO — L2:21.654437031797162
-2021-07-02 19:50:59,308 - attack_utils — INFO — L2:21.664529936345783
-2021-07-02 19:50:59,326 - attack_utils — INFO — L2:21.66975753042381
-2021-07-02 19:50:59,334 - attack_utils — INFO — L2:21.66961349631313
-2021-07-02 19:50:59,346 - attack_utils — INFO — L2:21.725905358477608
-2021-07-02 19:50:59,355 - attack_utils — INFO — L2:21.65848370966932
-2021-07-02 19:50:59,359 - attack_utils — INFO — L2:21.708834296298882
-2021-07-02 19:50:59,372 - attack_utils — INFO — L2:21.628583137129937
-2021-07-02 19:50:59,376 - attack_utils — INFO — L2:21.676066009172683
-2021-07-02 19:50:59,380 - attack_utils — INFO — L2:21.690530702949047
-2021-07-02 19:50:59,389 - attack_utils — INFO — L2:21.629701378446875
-2021-07-02 19:50:59,395 - attack_utils — INFO — L2:21.694796505540477
-2021-07-02 19:50:59,400 - attack_utils — INFO — L2:21.68714968666462
-2021-07-02 19:50:59,421 - attack_utils — INFO — L2:21.699584549508174
-2021-07-02 19:50:59,426 - attack_utils — INFO — L2:21.712700435141944
-2021-07-02 19:50:59,436 - attack_utils — INFO — L2:21.715520309603537
-2021-07-02 19:50:59,437 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:50:59,438 - opytimizer.opytimizer — INFO — Iteration 48/50
-2021-07-02 19:51:13,851 - attack_utils — INFO — L2:21.70065379956402
-2021-07-02 19:51:13,857 - attack_utils — INFO — L2:21.69450142675671
-2021-07-02 19:51:13,867 - attack_utils — INFO — L2:21.691322311115513
-2021-07-02 19:51:13,872 - attack_utils — INFO — L2:21.67893330889775
-2021-07-02 19:51:13,877 - attack_utils — INFO — L2:21.71178574669362
-2021-07-02 19:51:13,882 - attack_utils — INFO — L2:21.70627770060463
-2021-07-02 19:51:13,904 - attack_utils — INFO — L2:21.66591574132317
-2021-07-02 19:51:13,909 - attack_utils — INFO — L2:21.70971386121061
-2021-07-02 19:51:13,919 - attack_utils — INFO — L2:21.689595198382378
-2021-07-02 19:51:13,926 - attack_utils — INFO — L2:21.717762964267674
-2021-07-02 19:51:13,934 - attack_utils — INFO — L2:21.721677050369497
-2021-07-02 19:51:13,938 - attack_utils — INFO — L2:21.73094186457204
-2021-07-02 19:51:13,943 - attack_utils — INFO — L2:21.667625575377375
-2021-07-02 19:51:13,958 - attack_utils — INFO — L2:21.72800708923459
-2021-07-02 19:51:13,962 - attack_utils — INFO — L2:21.6511109971633
-2021-07-02 19:51:13,979 - attack_utils — INFO — L2:21.690738588260274
-2021-07-02 19:51:13,983 - attack_utils — INFO — L2:21.74264854078253
-2021-07-02 19:51:14,010 - attack_utils — INFO — L2:21.70819885527552
-2021-07-02 19:51:14,053 - attack_utils — INFO — L2:21.74643056732402
-2021-07-02 19:51:14,057 - attack_utils — INFO — L2:21.707174742532985
-2021-07-02 19:51:14,062 - attack_utils — INFO — L2:21.70072207079311
-2021-07-02 19:51:14,066 - attack_utils — INFO — L2:21.716236944466704
-2021-07-02 19:51:14,070 - attack_utils — INFO — L2:21.659488714198282
-2021-07-02 19:51:14,075 - attack_utils — INFO — L2:21.692325085914
-2021-07-02 19:51:14,083 - attack_utils — INFO — L2:21.712195233115786
-2021-07-02 19:51:14,095 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:51:14,095 - opytimizer.opytimizer — INFO — Iteration 49/50
-2021-07-02 19:51:31,343 - attack_utils — INFO — L2:21.730946161738785
-2021-07-02 19:51:31,350 - attack_utils — INFO — L2:21.70786925021274
-2021-07-02 19:51:31,370 - attack_utils — INFO — L2:21.68694183217312
-2021-07-02 19:51:31,401 - attack_utils — INFO — L2:21.729920656860745
-2021-07-02 19:51:31,406 - attack_utils — INFO — L2:21.720761302275996
-2021-07-02 19:51:31,415 - attack_utils — INFO — L2:21.69210615031997
-2021-07-02 19:51:31,420 - attack_utils — INFO — L2:21.71211761976323
-2021-07-02 19:51:31,433 - attack_utils — INFO — L2:21.715276596377812
-2021-07-02 19:51:31,442 - attack_utils — INFO — L2:21.692513195082224
-2021-07-02 19:51:31,454 - attack_utils — INFO — L2:21.71384424416718
-2021-07-02 19:51:31,460 - attack_utils — INFO — L2:21.700591982027145
-2021-07-02 19:51:31,473 - attack_utils — INFO — L2:21.736134485265875
-2021-07-02 19:51:31,477 - attack_utils — INFO — L2:21.67865393080057
-2021-07-02 19:51:31,488 - attack_utils — INFO — L2:21.71614720086708
-2021-07-02 19:51:31,509 - attack_utils — INFO — L2:21.685127116924274
-2021-07-02 19:51:31,516 - attack_utils — INFO — L2:21.699934911770526
-2021-07-02 19:51:31,521 - attack_utils — INFO — L2:21.719628944798536
-2021-07-02 19:51:31,533 - attack_utils — INFO — L2:21.718652746076028
-2021-07-02 19:51:31,544 - attack_utils — INFO — L2:21.710783517386524
-2021-07-02 19:51:31,552 - attack_utils — INFO — L2:21.73044540239653
-2021-07-02 19:51:31,556 - attack_utils — INFO — L2:21.7122167315599
-2021-07-02 19:51:31,560 - attack_utils — INFO — L2:21.67961897679162
-2021-07-02 19:51:31,577 - attack_utils — INFO — L2:21.727131767094463
-2021-07-02 19:51:31,591 - attack_utils — INFO — L2:21.67891180617242
-2021-07-02 19:51:31,600 - attack_utils — INFO — L2:21.731818746866804
-2021-07-02 19:51:31,604 - attack_utils — INFO — L2:21.714404517185027
-2021-07-02 19:51:31,608 - attack_utils — INFO — L2:21.704847012783723
-2021-07-02 19:51:31,620 - attack_utils — INFO — L2:21.716939936273256
-2021-07-02 19:51:31,626 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:51:31,627 - opytimizer.opytimizer — INFO — Iteration 50/50
-2021-07-02 19:51:47,712 - attack_utils — INFO — L2:21.691740640572426
-2021-07-02 19:51:47,717 - attack_utils — INFO — L2:21.753706090158815
-2021-07-02 19:51:47,721 - attack_utils — INFO — L2:21.719499243263826
-2021-07-02 19:51:47,732 - attack_utils — INFO — L2:21.750783686133577
-2021-07-02 19:51:47,736 - attack_utils — INFO — L2:21.72188459764875
-2021-07-02 19:51:47,749 - attack_utils — INFO — L2:21.725159212539655
-2021-07-02 19:51:47,762 - attack_utils — INFO — L2:21.741415465860904
-2021-07-02 19:51:47,767 - attack_utils — INFO — L2:21.75248881408221
-2021-07-02 19:51:47,784 - attack_utils — INFO — L2:21.765283605002413
-2021-07-02 19:51:47,789 - attack_utils — INFO — L2:21.712278159494332
-2021-07-02 19:51:47,815 - attack_utils — INFO — L2:21.729875025225237
-2021-07-02 19:51:47,819 - attack_utils — INFO — L2:21.73102058305612
-2021-07-02 19:51:47,830 - attack_utils — INFO — L2:21.75202822806896
-2021-07-02 19:51:47,844 - attack_utils — INFO — L2:21.717343130666276
-2021-07-02 19:51:47,848 - attack_utils — INFO — L2:21.75595958428489
-2021-07-02 19:51:47,854 - attack_utils — INFO — L2:21.75578893274402
-2021-07-02 19:51:47,867 - attack_utils — INFO — L2:21.737720173060872
-2021-07-02 19:51:47,876 - attack_utils — INFO — L2:21.761179737865795
-2021-07-02 19:51:47,881 - attack_utils — INFO — L2:21.6977336304719
-2021-07-02 19:51:47,891 - attack_utils — INFO — L2:21.74069671942096
-2021-07-02 19:51:47,910 - attack_utils — INFO — L2:21.73047081348718
-2021-07-02 19:51:47,915 - attack_utils — INFO — L2:21.72958681239601
-2021-07-02 19:51:47,943 - attack_utils — INFO — L2:21.75645995296844
-2021-07-02 19:51:47,970 - attack_utils — INFO — L2:21.73122587441845
-2021-07-02 19:51:47,972 - opytimizer.opytimizer — INFO — Fitness: -2998.0
-2021-07-02 19:51:47,973 - opytimizer.opytimizer — INFO — Optimization task ended.
-2021-07-02 19:51:47,974 - opytimizer.opytimizer — INFO — It took 706.848388671875 seconds.
-2021-07-02 19:51:47,982 - attack_utils — INFO — pred: 9 and target_label:9
-2021-07-02 19:51:47,983 - attack_utils — INFO — Found initial adv image with higher L2. Queries:2550
-2021-07-02 19:51:47,983 - attack_utils — INFO — Starting attack!
-2021-07-02 19:51:47,992 - attack_utils — INFO — After adding initial adv image, Pred: 7,target_label:9, L2:4.179906676125417
-2021-07-02 19:51:47,992 - attack_utils — INFO — Couldn't find adv image after adding initial adv image. Queries:2551
-2021-07-02 19:51:47,993 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
-2021-07-02 19:51:47,994 - opytimizer.optimizers.misc.modaoa — INFO — Clean Label:7
-2021-07-02 19:51:47,997 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
-2021-07-02 19:51:47,997 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
-2021-07-02 19:51:48,995 - opytimizer.spaces.search — INFO — Class overrided.
-2021-07-02 19:51:48,995 - opytimizer.core.function — INFO — Creating class: Function.
-2021-07-02 19:51:48,995 - opytimizer.core.function — INFO — Class created.
-2021-07-02 19:51:48,995 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
-2021-07-02 19:51:48,995 - opytimizer.opytimizer — INFO — Class created.
-2021-07-02 19:51:49,005 - opytimizer.opytimizer — INFO — Starting optimization task.
-2021-07-02 19:51:49,263 - opytimizer.opytimizer — INFO — Iteration 1/200
-2021-07-02 19:51:58,511 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:51:58,512 - opytimizer.opytimizer — INFO — Iteration 2/200
-2021-07-02 19:52:07,594 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:52:07,594 - opytimizer.opytimizer — INFO — Iteration 3/200
-2021-07-02 19:52:16,495 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:52:16,495 - opytimizer.opytimizer — INFO — Iteration 4/200
-2021-07-02 19:52:25,800 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:52:25,800 - opytimizer.opytimizer — INFO — Iteration 5/200
-2021-07-02 19:52:35,006 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:52:35,006 - opytimizer.opytimizer — INFO — Iteration 6/200
-2021-07-02 19:52:44,146 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:52:44,148 - opytimizer.opytimizer — INFO — Iteration 7/200
-2021-07-02 19:52:53,457 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:52:53,457 - opytimizer.opytimizer — INFO — Iteration 8/200
-2021-07-02 19:53:02,932 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:53:02,932 - opytimizer.opytimizer — INFO — Iteration 9/200
-2021-07-02 19:53:12,258 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:53:12,258 - opytimizer.opytimizer — INFO — Iteration 10/200
-2021-07-02 19:53:21,411 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:53:21,411 - opytimizer.opytimizer — INFO — Iteration 11/200
-2021-07-02 19:53:29,778 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:53:29,778 - opytimizer.opytimizer — INFO — Iteration 12/200
-2021-07-02 19:53:38,111 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:53:38,111 - opytimizer.opytimizer — INFO — Iteration 13/200
-2021-07-02 19:53:46,494 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:53:46,494 - opytimizer.opytimizer — INFO — Iteration 14/200
-2021-07-02 19:53:54,863 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:53:54,863 - opytimizer.opytimizer — INFO — Iteration 15/200
-2021-07-02 19:54:03,350 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:54:03,350 - opytimizer.opytimizer — INFO — Iteration 16/200
-2021-07-02 19:54:11,885 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:54:11,885 - opytimizer.opytimizer — INFO — Iteration 17/200
-2021-07-02 19:54:20,313 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:54:20,315 - opytimizer.opytimizer — INFO — Iteration 18/200
-2021-07-02 19:54:28,956 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:54:28,957 - opytimizer.opytimizer — INFO — Iteration 19/200
-2021-07-02 19:54:37,567 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:54:37,569 - opytimizer.opytimizer — INFO — Iteration 20/200
-2021-07-02 19:54:46,326 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:54:46,326 - opytimizer.opytimizer — INFO — Iteration 21/200
-2021-07-02 19:54:55,164 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:54:55,164 - opytimizer.opytimizer — INFO — Iteration 22/200
-2021-07-02 19:55:03,924 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:55:03,924 - opytimizer.opytimizer — INFO — Iteration 23/200
-2021-07-02 19:55:12,769 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:55:12,769 - opytimizer.opytimizer — INFO — Iteration 24/200
-2021-07-02 19:55:21,668 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:55:21,669 - opytimizer.opytimizer — INFO — Iteration 25/200
-2021-07-02 19:55:34,542 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:55:34,543 - opytimizer.opytimizer — INFO — Iteration 26/200
-2021-07-02 19:55:44,802 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:55:44,802 - opytimizer.opytimizer — INFO — Iteration 27/200
-2021-07-02 19:55:55,686 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:55:55,687 - opytimizer.opytimizer — INFO — Iteration 28/200
-2021-07-02 19:56:15,862 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:56:15,862 - opytimizer.opytimizer — INFO — Iteration 29/200
-2021-07-02 19:56:36,495 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:56:36,495 - opytimizer.opytimizer — INFO — Iteration 30/200
-2021-07-02 19:56:52,085 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:56:52,086 - opytimizer.opytimizer — INFO — Iteration 31/200
-2021-07-02 19:57:21,707 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:57:21,707 - opytimizer.opytimizer — INFO — Iteration 32/200
-2021-07-02 19:57:45,581 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:57:45,582 - opytimizer.opytimizer — INFO — Iteration 33/200
-2021-07-02 19:57:59,167 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:57:59,167 - opytimizer.opytimizer — INFO — Iteration 34/200
-2021-07-02 19:58:13,422 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:58:13,422 - opytimizer.opytimizer — INFO — Iteration 35/200
-2021-07-02 19:58:32,230 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:58:32,231 - opytimizer.opytimizer — INFO — Iteration 36/200
-2021-07-02 19:58:42,991 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:58:42,991 - opytimizer.opytimizer — INFO — Iteration 37/200
-2021-07-02 19:58:53,857 - opytimizer.opytimizer — INFO — Fitness: 22.554028005022747
-2021-07-02 19:58:53,857 - opytimizer.opytimizer — INFO — Iteration 38/200
-2021-07-02 19:59:04,659 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 19:59:04,659 - opytimizer.opytimizer — INFO — Iteration 39/200
-2021-07-02 19:59:14,764 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 19:59:14,766 - opytimizer.opytimizer — INFO — Iteration 40/200
-2021-07-02 19:59:24,673 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 19:59:24,673 - opytimizer.opytimizer — INFO — Iteration 41/200
-2021-07-02 19:59:34,066 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 19:59:34,069 - opytimizer.opytimizer — INFO — Iteration 42/200
-2021-07-02 19:59:43,543 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 19:59:43,543 - opytimizer.opytimizer — INFO — Iteration 43/200
-2021-07-02 19:59:53,164 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 19:59:53,164 - opytimizer.opytimizer — INFO — Iteration 44/200
-2021-07-02 20:00:02,601 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:00:02,601 - opytimizer.opytimizer — INFO — Iteration 45/200
-2021-07-02 20:00:12,900 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:00:12,901 - opytimizer.opytimizer — INFO — Iteration 46/200
-2021-07-02 20:00:24,874 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:00:24,874 - opytimizer.opytimizer — INFO — Iteration 47/200
-2021-07-02 20:00:37,274 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:00:37,275 - opytimizer.opytimizer — INFO — Iteration 48/200
-2021-07-02 20:00:48,240 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:00:48,240 - opytimizer.opytimizer — INFO — Iteration 49/200
-2021-07-02 20:01:01,027 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:01:01,028 - opytimizer.opytimizer — INFO — Iteration 50/200
-2021-07-02 20:01:14,119 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:01:14,119 - opytimizer.opytimizer — INFO — Iteration 51/200
-2021-07-02 20:01:25,230 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:01:25,232 - opytimizer.opytimizer — INFO — Iteration 52/200
-2021-07-02 20:01:36,424 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:01:36,424 - opytimizer.opytimizer — INFO — Iteration 53/200
-2021-07-02 20:01:47,472 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:01:47,473 - opytimizer.opytimizer — INFO — Iteration 54/200
-2021-07-02 20:01:58,404 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:01:58,404 - opytimizer.opytimizer — INFO — Iteration 55/200
-2021-07-02 20:02:09,456 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:02:09,456 - opytimizer.opytimizer — INFO — Iteration 56/200
-2021-07-02 20:02:21,930 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:02:21,930 - opytimizer.opytimizer — INFO — Iteration 57/200
-2021-07-02 20:02:36,639 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:02:36,639 - opytimizer.opytimizer — INFO — Iteration 58/200
-2021-07-02 20:02:49,591 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:02:49,591 - opytimizer.opytimizer — INFO — Iteration 59/200
-2021-07-02 20:03:04,052 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:03:04,054 - opytimizer.opytimizer — INFO — Iteration 60/200
-2021-07-02 20:03:16,945 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:03:16,946 - opytimizer.opytimizer — INFO — Iteration 61/200
-2021-07-02 20:03:30,310 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:03:30,310 - opytimizer.opytimizer — INFO — Iteration 62/200
-2021-07-02 20:03:42,606 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:03:42,607 - opytimizer.opytimizer — INFO — Iteration 63/200
-2021-07-02 20:03:54,580 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:03:54,580 - opytimizer.opytimizer — INFO — Iteration 64/200
-2021-07-02 20:04:08,648 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:04:08,648 - opytimizer.opytimizer — INFO — Iteration 65/200
-2021-07-02 20:04:21,015 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:04:21,016 - opytimizer.opytimizer — INFO — Iteration 66/200
-2021-07-02 20:04:33,987 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:04:33,989 - opytimizer.opytimizer — INFO — Iteration 67/200
-2021-07-02 20:04:45,798 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:04:45,798 - opytimizer.opytimizer — INFO — Iteration 68/200
-2021-07-02 20:04:58,792 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:04:58,792 - opytimizer.opytimizer — INFO — Iteration 69/200
-2021-07-02 20:05:13,454 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:05:13,455 - opytimizer.opytimizer — INFO — Iteration 70/200
-2021-07-02 20:05:26,510 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:05:26,510 - opytimizer.opytimizer — INFO — Iteration 71/200
-2021-07-02 20:05:38,962 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:05:38,962 - opytimizer.opytimizer — INFO — Iteration 72/200
-2021-07-02 20:05:51,253 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:05:51,254 - opytimizer.opytimizer — INFO — Iteration 73/200
-2021-07-02 20:06:03,226 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:06:03,226 - opytimizer.opytimizer — INFO — Iteration 74/200
-2021-07-02 20:06:22,329 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:06:22,329 - opytimizer.opytimizer — INFO — Iteration 75/200
-2021-07-02 20:06:38,835 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:06:38,835 - opytimizer.opytimizer — INFO — Iteration 76/200
-2021-07-02 20:06:55,152 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:06:55,153 - opytimizer.opytimizer — INFO — Iteration 77/200
-2021-07-02 20:07:09,819 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:07:09,819 - opytimizer.opytimizer — INFO — Iteration 78/200
-2021-07-02 20:07:28,273 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:07:28,273 - opytimizer.opytimizer — INFO — Iteration 79/200
-2021-07-02 20:07:41,430 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:07:41,430 - opytimizer.opytimizer — INFO — Iteration 80/200
-2021-07-02 20:07:58,725 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:07:58,725 - opytimizer.opytimizer — INFO — Iteration 81/200
-2021-07-02 20:08:14,403 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:08:14,405 - opytimizer.opytimizer — INFO — Iteration 82/200
-2021-07-02 20:08:30,185 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:08:30,186 - opytimizer.opytimizer — INFO — Iteration 83/200
-2021-07-02 20:08:46,488 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:08:46,488 - opytimizer.opytimizer — INFO — Iteration 84/200
-2021-07-02 20:09:11,696 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:09:11,698 - opytimizer.opytimizer — INFO — Iteration 85/200
-2021-07-02 20:09:28,623 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:09:28,623 - opytimizer.opytimizer — INFO — Iteration 86/200
-2021-07-02 20:09:41,925 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:09:41,925 - opytimizer.opytimizer — INFO — Iteration 87/200
-2021-07-02 20:09:57,189 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:09:57,189 - opytimizer.opytimizer — INFO — Iteration 88/200
-2021-07-02 20:10:10,048 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:10:10,048 - opytimizer.opytimizer — INFO — Iteration 89/200
-2021-07-02 20:10:22,141 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:10:22,142 - opytimizer.opytimizer — INFO — Iteration 90/200
-2021-07-02 20:10:33,450 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:10:33,450 - opytimizer.opytimizer — INFO — Iteration 91/200
-2021-07-02 20:10:45,300 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:10:45,300 - opytimizer.opytimizer — INFO — Iteration 92/200
-2021-07-02 20:10:57,952 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:10:57,952 - opytimizer.opytimizer — INFO — Iteration 93/200
-2021-07-02 20:11:10,561 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:11:10,561 - opytimizer.opytimizer — INFO — Iteration 94/200
-2021-07-02 20:11:23,366 - opytimizer.opytimizer — INFO — Fitness: 14.205559580310945
-2021-07-02 20:11:23,366 - opytimizer.opytimizer — INFO — Iteration 95/200
-2021-07-02 20:11:36,005 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:11:36,006 - opytimizer.opytimizer — INFO — Iteration 96/200
-2021-07-02 20:11:49,423 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:11:49,423 - opytimizer.opytimizer — INFO — Iteration 97/200
-2021-07-02 20:12:01,417 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:12:01,417 - opytimizer.opytimizer — INFO — Iteration 98/200
-2021-07-02 20:12:13,276 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:12:13,276 - opytimizer.opytimizer — INFO — Iteration 99/200
-2021-07-02 20:12:25,974 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:12:25,975 - opytimizer.opytimizer — INFO — Iteration 100/200
-2021-07-02 20:12:41,466 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:12:41,466 - opytimizer.opytimizer — INFO — Iteration 101/200
-2021-07-02 20:12:55,432 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:12:55,432 - opytimizer.opytimizer — INFO — Iteration 102/200
-2021-07-02 20:13:08,091 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:13:08,091 - opytimizer.opytimizer — INFO — Iteration 103/200
-2021-07-02 20:13:23,694 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:13:23,695 - opytimizer.opytimizer — INFO — Iteration 104/200
-2021-07-02 20:13:36,863 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:13:36,863 - opytimizer.opytimizer — INFO — Iteration 105/200
-2021-07-02 20:13:49,189 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:13:49,189 - opytimizer.opytimizer — INFO — Iteration 106/200
-2021-07-02 20:14:01,175 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:14:01,175 - opytimizer.opytimizer — INFO — Iteration 107/200
-2021-07-02 20:14:14,073 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:14:14,074 - opytimizer.opytimizer — INFO — Iteration 108/200
-2021-07-02 20:14:26,618 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:14:26,619 - opytimizer.opytimizer — INFO — Iteration 109/200
-2021-07-02 20:14:38,780 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:14:38,782 - opytimizer.opytimizer — INFO — Iteration 110/200
-2021-07-02 20:14:51,808 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:14:51,808 - opytimizer.opytimizer — INFO — Iteration 111/200
-2021-07-02 20:15:08,083 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:15:08,083 - opytimizer.opytimizer — INFO — Iteration 112/200
-2021-07-02 20:15:21,606 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:15:21,606 - opytimizer.opytimizer — INFO — Iteration 113/200
-2021-07-02 20:15:33,629 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:15:33,629 - opytimizer.opytimizer — INFO — Iteration 114/200
-2021-07-02 20:15:45,601 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:15:45,603 - opytimizer.opytimizer — INFO — Iteration 115/200
-2021-07-02 20:15:57,862 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:15:57,862 - opytimizer.opytimizer — INFO — Iteration 116/200
-2021-07-02 20:16:09,935 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:16:09,935 - opytimizer.opytimizer — INFO — Iteration 117/200
-2021-07-02 20:16:22,119 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:16:22,119 - opytimizer.opytimizer — INFO — Iteration 118/200
-2021-07-02 20:16:34,221 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:16:34,221 - opytimizer.opytimizer — INFO — Iteration 119/200
-2021-07-02 20:16:46,627 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:16:46,627 - opytimizer.opytimizer — INFO — Iteration 120/200
-2021-07-02 20:16:59,085 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:16:59,085 - opytimizer.opytimizer — INFO — Iteration 121/200
-2021-07-02 20:17:18,138 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:17:18,139 - opytimizer.opytimizer — INFO — Iteration 122/200
-2021-07-02 20:17:31,320 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:17:31,320 - opytimizer.opytimizer — INFO — Iteration 123/200
-2021-07-02 20:17:44,178 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:17:44,183 - opytimizer.opytimizer — INFO — Iteration 124/200
-2021-07-02 20:17:57,412 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:17:57,412 - opytimizer.opytimizer — INFO — Iteration 125/200
-2021-07-02 20:18:13,630 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:18:13,631 - opytimizer.opytimizer — INFO — Iteration 126/200
-2021-07-02 20:18:27,255 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:18:27,255 - opytimizer.opytimizer — INFO — Iteration 127/200
-2021-07-02 20:18:42,029 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:18:42,030 - opytimizer.opytimizer — INFO — Iteration 128/200
-2021-07-02 20:18:55,905 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:18:55,905 - opytimizer.opytimizer — INFO — Iteration 129/200
-2021-07-02 20:19:10,979 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:19:10,980 - opytimizer.opytimizer — INFO — Iteration 130/200
-2021-07-02 20:19:26,767 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:19:26,767 - opytimizer.opytimizer — INFO — Iteration 131/200
-2021-07-02 20:19:42,542 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:19:42,542 - opytimizer.opytimizer — INFO — Iteration 132/200
-2021-07-02 20:19:58,725 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:19:58,727 - opytimizer.opytimizer — INFO — Iteration 133/200
-2021-07-02 20:20:12,017 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:20:12,017 - opytimizer.opytimizer — INFO — Iteration 134/200
-2021-07-02 20:20:25,066 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:20:25,066 - opytimizer.opytimizer — INFO — Iteration 135/200
-2021-07-02 20:20:39,192 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:20:39,192 - opytimizer.opytimizer — INFO — Iteration 136/200
-2021-07-02 20:21:04,712 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:21:04,712 - opytimizer.opytimizer — INFO — Iteration 137/200
-2021-07-02 20:21:26,024 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:21:26,024 - opytimizer.opytimizer — INFO — Iteration 138/200
-2021-07-02 20:21:42,395 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:21:42,395 - opytimizer.opytimizer — INFO — Iteration 139/200
-2021-07-02 20:21:59,277 - opytimizer.opytimizer — INFO — Fitness: 11.483264642245976
-2021-07-02 20:21:59,277 - opytimizer.opytimizer — INFO — Iteration 140/200
-2021-07-02 20:22:12,543 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:22:12,543 - opytimizer.opytimizer — INFO — Iteration 141/200
-2021-07-02 20:22:25,521 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:22:25,522 - opytimizer.opytimizer — INFO — Iteration 142/200
-2021-07-02 20:22:40,240 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:22:40,241 - opytimizer.opytimizer — INFO — Iteration 143/200
-2021-07-02 20:22:59,385 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:22:59,385 - opytimizer.opytimizer — INFO — Iteration 144/200
-2021-07-02 20:23:19,451 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:23:19,451 - opytimizer.opytimizer — INFO — Iteration 145/200
-2021-07-02 20:23:39,447 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:23:39,447 - opytimizer.opytimizer — INFO — Iteration 146/200
-2021-07-02 20:24:06,821 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:24:06,821 - opytimizer.opytimizer — INFO — Iteration 147/200
-2021-07-02 20:24:26,052 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:24:26,052 - opytimizer.opytimizer — INFO — Iteration 148/200
-2021-07-02 20:24:49,108 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:24:49,108 - opytimizer.opytimizer — INFO — Iteration 149/200
-2021-07-02 20:25:07,378 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:25:07,378 - opytimizer.opytimizer — INFO — Iteration 150/200
-2021-07-02 20:25:32,057 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:25:32,058 - opytimizer.opytimizer — INFO — Iteration 151/200
-2021-07-02 20:25:50,160 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:25:50,160 - opytimizer.opytimizer — INFO — Iteration 152/200
-2021-07-02 20:26:07,376 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:26:07,376 - opytimizer.opytimizer — INFO — Iteration 153/200
-2021-07-02 20:26:22,133 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:26:22,134 - opytimizer.opytimizer — INFO — Iteration 154/200
-2021-07-02 20:26:37,639 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:26:37,639 - opytimizer.opytimizer — INFO — Iteration 155/200
-2021-07-02 20:26:52,142 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:26:52,142 - opytimizer.opytimizer — INFO — Iteration 156/200
-2021-07-02 20:27:07,158 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:27:07,159 - opytimizer.opytimizer — INFO — Iteration 157/200
-2021-07-02 20:27:27,495 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:27:27,495 - opytimizer.opytimizer — INFO — Iteration 158/200
-2021-07-02 20:27:49,564 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:27:49,564 - opytimizer.opytimizer — INFO — Iteration 159/200
-2021-07-02 20:28:04,544 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:28:04,544 - opytimizer.opytimizer — INFO — Iteration 160/200
-2021-07-02 20:28:19,345 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:28:19,345 - opytimizer.opytimizer — INFO — Iteration 161/200
-2021-07-02 20:28:35,232 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:28:35,232 - opytimizer.opytimizer — INFO — Iteration 162/200
-2021-07-02 20:28:50,027 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:28:50,027 - opytimizer.opytimizer — INFO — Iteration 163/200
-2021-07-02 20:29:08,658 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:29:08,658 - opytimizer.opytimizer — INFO — Iteration 164/200
-2021-07-02 20:29:25,044 - opytimizer.opytimizer — INFO — Fitness: 10.362530982107742
-2021-07-02 20:29:25,044 - opytimizer.opytimizer — INFO — Iteration 165/200
-2021-07-02 20:29:43,325 - opytimizer.opytimizer — INFO — Fitness: 9.704162239630055
-2021-07-02 20:29:43,325 - opytimizer.opytimizer — INFO — Iteration 166/200
-2021-07-02 20:29:59,370 - opytimizer.opytimizer — INFO — Fitness: 9.261323565012946
-2021-07-02 20:29:59,370 - opytimizer.opytimizer — INFO — Iteration 167/200
-2021-07-02 20:30:13,843 - opytimizer.opytimizer — INFO — Fitness: 9.261323565012946
-2021-07-02 20:30:13,843 - opytimizer.opytimizer — INFO — Iteration 168/200
-2021-07-02 20:30:30,903 - opytimizer.opytimizer — INFO — Fitness: 9.261323565012946
-2021-07-02 20:30:30,904 - opytimizer.opytimizer — INFO — Iteration 169/200
-2021-07-02 20:30:49,784 - opytimizer.opytimizer — INFO — Fitness: 9.261323565012946
-2021-07-02 20:30:49,786 - opytimizer.opytimizer — INFO — Iteration 170/200
-2021-07-02 20:31:11,472 - opytimizer.opytimizer — INFO — Fitness: 9.261323565012946
-2021-07-02 20:31:11,472 - opytimizer.opytimizer — INFO — Iteration 171/200
-2021-07-02 20:31:26,085 - opytimizer.opytimizer — INFO — Fitness: 8.950358434006185
-2021-07-02 20:31:26,085 - opytimizer.opytimizer — INFO — Iteration 172/200
-2021-07-02 20:31:41,358 - opytimizer.opytimizer — INFO — Fitness: 8.433971994130971
-2021-07-02 20:31:41,358 - opytimizer.opytimizer — INFO — Iteration 173/200
-2021-07-02 20:32:00,726 - opytimizer.opytimizer — INFO — Fitness: 8.433971994130971
-2021-07-02 20:32:00,728 - opytimizer.opytimizer — INFO — Iteration 174/200
-2021-07-02 20:32:18,689 - opytimizer.opytimizer — INFO — Fitness: 8.433971994130971
-2021-07-02 20:32:18,690 - opytimizer.opytimizer — INFO — Iteration 175/200
-2021-07-02 20:32:35,884 - opytimizer.opytimizer — INFO — Fitness: 8.12767711974029
-2021-07-02 20:32:35,892 - opytimizer.opytimizer — INFO — Iteration 176/200
-2021-07-02 20:32:54,918 - opytimizer.opytimizer — INFO — Fitness: 7.827494050459857
-2021-07-02 20:32:54,919 - opytimizer.opytimizer — INFO — Iteration 177/200
-2021-07-02 20:33:14,164 - opytimizer.opytimizer — INFO — Fitness: 7.827494050459857
-2021-07-02 20:33:14,165 - opytimizer.opytimizer — INFO — Iteration 178/200
-2021-07-02 20:33:29,299 - opytimizer.opytimizer — INFO — Fitness: 7.664172535833394
-2021-07-02 20:33:29,299 - opytimizer.opytimizer — INFO — Iteration 179/200
-2021-07-02 20:33:50,736 - opytimizer.opytimizer — INFO — Fitness: 7.4244857486065365
-2021-07-02 20:33:50,736 - opytimizer.opytimizer — INFO — Iteration 180/200
-2021-07-02 20:34:08,797 - opytimizer.opytimizer — INFO — Fitness: 7.227249270272742
-2021-07-02 20:34:08,797 - opytimizer.opytimizer — INFO — Iteration 181/200
-2021-07-02 20:34:28,558 - opytimizer.opytimizer — INFO — Fitness: 7.227249270272742
-2021-07-02 20:34:28,558 - opytimizer.opytimizer — INFO — Iteration 182/200
-2021-07-02 20:34:44,312 - opytimizer.opytimizer — INFO — Fitness: 7.043429193356956
-2021-07-02 20:34:44,315 - opytimizer.opytimizer — INFO — Iteration 183/200
-2021-07-02 20:35:01,563 - opytimizer.opytimizer — INFO — Fitness: 7.043429193356956
-2021-07-02 20:35:01,563 - opytimizer.opytimizer — INFO — Iteration 184/200
-2021-07-02 20:35:19,914 - opytimizer.opytimizer — INFO — Fitness: 7.043429193356956
-2021-07-02 20:35:19,914 - opytimizer.opytimizer — INFO — Iteration 185/200
-2021-07-02 20:35:37,739 - opytimizer.opytimizer — INFO — Fitness: 6.900529213679159
-2021-07-02 20:35:37,740 - opytimizer.opytimizer — INFO — Iteration 186/200
-2021-07-02 20:35:56,643 - opytimizer.opytimizer — INFO — Fitness: 6.835068313330239
-2021-07-02 20:35:56,643 - opytimizer.opytimizer — INFO — Iteration 187/200
-2021-07-02 20:36:14,396 - opytimizer.opytimizer — INFO — Fitness: 6.78998400710625
-2021-07-02 20:36:14,397 - opytimizer.opytimizer — INFO — Iteration 188/200
-2021-07-02 20:36:31,703 - opytimizer.opytimizer — INFO — Fitness: 6.766436621146284
-2021-07-02 20:36:31,703 - opytimizer.opytimizer — INFO — Iteration 189/200
-2021-07-02 20:36:47,827 - opytimizer.opytimizer — INFO — Fitness: 6.766436621146284
-2021-07-02 20:36:47,827 - opytimizer.opytimizer — INFO — Iteration 190/200
-2021-07-02 20:37:03,661 - opytimizer.opytimizer — INFO — Fitness: 6.726565740339523
-2021-07-02 20:37:03,661 - opytimizer.opytimizer — INFO — Iteration 191/200
-2021-07-02 20:37:18,459 - opytimizer.opytimizer — INFO — Fitness: 6.7054382324541
-2021-07-02 20:37:18,459 - opytimizer.opytimizer — INFO — Iteration 192/200
-2021-07-02 20:37:37,073 - opytimizer.opytimizer — INFO — Fitness: 6.660605493181788
-2021-07-02 20:37:37,073 - opytimizer.opytimizer — INFO — Iteration 193/200
-2021-07-02 20:37:53,499 - opytimizer.opytimizer — INFO — Fitness: 6.610466641786505
-2021-07-02 20:37:53,499 - opytimizer.opytimizer — INFO — Iteration 194/200
-2021-07-02 20:38:08,687 - opytimizer.opytimizer — INFO — Fitness: 6.5829993837369445
-2021-07-02 20:38:08,687 - opytimizer.opytimizer — INFO — Iteration 195/200
-2021-07-02 20:38:24,345 - opytimizer.opytimizer — INFO — Fitness: 6.5401412886446195
-2021-07-02 20:38:24,345 - opytimizer.opytimizer — INFO — Iteration 196/200
-2021-07-02 20:38:39,427 - opytimizer.opytimizer — INFO — Fitness: 6.495145897678431
-2021-07-02 20:38:39,427 - opytimizer.opytimizer — INFO — Iteration 197/200
-2021-07-02 20:38:55,134 - opytimizer.opytimizer — INFO — Fitness: 6.485947088301422
-2021-07-02 20:38:55,135 - opytimizer.opytimizer — INFO — Iteration 198/200
-2021-07-02 20:39:10,919 - opytimizer.opytimizer — INFO — Fitness: 6.460807074282753
-2021-07-02 20:39:10,920 - opytimizer.opytimizer — INFO — Iteration 199/200
-2021-07-02 20:39:26,143 - opytimizer.opytimizer — INFO — Fitness: 6.444546851211949
-2021-07-02 20:39:26,144 - opytimizer.opytimizer — INFO — Iteration 200/200
-2021-07-02 20:39:42,409 - opytimizer.opytimizer — INFO — Fitness: 6.427264943387882
-2021-07-02 20:39:42,410 - opytimizer.opytimizer — INFO — Optimization task ended.
-2021-07-02 20:39:42,410 - opytimizer.opytimizer — INFO — It took 2873.404083967209 seconds.
-2021-07-02 20:39:42,414 - attack_utils — INFO — Prediction:9 and Target:9
-2021-07-02 20:39:42,434 - attack_utils — INFO — Attack result:False, Queries: 12601 All Dist:{'L2': 6.4273, 'L-INF': 0.8941, 'WS': 0.0204, 'ssim': 0.7784, 'psnr': 18.7137}, L2_Iters: 400
-2021-07-02 20:39:42,747 - attack_utils — INFO — Total Examples: 20, Iterations:200, espilon: 1 and Max-L2:3 Agents: 50 l_2_mul: 0.5
-Accuracy: 0.05000000074505806 Mean L2 Counted: 6.427264943387882 Query: 12601.0
+2021-07-03 11:38:55,589 - opytimizer.optimizers.science.wwo — INFO — OPYT_TARGET_accu : 0.1
+2021-07-03 11:38:55,590 - opytimizer.optimizers.science.wwo — INFO — OPYT_TARGET_dist : {'L2': 85574559.5691, 'L-INF': 60663455.8902, 'WS': 5775.2456, 'ssim': 0.0137, 'psnr': -111.22}
+2021-07-03 11:38:55,590 - attack_utils — INFO — Saving : CLEAN_X, filename:target_opyt/CLEAN_X.csv
+2021-07-03 11:38:55,646 - attack_utils — INFO — Saving: CLEAN_Y, filename:target_opyt/CLEAN_Y.csv
+2021-07-03 11:38:55,648 - attack_utils — INFO — Saving : OPYT_TARGET_X, filename:target_opyt/OPYT_TARGET_X.csv
+2021-07-03 11:38:55,688 - attack_utils — INFO — Saving: OPYT_TARGET_Y, filename:target_opyt/OPYT_TARGET_Y.csv
+2021-07-03 13:06:56,859 - attack_utils — INFO — x_test_random shape:(20, 32, 32, 3) and y_test_random shape:(20, 10)
+2021-07-03 13:06:56,859 - attack_utils — INFO — Generating Targetted adv examples using attack OPYT
+2021-07-03 13:06:56,859 - attack_utils — INFO — 
+Iterations:20, epsilon: 1 and l_2_mul:0.5
+2021-07-03 13:06:56,860 - attack_utils — INFO — y_all_labels:[8 7 9 1 7 8 8 8 2 4 3 7 0 9 1 0 9 1 9 0]
+2021-07-03 13:06:56,863 - attack_utils — INFO — Generating example:1
+2021-07-03 13:06:56,863 - attack_utils — INFO — y_clean_label:7
+2021-07-03 13:06:56,863 - attack_utils — INFO — t : [ 0  2  3  5  6  7  8  9 10 12 13 14 15 16 17 18 19]
+2021-07-03 13:06:56,865 - attack_utils — INFO — min_ind:16
+2021-07-03 13:06:56,865 - attack_utils — INFO — Clean:7 and Target:9
+2021-07-03 13:06:56,866 - attack_utils — INFO — Starting search for initial adv image loop 0
+2021-07-03 13:06:56,866 - opytimizer.optimizers.misc.aoa — INFO — Overriding class: Optimizer -> AOA.
+2021-07-03 13:06:56,894 - opytimizer.optimizers.misc.aoa — INFO — Class overrided.
+2021-07-03 13:06:56,897 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-07-03 13:06:57,498 - opytimizer.spaces.search — INFO — Class overrided.
+2021-07-03 13:06:57,499 - opytimizer.core.function — INFO — Creating class: Function.
+2021-07-03 13:06:57,499 - opytimizer.core.function — INFO — Class created.
+2021-07-03 13:06:57,499 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-07-03 13:06:57,499 - opytimizer.opytimizer — INFO — Class created.
+2021-07-03 13:06:57,500 - opytimizer.opytimizer — INFO — Starting optimization task.
+2021-07-03 13:06:57,554 - attack_utils — INFO — L2:21.03713969655411
+2021-07-03 13:06:57,575 - attack_utils — INFO — L2:21.16071731367279
+2021-07-03 13:06:57,638 - attack_utils — INFO — L2:21.078370708900348
+2021-07-03 13:06:57,658 - attack_utils — INFO — L2:21.186847647846587
+2021-07-03 13:06:57,664 - attack_utils — INFO — L2:21.151109207457527
+2021-07-03 13:06:57,679 - opytimizer.opytimizer — INFO — Iteration 1/5
+2021-07-03 13:07:00,748 - attack_utils — INFO — L2:21.425758340665286
+2021-07-03 13:07:00,753 - attack_utils — INFO — L2:21.482383787587324
+2021-07-03 13:07:00,765 - attack_utils — INFO — L2:21.478330150320453
+2021-07-03 13:07:00,770 - attack_utils — INFO — L2:21.424280109042616
+2021-07-03 13:07:00,784 - attack_utils — INFO — L2:21.468336086591794
+2021-07-03 13:07:00,795 - opytimizer.opytimizer — INFO — Fitness: -2903.0
+2021-07-03 13:07:00,795 - opytimizer.opytimizer — INFO — Iteration 2/5
+2021-07-03 13:07:03,295 - attack_utils — INFO — L2:21.506809654431077
+2021-07-03 13:07:03,306 - attack_utils — INFO — L2:21.484411574800717
+2021-07-03 13:07:03,311 - attack_utils — INFO — L2:21.61580136816325
+2021-07-03 13:07:03,325 - attack_utils — INFO — L2:21.575808994298132
+2021-07-03 13:07:03,347 - attack_utils — INFO — L2:21.5441785868118
+2021-07-03 13:07:03,377 - opytimizer.opytimizer — INFO — Fitness: -2942.0
+2021-07-03 13:07:03,378 - opytimizer.opytimizer — INFO — Iteration 3/5
+2021-07-03 13:07:06,023 - attack_utils — INFO — L2:20.96403873510616
+2021-07-03 13:07:06,027 - attack_utils — INFO — L2:21.0200947916152
+2021-07-03 13:07:06,032 - attack_utils — INFO — L2:21.045398295073543
+2021-07-03 13:07:06,045 - attack_utils — INFO — L2:20.891504164530083
+2021-07-03 13:07:06,049 - attack_utils — INFO — L2:20.948211301897082
+2021-07-03 13:07:06,058 - attack_utils — INFO — L2:20.971950696586223
+2021-07-03 13:07:06,067 - attack_utils — INFO — L2:21.063728511764452
+2021-07-03 13:07:06,076 - attack_utils — INFO — L2:20.979471134685383
+2021-07-03 13:07:06,080 - attack_utils — INFO — L2:20.90259196580736
+2021-07-03 13:07:06,085 - attack_utils — INFO — L2:20.910906520220635
+2021-07-03 13:07:06,089 - attack_utils — INFO — L2:21.009066694250542
+2021-07-03 13:07:06,094 - attack_utils — INFO — L2:20.924425469712546
+2021-07-03 13:07:06,100 - opytimizer.opytimizer — INFO — Fitness: -2942.0
+2021-07-03 13:07:06,100 - opytimizer.opytimizer — INFO — Iteration 4/5
+2021-07-03 13:07:08,559 - attack_utils — INFO — L2:20.95279046233001
+2021-07-03 13:07:08,568 - attack_utils — INFO — L2:21.000547005432704
+2021-07-03 13:07:08,573 - attack_utils — INFO — L2:21.007920806401994
+2021-07-03 13:07:08,578 - attack_utils — INFO — L2:21.034801179834353
+2021-07-03 13:07:08,582 - attack_utils — INFO — L2:20.9903219557574
+2021-07-03 13:07:08,587 - attack_utils — INFO — L2:20.972079128545058
+2021-07-03 13:07:08,591 - attack_utils — INFO — L2:21.069934396018077
+2021-07-03 13:07:08,596 - attack_utils — INFO — L2:21.016303036957257
+2021-07-03 13:07:08,600 - attack_utils — INFO — L2:21.06466671332869
+2021-07-03 13:07:08,618 - attack_utils — INFO — L2:20.96063394273783
+2021-07-03 13:07:08,626 - attack_utils — INFO — L2:20.927094716741625
+2021-07-03 13:07:08,631 - attack_utils — INFO — L2:20.94462681467698
+2021-07-03 13:07:08,644 - opytimizer.opytimizer — INFO — Fitness: -2942.0
+2021-07-03 13:07:08,644 - opytimizer.opytimizer — INFO — Iteration 5/5
+2021-07-03 13:07:14,165 - attack_utils — INFO — L2:21.284162005152986
+2021-07-03 13:07:14,179 - attack_utils — INFO — L2:21.266468595657205
+2021-07-03 13:07:14,191 - attack_utils — INFO — L2:21.317282750063523
+2021-07-03 13:07:14,196 - attack_utils — INFO — L2:21.25462678313694
+2021-07-03 13:07:14,208 - attack_utils — INFO — L2:21.120748269632912
+2021-07-03 13:07:14,213 - attack_utils — INFO — L2:21.271920401775102
+2021-07-03 13:07:14,219 - attack_utils — INFO — L2:21.261264248781032
+2021-07-03 13:07:14,242 - attack_utils — INFO — L2:21.198098431492486
+2021-07-03 13:07:14,246 - attack_utils — INFO — L2:21.266443437355118
+2021-07-03 13:07:14,258 - attack_utils — INFO — L2:21.25904966845815
+2021-07-03 13:07:14,269 - attack_utils — INFO — L2:21.085852072135552
+2021-07-03 13:07:14,274 - attack_utils — INFO — L2:21.262890742119545
+2021-07-03 13:07:14,275 - opytimizer.opytimizer — INFO — Fitness: -2942.0
+2021-07-03 13:07:14,276 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-07-03 13:07:14,276 - opytimizer.opytimizer — INFO — It took 16.775670051574707 seconds.
+2021-07-03 13:07:14,282 - attack_utils — INFO — pred: 9 and target_label:9
+2021-07-03 13:07:14,282 - attack_utils — INFO — Found initial adv image with higher L2. Queries:120
+2021-07-03 13:07:14,283 - attack_utils — INFO — Starting attack!
+2021-07-03 13:07:14,290 - attack_utils — INFO — After adding initial adv image, Pred: 7,target_label:9, L2:5.415658605562409
+2021-07-03 13:07:14,290 - attack_utils — INFO — Couldn't find adv image after adding initial adv image. Queries:121
+2021-07-03 13:07:14,290 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-07-03 13:07:14,290 - opytimizer.optimizers.misc.modaoa — INFO — Clean Label:7
+2021-07-03 13:07:14,293 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-07-03 13:07:14,293 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-07-03 13:07:15,216 - opytimizer.spaces.search — INFO — Class overrided.
+2021-07-03 13:07:15,216 - opytimizer.core.function — INFO — Creating class: Function.
+2021-07-03 13:07:15,216 - opytimizer.core.function — INFO — Class created.
+2021-07-03 13:07:15,216 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-07-03 13:07:15,216 - opytimizer.opytimizer — INFO — Class created.
+2021-07-03 13:07:15,217 - opytimizer.opytimizer — INFO — Starting optimization task.
+2021-07-03 13:07:15,431 - opytimizer.opytimizer — INFO — Iteration 1/20
+2021-07-03 13:07:19,297 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:07:19,297 - opytimizer.opytimizer — INFO — Iteration 2/20
+2021-07-03 13:07:24,044 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:07:24,044 - opytimizer.opytimizer — INFO — Iteration 3/20
+2021-07-03 13:07:27,891 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:07:27,892 - opytimizer.opytimizer — INFO — Iteration 4/20
+2021-07-03 13:07:31,901 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:07:31,901 - opytimizer.opytimizer — INFO — Iteration 5/20
+2021-07-03 13:07:36,967 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:07:36,967 - opytimizer.opytimizer — INFO — Iteration 6/20
+2021-07-03 13:07:41,311 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:07:41,311 - opytimizer.opytimizer — INFO — Iteration 7/20
+2021-07-03 13:07:45,755 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:07:45,755 - opytimizer.opytimizer — INFO — Iteration 8/20
+2021-07-03 13:07:51,386 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:07:51,387 - opytimizer.opytimizer — INFO — Iteration 9/20
+2021-07-03 13:07:56,758 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:07:56,760 - opytimizer.opytimizer — INFO — Iteration 10/20
+2021-07-03 13:08:01,543 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:08:01,543 - opytimizer.opytimizer — INFO — Iteration 11/20
+2021-07-03 13:08:06,409 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:08:06,412 - opytimizer.opytimizer — INFO — Iteration 12/20
+2021-07-03 13:08:11,533 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:08:11,533 - opytimizer.opytimizer — INFO — Iteration 13/20
+2021-07-03 13:08:19,479 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:08:19,481 - opytimizer.opytimizer — INFO — Iteration 14/20
+2021-07-03 13:08:25,175 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:08:25,175 - opytimizer.opytimizer — INFO — Iteration 15/20
+2021-07-03 13:08:30,642 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:08:30,642 - opytimizer.opytimizer — INFO — Iteration 16/20
+2021-07-03 13:08:36,375 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:08:36,376 - opytimizer.opytimizer — INFO — Iteration 17/20
+2021-07-03 13:08:42,151 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:08:42,152 - opytimizer.opytimizer — INFO — Iteration 18/20
+2021-07-03 13:08:48,089 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:08:48,089 - opytimizer.opytimizer — INFO — Iteration 19/20
+2021-07-03 13:08:55,269 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:08:55,270 - opytimizer.opytimizer — INFO — Iteration 20/20
+2021-07-03 13:09:05,480 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:09:05,482 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-07-03 13:09:05,482 - opytimizer.opytimizer — INFO — It took 110.26451683044434 seconds.
+2021-07-03 13:09:05,488 - attack_utils — INFO — Prediction:6 and Target:9
+2021-07-03 13:09:05,496 - attack_utils — INFO — Attack result:False, Queries: 541 All Dist:{'L2': 22.7943, 'L-INF': 0.9878, 'WS': 0.2259, 'ssim': 0.0699, 'psnr': 7.7177}, L2_Iters: 40
+2021-07-03 13:09:05,665 - attack_utils — INFO — Total Examples: 20, Iterations:20, espilon: 1 and Max-L2:3 Agents: 20 l_2_mul: 0.5
+Accuracy: 0.05000000074505806 Mean L2 Counted: 22.794276188722417 Query: 541.0
 
-2021-07-02 20:39:42,834 - opytimizer.optimizers.science.wwo — INFO — OPYT_TARGET_accu : 0.05
-2021-07-02 20:39:42,836 - opytimizer.optimizers.science.wwo — INFO — OPYT_TARGET_dist : {'L2': 136.7602, 'L-INF': 1.0, 'WS': 0.4828, 'ssim': 0.0505, 'psnr': 4.9426}
-2021-07-02 20:39:42,837 - attack_utils — INFO — Saving : CLEAN_X, filename:target_opyt/CLEAN_X.csv
-2021-07-02 20:39:42,899 - attack_utils — INFO — Saving: CLEAN_Y, filename:target_opyt/CLEAN_Y.csv
-2021-07-02 20:39:42,900 - attack_utils — INFO — Saving : OPYT_TARGET_X, filename:target_opyt/OPYT_TARGET_X.csv
-2021-07-02 20:39:42,931 - attack_utils — INFO — Saving: OPYT_TARGET_Y, filename:target_opyt/OPYT_TARGET_Y.csv
+2021-07-03 13:09:05,730 - opytimizer.optimizers.science.wwo — INFO — OPYT_TARGET_accu : 0.05
+2021-07-03 13:09:05,730 - opytimizer.optimizers.science.wwo — INFO — OPYT_TARGET_dist : {'L2': 138.4977, 'L-INF': 1.0, 'WS': 0.4798, 'ssim': 0.0133, 'psnr': 4.8329}
+2021-07-03 13:09:05,731 - attack_utils — INFO — Saving : CLEAN_X, filename:target_opyt/CLEAN_X.csv
+2021-07-03 13:09:05,800 - attack_utils — INFO — Saving: CLEAN_Y, filename:target_opyt/CLEAN_Y.csv
+2021-07-03 13:09:05,803 - attack_utils — INFO — Saving : OPYT_TARGET_X, filename:target_opyt/OPYT_TARGET_X.csv
+2021-07-03 13:09:05,847 - attack_utils — INFO — Saving: OPYT_TARGET_Y, filename:target_opyt/OPYT_TARGET_Y.csv
+2021-07-03 13:12:51,185 - attack_utils — INFO — x_test_random shape:(20, 32, 32, 3) and y_test_random shape:(20, 10)
+2021-07-03 13:12:51,185 - attack_utils — INFO — Generating Targetted adv examples using attack OPYT
+2021-07-03 13:12:51,186 - attack_utils — INFO — 
+Iterations:20, epsilon: 1 and l_2_mul:0.5
+2021-07-03 13:12:51,186 - attack_utils — INFO — y_all_labels:[8 7 9 1 7 8 8 8 2 4 3 7 0 9 1 0 9 1 9 0]
+2021-07-03 13:12:51,186 - attack_utils — INFO — Generating example:1
+2021-07-03 13:12:51,186 - attack_utils — INFO — y_clean_label:7
+2021-07-03 13:12:51,187 - attack_utils — INFO — t : [ 0  2  3  5  6  7  8  9 10 12 13 14 15 16 17 18 19]
+2021-07-03 13:12:51,188 - attack_utils — INFO — min_ind:16
+2021-07-03 13:12:51,188 - attack_utils — INFO — Clean:7 and Target:9
+2021-07-03 13:12:51,188 - attack_utils — INFO — Starting search for initial adv image loop 0
+2021-07-03 13:12:51,188 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-07-03 13:12:51,189 - opytimizer.optimizers.misc.modaoa — INFO — Clean Label:7
+2021-07-03 13:12:51,191 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-07-03 13:12:51,191 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-07-03 13:12:51,565 - opytimizer.spaces.search — INFO — Class overrided.
+2021-07-03 13:12:51,565 - opytimizer.core.function — INFO — Creating class: Function.
+2021-07-03 13:12:51,565 - opytimizer.core.function — INFO — Class created.
+2021-07-03 13:12:51,566 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-07-03 13:12:51,566 - opytimizer.opytimizer — INFO — Class created.
+2021-07-03 13:12:51,566 - opytimizer.opytimizer — INFO — Starting optimization task.
+2021-07-03 13:12:51,587 - attack_utils — INFO — L2:21.03713969655411
+2021-07-03 13:12:51,597 - attack_utils — INFO — L2:21.16071731367279
+2021-07-03 13:12:51,638 - attack_utils — INFO — L2:21.078370708900348
+2021-07-03 13:12:51,653 - attack_utils — INFO — L2:21.186847647846587
+2021-07-03 13:12:51,657 - attack_utils — INFO — L2:21.151109207457527
+2021-07-03 13:12:51,669 - opytimizer.opytimizer — INFO — Iteration 1/5
+2021-07-03 13:12:56,193 - opytimizer.opytimizer — INFO — Fitness: -2790.0
+2021-07-03 13:12:56,193 - opytimizer.opytimizer — INFO — Iteration 2/5
+2021-07-03 13:13:00,661 - attack_utils — INFO — L2:20.429897592035925
+2021-07-03 13:13:00,666 - attack_utils — INFO — L2:20.373278766826505
+2021-07-03 13:13:00,705 - attack_utils — INFO — L2:20.17989949512592
+2021-07-03 13:13:00,726 - attack_utils — INFO — L2:20.391564362557133
+2021-07-03 13:13:00,743 - attack_utils — INFO — L2:20.376260223336505
+2021-07-03 13:13:00,744 - opytimizer.opytimizer — INFO — Fitness: -2790.0
+2021-07-03 13:13:00,744 - opytimizer.opytimizer — INFO — Iteration 3/5
+2021-07-03 13:13:07,843 - attack_utils — INFO — L2:19.95956388341494
+2021-07-03 13:13:07,858 - attack_utils — INFO — L2:20.220239077239626
+2021-07-03 13:13:07,906 - attack_utils — INFO — L2:20.266484639297474
+2021-07-03 13:13:07,953 - attack_utils — INFO — L2:20.29206066919154
+2021-07-03 13:13:07,987 - attack_utils — INFO — L2:20.259504579629915
+2021-07-03 13:13:08,020 - attack_utils — INFO — L2:20.10669341892471
+2021-07-03 13:13:08,025 - attack_utils — INFO — L2:20.242088270202647
+2021-07-03 13:13:08,046 - opytimizer.opytimizer — INFO — Fitness: -2790.0
+2021-07-03 13:13:08,047 - opytimizer.opytimizer — INFO — Iteration 4/5
+2021-07-03 13:13:14,513 - attack_utils — INFO — L2:20.40235891989094
+2021-07-03 13:13:14,521 - attack_utils — INFO — L2:20.398645738980733
+2021-07-03 13:13:14,529 - attack_utils — INFO — L2:20.316974167918623
+2021-07-03 13:13:14,542 - attack_utils — INFO — L2:20.442129019720973
+2021-07-03 13:13:14,546 - attack_utils — INFO — L2:20.210571914382516
+2021-07-03 13:13:14,554 - attack_utils — INFO — L2:20.457719359781358
+2021-07-03 13:13:14,562 - attack_utils — INFO — L2:20.228767894455945
+2021-07-03 13:13:14,566 - attack_utils — INFO — L2:20.368245693378842
+2021-07-03 13:13:14,574 - attack_utils — INFO — L2:20.412005562048552
+2021-07-03 13:13:14,587 - opytimizer.opytimizer — INFO — Fitness: -2790.0
+2021-07-03 13:13:14,588 - opytimizer.opytimizer — INFO — Iteration 5/5
+2021-07-03 13:13:20,994 - attack_utils — INFO — L2:20.757459007237543
+2021-07-03 13:13:21,001 - attack_utils — INFO — L2:20.749209935756756
+2021-07-03 13:13:21,015 - attack_utils — INFO — L2:20.700213050385777
+2021-07-03 13:13:21,027 - attack_utils — INFO — L2:20.6868274667055
+2021-07-03 13:13:21,033 - attack_utils — INFO — L2:20.65714437409452
+2021-07-03 13:13:21,045 - attack_utils — INFO — L2:20.822274154719995
+2021-07-03 13:13:21,058 - attack_utils — INFO — L2:20.70655351962611
+2021-07-03 13:13:21,074 - attack_utils — INFO — L2:20.694987663657013
+2021-07-03 13:13:21,086 - attack_utils — INFO — L2:20.646095965605696
+2021-07-03 13:13:21,096 - attack_utils — INFO — L2:20.637825888361185
+2021-07-03 13:13:21,103 - attack_utils — INFO — L2:20.715603347376067
+2021-07-03 13:13:21,105 - opytimizer.opytimizer — INFO — Fitness: -2790.0
+2021-07-03 13:13:21,106 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-07-03 13:13:21,106 - opytimizer.opytimizer — INFO — It took 29.539366006851196 seconds.
+2021-07-03 13:13:21,111 - attack_utils — INFO — pred: 9 and target_label:9
+2021-07-03 13:13:21,112 - attack_utils — INFO — Found initial adv image with higher L2. Queries:120
+2021-07-03 13:13:21,112 - attack_utils — INFO — Starting attack!
+2021-07-03 13:13:21,120 - attack_utils — INFO — After adding initial adv image, Pred: 7,target_label:9, L2:7.749924713260135
+2021-07-03 13:13:21,120 - attack_utils — INFO — Couldn't find adv image after adding initial adv image. Queries:121
+2021-07-03 13:13:21,120 - opytimizer.optimizers.misc.modaoa — INFO — Overriding class: Optimizer -> MODAOA.
+2021-07-03 13:13:21,121 - opytimizer.optimizers.misc.modaoa — INFO — Clean Label:7
+2021-07-03 13:13:21,123 - opytimizer.optimizers.misc.modaoa — INFO — Class overrided.
+2021-07-03 13:13:21,123 - opytimizer.spaces.search — INFO — Overriding class: Space -> SearchSpace.
+2021-07-03 13:13:21,547 - opytimizer.spaces.search — INFO — Class overrided.
+2021-07-03 13:13:21,547 - opytimizer.core.function — INFO — Creating class: Function.
+2021-07-03 13:13:21,547 - opytimizer.core.function — INFO — Class created.
+2021-07-03 13:13:21,548 - opytimizer.opytimizer — INFO — Creating class: Opytimizer.
+2021-07-03 13:13:21,548 - opytimizer.opytimizer — INFO — Class created.
+2021-07-03 13:13:21,549 - opytimizer.opytimizer — INFO — Starting optimization task.
+2021-07-03 13:13:21,662 - opytimizer.opytimizer — INFO — Iteration 1/20
+2021-07-03 13:13:25,732 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:13:25,732 - opytimizer.opytimizer — INFO — Iteration 2/20
+2021-07-03 13:13:29,660 - opytimizer.opytimizer — INFO — Fitness: 100.0
+2021-07-03 13:13:29,661 - opytimizer.opytimizer — INFO — Iteration 3/20
+2021-07-03 13:13:33,474 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
+2021-07-03 13:13:33,474 - opytimizer.opytimizer — INFO — Iteration 4/20
+2021-07-03 13:13:38,014 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
+2021-07-03 13:13:38,015 - opytimizer.opytimizer — INFO — Iteration 5/20
+2021-07-03 13:13:43,326 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
+2021-07-03 13:13:43,327 - opytimizer.opytimizer — INFO — Iteration 6/20
+2021-07-03 13:13:47,807 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
+2021-07-03 13:13:47,807 - opytimizer.opytimizer — INFO — Iteration 7/20
+2021-07-03 13:13:52,850 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
+2021-07-03 13:13:52,850 - opytimizer.opytimizer — INFO — Iteration 8/20
+2021-07-03 13:13:58,071 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
+2021-07-03 13:13:58,071 - opytimizer.opytimizer — INFO — Iteration 9/20
+2021-07-03 13:14:03,484 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
+2021-07-03 13:14:03,485 - opytimizer.opytimizer — INFO — Iteration 10/20
+2021-07-03 13:14:08,770 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
+2021-07-03 13:14:08,771 - opytimizer.opytimizer — INFO — Iteration 11/20
+2021-07-03 13:14:13,801 - opytimizer.opytimizer — INFO — Fitness: 14.089180492314988
+2021-07-03 13:14:13,801 - opytimizer.opytimizer — INFO — Iteration 12/20
+2021-07-03 13:14:19,691 - opytimizer.opytimizer — INFO — Fitness: 12.240779504904822
+2021-07-03 13:14:19,692 - opytimizer.opytimizer — INFO — Iteration 13/20
+2021-07-03 13:14:27,341 - opytimizer.opytimizer — INFO — Fitness: 12.240779504904822
+2021-07-03 13:14:27,342 - opytimizer.opytimizer — INFO — Iteration 14/20
+2021-07-03 13:14:34,112 - opytimizer.opytimizer — INFO — Fitness: 11.163469683835922
+2021-07-03 13:14:34,112 - opytimizer.opytimizer — INFO — Iteration 15/20
+2021-07-03 13:14:41,038 - opytimizer.opytimizer — INFO — Fitness: 10.34022611389735
+2021-07-03 13:14:41,038 - opytimizer.opytimizer — INFO — Iteration 16/20
+2021-07-03 13:14:47,513 - opytimizer.opytimizer — INFO — Fitness: 10.34022611389735
+2021-07-03 13:14:47,513 - opytimizer.opytimizer — INFO — Iteration 17/20
+2021-07-03 13:14:53,958 - opytimizer.opytimizer — INFO — Fitness: 10.34022611389735
+2021-07-03 13:14:53,958 - opytimizer.opytimizer — INFO — Iteration 18/20
+2021-07-03 13:15:01,035 - opytimizer.opytimizer — INFO — Fitness: 10.059039624386601
+2021-07-03 13:15:01,035 - opytimizer.opytimizer — INFO — Iteration 19/20
+2021-07-03 13:15:08,222 - opytimizer.opytimizer — INFO — Fitness: 9.984768246181895
+2021-07-03 13:15:08,222 - opytimizer.opytimizer — INFO — Iteration 20/20
+2021-07-03 13:15:14,864 - opytimizer.opytimizer — INFO — Fitness: 9.857954415215675
+2021-07-03 13:15:14,865 - opytimizer.opytimizer — INFO — Optimization task ended.
+2021-07-03 13:15:14,866 - opytimizer.opytimizer — INFO — It took 113.31628799438477 seconds.
+2021-07-03 13:15:14,870 - attack_utils — INFO — Prediction:9 and Target:9
+2021-07-03 13:15:14,873 - attack_utils — INFO — Attack result:False, Queries: 541 All Dist:{'L2': 9.858, 'L-INF': 0.8789, 'WS': 0.053, 'ssim': 0.535, 'psnr': 14.9985}, L2_Iters: 40
+2021-07-03 13:15:15,030 - attack_utils — INFO — Total Examples: 20, Iterations:20, espilon: 1 and Max-L2:3 Agents: 20 l_2_mul: 0.5
+Accuracy: 0.05000000074505806 Mean L2 Counted: 9.857954415215675 Query: 541.0
+
+2021-07-03 13:15:15,090 - opytimizer.optimizers.science.wwo — INFO — OPYT_TARGET_accu : 0.05
+2021-07-03 13:15:15,090 - opytimizer.optimizers.science.wwo — INFO — OPYT_TARGET_dist : {'L2': 136.9643, 'L-INF': 1.0, 'WS': 0.4813, 'ssim': 0.0377, 'psnr': 4.9296}
+2021-07-03 13:15:15,091 - attack_utils — INFO — Saving : CLEAN_X, filename:target_opyt/CLEAN_X.csv
+2021-07-03 13:15:15,148 - attack_utils — INFO — Saving: CLEAN_Y, filename:target_opyt/CLEAN_Y.csv
+2021-07-03 13:15:15,150 - attack_utils — INFO — Saving : OPYT_TARGET_X, filename:target_opyt/OPYT_TARGET_X.csv
+2021-07-03 13:15:15,183 - attack_utils — INFO — Saving: OPYT_TARGET_Y, filename:target_opyt/OPYT_TARGET_Y.csv

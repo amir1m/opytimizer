@@ -8,7 +8,7 @@ import numpy as np
 import opytimizer.math.random as r
 import opytimizer.utils.exception as e
 import opytimizer.utils.logging as l
-from opytimizer.core.optimizer import Optimizer
+from opytimizer.core import Optimizer
 
 logger = l.get_logger(__name__)
 
@@ -142,7 +142,7 @@ class BSA(Optimizer):
 
         """
 
-        # Makes a deepcopy to hold the trial agents
+        # Makes a deep copy to hold the trial agents
         trial_agents = copy.deepcopy(agents)
 
         # Generates a uniform random number
@@ -212,7 +212,7 @@ class BSA(Optimizer):
             for j in range(n_variables):
                 # If it is supposed to cross according to the map
                 if cross_map[i][j]:
-                    # Makes a deepcopy on such position
+                    # Makes a deep copy on such position
                     trial_agents[i].position[j] = copy.deepcopy(agents[i].position[j])
 
     def update(self, space, function):

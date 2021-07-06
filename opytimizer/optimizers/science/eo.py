@@ -8,7 +8,7 @@ import numpy as np
 import opytimizer.math.random as rnd
 import opytimizer.utils.exception as e
 import opytimizer.utils.logging as l
-from opytimizer.core.optimizer import Optimizer
+from opytimizer.core import Optimizer
 
 logger = l.get_logger(__name__)
 
@@ -190,7 +190,7 @@ class EO(Optimizer):
 
         """
 
-        # Makes a deepcopy to withhold the future update
+        # Makes a deep copy to withhold the future update
         C_avg = copy.deepcopy(self.C[0])
 
         # Update the position with concentrations' averager

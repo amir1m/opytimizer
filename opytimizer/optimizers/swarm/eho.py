@@ -8,7 +8,7 @@ import numpy as np
 import opytimizer.math.random as r
 import opytimizer.utils.exception as e
 import opytimizer.utils.logging as l
-from opytimizer.core.optimizer import Optimizer
+from opytimizer.core import Optimizer
 
 logger = l.get_logger(__name__)
 
@@ -145,6 +145,10 @@ class EHO(Optimizer):
 
         # Defines the starting and ending points
         start, end = index * self.n_ci, (index + 1) * self.n_ci
+
+        # If it is the last index, there is no need to return an ending point
+        if (index + 1) == self.n_clans:
+            return sorted(agents[start:], key=lambda x: x.fit)
 
         return sorted(agents[start:end], key=lambda x: x.fit)
 

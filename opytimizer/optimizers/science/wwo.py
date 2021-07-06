@@ -9,7 +9,7 @@ import opytimizer.math.random as r
 import opytimizer.utils.constant as c
 import opytimizer.utils.exception as e
 import opytimizer.utils.logging as l
-from opytimizer.core.optimizer import Optimizer
+from opytimizer.core import Optimizer
 
 logger = l.get_logger(__name__)
 
@@ -178,7 +178,7 @@ class WWO(Optimizer):
 
         """
 
-        # Makes a deepcopy of current agent
+        # Makes a deep copy of current agent
         wave = copy.deepcopy(agent)
 
         # Iterates through all variables
@@ -252,7 +252,7 @@ class WWO(Optimizer):
 
         """
 
-        # Makes a deepcopy of current wave
+        # Makes a deep copy of current wave
         broken_wave = copy.deepcopy(wave)
 
         # Generates a gaussian random number

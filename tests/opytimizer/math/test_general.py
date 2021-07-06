@@ -4,11 +4,19 @@ from opytimizer.math import general
 
 
 def test_euclidean_distance():
-    x = np.array([1, 2, 3, 4])
+    x = np.array([0, 1, 2, 3])
 
     y = np.array([1, 2, 3, 4])
 
-    assert general.euclidean_distance(x, y) == 0
+    assert general.euclidean_distance(x, y) == 2.0
+
+
+def test_kmeans():
+    x = np.random.uniform(0, 1, (20, 2, 1))
+
+    y = general.kmeans(x, n_clusters=3)
+
+    assert y.shape[0] == 20
 
 
 def test_n_wise():

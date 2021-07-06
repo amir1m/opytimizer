@@ -9,7 +9,7 @@ import opytimizer.math.distribution as d
 import opytimizer.math.random as r
 import opytimizer.utils.exception as e
 import opytimizer.utils.logging as l
-from opytimizer.core.optimizer import Optimizer
+from opytimizer.core import Optimizer
 
 logger = l.get_logger(__name__)
 
@@ -160,7 +160,7 @@ class AO(Optimizer):
 
         # Iterates through all agents
         for agent in space.agents:
-            # Makes a deepcopy of current agent
+            # Makes a deep copy of current agent
             a = copy.deepcopy(agent)
 
             # Generates a random number

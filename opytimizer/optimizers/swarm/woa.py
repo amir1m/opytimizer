@@ -8,7 +8,7 @@ import numpy as np
 import opytimizer.math.random as r
 import opytimizer.utils.exception as e
 import opytimizer.utils.logging as log
-from opytimizer.core.optimizer import Optimizer
+from opytimizer.core import Optimizer
 
 logger = log.get_logger(__name__)
 
@@ -70,7 +70,7 @@ class WOA(Optimizer):
 
         """
 
-        # Makes a deepcopy of agent
+        # Makes a deep copy of agent
         a = copy.deepcopy(agent)
 
         # Fills agent with new random positions

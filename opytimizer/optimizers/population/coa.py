@@ -8,7 +8,7 @@ import numpy as np
 import opytimizer.math.random as r
 import opytimizer.utils.exception as e
 import opytimizer.utils.logging as l
-from opytimizer.core.optimizer import Optimizer
+from opytimizer.core import Optimizer
 
 logger = l.get_logger(__name__)
 
@@ -106,6 +106,10 @@ class COA(Optimizer):
         # Defines the starting and ending points
         start, end = index * self.n_c, (index + 1) * self.n_c
 
+        # If it is the last index, there is no need to return an ending point
+        if (index + 1) == self.n_p:
+            return sorted(agents[start:], key=lambda x: x.fit)
+
         return sorted(agents[start:end], key=lambda x: x.fit)
 
     def _transition_packs(self, agents):
@@ -136,7 +140,7 @@ class COA(Optimizer):
             i = self.n_c * p1 + c1
             j = self.n_c * p2 + c2
 
-            # Performs a swap betweeh them
+            # Performs a swap between them
             agents[i], agents[j] = copy.deepcopy(agents[j]), copy.deepcopy(agents[i])
 
     def update(self, space, function):
@@ -161,7 +165,7 @@ class COA(Optimizer):
 
             # Iterates through all coyotes in the pack
             for agent in pack_agents:
-                # Makes a deepcopy of current coyote
+                # Makes a deep copy of current coyote
                 a = copy.deepcopy(agent)
 
                 # Generates two random integers

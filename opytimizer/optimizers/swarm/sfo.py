@@ -8,7 +8,7 @@ import numpy as np
 import opytimizer.math.random as r
 import opytimizer.utils.exception as ex
 import opytimizer.utils.logging as l
-from opytimizer.core.optimizer import Optimizer
+from opytimizer.core import Optimizer
 
 logger = l.get_logger(__name__)
 
@@ -146,7 +146,7 @@ class SFO(Optimizer):
 
         """
 
-        # Makes a deepcopy of agent
+        # Makes a deep copy of agent
         a = copy.deepcopy(agent)
 
         # Fills agent with new random positions

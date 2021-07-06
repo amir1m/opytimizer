@@ -8,7 +8,7 @@ import numpy as np
 import opytimizer.math.random as r
 import opytimizer.utils.exception as e
 import opytimizer.utils.logging as l
-from opytimizer.core.optimizer import Optimizer
+from opytimizer.core import Optimizer
 
 logger = l.get_logger(__name__)
 
@@ -103,7 +103,7 @@ class ABO(Optimizer):
         # Generates a uniform random number
         r1 = r.generate_uniform_random_number(-1, 1)
 
-        # Makes a deepcopy of current agent
+        # Makes a deep copy of current agent
         temp = copy.deepcopy(agent)
 
         # Updates temporary agent's position (eq. 1)

@@ -8,7 +8,7 @@ import numpy as np
 import opytimizer.math.random as r
 import opytimizer.utils.exception as e
 import opytimizer.utils.logging as l
-from opytimizer.core.optimizer import Optimizer
+from opytimizer.core import Optimizer
 
 logger = l.get_logger(__name__)
 
@@ -126,7 +126,7 @@ class ES(Optimizer):
 
         """
 
-        # Makes a deepcopy on selected agent
+        # Makes a deep copy on selected agent
         a = copy.deepcopy(agent)
 
         # Generates a uniform random number

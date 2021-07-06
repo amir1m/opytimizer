@@ -8,7 +8,7 @@ import numpy as np
 import opytimizer.math.random as rnd
 import opytimizer.utils.exception as e
 import opytimizer.utils.logging as l
-from opytimizer.core.optimizer import Optimizer
+from opytimizer.core import Optimizer
 
 logger = l.get_logger(__name__)
 
@@ -73,7 +73,7 @@ class MFO(Optimizer):
 
         """
 
-        # Makes a deepcopy of current population
+        # Makes a deep copy of current population
         flames = copy.deepcopy(space.agents)
 
         # Sorts the flames

@@ -7,7 +7,7 @@ import numpy as np
 
 import opytimizer.math.random as r
 import opytimizer.utils.logging as l
-from opytimizer.core.optimizer import Optimizer
+from opytimizer.core import Optimizer
 
 logger = l.get_logger(__name__)
 
@@ -87,7 +87,7 @@ class GWO(Optimizer):
 
         # Iterates through all agents
         for agent in space.agents:
-            # Makes a deepcopy of current agent
+            # Makes a deep copy of current agent
             X = copy.deepcopy(agent)
 
             # Calculates all coefficients

@@ -37,7 +37,7 @@ from opytimizer import Opytimizer
 from opytimizer.core import Function
 from opytimizer.functions import ConstrainedFunction
 from opytimizer.optimizers.swarm import CS
-from opytimizer.optimizers.evolutionary import GA, HS, FOA, GP, DE, IWO, EP, ES, CRO
+from opytimizer.optimizers.evolutionary import GA, HS, FOA, GP, DE, IWO, EP, ES
 from opytimizer.optimizers.misc.aoa import AOA
 from opytimizer.optimizers.misc.hc import HC
 from opytimizer.optimizers.misc.cem import CEM

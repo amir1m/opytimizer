@@ -220,6 +220,15 @@ def process_digit(x_clean, x_prop, epsilon, dim=(1,28,28,1)):
   x_clean_ravel = x_clean_ravel.clip(0,1)
   return x_clean_ravel.reshape(dim)
 
+def process_imagenet(x_clean, x_prop, epsilon, dim=(1,28,28,1)):
+  # logger.info(f"X CLEAN SHAPE:{x_clean.shape}")
+  # logger.info(f"X PROP SHAPE:{x_prop.shape}")
+  x_clean_ravel = np.copy(x_clean.ravel())
+  x_clean_ravel += x_prop
+  #x_clean_ravel = (x_clean_ravel-min(x_clean_ravel)) / (max(x_clean_ravel)-min(x_clean_ravel))
+  #x_clean_ravel = x_clean_ravel.clip(0,1)
+  return x_clean_ravel.reshape((1,224,224,3))
+
 def process_image_target(x_clean, x_prop, x_target, epsilon, dim=(1,28,28,1)):
   # logger.info(f"X CLEAN SHAPE:{x_clean.shape}")
   # logger.info(f"X PROP SHAPE:{x_prop.shape}")
@@ -229,6 +238,17 @@ def process_image_target(x_clean, x_prop, x_target, epsilon, dim=(1,28,28,1)):
   x_clean_ravel =  x_clean_ravel - x_prop
   #x_clean_ravel = (x_clean_ravel-min(x_clean_ravel)) / (max(x_clean_ravel)-min(x_clean_ravel))
   x_clean_ravel = x_clean_ravel.clip(0,1)
+  return x_clean_ravel.reshape(dim)
+
+def process_image_target_imagenet(x_clean, x_prop,epsilon, dim=(1,28,28,1)):
+  # logger.info(f"X CLEAN SHAPE:{x_clean.shape}")
+  # logger.info(f"X PROP SHAPE:{x_prop.shape}")
+  x_clean_ravel = np.copy(x_clean.ravel())
+  # x_prop = np.where(x_prop >= 200, 255, x_prop)
+  # x_prop = np.where(x_prop < 100, 0, x_prop)
+  x_clean_ravel =  x_clean_ravel + x_clean_ravel * x_prop * 0.65
+  #x_clean_ravel = (x_clean_ravel-min(x_clean_ravel)) / (max(x_clean_ravel)-min(x_clean_ravel))
+  x_clean_ravel = x_clean_ravel.clip(0,255)
   return x_clean_ravel.reshape(dim)
 
 # TAKES ARGUMENTS
@@ -543,7 +563,7 @@ def get_adv_opyt_target_example(model, x_clean, y_clean,x_target, y_target,
 
 
   logger.info(f'Starting attack!')
-  x_clean_mod =  x_original + x_adv_l_2_xopt
+  x_clean_mod =  x_original + x_adv_l_2_xopt * 0.05
   x_clean_mod = x_clean_mod.clip(0,1)
   eval_count +=1
   pred = np.argmax(model.predict(x_clean_mod))
@@ -1135,3 +1155,201 @@ def get_opyt_cso_adv(model, x_test_random, y_test_random,
   # if (acc == 0):
   #   return np.log(l_2_mean)
   # return  np.log(acc * l_2_mean)
+
+def get_adv_opyt_imagenet_example(model, x_clean, y_clean,
+                        epsilon = 0.5, iterations=100, max_l_2=6, agents=20, l_2_mul=.5,
+                        dim=(1,28,28,1)):
+  eval_count = 0
+  x_adv = None
+  l2_iter = round(iterations)
+
+  def evaluate_acc(x):
+    nonlocal eval_count
+    eval_count += 1
+    x_adv = process_imagenet(x_clean, x.ravel(), epsilon, dim=dim)
+    result = get_imagenet_top_1_pred(model, x_adv)
+    dist = float(l_2_dist(x_clean, x_adv))
+    #dist = np.exp(-(l_2_dist(x_clean, x_adv)**2)/2)
+    if(result != y_clean):
+      # if (dist > max_l_2):
+      #   return float(dist) * 10
+      # else:
+      #   return float(dist)
+      return float(dist)
+    else:
+      #predictions.sort()
+      #return float(10*(predictions[-1] - predictions[-2]) + 10 * dist)
+      #return float(10*np.amax(predictions) + 10)
+      return 100
+
+
+  # Number of agents and decision variables
+  n_agents = agents
+  n_variables = dim[1] * dim[2] * dim[3]
+  # Lower and upper bounds (has to be the same size as `n_variables`)
+  lower_bound = np.empty(n_variables)
+  lower_bound.fill(-255)
+  upper_bound = np.empty(n_variables)
+  upper_bound.fill(255)
+
+  #Creates the optimizer
+  params={'model':model, 'x_clean':x_clean, 'x_adv': None,
+  'y_clean': y_clean,'epsilon' : epsilon,'l_2_min':False, 'dim':dim}
+  optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+  #optimizer = opytimizer.optimizers.evolutionary.GA()
+  #optimizer = opytimizer.optimizers.swarm.CS()
+  #optimizer = opytimizer.optimizers.swarm.PSO()
+  #optimizer = opytimizer.optimizers.misc.AOA()
+
+  space = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
+  function = Function(evaluate_acc)
+  #function = ConstrainedFunction(evaluate_acc, [l_2_constraint], 10000.0)
+
+  # Bundles every piece into Opytimizer class
+  opt = Opytimizer(space, optimizer, function, save_agents=False)
+  #Runs the optimization task
+  opt.start(n_iterations = iterations)
+
+  xopt = opt.space.best_agent.position
+  x_adv = process_imagenet(x_clean, xopt.ravel(), epsilon, dim=dim)
+  #x_adv = x_adv.reshape(dim)
+  dist = l_2_dist(x_clean, x_adv)
+  adv_pred = get_imagenet_top_1_pred(model, x_adv)
+  #eval_count += 1 # 1 for above prediction!
+  attack_succ = y_clean != adv_pred and dist <= max_l_2
+  logger.info(f'Prediction Not Equal?: {y_clean != adv_pred } and dist:{dist}')
+  logger.info(f'y_clean:{y_clean} adv_pred:{adv_pred}')
+
+  all_dist = get_all_dist(x_clean, x_adv)
+  logger.info(f"Attack result:{attack_succ}, Queries: {eval_count} All Dist:{all_dist}, L2_Iters: {l2_iter}")
+  return x_adv, eval_count, dist
+
+def get_adv_opyt_target_imagenet_example(model, x_clean, y_clean,
+                        epsilon = 0.5, iterations=100, max_l_2=6, agents=20, l_2_mul=.5,
+                        dim=(1,28,28,1)):
+  eval_count = 0
+  x_adv = None
+  x_clean_mod = np.copy(x_clean)
+  x_original = np.copy(x_clean)
+  l2_iter = round(iterations*2)
+
+  def minimize_l_2(x):
+    nonlocal eval_count
+    eval_count += 1
+    #x = x.clip(0,255)
+    # x = np.where(x >= 200, 100, x)
+    # x = np.where(x < 200, 0, x)
+    #x = x * 0.01
+    x_adv = process_image_target_imagenet(x_original, x.ravel(), epsilon, dim=dim)
+    result = get_imagenet_top_1_pred(model, x_adv.reshape((dim)))
+    dist = l_2_dist(x_adv, x_original)
+    if(result != y_clean):
+      #return float(l_2_dist(x, x_original))
+      logger.to_file(f'L2:{dist}')
+      #return -float(np.count_nonzero(x == 0))
+      return l_2_dist(x_adv, x_original)
+    else:
+      return float(1e10)
+
+
+  def evaluate_acc(x):
+    nonlocal eval_count
+    nonlocal x_original
+    eval_count += 1
+    x_adv = process_image_target_imagenet(x_clean_mod, x.ravel(), epsilon, dim=dim)
+    result = get_imagenet_top_1_pred(model, x_adv)
+    dist = l_2_dist(x_adv, x_original)
+    logger.to_file(f'L2:{dist}')
+    if(result != y_clean):
+      return float(dist)
+    else:
+      return float(1e10)
+
+  # Number of agents and decision variables
+  n_agents = agents
+  n_variables = dim[1] * dim[2] * dim[3]
+  #n_variables = 1
+  # Lower and upper bounds (has to be the same size as `n_variables`)
+  lower_bound = np.empty(n_variables)
+  lower_bound.fill(-0.5)
+  upper_bound = np.empty(n_variables)
+  upper_bound.fill(0.5)
+
+  #Creates the optimizer
+  params={'model':model, 'x_clean':x_clean_mod, 'x_adv': None,
+  'y_clean': y_clean,'epsilon' : epsilon,'l_2_min':False, 'dim':dim}
+  x_adv_l_2_xopt = None
+  best_x_adv_l_2_xopt = None
+  best_dist = 60000
+  max_l_2_dist = 30000
+  for i in range(5):
+    logger.info(f'Starting search for initial adv image loop {i} with best dist:{best_dist}')
+    optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+    space = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
+    function_l_2 = Function(minimize_l_2)
+    opt = Opytimizer(space, optimizer, function_l_2, save_agents=False)
+    #opt.start(n_iterations = round(l2_iter/8)*(i+1))
+    opt.start(n_iterations = round(iterations))
+    x_adv_l_2_xopt = opt.space.best_agent.position
+    #x_adv_l_2_xopt = x_adv_l_2_xopt.clip(0,255)
+    # x_adv_l_2_xopt = np.where(x_adv_l_2_xopt >= 200, 100, x_adv_l_2_xopt)
+    # x_adv_l_2_xopt = np.where(x_adv_l_2_xopt < 200, 0, x_adv_l_2_xopt)
+    # #x_adv_l_2_xopt = x_adv_l_2_xopt * 0.01
+    x_adv_l_2_xopt = x_adv_l_2_xopt.reshape(dim)
+    x_adv_l_2_xopt = process_image_target_imagenet(x_original, x_adv_l_2_xopt.ravel(), epsilon, dim=dim)
+    pred = get_imagenet_top_1_pred(model, x_adv_l_2_xopt)
+    dist = l_2_dist(x_adv_l_2_xopt, x_original)
+    logger.info(f'pred: {pred} and dist:{dist}')
+    if (best_x_adv_l_2_xopt is None):
+      best_x_adv_l_2_xopt = x_adv_l_2_xopt
+
+    if pred == y_clean:
+      logger.info(f'Couldn\'t find initial adv image. L2:{dist} Queries:{eval_count}')
+    elif dist < best_dist:
+      best_dist = dist
+      best_x_adv_l_2_xopt = x_adv_l_2_xopt
+      logger.info(f'Found initial adv image with higher, best L2:{best_dist}. Queries:{eval_count}')
+      break
+      if dist < max_l_2_dist:
+        logger.info(f'Breaking from initial search with L2:{best_dist}')
+        break
+
+  return best_x_adv_l_2_xopt, eval_count, dist
+
+  logger.info(f'Starting attack!')
+  logger.info(f'Selecting initial adv image with L2:{best_dist}')
+  x_clean_mod =  x_original + best_x_adv_l_2_xopt * 0.01
+  x_clean_mod = x_clean_mod.clip(0,255)
+  eval_count += 1
+  pred = get_imagenet_top_1_pred(model, x_clean_mod)
+  logger.info(f'After adding initial adv image, Pred: {pred}, L2:{l_2_dist(x_original,x_clean_mod )}')
+  if  pred == y_clean:
+    logger.info(f'Couldn\'t find adv image after adding initial adv image. Queries:{eval_count}')
+
+  lower_bound = np.empty(n_variables)
+  lower_bound.fill(-1)
+  upper_bound = np.empty(n_variables)
+  upper_bound.fill(1)
+  optimizer = opytimizer.optimizers.misc.MODAOA(params=params)
+  space = SearchSpace(n_agents, n_variables, lower_bound, upper_bound)
+  function = Function(evaluate_acc)
+  #function = ConstrainedFunction(evaluate_acc, [l_2_constraint], 10000.0)
+  opt = Opytimizer(space, optimizer, function, save_agents=False)
+  #logger.info(f'Shape of x_adv_l_2_xopt:{x_adv_l_2_xopt.shape}')
+  # for agent in space.agents:
+  #   agent.fill_with_static(x_adv_l_2_xopt.ravel() + 0.01)
+  # #Runs the optimization task
+  opt.start(n_iterations = iterations)
+
+  xopt = opt.space.best_agent.position
+  x_adv = process_image_target_imagenet(x_clean_mod, xopt.ravel(), epsilon, dim=dim)
+  #x_adv = x_adv.reshape(dim)
+  dist = l_2_dist(x_original, x_adv)
+  adv_pred = get_imagenet_top_1_pred(model, x_adv)
+  #eval_count += 1 # 1 for above prediction!
+  attack_succ = adv_pred != y_clean and dist <= max_l_2
+  logger.info(f'Predictions not euqal?: {adv_pred != y_clean} Adv Prediction:{adv_pred}')
+  #logger.info(f"Inequality constraint count: {inequality_constraint.count}")
+  all_dist = get_all_dist(x_original, x_adv)
+  logger.info(f"Attack result:{attack_succ}, Queries: {eval_count} All Dist:{all_dist}, L2_Iters: {l2_iter}")
+  return x_adv, eval_count, dist

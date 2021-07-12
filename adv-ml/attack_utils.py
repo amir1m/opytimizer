@@ -17,6 +17,10 @@ from skimage.metrics import structural_similarity as ssim
 from sklearn.metrics import roc_curve,roc_auc_score, accuracy_score, precision_score, recall_score
 from sklearn.metrics import classification_report, f1_score, confusion_matrix
 
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.applications import imagenet_utils
+from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
+
 
 
 from copy import deepcopy
@@ -39,7 +43,9 @@ def show_image(image, predictions):
   plt.show()
 
 def l_2_dist(orig_img, new_img):
-    return np.sqrt(np.sum((orig_img.ravel()-new_img.ravel())**2))
+    orig_img_c = np.copy(orig_img)
+    new_img_c = np.copy(new_img)
+    return np.sqrt(np.sum((orig_img_c.ravel()- new_img_c.ravel())**2))
 
 def l_inf_dist(orig_img, new_img):
     return np.max(np.abs(orig_img.ravel() - new_img.ravel()))
@@ -54,11 +60,13 @@ def get_dataset_l_2_dist(orig_img, new_img):
   return np.mean(dist)
 
 def get_all_dist(x_clean, x_adv):
-  l_2 = round(l_2_dist(x_clean, x_adv), 4)
+  #l_2 = round(l_2_dist(x_clean, x_adv), 4)
+  l_2 = l_2_dist(x_clean, x_adv)
+  logger.info(f'L_2:{l_2}')
   l_inf = round(l_inf_dist(x_clean.ravel(), x_adv.ravel()), 4)
   ws = round(wasserstein_distance(x_clean.ravel(), x_adv.ravel()), 4)
   ssim_d = round(ssim(x_clean.ravel(), x_adv.ravel()), 4)
-  psnr_d = round(psnr(x_clean.ravel(), x_adv.ravel()),4)
+  psnr_d = round(psnr(x_clean.ravel().clip(0,1), x_adv.ravel().clip(0,1)),4)
   dist =  {'L2': l_2, 'L-INF': l_inf,'WS': ws, 'ssim': ssim_d, 'psnr': psnr_d}
   return dist
 
@@ -272,3 +280,23 @@ def evaluate_classifier(classifier, eval_params):
                                                                    'dist':get_all_dist(clean_images,adv_x)}
 
   return classifier_evals
+
+def get_imagenet_top_1_pred(model, x):
+  x_p = np.copy(x)
+  preds = model.predict(preprocess_input(x_p))
+  top_1 = decode_predictions(preds, top=1)[0]
+  top_1_hard_label = top_1[0][1]
+  return top_1_hard_label
+
+def get_imagenet_true_label(img_path):
+  true_label = img_path.split('_')[1:]
+  true_label = "_".join(true_label)
+  true_label = true_label.split('.')[0]
+  return true_label
+
+def load_imagenet_image(img_path, input_shape):
+  img = image.load_img(img_path, target_size=(224, 224))
+  x = image.img_to_array(img)
+  x = np.expand_dims(x, axis=0)
+  #x = preprocess_input(x)
+  return x

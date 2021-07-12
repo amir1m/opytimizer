@@ -6,9 +6,11 @@ sys.path.append('./adv-ml/')
 import numpy as np
 SEED = 42
 
-
-
+from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
+from PIL import Image
+import matplotlib.pyplot as plt
 from ipywidgets import interact
+from tensorflow.keras.preprocessing import image
 from skimage.metrics import structural_similarity as ssim
 from skimage.metrics import peak_signal_noise_ratio as psnr
 
@@ -63,4 +65,19 @@ l_2_dist(orig_images, adv_images)
 show_image(adv_images[0], adv_labels[0])
 
 
-show_image(orig_images[0], orig_labels[0])  
+show_image(orig_images[0], orig_labels[0])
+
+
+
+#==================IMAGENET================#
+n_samples = 1
+dim = (224,224,3)
+images = np.genfromtxt('x_clean_imagenet.csv', delimiter=',')
+orig_images = image.array_to_img(images.reshape((224,224,3)))
+#orig_images_pr = load_imagenet_image('x_clean_imagenet.csv', (224,224))
+plt.imshow(orig_images)
+
+
+images_adv = np.genfromtxt('x_adv_imagenet.csv', delimiter=',')
+adv_images = image.array_to_img(images_adv.reshape((224,224,3)))
+plt.imshow(adv_images)

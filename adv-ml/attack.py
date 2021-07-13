@@ -1271,9 +1271,9 @@ def get_adv_opyt_target_imagenet_example(model, x_clean, y_clean,
   #n_variables = 1
   # Lower and upper bounds (has to be the same size as `n_variables`)
   lower_bound = np.empty(n_variables)
-  lower_bound.fill(0)
+  lower_bound.fill(-0.5)
   upper_bound = np.empty(n_variables)
-  upper_bound.fill(0.5)
+  upper_bound.fill(1)
 
   #Creates the optimizer
   params={'model':model, 'x_clean':x_clean_mod, 'x_adv': None,

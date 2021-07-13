@@ -226,7 +226,7 @@ def process_imagenet(x_clean, x_prop, epsilon, dim=(1,28,28,1)):
   x_clean_ravel = np.copy(x_clean.ravel())
   x_clean_ravel += x_prop
   #x_clean_ravel = (x_clean_ravel-min(x_clean_ravel)) / (max(x_clean_ravel)-min(x_clean_ravel))
-  #x_clean_ravel = x_clean_ravel.clip(0,1)
+  x_clean_ravel = x_clean_ravel.clip(0,255)
   return x_clean_ravel.reshape((1,224,224,3))
 
 def process_image_target(x_clean, x_prop, x_target, epsilon, dim=(1,28,28,1)):
@@ -244,9 +244,9 @@ def process_image_target_imagenet(x_clean, x_prop,epsilon, dim=(1,28,28,1)):
   # logger.info(f"X CLEAN SHAPE:{x_clean.shape}")
   # logger.info(f"X PROP SHAPE:{x_prop.shape}")
   x_clean_ravel = np.copy(x_clean.ravel())
-  # x_prop = np.where(x_prop >= 200, 255, x_prop)
-  # x_prop = np.where(x_prop < 100, 0, x_prop)
-  x_clean_ravel =  x_clean_ravel + x_clean_ravel * x_prop * 0.65
+  x_prop = np.where(x_prop >= 50, 0, x_prop)
+  #x_prop = np.where(x_prop < 150, 0, x_prop)
+  x_clean_ravel =  x_clean_ravel + x_clean_ravel * x_prop
   #x_clean_ravel = (x_clean_ravel-min(x_clean_ravel)) / (max(x_clean_ravel)-min(x_clean_ravel))
   x_clean_ravel = x_clean_ravel.clip(0,255)
   return x_clean_ravel.reshape(dim)
@@ -1256,7 +1256,7 @@ def get_adv_opyt_target_imagenet_example(model, x_clean, y_clean,
     nonlocal eval_count
     nonlocal x_original
     eval_count += 1
-    x_adv = process_image_target_imagenet(x_clean_mod, x.ravel(), epsilon, dim=dim)
+    x_adv = process_imagenet(x_clean_mod, x.ravel(), epsilon, dim=dim)
     result = get_imagenet_top_1_pred(model, x_adv)
     dist = l_2_dist(x_adv, x_original)
     logger.to_file(f'L2:{dist}')
@@ -1318,7 +1318,7 @@ def get_adv_opyt_target_imagenet_example(model, x_clean, y_clean,
 
   logger.info(f'Starting attack!')
   logger.info(f'Selecting initial adv image with L2:{best_dist}')
-  x_clean_mod =  x_original + best_x_adv_l_2_xopt * 0.01
+  x_clean_mod =  x_original + best_x_adv_l_2_xopt * 0.1
   x_clean_mod = x_clean_mod.clip(0,255)
   eval_count += 1
   pred = get_imagenet_top_1_pred(model, x_clean_mod)
@@ -1342,7 +1342,7 @@ def get_adv_opyt_target_imagenet_example(model, x_clean, y_clean,
   opt.start(n_iterations = iterations)
 
   xopt = opt.space.best_agent.position
-  x_adv = process_image_target_imagenet(x_clean_mod, xopt.ravel(), epsilon, dim=dim)
+  x_adv = process_imagenet(x_clean_mod, xopt.ravel(), epsilon, dim=dim)
   #x_adv = x_adv.reshape(dim)
   dist = l_2_dist(x_original, x_adv)
   adv_pred = get_imagenet_top_1_pred(model, x_adv)

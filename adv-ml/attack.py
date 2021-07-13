@@ -244,9 +244,9 @@ def process_image_target_imagenet(x_clean, x_prop,epsilon, dim=(1,28,28,1)):
   # logger.info(f"X CLEAN SHAPE:{x_clean.shape}")
   # logger.info(f"X PROP SHAPE:{x_prop.shape}")
   x_clean_ravel = np.copy(x_clean.ravel())
-  x_prop = np.where(x_prop >= 50, 0, x_prop)
+  x_prop = np.where(x_prop >= .1, 0, x_prop)
   #x_prop = np.where(x_prop < 150, 0, x_prop)
-  x_clean_ravel =  x_clean_ravel + x_clean_ravel * x_prop
+  x_clean_ravel =  x_clean_ravel + x_clean_ravel * x_prop * .5
   #x_clean_ravel = (x_clean_ravel-min(x_clean_ravel)) / (max(x_clean_ravel)-min(x_clean_ravel))
   x_clean_ravel = x_clean_ravel.clip(0,255)
   return x_clean_ravel.reshape(dim)
@@ -1271,7 +1271,7 @@ def get_adv_opyt_target_imagenet_example(model, x_clean, y_clean,
   #n_variables = 1
   # Lower and upper bounds (has to be the same size as `n_variables`)
   lower_bound = np.empty(n_variables)
-  lower_bound.fill(-0.5)
+  lower_bound.fill(0)
   upper_bound = np.empty(n_variables)
   upper_bound.fill(0.5)
 

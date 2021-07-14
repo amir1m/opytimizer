@@ -1245,10 +1245,11 @@ def get_adv_opyt_target_imagenet_example(model, x_clean, y_clean,
     dist = l_2_dist(x_adv, x_original)
     if(result != y_clean):
       #return float(l_2_dist(x, x_original))
-      logger.to_file(f'L2:{dist}')
+      logger.to_file(f'Attack Successful, L2:{dist}')
       #return -float(np.count_nonzero(x == 0))
       return l_2_dist(x_adv, x_original)
     else:
+      logger.to_file(f'Attack Not Successful, L2:{dist}')
       return float(1e10)
 
 
@@ -1314,7 +1315,8 @@ def get_adv_opyt_target_imagenet_example(model, x_clean, y_clean,
         logger.info(f'Breaking from initial search with L2:{best_dist}')
         break
 
-  return best_x_adv_l_2_xopt, eval_count, dist
+  logger.info(f'All dist:{get_all_dist(x_original,best_x_adv_l_2_xopt )}')
+  return best_x_adv_l_2_xopt, eval_count, best_dist
 
   logger.info(f'Starting attack!')
   logger.info(f'Selecting initial adv image with L2:{best_dist}')

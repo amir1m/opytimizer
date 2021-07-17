@@ -1,0 +1,6 @@
+grep  'Prediction Not Equal?: True' opytimizer.log | wc -l
+      46
+
+amirmukeri@MacBook-Pro ~/P/opytimizer>
+grep -A1 'Prediction Not Equal?: True' opytimizer.log | grep L_2| awk -F':' '{print $4}'|awk '{ sum += $0; n++ } END { if (n > 0) print sum / n; }'
+1.15554

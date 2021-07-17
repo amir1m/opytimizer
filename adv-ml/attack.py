@@ -153,9 +153,9 @@ def generate_adv_datsets(model, x_test, y_test, attack_list,
       loss, l_2_mean, query_mean, x_test_opyt = get_opyt_adv(model,
                                                            x_test_random,
                                                            y_test_random,
-                                                           iterations=60,
+                                                           iterations=80,
                                                            epsilon=1,
-                                                           agents=30,
+                                                           agents=20,
                                                            max_l_2=2,
                                                            l_2_mul=0.5,
                                                            dim=dim
@@ -436,7 +436,7 @@ def get_adv_opyt_example(model, x_clean, y_clean,
 def get_opyt_adv(model, x_test_random, y_test_random,
                 iterations = 100, epsilon = 3.55, max_l_2=6, agents=20, l_2_mul=0.5, dim=(1,28,28,1)):
   iteration = round(iterations)
-  logger.info(f"\nIterations:{iteration}, epsilon: {epsilon} and l_2_mul:{l_2_mul}")
+  logger.info(f"\nIterations:{iteration}, epsilon: {epsilon} and agents:{agents}")
 
   no_samples = len(x_test_random)
   adv_nvg = np.empty(dim)

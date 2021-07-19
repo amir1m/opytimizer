@@ -1,0 +1,4 @@
+amirmukeri@MacBook-Pro ~/P/opytimizer> grep 'Attack result:True' opytimizer.log | wc -l
+      33
+amirmukeri@MacBook-Pro ~/P/opytimizer> grep  'Attack result:True' opytimizer.log | awk -F':' '{print $7}'|awk -F',' '{print $1}' | awk '{ sum += $0; n++ } END { if (n > 0) print sum / n; }'
+1.34772

@@ -198,14 +198,14 @@ class MODAOA(Optimizer):
                     # If probability is bigger than 0.5
                     if r2 > 0.5:
                         # Updates position with (eq. 3 - top)
-                        agent.position[j] = space.best_agent.position[j] / (MOP+ c.EPSILON)  * search_partition
-                        #agent.position[j] = space.best_agent.position[j] / norm.rvs(scale=(MOP + c.EPSILON)* search_partition)
+                        #agent.position[j] = space.best_agent.position[j] / (MOP+ c.EPSILON)  * search_partition
+                        agent.position[j] = space.best_agent.position[j] / (norm.rvs(scale=self.delta**2)+c.EPSILON) * search_partition
 
                     # If probability is smaller than 0.5
                     else:
                         # Updates position with (eq. 3 - bottom)
-                        agent.position[j] = space.best_agent.position[j] * (MOP + c.EPSILON) * search_partition
-                        #agent.position[j] = space.best_agent.position[j] * norm.rvs(scale=(MOP + c.EPSILON) * search_partition)
+                        #agent.position[j] = space.best_agent.position[j] * (MOP + c.EPSILON) * search_partition
+                        agent.position[j] = space.best_agent.position[j] * (norm.rvs(scale=self.delta**2)+c.EPSILON) * search_partition
 
                 # If probability is smaller than MOA
                 else:
